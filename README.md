@@ -37,5 +37,6 @@ Puede instalar descargando el bash de instalación TE1R8ws.sh , o descargar la i
 https://mega.nz/file/0QtiDLqI#yTXUOs2-Stt98K5XvHBOo-kE6FzD6vPPLWxJ1DnyhPo
 
 Usuario :    pi
+
 Contraseña:  Panama507
 
