@@ -44,6 +44,7 @@ sudo apt install python3-websockets
 sudo apt install python3-psutil
 sudo apt-get install python3-serial
 sudo apt install python3-gpiozero -y
+sudo apt-get install gpsd gpsd-clients python-gps -y
 sudo apt install socket
 sudo apt install threading
 sudo apt install queue
@@ -62,7 +63,18 @@ sudo apt install logrotate
 sudo pip3 install ansi2html 
  
 ##################
+cat > /etc/default/gpsd  <<- "EOF"
+USBAUTO="False"
+DEVICES="/dev/ttyACM0"
+START_DAEMON="true"
+GPSD_OPTIONS="-n"
+GPSD_SOCKET="/var/run/gpsd.sock"
 
+EOF
+
+sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock
+
+#################
 echo iniciando instalacion
 
 cd /opt
