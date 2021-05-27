@@ -57,6 +57,70 @@ Exitos en sus proyectos con raspberry
 
 HP3ICC
 
-Esteban Mackay Q
+Esteban Mackay Q.
+
+73.
+
+#
+
+All-in-one package for amateur radio, with html dashboard over websock
+
+#
+
+TE1ws, maintains the same applications for use for amateur radio of its previous versions.
+
+List of amateur radio applications, including image and installation attempt:
+
+Direwolf
+
+Muntimon-NG
+
+Ionosphere
+
+MMDVMHost
+
+pYSFReflector
+
+YSF2DMR
+
+Dvswitch
+
+This version has HTML Dashboard running on websock, for the MMDVMHost and YSF Reflector, they are preconfigured to http port 80, but from the menu you can change to port 8000, 8080, or any other of your preference.
+
+Libraries and gps and GPSD application is added
+
+Added worldwide list of TG names from DMR brandmeister network.
+
+A list of room names of the Treehouse EUROPELINK Project is added according to the corresponding DG-ID.
+
+Compatible con Raspberry pi : zero , P2 , P3 y P4
+
+#
+
+You can download and use the install bash with the following command:
+
+wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1Rev8ws.sh
+
+sh emq-TE1Rev8ws.sh
+
+At the end of the installation the computer will restart and you will be able to access via ssh or by console to the list of applications by typing (menu) in your console.
+
+#
+
+You can install by downloading the already compiled image for Raspberry.
+
+https://mega.nz/file/0QtiDLqI#yTXUOs2-Stt98K5XvHBOo-kE6FzD6vPPLWxJ1DnyhPo
+
+User: pi
+
+Password: Panama507
+
+#
+
+Successes in your projects with raspberry
+
+HP3ICC
+
+Esteban Mackay Q.
 
 73.
