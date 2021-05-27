@@ -1010,6 +1010,8 @@ KISSPORT 8001
 #               BEACONING PROPERTIES                        #
 #                                                           #
 #############################################################
+#GPSD
+#TBEACON every=0:30 symbol="/v" comment="APRS TRACKER / Raspbian Proyect by hp3icc" via=WIDE2-2
 #PBEACON delay=0:01 every=30 symbol="/r" lat=08^30.01N long=080^20.83W comment="APRS DIGI-IGATE / Raspbian Proyect by hp3icc" via=WIDE2-2
 #PBEACON sendto=IG delay=0:40 every=30 symbol="/r" lat=08^30.01N long=080^20.83W comment="APRS DIGI-IGATE / Raspbian Proyect by hp3icc"
 #############################################################
