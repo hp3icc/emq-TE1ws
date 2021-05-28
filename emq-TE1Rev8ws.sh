@@ -2000,7 +2000,7 @@ sudo rm /usr/local/bin/direwolf
 
 wget https://github.com/hp3icc/TE1Rev5b/raw/main/direwolf
 
-cp /tmp/direwolf /usr/local/bin/
+sudo cp /tmp/direwolf /usr/local/bin/
 
 sudo chmod +x /usr/local/bin/direwolf
 #
