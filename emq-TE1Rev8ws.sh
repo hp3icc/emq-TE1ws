@@ -150,23 +150,7 @@ cmake ..
 make -j4
 sudo make install
 make install-conf
-#
-cd /tmp
 
-rm /usr/local/bin/direwolf
-
-wget https://github.com/hp3icc/TE1Rev5b/raw/main/direwolf
-
-cp /tmp/direwolf /usr/local/bin/
-
-chmod +x /usr/local/bin/direwolf
-#
-sudo rm -r /opt/direwolf/build/*
-cd /opt/direwolf/build
-cmake ..
-make -j4
-sudo make install
-#####
 ##################################################################
 #multimon-ng
 cd /opt
@@ -2009,6 +1993,23 @@ network={
 }
 EOF
 #######
+#
+cd /tmp
+
+sudo rm /usr/local/bin/direwolf
+
+wget https://github.com/hp3icc/TE1Rev5b/raw/main/direwolf
+
+cp /tmp/direwolf /usr/local/bin/
+
+sudo chmod +x /usr/local/bin/direwolf
+#
+sudo rm -r /opt/direwolf/build/*
+cd /opt/direwolf/build
+cmake ..
+make -j4
+sudo make install
+#####
 cat > /tmp/completado.sh <<- "EOF"
 #!/bin/bash
 while : ; do
