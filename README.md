@@ -46,7 +46,7 @@ al finalizar la instalacion el equipo se reiniciara y podra accesar via ssh o po
 
 Puede instalar descargando la imagen ya compilada para Raspberry . 
 
-https://mega.nz/file/0QtiDLqI#yTXUOs2-Stt98K5XvHBOo-kE6FzD6vPPLWxJ1DnyhPo
+https://mega.nz/file/tMEzgACY#3eiTtMoi_wCbGSYzYWWSpFlmWbYVjCbi0pBuSMh_ce0
 
 Usuario :    pi
 
@@ -109,7 +109,7 @@ At the end of the installation the computer will restart and you will be able to
 
 You can install by downloading the already compiled image for Raspberry.
 
-https://mega.nz/file/0QtiDLqI#yTXUOs2-Stt98K5XvHBOo-kE6FzD6vPPLWxJ1DnyhPo
+https://mega.nz/file/tMEzgACY#3eiTtMoi_wCbGSYzYWWSpFlmWbYVjCbi0pBuSMh_ce0
 
 User: pi
 
