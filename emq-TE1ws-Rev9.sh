@@ -442,7 +442,7 @@ sudo cat > /bin/menu <<- "EOF"
 
 while : ; do
 
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 22 50 13 \
+choix=$(whiptail --title "TE1ws-Rev9 Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 22 55 13 \
 1 " APRS Direwolf Analogo" \
 2 " APRS Direwolf RTL-SDR " \
 3 " APRS Multimon-ng " \
@@ -518,8 +518,8 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Su
 5 " Parrot off  " \
 6 " Iniciar HBLink Server  " \
 7 " Detener HBLink Server   " \
-8 " Dashbor HBMon on " \
-9 " Dashbor HBMon off  " \
+8 " Dashboard HBMon on " \
+9 " Dashboard HBMon off  " \
 10 " Menu Principal " 3>&1 1>&2 2>&3)
 
 exitstatus=$?
@@ -656,8 +656,8 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Su
 1 " Editar pYSFReflector Server " \
 2 " Iniciar Reflector  " \
 3 " Detener Reflector  " \
-4 " Dashbord on  " \
-5 " Dashbord off  " \
+4 " Dashboard on  " \
+5 " Dashboard off  " \
 6 " Editar Puerto WebServer  " \
 7 " Editar HTML  " \
 8 " Menu Principal " 3>&1 1>&2 2>&3)
@@ -699,8 +699,8 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Su
 1 " Editar Dvswitch Server " \
 2 " Iniciar Dvswitch  " \
 3 " Detener Dvswitch  " \
-4 " Dashbord on  " \
-5 " Dashbord off  " \
+4 " Dashboard on  " \
+5 " Dashboard off  " \
 6 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
