@@ -1,5 +1,5 @@
 # emq-TE1ws
-Bash Proyecto Todo en uno , auto instalable MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , Dvswitch, YSFReflector , YSF2DMR , HBLink3
+Bash Proyecto Todo en uno , auto instalable MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , Dvswitch, YSFReflector , YSF2DMR , HBLink3 , Dashboard Websock
 
 Dashboard html sobre websock , soporte GPSD , CM108 .
 
@@ -69,7 +69,7 @@ Esteban Mackay Q.
 
 #
 
-Bash Project All in one, self installable MMDVMHost, Direwolf, Multimon-ng, Ionosphere, Dvswitch, YSFReflector, YSF2DMR, HBLink3
+Bash Project All in one, self installable MMDVMHost, Direwolf, Multimon-ng, Ionosphere, Dvswitch, YSFReflector, YSF2DMR, HBLink3, Dashboard Websock
 
 Dashboard html sobre websock, soporte GPSD, CM108.
 
