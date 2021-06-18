@@ -6,7 +6,7 @@ Dashboard html sobre websock , soporte GPSD , CM108 .
 Ultima revision: emq-TE1ws-Rev9 17/06/2021 
 #
 
-TE1ws , mantiene las mismas aplicaciones de uso para radio aficionados de sus versiones anteriores .
+TE1ws , mantiene las mismas aplicaciones de uso para radio aficionados de sus versiones anteriores y un poco mas en cada nueva actualizacion .
 
 Listado de aplicaciones de radioaficionados, que incluye la imagen y bash de instalación :
 
@@ -69,11 +69,15 @@ Esteban Mackay Q.
 
 #
 
-All-in-one package for amateur radio, with html dashboard over websock
+Bash Project All in one, self installable MMDVMHost, Direwolf, Multimon-ng, Ionosphere, Dvswitch, YSFReflector, YSF2DMR, HBLink3
+
+Dashboard html sobre websock, soporte GPSD, CM108.
+
+Last revision: emq-TE1ws-Rev9 06/17/2021
 
 #
 
-TE1ws, maintains the same applications for use for amateur radio of its previous versions.
+TE1ws, maintains the same applications for use for amateur radio of its previous versions and a little more in each new update.
 
 List of amateur radio applications, including image and installation attempt:
 
@@ -94,14 +98,6 @@ Dvswitch
 HBLink3
 
 #
-
-Bash Project All in one, self installable MMDVMHost, Direwolf, Multimon-ng, Ionosphere, Dvswitch, YSFReflector, YSF2DMR, HBLink3
-
-Dashboard html sobre websock, soporte GPSD, CM108.
-
-Last revision: emq-TE1ws-Rev9 06/17/2021
-
-
 
 This version has HTML Dashboard running on websock, for the MMDVMHost and YSF Reflector, they are preconfigured to http port 80, but from the menu you can change to port 8000, 8080, or any other of your preference.
 
