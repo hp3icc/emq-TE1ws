@@ -1,5 +1,9 @@
 # emq-TE1ws
-Paquete todo en uno para radio aficionados , con dashboard html sobre websock 
+Bash Proyecto Todo en uno , auto instalable MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , Dvswitch, YSFReflector , YSF2DMR , HBLink3
+
+Dashboard html sobre websock , soporte GPSD , CM108 .
+
+Ultima revision: emq-TE1ws-Rev9 17/06/2021 
 #
 
 TE1ws , mantiene las mismas aplicaciones de uso para radio aficionados de sus versiones anteriores .
@@ -88,6 +92,16 @@ YSF2DMR
 Dvswitch
 
 HBLink3
+
+#
+
+Bash Project All in one, self installable MMDVMHost, Direwolf, Multimon-ng, Ionosphere, Dvswitch, YSFReflector, YSF2DMR, HBLink3
+
+Dashboard html sobre websock, soporte GPSD, CM108.
+
+Last revision: emq-TE1ws-Rev9 06/17/2021
+
+
 
 This version has HTML Dashboard running on websock, for the MMDVMHost and YSF Reflector, they are preconfigured to http port 80, but from the menu you can change to port 8000, 8080, or any other of your preference.
 
