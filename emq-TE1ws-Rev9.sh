@@ -609,7 +609,7 @@ EOF
 cat > /bin/menu-mmdvm <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 12 \
 1 " Editar MMDVMHost " \
 2 " Iniciar MMDVMHost " \
 3 " Detener MMDVMHost " \
@@ -617,7 +617,9 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Su
 5 " Dashboard Off " \
 6 " Editar Puerto WebServer " \
 7 " Editar HTML  " \
-8 " Menu Principal " 3>&1 1>&2 2>&3)
+8 " actualizar nombres de TG y sala europelink  " \
+9 " actualizar nombres de TG y sala worldlink " \
+10 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -643,6 +645,10 @@ sudo nano /lib/systemd/system/http.server-mmdvmh.service && sudo systemctl daemo
 7)
 sudo nano /opt/MMDVMHost-Websocketboard/html/index.html ;;
 8)
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && sudo rm TG_List.csv && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv ;;
+9)
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && sudo rm TG_List.csv && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo mv TG_List-WL.csv TG_List.csv;;
+10)
 break;
 esac
 done
