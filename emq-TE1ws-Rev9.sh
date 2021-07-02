@@ -609,7 +609,7 @@ EOF
 cat > /bin/menu-mmdvm <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 12 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 10 \
 1 " Editar MMDVMHost " \
 2 " Iniciar MMDVMHost " \
 3 " Detener MMDVMHost " \
