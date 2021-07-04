@@ -1093,7 +1093,7 @@ cat > /opt/MMDVMHost/MMDVM.ini  <<- "EOF"
 [General]
 Callsign=HP3ICC
 Id=714000000
-Timeout=180
+Timeout=300
 Duplex=0
 ModeHang=3
 #RFModeHang=10
@@ -1574,7 +1574,7 @@ cat > /opt/MMDVM_Bridge/MMDVM_Bridge.ini  <<- "EOF"
 [General]
 Callsign=N0CALL
 Id=1234567
-Timeout=180
+Timeout=300
 Duplex=0
 
 [Info]
