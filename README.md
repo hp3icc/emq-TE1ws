@@ -44,7 +44,7 @@ Puede descargara y utilizar el bash de instalacion con el siguiente comando :
 
 wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev9.sh
 
-sh emq-TE1Rev8ws.sh
+sh TE1ws-Rev9.sh
 
 al finalizar la instalacion el equipo se reiniciara y podra accesar via ssh o por consola a la lista de aplicaciones escribiendo ( menu ) en su consola.
 
@@ -127,7 +127,7 @@ You can download and use the install bash with the following command:
 
 wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev9.sh
 
-sh emq-TE1Rev8ws.sh
+sh TE1ws-Rev9.sh
 
 At the end of the installation the computer will restart and you will be able to access via ssh or by console to the list of applications by typing (menu) in your console.
 
