@@ -68,7 +68,7 @@ Dentro de este archivo ,debe incuir los nombres de redes wifi y contraseñas de 
 
 Tomar de referencia el archivo de ejemplo :
 
-https://github.com/hp3icc/emq-TE1ws/raw/main/wpa_supplicant.conf
+https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/wpa_supplicant.conf
 
 #
 Exitos en sus proyectos con raspberry 
@@ -151,7 +151,7 @@ Within this file, you must include the names of Wi-Fi networks and passwords of 
 
 Take the example file as a reference:
 
-https://github.com/hp3icc/emq-TE1ws/raw/main/wpa_supplicant.conf
+https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/wpa_supplicant.conf
 
 #
 Successes in your projects with raspberry
