@@ -645,9 +645,9 @@ sudo nano /lib/systemd/system/http.server-mmdvmh.service && sudo systemctl daemo
 7)
 sudo nano /opt/MMDVMHost-Websocketboard/html/index.html ;;
 8)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && sudo rm TG_List.csv && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv ;;
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv ;;
 9)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && sudo rm TG_List.csv && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo mv TG_List-WL.csv TG_List.csv;;
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo mv TG_List-WL.csv TG_List.csv;;
 10)
 break;
 esac
