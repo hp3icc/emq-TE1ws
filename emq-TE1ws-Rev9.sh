@@ -391,8 +391,8 @@ EOF
 cd /opt
 git clone https://github.com/g4klx/MMDVMHost.git
 cd MMDVMHost/
-make
-make install
+sudo make
+sudo make install
 git clone https://github.com/hallard/ArduiPi_OLED
 cd ArduiPi_OLED
 sudo make
