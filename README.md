@@ -49,8 +49,7 @@ sh TE1ws-Rev9.sh
 al finalizar la instalacion el equipo se reiniciara y podra accesar via ssh o por consola a la lista de aplicaciones escribiendo ( menu ) en su consola.
 
 #
-
-Puede instalar descargando la imagen ya compilada para Raspberry . 
+Puede instalar descargando la imagen ya compilada para Raspberry desde cualquiera de los siguientes enlaces : 
 
 https://drive.google.com/file/d/1NM2a17NngY34Tb4GO6Ww0BstTRD8sjWe/view?usp=sharing
 
@@ -136,7 +135,7 @@ At the end of the installation the computer will restart and you will be able to
 
 #
 
-You can install by downloading the already compiled image for Raspberry.
+You can install by downloading the already compiled Raspberry image from any of the following links:
 
 https://drive.google.com/file/d/1NM2a17NngY34Tb4GO6Ww0BstTRD8sjWe/view?usp=sharing
 
