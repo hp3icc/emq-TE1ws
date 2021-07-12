@@ -2242,7 +2242,7 @@ sudo systemctl enable monp.service
 cat > /tmp/completado.sh <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "   Precione enter (return o intro) para finalizar la instalacion y reiniciar su equipo " 11 100 3 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu " Precione enter (return o intro) para finalizar la instalacion y reiniciar su equipo " 11 85 3 \
 1 " Iniciar Reinicio de Raspberry " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
@@ -2255,11 +2255,12 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-history -c && sudo reboot
+sudo reboot
 ;;
 esac
 done
 exit 0
 EOF
 sudo chmod +x /tmp/completado.sh
+history -c && history -w
 sh /tmp/completado.sh
