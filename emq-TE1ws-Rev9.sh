@@ -594,7 +594,7 @@ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf ;;
 2)
 sudo ifconfig wlan0 down && sudo ifconfig wlan0 up ;;
 3)
-sudo iwlist wlan0 scanning | grep ESSID ;;
+sudo sudo iwlist wlan0 scan | grep ESSID | grep -o '"[^"]\+"' >> ssid.txt && nano ssid.txt && rm ssid.txt ;;
 4)
 sudo wavemon ;;
 5)
@@ -2255,7 +2255,7 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-sudo reboot
+history -c && sudo reboot
 ;;
 esac
 done
