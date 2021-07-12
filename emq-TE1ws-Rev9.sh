@@ -738,7 +738,7 @@ EOF
 cat > /bin/menu-apagar <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 11 100 3 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 11 85 3 \
 1 " Iniciar apagado seguro" \
 2 " Retornar  menu " 3>&1 1>&2 2>&3)
 exitstatus=$?
