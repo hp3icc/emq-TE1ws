@@ -1676,8 +1676,8 @@ GatewayAddress=127.0.0.1
 GatewayPort=14020
 EOF
 ####
-cd /home/pi/
-sudo cat > /home/pi/requirements.txt <<- "EOF"
+cd /home/
+sudo cat > /home/requirements.txt <<- "EOF"
 Twisted
 dmr_utils3
 bitstring
