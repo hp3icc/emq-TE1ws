@@ -3,7 +3,7 @@ Bash Proyecto Todo en uno , auto instalable MMDVMHost ,Direwolf , Multimon-ng , 
 
 Dashboard html sobre websock , soporte GPSD , CM108 .
 
-Ultima revision: emq-TE1ws-Rev9a 04/07/2021 
+Ultima revision: emq-TE1ws-Rev9b 12/07/2021 
 #
 
 TE1ws , mantiene las mismas aplicaciones de uso para radio aficionados de sus versiones anteriores y un poco mas en cada nueva actualizacion .
@@ -52,11 +52,14 @@ al finalizar la instalacion el equipo se reiniciara y podra accesar via ssh o po
 
 Puede instalar descargando la imagen ya compilada para Raspberry . 
 
-https://mega.nz/file/MZ8UyQSK#kC7aD7F-f9q-zeXLx04fovfpRDSppdgNaDK526dtP14
+https://drive.google.com/file/d/1NM2a17NngY34Tb4GO6Ww0BstTRD8sjWe/view?usp=sharing
+
+https://mega.nz/file/EVVwyZYL#tJlm6PvLX2xMIs3Jt8aep9itj3rpKbyuHE8D0deiJBI
 
 Usuario :    pi
 
 Contraseña:  Panama507
+
 
 #
 CONEXION WIFI 
@@ -86,7 +89,7 @@ All-in-one project bash, self-installable MMDVMHost, Direwolf, Multimon-ng, Iono
 
 Html dashboard over websock, GPSD support, CM108.
 
-Last revision: emq-TE1ws-Rev9a 04/07/2021
+Last revision: emq-TE1ws-Rev9b 12/07/2021
 #
 
 TE1ws, maintains the same applications for use for amateur radio of its previous versions and a little more in each new update.
@@ -135,7 +138,10 @@ At the end of the installation the computer will restart and you will be able to
 
 You can install by downloading the already compiled image for Raspberry.
 
-https://mega.nz/file/MZ8UyQSK#kC7aD7F-f9q-zeXLx04fovfpRDSppdgNaDK526dtP14
+https://drive.google.com/file/d/1NM2a17NngY34Tb4GO6Ww0BstTRD8sjWe/view?usp=sharing
+
+https://mega.nz/file/EVVwyZYL#tJlm6PvLX2xMIs3Jt8aep9itj3rpKbyuHE8D0deiJBI
+
 
 User: pi
 
