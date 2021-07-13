@@ -59,7 +59,13 @@ https://drive.google.com/file/d/1NM2a17NngY34Tb4GO6Ww0BstTRD8sjWe/view?usp=shari
 
 https://mega.nz/file/EVVwyZYL#tJlm6PvLX2xMIs3Jt8aep9itj3rpKbyuHE8D0deiJBI
 
+#
+
+# Configuración
+
 Puede configurar desde consola terminal o utilizando aplicación cliente ssh
+
+Si descargo la imagen de Raspberry ya compilada estos son los datos para iniciar sesión:
 
 Usuario:    pi
 
@@ -72,7 +78,7 @@ De esta forma accederá al listado de aplicaciones incluidas en la compilación 
 Si desea habilitar más de un Dashboard a la vez, recuerde cambiar los puertos para evitar conflictos, para esto se incluye dicha opción en el menú de pYSFReflector y MMDVMHost .
 
 #
-#WIFI 
+# WIFI 
 
 Si su equipo cuenta con dispositivo de red inalámbrica (WIFI) o es modelo Raspberry Zero W , después de haber grabado la imagen en la memoria microSD con la herramienta Rufus , Balena u otra aplicación , debe descargar y copiar el archivo wpa_supplicant.conf, a la partición con el nombre boot en su memoria microSD.
 Puede descargar el archivo wpa_supplicant.conf del siguiente link:
