@@ -195,6 +195,8 @@ If your computer has a wireless network device (WIFI) or is a Raspberry Zero W m
  Successes in your projects with raspberry 
 
  HP3ICC
+ 
  Esteban Mackay Q.
+ 
  73.
 #
