@@ -67,9 +67,7 @@ Contraseña:  Panama507
 
 Una vez allá iniciado sesión , escriba la palabra:   menu 
 
-De esta forma accederá al listado de aplicaciones incluidas en la compilación y sus configuraciones, recuerde guardar los cambios con la combinación de teclas:
-
-Ctrl + X , posteriormente iniciar o detener la aplicación ya configurada .
+De esta forma accederá al listado de aplicaciones incluidas en la compilación y sus configuraciones, recuerde guardar los cambios con la combinación de teclas:     Ctrl + X , posteriormente iniciar o detener la aplicación ya configurada .
 
 Si va habilitar más de un Dashboard a la vez, recuerde cambiar los puertos para evitar conflictos, para esto se incluye dicha opción en el menú de pYSFReflector y MMDVMHost .
 
