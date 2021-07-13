@@ -1,12 +1,16 @@
 # emq-TE1ws
-Bash Proyecto Todo en uno , auto instalable MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , Dvswitch, YSFReflector , YSF2DMR , HBLink3 , Dashboard Websock
+hp3icc Proyecto Todo en uno , MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , Dvswitch, YSFReflector , YSF2DMR , HBLink3 , Dashboard Websock
 
 Dashboard html sobre websock , soporte GPSD , CM108 .
 
 Ultima revision: emq-TE1ws-Rev9b 12/07/2021 
+
 #
 
-TE1ws , mantiene las mismas aplicaciones de uso para radio aficionados de sus versiones anteriores y un poco mas en cada nueva actualizacion .
+El proyecto Todo en uno (emq-TE1ws), es una compilación que reúne aplicaciones de diferentes desarrolladores, enfocadas para uso de radioaficionados.
+Constante mente se trabaja en mejoras y actualizaciones, a medida que los desarrolladores de las aplicaciones incluidas lanzan nuevas versiones.
+
+#
 
 Listado de aplicaciones de radioaficionados, que incluye la imagen y bash de instalación :
 
@@ -55,22 +59,28 @@ https://drive.google.com/file/d/1NM2a17NngY34Tb4GO6Ww0BstTRD8sjWe/view?usp=shari
 
 https://mega.nz/file/EVVwyZYL#tJlm6PvLX2xMIs3Jt8aep9itj3rpKbyuHE8D0deiJBI
 
-Usuario :    pi
+Puede configurar desde consola terminal o utilizando aplicación cliente ssh
+
+Usuario:    pi
 
 Contraseña:  Panama507
 
+Una vez allá iniciado sesión , escriba la palabra:   menu 
 
-#
-CONEXION WIFI 
+De esta forma accederá al listado de aplicaciones incluidas en la compilación y sus configuraciones, recuerde guardar los cambios con la combinación de teclas:
 
-Si su equipo cuenta con dispositivo de red inalambrica (WIFI) o es modelo Raspberry Zero W , despues de haber grabado la imagen en la memoria micro sd con la herramienta rufus , balena o otra aplicacion , en la particion creada en la micro sd con el nombre boot , debe crear un archivo con el nombre:  
-wpa_supplicant.conf
+Ctrl + X , posteriormente iniciar o detener la aplicación ya configurada .
 
-Dentro de este archivo ,debe incuir los nombres de redes wifi y contraseñas de cada una, a las que desea su raspberry se conecte , puede agregar una o cuantas redes wifi tenga , para que su equipo se conecte .
+Si va habilitar más de un Dashboard a la vez, recuerde cambiar los puertos para evitar conflictos, para esto se incluye dicha opción en el menú de pYSFReflector y MMDVMHost .
 
-Tomar de referencia el archivo de ejemplo :
+#CONEXION WIFI 
 
-https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/wpa_supplicant.conf
+Si su equipo cuenta con dispositivo de red inalámbrica (WIFI) o es modelo Raspberry Zero W , después de haber grabado la imagen en la memoria microSD con la herramienta Rufus , Balena u otra aplicación , debe descargar y copiar el archivo wpa_supplicant.conf, a la partición con el nombre boot en su memoria microSD.
+Puede descargar el archivo wpa_supplicant.conf del siguiente link:
+
+https://drive.google.com/file/d/1m-BJYz3T9LpEL76AirKPOhV228FZZ6lC/view?usp=sharing
+
+Este archivo puede ser editado con el Notepad y dentro de este archivo, debe incluir los nombres de redes wifi y contraseñas de cada una, a las que desea que su raspberry se conecte, puede agregar una o cuantas redes wifi tenga, para que su equipo se conecte.
 
 #
 Exitos en sus proyectos con raspberry 
@@ -80,91 +90,3 @@ HP3ICC
 Esteban Mackay Q.
 
 73.
-
-#
-
-# emq-TE1ws
-All-in-one project bash, self-installable MMDVMHost, Direwolf, Multimon-ng, Ionosphere, Dvswitch, YSFReflector, YSF2DMR, HBLink3, Dashboard Websock
-
-Html dashboard over websock, GPSD support, CM108.
-
-Last revision: emq-TE1ws-Rev9b 12/07/2021
-#
-
-TE1ws, maintains the same applications for use for amateur radio of its previous versions and a little more in each new update.
-
-List of amateur radio applications, including image and installation attempt:
-
-Direwolf
-
-Muntimon-NG
-
-Ionosphere
-
-MMDVMHost
-
-pYSFReflector
-
-YSF2DMR
-
-Dvswitch
-
-HBLink3
-
-
-This version has HTML Dashboard running on websock, for the MMDVMHost and YSF Reflector, they are preconfigured to http port 80, but from the menu you can change to port 8000, 8080, or any other of your preference.
-
-Libraries and gps and GPSD application is added
-
-Added worldwide list of TG names from DMR brandmeister network.
-
-A list of room names of the Treehouse EUROPELINK Project is added according to the corresponding DG-ID.
-
-
-Raspberry pi compatible: zero, P2, P3 and P4
-
-#
-
-You can download and use the install bash with the following command:
-
-wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev9.sh
-
-sh TE1ws-Rev9.sh
-
-At the end of the installation the computer will restart and you will be able to access via ssh or by console to the list of applications by typing (menu) in your console.
-
-#
-
-You can install by downloading the already compiled Raspberry image from any of the following links:
-
-https://drive.google.com/file/d/1NM2a17NngY34Tb4GO6Ww0BstTRD8sjWe/view?usp=sharing
-
-https://mega.nz/file/EVVwyZYL#tJlm6PvLX2xMIs3Jt8aep9itj3rpKbyuHE8D0deiJBI
-
-
-User: pi
-
-Password: Panama507
-
-#
-WIFI CONNECTION
-
-If your equipment has a wireless network device (WIFI) or is a Raspberry Zero W model, after having recorded the image in the micro sd memory with the rufus tool, balena or another application, in the partition created in the micro sd with the name boot, you should create a file with the name:
-wpa_supplicant.conf
-
-Within this file, you must include the names of Wi-Fi networks and passwords of each one, to which you want your raspberry to connect, you can add one or how many Wi-Fi networks you have, so that your equipment connects.
-
-Take the example file as a reference:
-
-https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/wpa_supplicant.conf
-
-#
-Successes in your projects with raspberry
-
-HP3ICC
-
-Esteban Mackay Q.
-
-73.
-
-#
