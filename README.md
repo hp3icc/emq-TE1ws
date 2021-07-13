@@ -95,3 +95,106 @@ HP3ICC
 Esteban Mackay Q.
 
 73.
+
+#
+
+# emq-TE1ws
+
+ hp3icc All-in-one Project, MMDVMHost, Direwolf, Multimon-ng, Ionosphere, Dvswitch, YSFReflector, YSF2DMR, HBLink3, Dashboard Websock
+
+ Html dashboard over websock, GPSD support, CM108.
+
+ Last revision: emq-TE1ws-Rev9b 07/12/2021 
+
+#
+
+The All-in-one project (emq-TE1ws) is a compilation that brings together applications from different developers, focused on the use of radio amateurs.
+
+Improvements and updates are constantly being worked on, as the developers of the included applications release new versions.
+
+#
+
+List of amateur radio applications, including image and installation attempt:
+
+ Direwolf 
+
+ Muntimon-NG 
+
+ Ionosphere
+
+ MMDVMHost
+
+ pYSFReflector 
+
+ YSF2DMR
+
+ Dvswitch 
+
+ HBLink3
+
+
+ This version has HTML Dashboard running on websock, for the MMDVMHost and YSF Reflector, they are preconfigured to http port 80, but from the menu you can change to port 8000, 8080, or any other of your preference.
+
+ Libraries and gps and GPSD application is added
+
+ Added worldwide list of TG names from DMR brandmeister network.
+
+ A list of room names of the Treehouse EUROPELINK Project is added according to the corresponding DG-ID.
+
+ Raspberry pi compatible: zero, P2, P3 and P4
+
+ #
+
+ You can download and use the install bash with the following command:
+
+ wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev9.sh
+
+ sh TE1ws-Rev9.sh
+
+ At the end of the installation the computer will restart and you will be able to access via ssh or by console to the list of applications by typing (menu) in your console.
+
+ #
+
+ You can install by downloading the already compiled Raspberry image from any of the following links: 
+
+ https://drive.google.com/file/d/1NM2a17NngY34Tb4GO6Ww0BstTRD8sjWe/view?usp=sharing
+
+ https://mega.nz/file/EVVwyZYL#tJlm6PvLX2xMIs3Jt8aep9itj3rpKbyuHE8D0deiJBI
+
+ #
+
+ # Setting
+
+ You can configure from terminal console or using ssh client application
+ If I download the Raspberry image already compiled, these are the data to log in:
+
+User: pi
+
+Password: Panama507
+
+Once logged in, write the word: menu 
+
+In this way you will access the list of applications included in the compilation and their configurations, remember to save the changes with the key combination: Ctrl + X, then start or stop the already configured application.
+
+If you want to enable more than one Dashboard at the same time, remember to change the ports to avoid conflicts, for this this option is included in the menu of pYSFReflector and MMDVMHost.
+
+ #
+
+ # WIFI 
+
+If your computer has a wireless network device (WIFI) or is a Raspberry Zero W model, after having recorded the image in the microSD memory with the Rufus, Balena or other application, you must download and copy the wpa_supplicant.conf file, to the partition named boot on your microSD memory.
+
+ You can download the wpa_supplicant.conf file from the following link:
+
+ https://drive.google.com/file/d/1m-BJYz3T9LpEL76AirKPOhV228FZZ6lC/view?usp=sharing
+
+ This file can be edited with the Notepad and within this file, you must include the names of Wi-Fi networks and passwords of each one, to which you want your raspberry to connect, you can add one or how many Wi-Fi networks you have, so that your equipment connect.
+
+ #
+
+ Successes in your projects with raspberry 
+
+ HP3ICC
+ Esteban Mackay Q.
+ 73.
+#
