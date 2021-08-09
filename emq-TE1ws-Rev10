@@ -444,7 +444,7 @@ sudo cat > /bin/menu <<- "EOF"
 
 while : ; do
 
-choix=$(whiptail --title "TE1ws-Rev9b Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 22 56 13 \
+choix=$(whiptail --title "TE1ws-Rev10 Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 22 56 14 \
 1 " APRS Direwolf Analogo" \
 2 " APRS Direwolf RTL-SDR " \
 3 " APRS Multimon-ng " \
@@ -454,10 +454,11 @@ choix=$(whiptail --title "TE1ws-Rev9b Raspbian Proyect HP3ICC Esteban Mackay 73.
 7 " pYSFReflector " \
 8 " YSF2DMR " \
 9 " HBLink Server " \
-10 " Editar WiFi " \
-11 " Reiniciar Raspberry " \
-12 " APAGAR Raspberry " \
-13 " Salir del menu " 3>&1 1>&2 2>&3)
+10 " FreeDMR Server " \
+11 " Editar WiFi " \
+12 " Reiniciar Raspberry " \
+13 " APAGAR Raspberry " \
+14 " Salir del menu " 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 
@@ -491,12 +492,14 @@ menu-ysf2dmr;;
 9)
 menu-hbl;;
 10)
-menu-wifi;;
+menu-fdmr;;
 11)
-sudo reboot ;;
+menu-wifi;;
 12)
-menu-apagar;;
+sudo reboot ;;
 13)
+menu-apagar;;
+14)
 break;
 
 
@@ -505,8 +508,73 @@ esac
 done
 exit 0
 
+
 EOF
 ##################################################
+sudo cat > /bin/menu-fdmr <<- "EOF"
+#!/bin/bash
+
+while : ; do
+
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+1 " Editar FreeDMR Server " \
+2 " Editar Interlink  " \
+3 " Editar HBMon2  " \
+4 " Parrot on  " \
+5 " Parrot off  " \
+6 " Iniciar FreeDMR Server  " \
+7 " Detener FreeDMR Server   " \
+8 " Dashboard HBMon2 on " \
+9 " Dashboard HBMon2 off  " \
+10 " Menu Principal " 3>&1 1>&2 2>&3)
+
+exitstatus=$?
+
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+
+# case : action en fonction du choix
+
+case $choix in
+1)
+sudo nano /opt/FreeDMR/config/FreeDMR.cfg ;;
+2)
+sudo nano /opt/FreeDMR/config/rules.py ;;
+3)
+sudo nano /opt/HBMonv2/config.py ;;
+4)
+sudo systemctl stop fdmrparrot.service && sudo systemctl start fdmrparrot.service && sudo systemctl enable fdmrparrot.service ;;
+5)
+sudo systemctl stop fdmrparrot.service &&  sudo systemctl disable fdmrparrot.service ;;
+6)
+sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo systemctl enable proxy.service && sudo systemctl stop freedmr.service && sudo systemctl start freedmr.service && sudo systemctl enable freedmr.service ;;
+7)
+sudo systemctl stop freedmr.service &&  sudo systemctl disable freedmr.service ;;
+8)
+sudo systemctl stop hbmon2.service && sudo systemctl start hbmon2.service && sudo systemctl enable hbmon2.service && sudo cp -r /opt/HBMonv2/html/* /var/www/html/ && sudo systemctl restart lighttpd.service && sudo systemctl enable lighttpd.service && sudo chown -R www-data:www-data /var/www/html && sudo chmod +777 /var/www/html/* ;;
+9)
+sudo systemctl stop hbmon2.service && sudo systemctl disable hbmon2.service && sudo systemctl disable lighttpd.service && sudo systemctl stop lighttpd.service && sudo rm -r  /var/www/html/* ;;
+10)
+break;
+
+
+
+
+esac
+
+done
+exit 0
+
+
+
+
+EOF
+############################
 sudo cat > /bin/menu-hbl <<- "EOF"
 #!/bin/bash
 
@@ -1961,7 +2029,7 @@ sudo chmod 0755 install.sh
 sudo ./install.sh
 mkdir config
 #cp FreeDMR-SAMPLE-commented.cfg config/FreeDMR.cfg
-cp rules_SAMPLE.py config/rules.py
+#cp rules_SAMPLE.py config/rules.py
 
 sudo chmod +x /opt/FreeDMR/bridge_master.py
 sudo chmod +x /opt/FreeDMR/playback.py
@@ -2266,7 +2334,7 @@ GENERATOR: 100
 
 [EchoTest]
 MODE: PEER
-ENABLED: True
+ENABLED: False
 LOOSE: True
 EXPORT_AMBE: False
 IP: 
@@ -2308,8 +2376,254 @@ VOICE_IDENT: False
 
 EOF
 ######
+sudo cat > /opt/FreeDMR/config/rules.py <<- "EOF"
+'''
+THIS EXAMPLE WILL NOT WORK AS IT IS - YOU MUST SPECIFY YOUR OWN VALUES!!!
+
+In FreeDMR, the rules file should be *empty* unless you have static routing required. Please see the 
+documentation for more details.
+
+This file is organized around the "Conference Bridges" that you wish to use. If you're a c-Bridge
+person, think of these as "bridge groups". You might also liken them to a "reflector". If a particular
+system is "ACTIVE" on a particular conference bridge, any traffid from that system will be sent
+to any other system that is active on the bridge as well. This is not an "end to end" method, because
+each system must independently be activated on the bridge.
+
+The first level (e.g. "WORLDWIDE" or "STATEWIDE" in the examples) is the name of the conference
+bridge. This is any arbitrary ASCII text string you want to use. Under each conference bridge
+definition are the following items -- one line for each HBSystem as defined in the main HBlink
+configuration file.
+
+    * SYSTEM - The name of the sytem as listed in the main hblink configuration file (e.g. hblink.cfg)
+        This MUST be the exact same name as in the main config file!!!
+    * TS - Timeslot used for matching traffic to this confernce bridge
+        XLX connections should *ALWAYS* use TS 2 only.
+    * TGID - Talkgroup ID used for matching traffic to this conference bridge
+        XLX connections should *ALWAYS* use TG 9 only.
+    * ON and OFF are LISTS of Talkgroup IDs used to trigger this system off and on. Even if you
+        only want one (as shown in the ON example), it has to be in list format. None can be
+        handled with an empty list, such as " 'ON': [] ".
+    * TO_TYPE is timeout type. If you want to use timers, ON means when it's turned on, it will
+        turn off afer the timout period and OFF means it will turn back on after the timout
+        period. If you don't want to use timers, set it to anything else, but 'NONE' might be
+        a good value for documentation!
+    * TIMOUT is a value in minutes for the timout timer. No, I won't make it 'seconds', so don't
+        ask. Timers are performance "expense".
+    * RESET is a list of Talkgroup IDs that, in addition to the ON and OFF lists will cause a running
+        timer to be reset. This is useful   if you are using different TGIDs for voice traffic than
+        triggering. If you are not, there is NO NEED to use this feature.
+'''
+
+BRIDGES = {
+
+# '9990': [ 
+#	{'SYSTEM': 'EchoTest', 		'TS': 2, 'TGID': 9990, 'ACTIVE':True, 'TIMEOUT': 0, 'TO_TYPE': 'NONE', 'ON': [], 'OFF': [], 'RESET': []}, 
+
+#	],
 
 
+}
+if __name__ == '__main__':
+    from pprint import pprint
+    pprint(BRIDGES)
+
+EOF
+########
+sudo cat > /opt/FreeDMR/playback.cfg <<- "EOF"
+# PROGRAM-WIDE PARAMETERS GO HERE
+# PATH - working path for files, leave it alone unless you NEED to change it
+# PING_TIME - the interval that peers will ping the master, and re-try registraion
+#           - how often the Master maintenance loop runs
+# MAX_MISSED - how many pings are missed before we give up and re-register
+#           - number of times the master maintenance loop runs before de-registering a peer
+#
+# ACLs:
+#
+# Access Control Lists are a very powerful tool for administering your system.
+# But they consume packet processing time. Disable them if you are not using them.
+# But be aware that, as of now, the configuration stanzas still need the ACL
+# sections configured even if you're not using them.
+#
+# REGISTRATION ACLS ARE ALWAYS USED, ONLY SUBSCRIBER AND TGID MAY BE DISABLED!!!
+#
+# The 'action' May be PERMIT|DENY
+# Each entry may be a single radio id, or a hypenated range (e.g. 1-2999)
+# Format:
+# 	ACL = 'action:id|start-end|,id|start-end,....'
+#		--for example--
+#	SUB_ACL: DENY:1,1000-2000,4500-60000,17
+#
+# ACL Types:
+# 	REG_ACL: peer radio IDs for registration (only used on HBP master systems)
+# 	SUB_ACL: subscriber IDs for end-users
+# 	TGID_TS1_ACL: destination talkgroup IDs on Timeslot 1
+# 	TGID_TS2_ACL: destination talkgroup IDs on Timeslot 2
+#
+# ACLs may be repeated for individual systems if needed for granularity
+# Global ACLs will be processed BEFORE the system level ACLs
+# Packets will be matched against all ACLs, GLOBAL first. If a packet 'passes'
+# All elements, processing continues. Packets are discarded at the first
+# negative match, or 'reject' from an ACL element.
+#
+# If you do not wish to use ACLs, set them to 'PERMIT:ALL'
+# TGID_TS1_ACL in the global stanza is used for OPENBRIDGE systems, since all
+# traffic is passed as TS 1 between OpenBridges
+[GLOBAL]
+PATH: ./
+PING_TIME: 10
+MAX_MISSED: 3
+USE_ACL: True
+REG_ACL: PERMIT:ALL
+SUB_ACL: DENY:1
+TGID_TS1_ACL: PERMIT:ALL
+TGID_TS2_ACL: PERMIT:ALL
+GEN_STAT_BRIDGES: False
+ALLOW_NULL_PASSPHRASE: False
+ANNOUNCEMENT_LANGUAGES: es_ES
+SERVER_ID: 9990
+
+
+
+# NOT YET WORKING: NETWORK REPORTING CONFIGURATION
+#   Enabling "REPORT" will configure a socket-based reporting
+#   system that will send the configuration and other items
+#   to a another process (local or remote) that may process
+#   the information for some useful purpose, like a web dashboard.
+#
+#   REPORT - True to enable, False to disable
+#   REPORT_INTERVAL - Seconds between reports
+#   REPORT_PORT - TCP port to listen on if "REPORT_NETWORKS" = NETWORK
+#   REPORT_CLIENTS - comma separated list of IPs you will allow clients
+#       to connect on. Entering a * will allow all.
+#
+# ****FOR NOW MUST BE TRUE - USE THE LOOPBACK IF YOU DON'T USE THIS!!!****
+[REPORTS]
+REPORT: False
+REPORT_INTERVAL: 60
+REPORT_PORT: 4821
+REPORT_CLIENTS: 127.0.0.1
+
+
+# SYSTEM LOGGER CONFIGURAITON
+#   This allows the logger to be configured without chaning the individual
+#   python logger stuff. LOG_FILE should be a complete path/filename for *your*
+#   system -- use /dev/null for non-file handlers.
+#   LOG_HANDLERS may be any of the following, please, no spaces in the
+#   list if you use several:
+#       null
+#       console
+#       console-timed
+#       file
+#       file-timed
+#       syslog
+#   LOG_LEVEL may be any of the standard syslog logging levels, though
+#   as of now, DEBUG, INFO, WARNING and CRITICAL are the only ones
+#   used.
+#
+[LOGGER]
+LOG_FILE: /dev/null
+LOG_HANDLERS: null
+LOG_LEVEL: DEBUG
+LOG_NAME: HBlink
+
+# DOWNLOAD AND IMPORT SUBSCRIBER, PEER and TGID ALIASES
+# Ok, not the TGID, there's no master list I know of to download
+# This is intended as a facility for other applcations built on top of
+# HBlink to use, and will NOT be used in HBlink directly.
+# STALE_DAYS is the number of days since the last download before we
+# download again. Don't be an ass and change this to less than a few days.
+[ALIASES]
+TRY_DOWNLOAD: False
+PATH: ./
+PEER_FILE: peer_ids.json
+SUBSCRIBER_FILE: subscriber_ids.json
+TGID_FILE: talkgroup_ids.json
+PEER_URL: https://www.radioid.net/static/rptrs.json
+SUBSCRIBER_URL: https://www.radioid.net/static/users.json
+TGID_URL: http://downloads.freedmr.uk/downloads/talkgroup_ids.json
+STALE_DAYS: 7
+
+#Read further repeater configs from MySQL
+[MYSQL]
+USE_MYSQL: False
+USER: hblink
+PASS: mypassword
+DB: hblink
+SERVER: 127.0.0.1
+PORT: 3306
+TABLE: repeaters
+
+# OPENBRIDGE INSTANCES - DUPLICATE SECTION FOR MULTIPLE CONNECTIONS
+# OpenBridge is a protocol originall created by DMR+ for connection between an
+# IPSC2 server and Brandmeister. It has been implemented here at the suggestion
+# of the Brandmeister team as a way to legitimately connect HBlink to the
+# Brandemiester network.
+# It is recommended to name the system the ID of the Brandmeister server that
+# it connects to, but is not necessary. TARGET_IP and TARGET_PORT are of the
+# Brandmeister or IPSC2 server you are connecting to. PASSPHRASE is the password
+# that must be agreed upon between you and the operator of the server you are
+# connecting to. NETWORK_ID is a number in the format of a DMR Radio ID that
+# will be sent to the other server to identify this connection.
+# other parameters follow the other system types.
+#
+# ACLs:
+# OpenBridge does not 'register', so registration ACL is meaningless.
+# OpenBridge passes all traffic on TS1, so there is only 1 TGID ACL.
+# Otherwise ACLs work as described in the global stanza
+[OBP-TEST]
+MODE: OPENBRIDGE
+ENABLED: False
+IP:
+PORT: 62044
+NETWORK_ID: 1
+PASSPHRASE: mypass
+TARGET_IP: 
+TARGET_PORT: 62044
+USE_ACL: True
+SUB_ACL: DENY:1
+TGID_ACL: PERMIT:9990
+RELAX_CHECKS: False
+
+# MASTER INSTANCES - DUPLICATE SECTION FOR MULTIPLE MASTERS
+# HomeBrew Protocol Master instances go here.
+# IP may be left blank if there's one interface on your system.
+# Port should be the port you want this master to listen on. It must be unique
+# and unused by anything else.
+# Repeat - if True, the master repeats traffic to peers, False, it does nothing.
+#
+# MAX_PEERS -- maximun number of peers that may be connect to this master
+# at any given time. This is very handy if you're allowing hotspots to
+# connect, or using a limited computer like a Raspberry Pi.
+#
+# ACLs:
+# See comments in the GLOBAL stanza
+[PARROT]
+MODE: MASTER
+ENABLED: True
+REPEAT: True
+MAX_PEERS: 1
+EXPORT_AMBE: False
+IP: 127.0.0.1
+PORT: 49061
+#54915
+PASSPHRASE: passw0rd
+#passw0rd
+GROUP_HANGTIME: 30
+USE_ACL: True
+REG_ACL: DENY:1
+SUB_ACL: DENY:1
+TGID_TS1_ACL: PERMIT:ALL
+TGID_TS2_ACL: PERMIT:9990
+DEFAULT_UA_TIMER: 9999
+SINGLE_MODE: True
+VOICE_IDENT: False
+TS1_STATIC:
+TS2_STATIC:9990 
+DEFAULT_REFLECTOR: 0
+GENERATOR: 1
+ANNOUNCEMENT_LANGUAGE:es_ES
+
+EOF
 ###########
 cp /bin/menu /bin/MENU
 chmod +x /bin/MENU
@@ -2568,6 +2882,9 @@ sudo chmod +x /opt/MMDVM_Bridge/DMRIDUpdate.sh
 sudo chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
 sudo chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
 
+sudo chmod 755 /lib/systemd/system/freedmr.service
+sudo chmod 755 /lib/systemd/system/proxy.service
+sudo chmod 755 /lib/systemd/system/hbmon2.service
 sudo chmod 755 /lib/systemd/system/hblink.service
 sudo chmod 755 /lib/systemd/system/hbmon.service
 sudo chmod 755 /lib/systemd/system/hbparrot.service
