@@ -2022,6 +2022,27 @@ cd /usr/share/alsa/
 sudo sed -i 's/defaults.ctl.card 0/defaults.ctl.card 1/' alsa.conf
 sudo sed -i 's/defaults.pcm.card 0/defaults.pcm.card 1/' alsa.conf
 ###################################
+cat > /var/spool/cron/crontabs/root <<- "EOF"
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').
+#
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+#
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+#
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+#
+# For more information see the manual pages of crontab(5) and cron(8)
+#
+# m h  dom mon dow   command
+* */1 * * * sudo sync ; echo 3 > /proc/sys/vm/drop_caches >/dev/null 2>&1
+
+EOF
+##############
 cd /opt
 git clone https://github.com/hacknix/FreeDMR.git
 cd FreeDMR
