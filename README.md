@@ -3,7 +3,7 @@ hp3icc Proyecto Todo en uno , MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , D
 
 Dashboard html sobre websock , soporte GPSD , CM108 .
 
-Ultima revision: emq-TE1ws-Rev9b 12/07/2021 
+Ultima revision: emq-TE1ws-Rev9b 9/8/2021 
 
 #
 
@@ -30,6 +30,7 @@ Dvswitch
 
 HBLink3
 
+FreeDMR
 
 Esta versión cuenta con Dashboard HTML corriendo sobre websock , para el MMDVMHost y Reflector YSF , estan preconfigurados a puerto http 80 , pero desde el menú puede cambiar al puerto 8000, 8080 , o cualquier otro de su preferencia .
 
@@ -46,18 +47,18 @@ Compatible con Raspberry pi : zero , P2 , P3 y P4
 
 Puede descargara y utilizar el bash de instalacion con el siguiente comando :
 
-wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev9.sh
+wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10.sh
 
-sh TE1ws-Rev9.sh
+sh TE1ws-Rev10.sh
 
 al finalizar la instalacion el equipo se reiniciara y podra accesar via ssh o por consola a la lista de aplicaciones escribiendo ( menu ) en su consola.
 
 #
 Puede instalar descargando la imagen ya compilada para Raspberry desde cualquiera de los siguientes enlaces : 
 
-https://drive.google.com/file/d/1NM2a17NngY34Tb4GO6Ww0BstTRD8sjWe/view?usp=sharing
+https://drive.google.com/file/d/1ag-VSgIvHesEsZdc0Txm8zRLmun4xJqQ/view?usp=sharing
 
-https://mega.nz/file/EVVwyZYL#tJlm6PvLX2xMIs3Jt8aep9itj3rpKbyuHE8D0deiJBI
+https://mega.nz/file/5c9kEJCB#irCkt04H9fU5tXfVz6ZHssaY3XnPrO0SOiHNKxHec90
 
 #
 
@@ -104,7 +105,7 @@ Esteban Mackay Q.
 
  Html dashboard over websock, GPSD support, CM108.
 
- Last revision: emq-TE1ws-Rev9b 07/12/2021 
+ Last revision: emq-TE1ws-Rev9b 08/09/2021 
 
 #
 
@@ -131,6 +132,8 @@ List of amateur radio applications, including image and installation attempt:
  Dvswitch 
 
  HBLink3
+ 
+ FreeDMR
 
 
  This version has HTML Dashboard running on websock, for the MMDVMHost and YSF Reflector, they are preconfigured to http port 80, but from the menu you can change to port 8000, 8080, or any other of your preference.
@@ -147,9 +150,9 @@ List of amateur radio applications, including image and installation attempt:
 
  You can download and use the install bash with the following command:
 
- wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev9.sh
+ wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10.sh
 
- sh TE1ws-Rev9.sh
+ sh TE1ws-Rev10.sh
 
  At the end of the installation the computer will restart and you will be able to access via ssh or by console to the list of applications by typing (menu) in your console.
 
@@ -157,9 +160,9 @@ List of amateur radio applications, including image and installation attempt:
 
  You can install by downloading the already compiled Raspberry image from any of the following links: 
 
- https://drive.google.com/file/d/1NM2a17NngY34Tb4GO6Ww0BstTRD8sjWe/view?usp=sharing
+ https://drive.google.com/file/d/1ag-VSgIvHesEsZdc0Txm8zRLmun4xJqQ/view?usp=sharing
 
- https://mega.nz/file/EVVwyZYL#tJlm6PvLX2xMIs3Jt8aep9itj3rpKbyuHE8D0deiJBI
+ https://mega.nz/file/5c9kEJCB#irCkt04H9fU5tXfVz6ZHssaY3XnPrO0SOiHNKxHec90
 
  #
 
