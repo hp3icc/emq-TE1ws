@@ -82,6 +82,9 @@ De esta forma accederá al listado de aplicaciones incluidas en la compilación 
 
 Si desea habilitar más de un Dashboard a la vez, recuerde cambiar los puertos para evitar conflictos, para esto se incluye dicha opción en el menú de pYSFReflector y MMDVMHost .
 
+#Nota importante 
+
+Si utiliza la imagen pre-compilada para Raspberry , recuerde cambiar la contraseña por una de su preferencia . 
 #
 # WIFI 
 
@@ -189,6 +192,9 @@ In this way you will access the list of applications included in the compilation
 
 If you want to enable more than one Dashboard at the same time, remember to change the ports to avoid conflicts, for this this option is included in the menu of pYSFReflector and MMDVMHost.
 
+ #Important note
+ 
+ If you use the pre-compiled image for Raspberry, remember to change the password to one of your preference.
  #
 
  # WIFI 
