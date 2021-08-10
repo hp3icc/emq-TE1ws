@@ -12,7 +12,7 @@ Todas las aplicaciones compiladas en esta imagen son 100% operativas, solo debe 
 
 Cualquier información sobre como configurar sus parámetros en las diferentes aplicaciones compiladas en esta imagen, debe dirigirse a los diferentes sitios de soporte de cada aplicación o desarrollador.
 
-Especial agradecimiento al colega y amigo TI4OP Oscar , por sus aportes y revisiones , para la creación del Bash de instalación de esta imagen.
+Especial agradecimiento al colega y amigo TI4OP Oscar , por sus aportes y revisiones de los scripts, para la creación del Bash de instalación de esta imagen.
 
 #
 
@@ -119,7 +119,7 @@ All the applications compiled in this image are 100% operational, you just have 
 
 Any information on how to configure its parameters in the different applications compiled in this image should be directed to the different support sites of each application or developer.
 
-Special thanks to the colleague and friend TI4OP Oscar, for his contributions and revisions, for the creation of the installation bash of this image.
+Special thanks to the colleague and friend TI4OP Oscar, for his contributions and reviews of the scripts, for the creation of the installation Bash of this image.
 
 #
 
