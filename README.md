@@ -7,8 +7,12 @@ Ultima revision: emq-TE1ws-Rev10a 9/8/2021
 
 #
 
-El proyecto Todo en uno (emq-TE1ws), es una compilación que reúne aplicaciones de diferentes desarrolladores, enfocadas para uso de radioaficionados.
-Constante mente se trabaja en mejoras y actualizaciones, a medida que los desarrolladores de las aplicaciones incluidas lanzan nuevas versiones.
+El proyecto Todo en uno (emq-TE1ws), es una compilación que reúne aplicaciones de diferentes desarrolladores, enfocadas para uso de radioaficionados. Constante mente se trabaja en mejoras y actualizaciones, a medida que los desarrolladores de las aplicaciones incluidas lanzan nuevas versiones.
+Todas las aplicaciones compiladas en esta imagen son 100% operativas, solo debe configurar sus parámetros e iniciar las aplicaciones que desee utilizar , según la capacidad y disponibilidad de su hardware .
+
+Cualquier información sobre como configurar sus parámetros en las diferentes aplicaciones compiladas en esta imagen, debe dirigirse a los diferentes sitios de soporte de cada aplicación o desarrollador.
+
+Especial agradecimiento al colega y amigo TI4OP Oscar , por sus aportes y revisiones , para la creación del Bash de instalación de esta imagen.
 
 #
 
@@ -109,9 +113,13 @@ Esteban Mackay Q.
 
 #
 
-The All-in-one project (emq-TE1ws) is a compilation that brings together applications from different developers, focused on the use of radio amateurs.
+The All-in-one project (emq-TE1ws), is a compilation that brings together applications from different developers, focused on the use of radio amateurs. Improvements and updates are constantly being worked on, as the developers of the included applications release new versions.
 
-Improvements and updates are constantly being worked on, as the developers of the included applications release new versions.
+All the applications compiled in this image are 100% operational, you just have to configure their parameters and start the applications you want to use, according to the capacity and availability of your hardware.
+
+Any information on how to configure its parameters in the different applications compiled in this image should be directed to the different support sites of each application or developer.
+
+Special thanks to the colleague and friend TI4OP Oscar, for his contributions and revisions, for the creation of the installation bash of this image.
 
 #
 
