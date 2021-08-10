@@ -1,5 +1,5 @@
 # emq-TE1ws
-hp3icc Proyecto Todo en uno , MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , Dvswitch, YSFReflector , YSF2DMR , HBLink3 , Dashboard Websock
+hp3icc Proyecto Todo en uno , MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , Dvswitch, YSFReflector , YSF2DMR , HBLink3 , FreeDMR , Dashboard Websock
 
 Dashboard html sobre websock , soporte GPSD , CM108 .
 
