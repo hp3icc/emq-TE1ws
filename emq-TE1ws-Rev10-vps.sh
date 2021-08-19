@@ -496,7 +496,7 @@ menu-fdmr;;
 11)
 menu-wifi;;
 12)
-reboot ;;
+sudo reboot ;;
 13)
 menu-apagar;;
 14)
