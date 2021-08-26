@@ -444,7 +444,7 @@ sudo cat > /bin/menu <<- "EOF"
 
 while : ; do
 
-choix=$(whiptail --title "TE1ws-Rev10 Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 22 56 14 \
+choix=$(whiptail --title "TE1ws-Rev10b Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 22 57 14 \
 1 " APRS Direwolf Analogo" \
 2 " APRS Direwolf RTL-SDR " \
 3 " APRS Multimon-ng " \
