@@ -791,9 +791,9 @@ case $choix in
 1)
 sudo /usr/local/dvs/dvs ;;
 2)
-sudo systemctl restart dmrid-dvs.service && sudo systemctl restart analog_bridge.service && sudo systemctl enable analog_bridge.service && sudo systemctl enable dmrid-dvs.service ;;
+sudo systemctl stop dmrid-dvs.service && sudo systemctl restart dmrid-dvs.service && sudo systemctl restart analog_bridge.service && sudo systemctl enable analog_bridge.service && sudo systemctl enable mmdvm_bridge.service ;;
 3)
-sudo systemctl stop mmdvm_bridge.service && sudo systemctl stop dmrid-dvs.service && sudo systemctl stop analog_bridge.service && sudo systemctl disable analog_bridge.service && sudo systemctl disable mmdvm_bridge.service && sudo systemctl disable dmrid-dvs.service ;;
+sudo systemctl stop mmdvm_bridge.service && sudo systemctl stop dmrid-dvs.service && sudo systemctl stop analog_bridge.service && sudo systemctl disable analog_bridge.service && sudo systemctl disable mmdvm_bridge.service ;;
 4)
 sudo cp -r /var/www/web-dvs/* /var/www/html/ && sudo systemctl restart lighttpd.service && sudo systemctl enable lighttpd.service && sudo chown -R www-data:www-data /var/www/html && sudo chmod +777 /var/www/html/* ;;
 5)
