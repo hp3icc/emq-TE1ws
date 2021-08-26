@@ -556,7 +556,7 @@ sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo 
 7)
 sudo systemctl stop freedmr.service &&  sudo systemctl disable freedmr.service ;;
 8)
-sudo systemctl stop hbmon2.service && sudo systemctl start hbmon2.service && sudo systemctl enable hbmon2.service && sudo cp -r /opt/HBMonv2/html/* /var/www/html/ && sudo systemctl restart lighttpd.service && sudo systemctl enable lighttpd.service && sudo chown -R www-data:www-data /var/www/html && sudo chmod +777 /var/www/html/* ;;
+sudo systemctl stop hbmon2.service && sudo rm /opt/HBMonv2/*.json && sudo sh /opt/HBMonv2/updateTGIDS.sh && sudo systemctl enable hbmon2.service && sudo cp -r /opt/HBMonv2/html/* /var/www/html/ && sudo systemctl restart lighttpd.service && sudo systemctl enable lighttpd.service && sudo chown -R www-data:www-data /var/www/html && sudo chmod +777 /var/www/html/* ;;
 9)
 sudo systemctl stop hbmon2.service && sudo systemctl disable hbmon2.service && sudo systemctl disable lighttpd.service && sudo systemctl stop lighttpd.service && sudo rm -r  /var/www/html/* ;;
 10)
