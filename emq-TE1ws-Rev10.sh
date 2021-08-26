@@ -2129,6 +2129,11 @@ sudo ./install.sh
 cp config_SAMPLE.py config.py
 sudo chmod +x /opt/HBMonv2/monitor.py
 
+wget https://github.com/nessenj/FreeDMR-Scripts/raw/main/updateTGIDS.sh
+sudo sed -i 's/systemctl restart hbmon/sync ; echo 3 > \/proc\/sys\/vm\/drop_caches && sudo systemctl restart hbmon2.service
+
+sudo chmod +x /opt/HBMonv2/updateTGIDS.sh
+
 sudo cat > /lib/systemd/system/hbmon2.service <<- "EOF"
 [Unit]
 Description=HBMonitor
