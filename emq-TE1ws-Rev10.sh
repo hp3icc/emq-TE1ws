@@ -620,7 +620,7 @@ sudo systemctl stop hblink.service && sudo systemctl start hblink.service && sud
 7)
 sudo systemctl stop hblink.service &&  sudo systemctl disable hblink.service ;;
 8)
-sudo systemctl stop hbmon.service && sudo systemctl start hbmon.service && sudo systemctl enable hbmon.service;;
+sudo systemctl stop hbmon.service && sudo rm /opt/HBmonitor/*.json && sudo systemctl start hbmon.service && sudo systemctl enable hbmon.service;;
 9)
 sudo systemctl stop hbmon.service && sudo systemctl disable hbmon.service ;;
 10)
