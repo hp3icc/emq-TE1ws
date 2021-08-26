@@ -2130,7 +2130,7 @@ cp config_SAMPLE.py config.py
 sudo chmod +x /opt/HBMonv2/monitor.py
 
 wget https://github.com/nessenj/FreeDMR-Scripts/raw/main/updateTGIDS.sh
-sudo sed -i 's/systemctl restart hbmon/sync ; echo 3 > \/proc\/sys\/vm\/drop_caches && sudo systemctl restart hbmon2.service
+sudo sed -i 's/systemctl restart hbmon/sync ; echo 3 > \/proc\/sys\/vm\/drop_caches \&\& sudo systemctl restart hbmon2.service/ '  updateTGIDS.sh 
 
 sudo chmod +x /opt/HBMonv2/updateTGIDS.sh
 
@@ -2677,6 +2677,7 @@ network={
         ssid="Coloque_aqui_nombre_de_red_wifi"
         psk="Coloque_aqui_la_clave_wifi"
 }
+
 network={
         ssid="WiFi-Net"
         psk="Panama310"
@@ -2713,7 +2714,7 @@ cat > /opt/direwolf/sdr.conf <<- "EOF"
 #                                                           #
 #         Linux version setting by hp3icc        	    #
 #                                                           #
-#                emq-TE1ws-rev9   		     	    #
+#                emq-TE1ws      		     	    #
 #                                                           #
 #        configuration for SDR read-only IGate. 	    #
 #############################################################
@@ -2747,7 +2748,7 @@ cat > /opt/direwolf/dw.conf <<- "EOF"
 #                                                           #
 #         Linux version setting by hp3icc        	    #
 #                                                           #
-#                emq-TE1ws-rev9   		     	    #
+#                emq-TE1ws      		     	    #
 #                                                           #
 #############################################################
 #############################################################
