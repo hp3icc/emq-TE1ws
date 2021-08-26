@@ -2131,9 +2131,27 @@ sudo ./install.sh
 cp config_SAMPLE.py config.py
 sudo chmod +x /opt/HBMonv2/monitor.py
 
-wget https://github.com/nessenj/FreeDMR-Scripts/raw/main/updateTGIDS.sh
-sudo sed -i 's/systemctl restart hbmon/sync ; echo 3 > \/proc\/sys\/vm\/drop_caches \&\& sudo systemctl restart hbmon2.service/ '  updateTGIDS.sh 
+sudo cat > /opt/HBMonv2/updateTGIDS.sh <<- "EOF"
+#!/bin/bash
 
+#sleep $[ ( $RANDOM % 1800 )  + 1 ]s
+
+cd /opt/HBMonv2
+FILE_NAME="talkgroup_ids.json"
+FETCH_URL="http://downloads.freedmr.uk/downloads/talkgroup_ids.json"
+
+OLD_MD5=`md5sum ${FILE_NAME}`
+wget -O ${FILE_NAME} ${FETCH_URL}
+NEW_MD5=`md5sum ${FILE_NAME}`
+
+if [ "$NEW_MD5" != "$OLD_MD5" ]
+then
+  echo "File is new, restarting"
+  sync ; echo 3 > /proc/sys/vm/drop_caches && sudo systemctl restart hbmon2.service
+fi
+
+EOF
+####
 sudo chmod +x /opt/HBMonv2/updateTGIDS.sh
 
 sudo cat > /lib/systemd/system/hbmon2.service <<- "EOF"
