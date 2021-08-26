@@ -75,6 +75,9 @@ sudo apt-get install python-pip -y
 sudo apt-get install python-dev -y
  
 ##################
+mkdir /var/www
+mkdir /var/www/html
+
 cat > /etc/default/gpsd  <<- "EOF"
 USBAUTO="False"
 DEVICES="/dev/ttyACM0"
