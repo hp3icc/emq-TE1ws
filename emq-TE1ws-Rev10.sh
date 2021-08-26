@@ -196,7 +196,7 @@ Filerotate=False
 Logdir=/var/log/mmdvm/
 
 # Change this to DMRHost, if you are using DMRHost and configured this as log-prefix in the host-ini.
-Prefix=MMDVMHost
+Prefix=MMDVMH
 # if you want to have the operator-names as popup with the callsigns, set this parts = 1 and the LookupFile to
 # the right position. On MMDVMHost comment out the DMRIDs.dat-line to have the DMRIds and not the callsigns in the
 # logfile to have the callsigns with names transported to the dashboard.
@@ -214,8 +214,7 @@ MMDVM_bin=/opt/MMDVMHost/MMDVMHost
 # Don't throw away the trailing slash! It is important but check logfile-location and Prefix twice :-)
 Logdir=/var/log/mmdvm
 #/mnt/ramdisk/
-Prefix=MMDVMHost
-#DAPNETGateway
+Prefix=DAPNETGateway
 
 [ServiceMonitoring]
 # Here you list your Services to be monitored. Just add additional lines if needed but be sure to count them up
@@ -1176,8 +1175,8 @@ Display=None
 Daemon=0
 
 [Info]
-RXFrequency=438800000
-TXFrequency=438800000
+RXFrequency=431800000
+TXFrequency=431800000
 Power=1
 # The following lines are only needed if a direct connection to a DMR master is being used
 Latitude=0.0
@@ -1192,7 +1191,7 @@ URL=www.google.co.uk
 DisplayLevel=1
 FileLevel=1
 FilePath=/var/log/mmdvm
-FileRoot=MMDVMHost
+FileRoot=MMDVMH
 FileRotate=0
 
 [CW Id]
