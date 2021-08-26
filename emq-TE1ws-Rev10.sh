@@ -2042,6 +2042,19 @@ cat > /var/spool/cron/crontabs/root <<- "EOF"
 #
 # m h  dom mon dow   command
 * */1 * * * sudo sync ; echo 3 > /proc/sys/vm/drop_caches >/dev/null 2>&1
+#
+#################################################
+#	update Noip
+#* * * * * sudo /usr/local/bin/noip2
+#################################################
+#	Update auto name tg freedmr
+#15 3 * * * /opt/HBMonv2/updateTGIDS.sh
+#45 3 * * * /opt/HBMonv2/genTGtemplate.sh
+#################################################
+#	Graficos system info freedmr
+#*/5 * * * * root /opt/HBMonv2/sysinfo/graph.sh
+#*/2 * * * * root /opt/HBMonv2/sysinfo/cpu.sh
+
 
 EOF
 ##############
@@ -2153,6 +2166,77 @@ fi
 EOF
 ####
 sudo chmod +x /opt/HBMonv2/updateTGIDS.sh
+
+sudo cat > /opt/HBMonv2/html/buttons.html <<- "EOF"
+<div style="width: 1100px;">
+<!-- HBMonitor buttons HTML code -->
+<a href="index.php"><button class="button link">&nbsp;Home&nbsp;</button></a>
+<!--
+&nbsp;
+<div class="dropdown">
+  <button class="dropbtn">&nbsp;Admin Area&nbsp;</button>
+  <div class="dropdown-content">
+    <a href="masters.php">&nbsp;Masters&nbsp;</a>
+    <a href="peers.php">&nbsp;Peers&nbsp;</a>
+    <a href="opb.php">&nbsp;OpenBridge&nbsp;</a>
+    <a href="bridges.php">&nbsp;Bridges&nbsp;</a>
+    <a href="moni.php">&nbsp;Monitor&nbsp;</a>
+    <a href="sinfo.php">&nbsp;System Info&nbsp;</a>
+ </div>
+</div>
+--->
+&nbsp;
+<a href="masters.php"><button class="button link">&nbsp;Masters&nbsp;</button></a>
+&nbsp;
+<a href="peers.php"><button class="button link">&nbsp;Peers&nbsp;</button></a>
+&nbsp;
+<a href="opb.php"><button class="button link">&nbsp;OpenBridge&nbsp;</button></a>
+&nbsp;
+<a href="moni.php"><button class="button link">&nbsp;Monitor&nbsp;</button></a>
+&nbsp;
+<a href="sysinfo.php"><button class="button link">&nbsp;System Info&nbsp;</button></a>
+&nbsp;
+<a title="Lastheard long list" href="log.php"><button class="button link">&nbsp;Lastheard&nbsp;</button></a>
+&nbsp;
+<a href="http://www.freedmr.uk/index.php/why-use-freedmr/"target="_blank"><button class="button link">&nbsp;Info FreeDMR&nbsp;</button></a>
+&nbsp;
+<a href="http://www.freedmr.uk/index.php/freedmr-servers/"target="_blank"><button class="button link">&nbsp;Info Server&nbsp;</button></a>
+&nbsp;
+<a href="http://repeater.uk.freedmr.link/status/server_status.php"target="_blank"><button class="button link">&nbsp;Status Server&nbsp;</button></a>
+&nbsp;
+<a href="http://repeater.uk.freedmr.link/status/count.php"target="_blank"><button class="button link">&nbsp;Ranking TG&nbsp;</button></a>
+&nbsp;
+<!--
+&nbsp;
+<a href="bridges.php"><button class="button link">&nbsp;Bridges&nbsp;</button></a>
+-->
+<!-- Own buttons HTML code -->
+
+<!-- Example of buttons dropdown HTML code -->
+<!--
+<p></p>
+<div class="dropdown">
+  <button class="dropbtn">Admin Area</button>
+  <div class="dropdown-content">
+    <a href="masters.php">Master&Peer</a>
+    <a href="opb.php">OpenBridge</a>
+    <a href="moni.php">Monitor</a>
+  </div>
+</div>
+&nbsp;
+<div class="dropdown">
+  <button class="dropbtn">Reflectors</button>
+  <div class="dropdown-content">
+    <a target='_blank' href="#">YSF Reflector</a>
+    <a target='_blank' href="#">XLX950</a>
+  </div>
+</div>
+-->
+</div>
+<p></p>
+
+EOF
+###
 
 sudo cat > /lib/systemd/system/hbmon2.service <<- "EOF"
 [Unit]
