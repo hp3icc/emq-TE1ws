@@ -73,6 +73,7 @@ sudo apt install logrotate
 sudo pip3 install ansi2html
 sudo apt-get install python-pip -y
 sudo apt-get install python-dev -y
+sudo apt-get install rrdtool -y
  
 ##################
 mkdir /var/www
@@ -558,9 +559,9 @@ sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo 
 7)
 sudo systemctl stop freedmr.service &&  sudo systemctl disable freedmr.service ;;
 8)
-sudo systemctl stop hbmon2.service && sudo rm /opt/HBMonv2/*.json && sudo sh /opt/HBMonv2/updateTGIDS.sh && sudo systemctl enable hbmon2.service && sudo cp -r /opt/HBMonv2/html/* /var/www/html/ && sudo systemctl restart lighttpd.service && sudo systemctl enable lighttpd.service && sudo chown -R www-data:www-data /var/www/html && sudo chmod +777 /var/www/html/* ;;
+sudo systemctl stop hbmon2.service && sudo rm /opt/HBMonv2/*.json && sudo rm /opt/HBMonv2/sysinfo/*.rrd && sudo /opt/HBMonv2/sysinfo/rrd-db.sh && sudo cronedit.sh '*/5 * * * *' 'root /opt/HBMonv2/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'root /opt/HBMonv2/sysinfo/cpu.sh' add && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' add &&sudo sh /opt/HBMonv2/updateTGIDS.sh && sudo systemctl enable hbmon2.service && sudo cp -r /opt/HBMonv2/html/* /var/www/html/ && sudo systemctl restart lighttpd.service && sudo systemctl enable lighttpd.service && sudo chown -R www-data:www-data /var/www/html && sudo chmod +777 /var/www/html/* ;;
 9)
-sudo systemctl stop hbmon2.service && sudo systemctl disable hbmon2.service && sudo systemctl disable lighttpd.service && sudo systemctl stop lighttpd.service && sudo rm -r  /var/www/html/* ;;
+sudo systemctl stop hbmon2.service && sudo systemctl disable hbmon2.service && sudo systemctl disable lighttpd.service && sudo systemctl stop lighttpd.service && sudo rm -r  /var/www/html/* && cronedit.sh '*/5 * * * *' 'root /opt/HBMonv2/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'root /opt/HBMonv2/sysinfo/cpu.sh' remove && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' remove ;;
 10)
 break;
 
@@ -2024,38 +2025,28 @@ cd /usr/share/alsa/
 sudo sed -i 's/defaults.ctl.card 0/defaults.ctl.card 1/' alsa.conf
 sudo sed -i 's/defaults.pcm.card 0/defaults.pcm.card 1/' alsa.conf
 ###################################
-cat > /var/spool/cron/crontabs/root <<- "EOF"
-# minute (m), hour (h), day of month (dom), month (mon),
-# and day of week (dow) or use '*' in these fields (for 'any').
-#
-# Notice that tasks will be started based on the cron's system
-# daemon's notion of time and timezones.
-#
-# Output of the crontab jobs (including errors) is sent through
-# email to the user the crontab file belongs to (unless redirected).
-#
-# For example, you can run a backup of all your user accounts
-# at 5 a.m every week with:
-# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
-#
-# For more information see the manual pages of crontab(5) and cron(8)
-#
-# m h  dom mon dow   command
-* */1 * * * sudo sync ; echo 3 > /proc/sys/vm/drop_caches >/dev/null 2>&1
-#
-#################################################
-#	update Noip
-#* * * * * sudo /usr/local/bin/noip2
-#################################################
-#	Update auto name tg freedmr
-#15 3 * * * /opt/HBMonv2/updateTGIDS.sh
-#################################################
-#	Graficos system info freedmr
-#*/5 * * * * root /opt/HBMonv2/sysinfo/graph.sh
-#*/2 * * * * root /opt/HBMonv2/sysinfo/cpu.sh
+cat > /bin/cronedit.sh <<- "EOF"
+cronjob_editor () {
+# usage: cronjob_editor '<interval>' '<command>' <add|remove>
+
+if [[ -z "$1" ]] ;then printf " no interval specified\n" ;fi
+if [[ -z "$2" ]] ;then printf " no command specified\n" ;fi
+if [[ -z "$3" ]] ;then printf " no action specified\n" ;fi
+
+if [[ "$3" == add ]] ;then
+    # add cronjob, no duplication:
+    ( sudo crontab -l | grep -v -F -w "$2" ; echo "$1 $2" ) | sudo crontab -
+elif [[ "$3" == remove ]] ;then
+    # remove cronjob:
+    ( sudo crontab -l | grep -v -F -w "$2" ) | sudo crontab -
+fi
+}
+cronjob_editor "$1" "$2" "$3"
 
 
 EOF
+sudo chmod +x /bin/cronedit.sh
+cronedit.sh '* */1 * * *' 'sudo sync ; echo 3 > /proc/sys/vm/drop_caches >/dev/null 2>&1' add
 ##############
 cd /opt
 git clone https://github.com/hacknix/FreeDMR.git
@@ -2164,6 +2155,10 @@ fi
 
 EOF
 ####
+sudo chmod +x /opt/HBMonv2/sysinfo/cpu.sh
+sudo chmod +x /opt/HBMonv2/sysinfo/graph.sh
+sudo chmod +x /opt/HBMonv2/sysinfo/rrd-db.sh
+
 sudo chmod +x /opt/HBMonv2/updateTGIDS.sh
 
 sudo cat > /opt/HBMonv2/html/buttons.html <<- "EOF"
