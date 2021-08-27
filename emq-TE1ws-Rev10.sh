@@ -414,7 +414,7 @@ chown mmdvm /var/log/
 cat > /bin/menu-mm-rtl <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Multimon-NG" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
 1 " Editar Multimon-ng  APRS " \
 2 " Iniciar APRS " \
 3 " Detener APRS " \
@@ -520,7 +520,7 @@ EOF
 sudo cat > /bin/menu-fdmr <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
 1 " Editar FreeDMR Server " \
 2 " Editar Interlink  " \
 3 " Editar HBMon2  " \
@@ -574,7 +574,7 @@ sudo cat > /bin/menu-hbl <<- "EOF"
 
 while : ; do
 
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu HBLink3" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
 1 " Editar HBLink Server " \
 2 " Editar Interlink  " \
 3 " Editar HBMon  " \
@@ -637,7 +637,7 @@ EOF
 cat > /bin/menu-wifi <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu WiFi" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
 1 " Editar redes WiFi " \
 2 " Reiniciar dispositivo WiFi " \
 3 " Buscar redes wifi cercanas " \
@@ -673,7 +673,7 @@ EOF
 cat > /bin/menu-mmdvm <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 10 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu MMDVMHost" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 10 \
 1 " Editar MMDVMHost " \
 2 " Iniciar MMDVMHost " \
 3 " Detener MMDVMHost " \
@@ -722,7 +722,7 @@ EOF
 cat > /bin/menu-ysf <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu YSFReflector" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
 1 " Editar pYSFReflector Server " \
 2 " Iniciar Reflector  " \
 3 " Detener Reflector  " \
@@ -765,7 +765,7 @@ EOF
 cat > /bin/menu-dvs <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu DVSwitch" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
 1 " Editar Dvswitch Server " \
 2 " Iniciar Dvswitch  " \
 3 " Detener Dvswitch  " \
@@ -827,7 +827,7 @@ EOF
 cat > /bin/menu-cp-rtl <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf SDR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
 1 " Editar Direwolf " \
 2 " Iniciar APRS " \
 3 " Detener APRS " \
@@ -858,7 +858,7 @@ EOF
 cat > /bin/menu-dw-analogo <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
 1 " Editar Direwolf Analogo " \
 2 " Iniciar APRS " \
 3 " Detener APRS " \
@@ -889,7 +889,7 @@ EOF
 cat > /bin/menu-dw-rtl <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf SDR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
 1 " Editar Direwolf RTL " \
 2 " Editar RTL-SDR " \
 3 " Iniciar APRS RX-IGate " \
@@ -925,7 +925,7 @@ EOF
 cat > /bin/menu-ysf2dmr <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu YSF2DMR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
 1 " Editar YSF2DMR " \
 2 " Iniciar YSF2DMR " \
 3 " Detener YSF2DMR " \
@@ -976,7 +976,7 @@ chmod +777 /opt/ionsphere/ionosphere-raspberry-pi/ionos.sh
 cat > /bin/menu-ionos <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu IonosPhere" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
 1 " Editar Ionosphere  APRS " \
 2 " Iniciar APRS " \
 3 " Detener APRS " \
@@ -1623,7 +1623,7 @@ sudo make
 cat > /bin/menu-noip  <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu NoIP" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
 1 " Activar NoIP " \
 2 " Desactivar NoIP " \
 3 " Info DDNS " \
