@@ -2049,7 +2049,6 @@ cat > /var/spool/cron/crontabs/root <<- "EOF"
 #################################################
 #	Update auto name tg freedmr
 #15 3 * * * /opt/HBMonv2/updateTGIDS.sh
-#45 3 * * * /opt/HBMonv2/genTGtemplate.sh
 #################################################
 #	Graficos system info freedmr
 #*/5 * * * * root /opt/HBMonv2/sysinfo/graph.sh
@@ -3005,6 +3004,8 @@ sudo chmod +777 /opt/MMDVM_Bridge/*
 sudo chmod +777 /opt/MMDVM_Bridge/MMDVM_Bridge.ini
 sudo chmod +777 /etc/pymultimonaprs.json
 
+sudo chmod +x /opt/HBMonv2/sysinfo/graph.sh
+sudo chmod +x /opt/HBMonv2/sysinfo/cpu.sh
 sudo chmod +x /usr/bin/python3
 sudo chmod +x /opt/HBmonitor/monitor.py
 sudo chmod +x /opt/HBlink3/playback.py
