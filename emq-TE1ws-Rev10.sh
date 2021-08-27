@@ -516,9 +516,7 @@ EOF
 ##################################################
 sudo cat > /bin/menu-fdmr <<- "EOF"
 #!/bin/bash
-
 while : ; do
-
 choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
 1 " Editar FreeDMR Server " \
 2 " Editar Interlink  " \
@@ -530,9 +528,7 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Su
 8 " Dashboard HBMon2 on " \
 9 " Dashboard HBMon2 off  " \
 10 " Menu Principal " 3>&1 1>&2 2>&3)
-
 exitstatus=$?
-
 #on recupere ce choix
 #exitstatus=$?
 if [ $exitstatus = 0 ]; then
@@ -540,9 +536,7 @@ if [ $exitstatus = 0 ]; then
 else
     echo "You chose cancel."; break;
 fi
-
 # case : action en fonction du choix
-
 case $choix in
 1)
 sudo nano /opt/FreeDMR/config/FreeDMR.cfg ;;
@@ -559,20 +553,14 @@ sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo 
 7)
 sudo systemctl stop freedmr.service &&  sudo systemctl disable freedmr.service ;;
 8)
-sudo systemctl stop hbmon2.service && sudo rm /opt/HBMonv2/*.json && sudo rm /opt/HBMonv2/sysinfo/*.rrd && sudo /opt/HBMonv2/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'root /opt/HBMonv2/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'root /opt/HBMonv2/sysinfo/cpu.sh' add && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' add &&sudo sh /opt/HBMonv2/updateTGIDS.sh && sudo systemctl enable hbmon2.service && sudo cp -r /opt/HBMonv2/html/* /var/www/html/ && sudo systemctl restart lighttpd.service && sudo systemctl enable lighttpd.service && sudo chown -R www-data:www-data /var/www/html && sudo chmod +777 /var/www/html/* ;;
+rm /opt/HBMonv2/sysinfo/*.rrd && sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' add && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' add && sudo systemctl stop hbmon2.service && rm /opt/HBMonv2/*.json && sudo systemctl enable hbmon2.service && sudo cp -r /opt/HBMonv2/html/* /var/www/html/ && sudo systemctl restart lighttpd.service && sudo systemctl enable lighttpd.service && sudo chown -R www-data:www-data /var/www/html && sudo chmod +777 /var/www/html/* && sudo sh /opt/HBMonv2/updateTGIDS.sh ;;
 9)
-sudo systemctl stop hbmon2.service && sudo systemctl disable hbmon2.service && sudo systemctl disable lighttpd.service && sudo systemctl stop lighttpd.service && sudo rm -r  /var/www/html/* && cronedit.sh '*/5 * * * *' 'root /opt/HBMonv2/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'root /opt/HBMonv2/sysinfo/cpu.sh' remove && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' remove ;;
+sudo systemctl stop hbmon2.service && sudo systemctl disable hbmon2.service && sudo systemctl disable lighttpd.service && sudo systemctl stop lighttpd.service && sudo rm -r  /var/www/html/* && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' remove && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' remove ;;
 10)
 break;
-
-
-
-
 esac
-
 done
 exit 0
-
 
 
 
@@ -2245,6 +2233,7 @@ Wants=network-online.target
 StandardOutput=null
 WorkingDirectory=/opt/HBMonv2
 RestartSec=3
+ExecStartPre=/bin/sleep 45
 ExecStart=/usr/bin/python3 /opt/HBMonv2/monitor.py
 Restart=on-abort
 
