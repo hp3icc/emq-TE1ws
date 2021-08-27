@@ -358,7 +358,7 @@ sudo mkdir /var/log/mmdvm
 sudo chmod +777 /var/log/*
 
 cd  /opt/MMDVMHost-Websocketboard/html/data/
-rm TG_List.csv
+sudo rm TG_List.csv
 wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv
 
 ####################################
@@ -553,7 +553,7 @@ sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo 
 7)
 sudo systemctl stop freedmr.service &&  sudo systemctl disable freedmr.service ;;
 8)
-rm /opt/HBMonv2/sysinfo/*.rrd && sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' add && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' add && sudo systemctl stop hbmon2.service && rm /opt/HBMonv2/*.json && sudo systemctl enable hbmon2.service && sudo cp -r /opt/HBMonv2/html/* /var/www/html/ && sudo systemctl restart lighttpd.service && sudo systemctl enable lighttpd.service && sudo chown -R www-data:www-data /var/www/html && sudo chmod +777 /var/www/html/* && sudo sh /opt/HBMonv2/updateTGIDS.sh ;;
+sudo rm /opt/HBMonv2/sysinfo/*.rrd && sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' add && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' add && sudo systemctl stop hbmon2.service && sudo rm /opt/HBMonv2/*.json && sudo systemctl enable hbmon2.service && sudo cp -r /opt/HBMonv2/html/* /var/www/html/ && sudo systemctl restart lighttpd.service && sudo systemctl enable lighttpd.service && sudo chown -R www-data:www-data /var/www/html && sudo chmod +777 /var/www/html/* && sudo sh /opt/HBMonv2/updateTGIDS.sh ;;
 9)
 sudo systemctl stop hbmon2.service && sudo systemctl disable hbmon2.service && sudo systemctl disable lighttpd.service && sudo systemctl stop lighttpd.service && sudo rm -r  /var/www/html/* && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' remove && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' remove ;;
 10)
@@ -655,7 +655,7 @@ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf ;;
 2)
 sudo ifconfig wlan0 down && sudo ifconfig wlan0 up ;;
 3)
-sudo sudo iwlist wlan0 scan | grep ESSID | grep -o '"[^"]\+"' >> ssid.txt && nano ssid.txt && rm ssid.txt ;;
+sudo sudo iwlist wlan0 scan | grep ESSID | grep -o '"[^"]\+"' >> ssid.txt && nano ssid.txt && sudo rm ssid.txt ;;
 4)
 sudo wavemon ;;
 5)
@@ -1749,7 +1749,7 @@ EOF
 #
 pip3 install setuptools wheel
 pip3 install -r requirements.txt
-rm requirements.txt
+sudo rm requirements.txt
 #
 cd /opt/
 wget https://bootstrap.pypa.io/get-pip.py
@@ -1983,7 +1983,7 @@ cd /opt/MMDVM_Bridge/
 sudo sed -i 's/\/opt/\/opt\/MMDVM_Bridge/' DMRIDUpdate.sh
 sudo sed -i 's/systemctl restart mmdvmhost.service/systemctl restart mmdvm_bridge.service/' DMRIDUpdate.sh
 
-rm /opt/DMRIDUpdate.sh
+sudo rm /opt/DMRIDUpdate.sh
 
 ###########################
 sudo systemctl stop mmdvm_bridge.service 
