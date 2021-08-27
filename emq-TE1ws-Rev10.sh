@@ -447,7 +447,7 @@ sudo cat > /bin/menu <<- "EOF"
 
 while : ; do
 
-choix=$(whiptail --title "TE1ws-Rev10b Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 22 57 14 \
+choix=$(whiptail --title "TE1ws-Rev10b Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 22 57 15 \
 1 " APRS Direwolf Analogo" \
 2 " APRS Direwolf RTL-SDR " \
 3 " APRS Multimon-ng " \
@@ -459,9 +459,10 @@ choix=$(whiptail --title "TE1ws-Rev10b Raspbian Proyect HP3ICC Esteban Mackay 73
 9 " HBLink Server " \
 10 " FreeDMR Server " \
 11 " Editar WiFi " \
-12 " Reiniciar Raspberry " \
-13 " APAGAR Raspberry " \
-14 " Salir del menu " 3>&1 1>&2 2>&3)
+12 " DDNS NoIP " \
+13 " Reiniciar Raspberry " \
+14 " APAGAR Raspberry " \
+15 " Salir del menu " 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 
@@ -499,10 +500,12 @@ menu-fdmr;;
 11)
 menu-wifi;;
 12)
-sudo reboot ;;
+menu-noip ;;
 13)
-menu-apagar;;
+sudo reboot ;;
 14)
+menu-apagar;;
+15)
 break;
 
 
@@ -1610,6 +1613,45 @@ rtl_fm -M fm -f 144.39M -p 0 -s 24000 -g 42 - | /usr/local/bin/direwolf -c /opt/
 EOF
 sudo chmod +x /opt/direwolf/rtl.sh
 ###############################################
+sudo mkdir /opt/noip
+cd /opt/noip/
+wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz
+tar vzxf noip-duc-linux.tar.gz
+cd noip-2.1.9-1
+sudo make
+
+cat > /bin/menu-noip  <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+1 " Activar NoIP " \
+2 " Desactivar NoIP " \
+3 " Info DDNS " \
+4 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+cd /opt/noip/noip-2.1.9-1/ && sudo make install && cronedit.sh '*/10 * * * *' 'sudo /usr/local/bin/noip2' add ;;
+2)
+sudo rm -r /usr/local/bin/noip2 && sudo rm -r /usr/local/etc/no-ip2.conf && sudo rm -r /tmp/no-ip2.conf && cronedit.sh '*/10 * * * *' 'sudo /usr/local/bin/noip2' remove ;;
+3)
+sudo noip2 -S &> noip.txt && nano noip.txt && sudo rm noip.txt;;
+4)
+break;
+esac
+done
+exit 0
+
+
+EOF
 ##############################
 #dvswitch
 
