@@ -658,7 +658,7 @@ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf ;;
 2)
 sudo ifconfig wlan0 down && sudo ifconfig wlan0 up ;;
 3)
-sudo sudo iwlist wlan0 scan | grep ESSID | grep -o '"[^"]\+"' >> ssid.txt && nano ssid.txt && sudo rm ssid.txt ;;
+cd /tmp && sudo sudo iwlist wlan0 scan | grep ESSID | grep -o '"[^"]\+"' >> ssid.txt && nano ssid.txt && sudo rm ssid.txt ;;
 4)
 sudo wavemon ;;
 5)
@@ -1643,7 +1643,7 @@ cd /opt/noip/ && sudo tar vzxf noip-duc-linux.tar.gz && cd /opt/noip/noip-2.1.9-
 2)
 sudo rm -r /usr/local/bin/noip2 && sudo rm -r /usr/local/etc/no-ip2.conf && sudo rm -r /tmp/no-ip2.conf && sudo rm -r /opt/noip/noip-2.1.9-1 && cronedit.sh '*/10 * * * *' 'sudo /usr/local/bin/noip2' remove ;;
 3)
-sudo noip2 -S &> noip.txt && nano noip.txt && sudo rm noip.txt;;
+cd /tmp && sudo noip2 -S &> noip.txt && nano noip.txt && sudo rm noip.txt;;
 4)
 break;
 esac
