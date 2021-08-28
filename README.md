@@ -51,7 +51,7 @@ Compatible con Raspberry pi : zero , P2 , P3 y P4
 
 Puede descargara y utilizar el bash de instalacion con el siguiente comando :
 
-wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10.sh
+wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10b.sh
 
 sh TE1ws-Rev10.sh
 
@@ -60,7 +60,7 @@ al finalizar la instalacion el equipo se reiniciara y podra accesar via ssh o po
 #
 Puede instalar descargando la imagen ya compilada para Raspberry desde cualquiera de los siguientes enlaces : 
 
-https://drive.google.com/file/d/1ag-VSgIvHesEsZdc0Txm8zRLmun4xJqQ/view?usp=sharing
+https://drive.google.com/file/d/1AGdFgwTi7cpbTN6tQYRw0PBJxr9NWMpW/view?usp=sharing
 
 https://mega.nz/file/5c9kEJCB#irCkt04H9fU5tXfVz6ZHssaY3XnPrO0SOiHNKxHec90
 
@@ -161,7 +161,7 @@ List of amateur radio applications, including image and installation attempt:
 
  You can download and use the install bash with the following command:
 
- wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10.sh
+ wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10b.sh
 
  sh TE1ws-Rev10.sh
 
@@ -171,7 +171,7 @@ List of amateur radio applications, including image and installation attempt:
 
  You can install by downloading the already compiled Raspberry image from any of the following links: 
 
- https://drive.google.com/file/d/1ag-VSgIvHesEsZdc0Txm8zRLmun4xJqQ/view?usp=sharing
+ https://drive.google.com/file/d/1AGdFgwTi7cpbTN6tQYRw0PBJxr9NWMpW/view?usp=sharing
 
  https://mega.nz/file/5c9kEJCB#irCkt04H9fU5tXfVz6ZHssaY3XnPrO0SOiHNKxHec90
 
