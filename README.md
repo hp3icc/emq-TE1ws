@@ -3,7 +3,7 @@ hp3icc Proyecto Todo en uno , MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , D
 
 Dashboard html sobre websock , soporte GPSD , CM108 .
 
-Ultima revision: emq-TE1ws-Rev10a 9/8/2021 
+Ultima revision: emq-TE1ws-Rev10b 28/8/2021 
 
 #
 
@@ -62,7 +62,7 @@ Puede instalar descargando la imagen ya compilada para Raspberry desde cualquier
 
 https://drive.google.com/file/d/1AGdFgwTi7cpbTN6tQYRw0PBJxr9NWMpW/view?usp=sharing
 
-https://mega.nz/file/5c9kEJCB#irCkt04H9fU5tXfVz6ZHssaY3XnPrO0SOiHNKxHec90
+https://mega.nz/file/VNM1UAqY#xdgv8_8od6O8ukGoXCaY8Mj-5wdKx1_fwfIJFqF0wXU
 
 #
 
@@ -112,7 +112,7 @@ Esteban Mackay Q.
 
  Html dashboard over websock, GPSD support, CM108.
 
- Last revision: emq-TE1ws-Rev10a 08/09/2021 
+ Last revision: emq-TE1ws-Rev10b 08/28/2021 
 
 #
 
@@ -173,7 +173,7 @@ List of amateur radio applications, including image and installation attempt:
 
  https://drive.google.com/file/d/1AGdFgwTi7cpbTN6tQYRw0PBJxr9NWMpW/view?usp=sharing
 
- https://mega.nz/file/5c9kEJCB#irCkt04H9fU5tXfVz6ZHssaY3XnPrO0SOiHNKxHec90
+ https://mega.nz/file/VNM1UAqY#xdgv8_8od6O8ukGoXCaY8Mj-5wdKx1_fwfIJFqF0wXU
 
  #
 
