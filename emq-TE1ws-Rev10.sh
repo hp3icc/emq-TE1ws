@@ -2188,6 +2188,7 @@ EOF
 sudo chmod +x /opt/HBMonv2/sysinfo/cpu.sh
 sudo chmod +x /opt/HBMonv2/sysinfo/graph.sh
 sudo chmod +x /opt/HBMonv2/sysinfo/rrd-db.sh
+sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh
 
 sudo chmod +x /opt/HBMonv2/updateTGIDS.sh
 
