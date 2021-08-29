@@ -178,7 +178,7 @@ Host=0.0.0.0
 
 # If changeing the port please change it also in the index.html-file at the parts where you find:
 # new WebSocket("ws://" + window.location.hostname ...
-Port=5678
+Port=5679
 
 # set to True if SSL will be used
 Ssl=False
@@ -227,6 +227,9 @@ BinaryName4=YSF2DMR
 
 
 EOF
+#
+cd /opt/MMDVMHost-Websocketboard/html/
+sudo sed -i 's/5678/5679/' index.html
 ############################
 cat > /lib/systemd/system/http.server-mmdvmh.service <<- "EOF"
 [Unit]
@@ -270,6 +273,7 @@ WantedBy=multi-user.target
 
 EOF
 #
+cd /opt/
 git clone --recurse-submodules -j8 https://github.com/dg9vh/WSYSFDash
 cd /opt/WSYSFDash/
 sudo chown -R mmdvm /opt/WSYSFDash
