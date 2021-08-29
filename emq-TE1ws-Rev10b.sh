@@ -2076,7 +2076,7 @@ cronjob_editor "$1" "$2" "$3"
 
 EOF
 sudo chmod +x /bin/cronedit.sh
-cronedit.sh '* */1 * * *' 'sudo sync ; echo 3 > /proc/sys/vm/drop_caches >/dev/null 2>&1' add
+
 ##############
 cd /opt
 git clone https://github.com/hacknix/FreeDMR.git
@@ -3065,7 +3065,9 @@ sudo chmod 755 /lib/systemd/system/logtailer-ysf.service
 sudo systemctl daemon-reload
 
 sudo systemctl enable monp.service
-
+sudo su
+cd /tmp/
+cronedit.sh '* */1 * * *' 'sudo sync ; echo 3 > /proc/sys/vm/drop_caches >/dev/null 2>&1' add
 #####
 cat > /tmp/completado.sh <<- "EOF"
 #!/bin/bash
