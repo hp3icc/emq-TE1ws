@@ -3,7 +3,7 @@ hp3icc Proyecto Todo en uno , MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , D
 
 Dashboard html sobre websock , soporte GPSD , CM108 .
 
-Ultima revision: emq-TE1ws-Rev10b 28/8/2021 
+Ultima revision: emq-TE1ws-Rev10c 29/8/2021 
 
 #
 
@@ -51,7 +51,7 @@ Compatible con Raspberry pi : zero , P2 , P3 y P4
 
 Puede descargara y utilizar el bash de instalacion con el siguiente comando :
 
-wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10b.sh
+wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10c.sh
 
 sh TE1ws-Rev10.sh
 
@@ -112,7 +112,7 @@ Esteban Mackay Q.
 
  Html dashboard over websock, GPSD support, CM108.
 
- Last revision: emq-TE1ws-Rev10b 08/28/2021 
+ Last revision: emq-TE1ws-Rev10b 08/29/2021 
 
 #
 
@@ -161,7 +161,7 @@ List of amateur radio applications, including image and installation attempt:
 
  You can download and use the install bash with the following command:
 
- wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10b.sh
+ wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10c.sh
 
  sh TE1ws-Rev10.sh
 
