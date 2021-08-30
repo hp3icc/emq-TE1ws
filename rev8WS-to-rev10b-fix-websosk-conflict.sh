@@ -4,12 +4,13 @@ sudo systemctl stop mmdvmh.service
 sudo systemctl stop dmrid-mmdvm.service
 sudo systemctl stop logtailer-mmdvmh.service  
 sudo systemctl stop http.server-mmdvmh.service
+cd /opt/MMDVMHost/
+sudo sed -i 's/FileRoot=MMDVMHost/FileRoot=MMDVMH/' MMDVM.ini
 cd /opt/MMDVMHost-Websocketboard/html/
 sudo sed -i 's/5678/5679/' index.html
 cd /opt/MMDVMHost-Websocketboard/
 sudo sed -i 's/5678/5679/' logtailer.ini
-cd /opt/MMDVMHost/
-sudo sed -i 's/FileRoot=MMDVMHost/FileRoot=MMDVMH/' MMDVMHost
+
 #
 cat > /bin/menu-mmdvm <<- "EOF"
 #!/bin/bash
