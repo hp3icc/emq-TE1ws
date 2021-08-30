@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo su
+
 sudo systemctl stop mmdvmh.service
 sudo systemctl stop dmrid-mmdvm.service
 sudo systemctl stop logtailer-mmdvmh.service  
