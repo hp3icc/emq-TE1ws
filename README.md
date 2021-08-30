@@ -1,5 +1,5 @@
 # emq-TE1ws
-hp3icc Proyecto Todo en uno , MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , Dvswitch, YSFReflector , YSF2DMR , HBLink3 , FreeDMR , Dashboard Websock
+hp3icc Proyecto Todo en uno , MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , Dvswitch, YSFReflector , YSF2DMR , HBLink3 , FreeDMR , NoIP , Dashboard Websock
 
 Dashboard html sobre websock , soporte GPSD , CM108 .
 
@@ -35,6 +35,8 @@ Dvswitch
 HBLink3
 
 FreeDMR
+
+NoIP
 
 Esta versión cuenta con Dashboard HTML corriendo sobre websock , para el MMDVMHost y Reflector YSF , estan preconfigurados a puerto http 80 , pero desde el menú puede cambiar al puerto 8000, 8080 , o cualquier otro de su preferencia .
 
@@ -118,7 +120,7 @@ Esteban Mackay Q.
 
 # emq-TE1ws
 
- hp3icc All-in-one Project, MMDVMHost, Direwolf, Multimon-ng, Ionosphere, Dvswitch, YSFReflector, YSF2DMR, HBLink3, Dashboard Websock
+ hp3icc All-in-one Project, MMDVMHost, Direwolf, Multimon-ng, Ionosphere, Dvswitch, YSFReflector, YSF2DMR, HBLink3, NoIP, Dashboard Websock
 
  Html dashboard over websock, GPSD support, CM108.
 
@@ -156,7 +158,9 @@ List of amateur radio applications, including image and installation attempt:
  
  FreeDMR
 
-
+ NoIP
+ 
+ 
  This version has HTML Dashboard running on websock, for the MMDVMHost and YSF Reflector, they are preconfigured to http port 80, but from the menu you can change to port 8000, 8080, or any other of your preference.
 
  Libraries and gps and GPSD application is added
