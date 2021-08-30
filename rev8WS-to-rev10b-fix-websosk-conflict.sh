@@ -6,7 +6,8 @@ sudo systemctl stop logtailer-mmdvmh.service
 sudo systemctl stop http.server-mmdvmh.service
 
 cd /opt/MMDVMHost/
-sudo sed -i 's/FileRoot=MMDVMHost/FileRoot=MMDVMH/' MMDVMHost
+sudo sed -i 's/FileRoot=MMDVMHost/FileRoot=MMDVMH/' MMDVMH.ini
+sudo sed -i 's/FileRotate=1/FileRotate=0/' MMDVM.ini
 cd /opt/MMDVMHost-Websocketboard/
 sudo sed -i 's/Prefix=MMDVMHost/Prefix=MMDVMH/' logtailer.ini
 cd /opt/MMDVMHost-Websocketboard/html/
