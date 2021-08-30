@@ -62,6 +62,8 @@ Puede instalar descargando la imagen ya compilada para Raspberry desde cualquier
 
 https://mega.nz/file/1QVjFYzQ#sbxSJJtEVSvuRFno42EAoZa_PQfJ11O2GZsOe_89Lcs
 
+https://drive.google.com/file/d/1KrgnTBZOohBwVwaoVl68FTNkoPGGgfGO/view?usp=sharing
+
 #
 
 # Configuración
@@ -170,6 +172,8 @@ List of amateur radio applications, including image and installation attempt:
  You can install by downloading the already compiled Raspberry image from any of the following links: 
 
 https://mega.nz/file/1QVjFYzQ#sbxSJJtEVSvuRFno42EAoZa_PQfJ11O2GZsOe_89Lcs
+
+https://drive.google.com/file/d/1KrgnTBZOohBwVwaoVl68FTNkoPGGgfGO/view?usp=sharing
 
  #
 
