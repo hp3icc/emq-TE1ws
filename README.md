@@ -3,6 +3,10 @@ hp3icc Proyecto Todo en uno , MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , D
 
 Dashboard html sobre websock , soporte GPSD , CM108 .
 
+Continuamente todo el contenido publicado aqui, es actualizado , si esta observando atravez de un link compartido , dirijase al link principal :
+
+https://github.com/hp3icc/emq-TE1ws
+
 Ultima revision: emq-TE1ws-Rev10c 29/8/2021 
 
 #
@@ -124,6 +128,10 @@ Esteban Mackay Q.
 
  Html dashboard over websock, GPSD support, CM108.
 
+ Continuously all the content published here is updated, if you are looking through a shared link, go to the main link:
+ 
+ https://github.com/hp3icc/emq-TE1ws
+ 
  Last revision: emq-TE1ws-Rev10b 08/29/2021 
 
 #
