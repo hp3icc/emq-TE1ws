@@ -1120,7 +1120,7 @@ ExecStart=/opt/direwolf/rtl.sh
 
 [Install]
 WantedBy=multi-user.target
-#ExecStart= /usr/local/bin/rtl_fm -M fm -f 144.39M -p 0 -s 24000 -g 42 - | /usr/local/bin/direwolf-rtl -c /home/pi/direwolf/sdr.conf -r 24000 -D 1 -B 1200 -
+#ExecStart= /usr/local/bin/rtl_fm -M fm -f 144.39M -p 0 -s 24000 -g 42 - | /usr/local/bin/direwolf-rtl -c /opt/direwolf/sdr.conf -r 24000 -D 1 -B 1200 -
 EOF
 #############
 
@@ -1608,14 +1608,7 @@ handlers:
     passcode: "12345"
     filter: ""
 EOF
-#############
-cat > /opt/direwolf/rtl.sh  <<- "EOF"
-#!/bin/sh
-PATH=/bin:/usr/bin:/usr/local/bin
-unset LANG
-rtl_fm -M fm -f 144.39M -p 0 -s 24000 -g 42 - | /usr/local/bin/direwolf -c /opt/direwolf/sdr.conf -r 24000 -D 1 -B 1200 -
-EOF
-sudo chmod +x /opt/direwolf/rtl.sh
+
 ###############################################
 sudo mkdir /opt/noip
 cd /opt/noip/
@@ -2840,7 +2833,18 @@ cd /tmp/
 wget https://github.com/hp3icc/emq-TE1ws/raw/main/direwolf
 sudo mv /tmp/direwolf /usr/local/bin/
 sudo chmod +x /usr/local/bin/direwolf
+cp /usr/local/bin/direwolf /usr/local/bin/direwolf-rtl
+sudo chmod +x /usr/local/bin/direwolf-rtl
 ##########
+#############
+cat > /opt/direwolf/rtl.sh  <<- "EOF"
+#!/bin/sh
+PATH=/bin:/usr/bin:/usr/local/bin
+unset LANG
+rtl_fm -M fm -f 144.39M -p 0 -s 24000 -g 42 - | /usr/local/bin/direwolf-rtl -c /opt/direwolf/sdr.conf -r 24000 -D 1 -B 1200 -
+EOF
+sudo chmod +x /opt/direwolf/rtl.sh
+#
 cat > /opt/direwolf/sdr.conf <<- "EOF"
 #############################################################
 #                                                           #
