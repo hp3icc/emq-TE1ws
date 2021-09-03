@@ -894,7 +894,7 @@ cat > /bin/menu-dw-rtl <<- "EOF"
 #!/bin/bash
 while : ; do
 choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf SDR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
-1 " Editar Direwolf RTL " \
+1 " Editar Direwolf SDR " \
 2 " Editar RTL-SDR " \
 3 " Iniciar APRS RX-IGate " \
 4 " Detener APRS RX-IGate " \
@@ -2859,7 +2859,7 @@ cat > /opt/direwolf/sdr.conf <<- "EOF"
 ADEVICE null null
 CHANNEL 0
 MYCALL HP3ICC-10
-PBEACON sendto=IG delay=0:40 every=30 symbol="/r" lat=08^31.27N long=080^21.59W comment="APRS RX-IGATE / Raspbian Proyect by hp3icc"
+PBEACON sendto=IG delay=0:40 every=30 symbol="/r" lat=08^31.27N long=080^21.59W comment="SDR APRS RX-IGATE / Raspbian Proyect by hp3icc"
 # First you need to specify the name of a Tier 2 server.
 # The current preferred way is to use one of these regional rotate addresses:
 #       noam.aprs2.net          - for North America
