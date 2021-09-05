@@ -141,8 +141,10 @@ sudo make install
 sudo ldconfig
 
 cd /opt
-git  clone https://github.com/asdil12/kalibrate-rtl.git
+git clone https://github.com/asdil12/kalibrate-rtl.git
 cd kalibrate-rtl/
+sudo chmod +x bootstrap
+sudo chmod +x configure
 ./bootstrap
 ./configure
 sudo make
@@ -1120,7 +1122,7 @@ ExecStart=/opt/direwolf/rtl.sh
 
 [Install]
 WantedBy=multi-user.target
-#ExecStart= /usr/local/bin/rtl_fm -M fm -f 144.39M -p 0 -s 24000 -g 42 - | /usr/local/bin/direwolf-rtl -c /opt/direwolf/sdr.conf -r 24000 -D 1 -B 1200 -
+#ExecStart= /usr/local/bin/rtl_fm -M fm -f 144.39M -p 0 -s 22050 -g 42 - | /usr/local/bin/direwolf-rtl -c /opt/direwolf/sdr.conf -r 22050 -D 1 -B 1200 -
 EOF
 #############
 
@@ -2841,7 +2843,7 @@ cat > /opt/direwolf/rtl.sh  <<- "EOF"
 #!/bin/sh
 PATH=/bin:/usr/bin:/usr/local/bin
 unset LANG
-rtl_fm -M fm -f 144.39M -p 0 -s 24000 -g 42 - | /usr/local/bin/direwolf-rtl -c /opt/direwolf/sdr.conf -r 24000 -D 1 -B 1200 -
+rtl_fm -M fm -f 144.39M -p 0 -s 22050 -g 42 - | /usr/local/bin/direwolf-rtl -c /opt/direwolf/sdr.conf -r 22050 -D 1 -B 1200 -
 EOF
 sudo chmod +x /opt/direwolf/rtl.sh
 #
@@ -3001,11 +3003,12 @@ FILTER 0 0 t/poimqstunw
 #IGSERVER cx2sa.net:14580
 
 #IGLOGIN HP3ICC-10  12345
-IGTXVIA 0 WIDE1-1,WIDE2-1
+IGTXVIA 0 WIDE2-2
+#WIDE1-1,WIDE2-1
 #WIDE2-2
 #
 #
-#IGFILTER f/HP3ICC-5/600
+#IGFILTER b/HP3ICC-5
 #IGFILTER p/HP
 #m/600
 #
