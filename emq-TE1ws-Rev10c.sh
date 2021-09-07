@@ -2835,7 +2835,8 @@ sudo make -j4
 sudo make install
 sudo make install-conf
 
-sudo rm /usr/local/bin/direwolf
+sudo mv /usr/local/bin/direwolf /usr/local/bin/direwolf2
+sudo chmod +x /usr/local/bin/direwolf2
 cd /tmp/
 wget https://github.com/hp3icc/emq-TE1ws/raw/main/direwolf
 sudo mv /tmp/direwolf /usr/local/bin/
