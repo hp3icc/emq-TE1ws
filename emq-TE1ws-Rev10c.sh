@@ -123,24 +123,29 @@ sudo chown -R mmdvm:mmdvm /var/log/YSFReflector
 
 mkdir /opt/YSF2DMR
 
-cd /opt
+cd /opt/
 git clone https://github.com/juribeparada/MMDVM_CM.git
 sudo cp -r /opt/MMDVM_CM/YSF2DMR /opt/
 cd YSF2DMR
 sudo make
 sudo make install
 
-cd /opt
-git clone https://github.com/osmocom/rtl-sdr.git
+sudo apt-get install zip gzip tar -y
+
+cd /opt/
+wget https://github.com/hp3icc/emq-TE1ws/raw/main/rtl-sdr-te1ws.zip
+sudo unzip rtl-sdr-te1ws.zip
+sudo rm rtl-sdr-te1ws.zip
 cd rtl-sdr/
-mkdir build
+sudo mkdir build
 cd build
 cmake ../ -DINSTALL_UDEV_RULES=ON
 sudo make
 sudo make install
 sudo ldconfig
+sudo cp /opt/rtl-sdr/rtl-sdr.rules /etc/udev/rules.d
 
-cd /opt
+cd /opt/
 git clone https://github.com/asdil12/kalibrate-rtl.git
 cd kalibrate-rtl/
 sudo chmod +x bootstrap
