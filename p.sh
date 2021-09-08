@@ -172,113 +172,7 @@ cd pymultimonaprs
 sudo python2 setup.py install
 
 ############################################################################################
-#web
-cd /opt/
-git clone --recurse-submodules -j8 https://github.com/dg9vh/MMDVMHost-Websocketboard
-sudo chown -R mmdvm:mmdvm /opt/MMDVMHost-Websocketboard
-#
-cat > /opt/MMDVMHost-Websocketboard/logtailer.ini <<- "EOF"
-[DEFAULT]
-# No need to touch this. If you want to bind it to a specific IP-address (if there are more than one interface to the
-# network you can set your ip here - but default it listens on every interface
-Host=0.0.0.0
 
-# If changeing the port please change it also in the index.html-file at the parts where you find:
-# new WebSocket("ws://" + window.location.hostname ...
-Port=5679
-
-# set to True if SSL will be used
-Ssl=False
-SslCert=/path/to/cert
-SslKey=/path/to/keyfile
-
-# This defines the maximum amount of loglines to be sent on initial opening of the dashboard
-MaxLines=500
-
-# Keep this parameter synchrone to Filerotate in MMDVM.ini/DMRHost.ini - if 0 then False, if 1 then True
-Filerotate=False
-#True
-
-[MMDVMHost]
-# Don't throw away the trailing slash! It is important but check logfile-location and Prefix twice :-)
-Logdir=/var/log/mmdvm/
-
-# Change this to DMRHost, if you are using DMRHost and configured this as log-prefix in the host-ini.
-Prefix=MMDVMH
-# if you want to have the operator-names as popup with the callsigns, set this parts = 1 and the LookupFile to
-# the right position. On MMDVMHost comment out the DMRIDs.dat-line to have the DMRIds and not the callsigns in the
-# logfile to have the callsigns with names transported to the dashboard.
-DMR_ID_Lookup=1
-DMR_ID_LookupFile=/opt/MMDVMHost/DMRIds.dat
-
-# Location of your MMDVM.ini/DMRHost.ini or similar
-MMDVM_ini=/opt/MMDVMHost/MMDVM.ini
-
-# Localtion of your MMDVMHost/DMRHost-binary
-MMDVM_bin=/opt/MMDVMHost/MMDVMHost
-#/usr/local/bin/MMDVMHost
-
-[DAPNETGateway]
-# Don't throw away the trailing slash! It is important but check logfile-location and Prefix twice :-)
-Logdir=/var/log/mmdvm
-#/mnt/ramdisk/
-Prefix=DAPNETGateway
-
-[ServiceMonitoring]
-# Here you list your Services to be monitored. Just add additional lines if needed but be sure to count them up
-BinaryName1=MMDVMHost
-BinaryName2=DMRGateway
-BinaryName3=DGIdGateway
-BinaryName4=YSF2DMR
-
-
-
-EOF
-#
-cd /opt/MMDVMHost-Websocketboard/html/
-sudo sed -i 's/5678/5679/' index.html
-############################
-cat > /lib/systemd/system/http.server-mmdvmh.service <<- "EOF"
-[Unit]
-Description=Python3 http.server.mmdvmhost
-After=network.target
-
-[Service]
-User=root
-Type=simple
-#User=mmdvm
-#Group=mmdvm
-Restart=always
-ExecStartPre=/bin/sleep 30
-# Modify for different location of Python3 or other port
-ExecStart=/usr/bin/python3 -m http.server 80 --directory /opt/MMDVMHost-Websocketboard/html
-
-[Install]
-WantedBy=multi-user.target
-
-
-EOF
-#
-cat > /lib/systemd/system/logtailer-mmdvmh.service <<- "EOF"
-[Unit]
-Description=Python3 logtailer for MMDVMDash
-After=network.target
-
-[Service]
-Type=simple
-User=mmdvm
-Group=mmdvm
-Restart=always
-ExecStartPre=/bin/sleep 30
-# Modify for different location of Python3 or other port
-WorkingDirectory=/opt/MMDVMHost-Websocketboard/
-ExecStart=/usr/bin/python3 /opt/MMDVMHost-Websocketboard/logtailer.py
-
-[Install]
-WantedBy=multi-user.target
-
-
-EOF
 #
 cd /opt/
 git clone --recurse-submodules -j8 https://github.com/dg9vh/WSYSFDash
@@ -368,54 +262,6 @@ sudo mkdir /var/log/ysf2dmr
 sudo mkdir /var/log/mmdvm
 sudo chmod +777 /var/log/*
 
-cd  /opt/MMDVMHost-Websocketboard/html/data/
-sudo rm TG_List.csv
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv
-
-####################################
-
-cd /boot
-sudo sed -i 's/console=serial0,115200 //' cmdline.txt
-
-sudo systemctl stop serial-getty@ttyAMA0.service
-sudo systemctl stop bluetooth.service
-sudo systemctl disable serial-getty@ttyAMA0.service
-sudo systemctl disable bluetooth.service
-
-sudo sed -i 's/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/' config.txt
-sudo sed -i 's/dtparam=audio=on/#dtparam=audio=on/' config.txt
-
-echo "enable_uart=1" >> config.txt
-echo "dtoverlay=pi3-disable-bt" >> config.txt
-echo "dtparam=spi=on" >> config.txt
-
-##################
-cat > /lib/systemd/system/monp.service  <<- "EOF"
-[Unit]
-Description=sudo modprobe i2c-dev
-#Wants=network-online.target
-#After=syslog.target network-online.target
-[Service]
-User=root
-#ExecStartPre=/bin/sleep 1800
-ExecStart=sudo modprobe i2c-dev
-[Install]
-WantedBy=multi-user.target
-EOF
-
-##########
-cd /opt
-git clone https://github.com/g4klx/MMDVMHost.git
-cd MMDVMHost/
-sudo make
-sudo make install
-git clone https://github.com/hallard/ArduiPi_OLED
-cd ArduiPi_OLED
-sudo make
-cd /opt/MMDVMHost/
-make clean
-sudo make -f Makefile.Pi.OLED 
-
 groupadd mmdvm 
 useradd mmdvm -g mmdvm -s /sbin/nologin 
 chown mmdvm /var/log/
@@ -463,17 +309,16 @@ choix=$(whiptail --title "TE1ws-Rev10c Raspbian Proyect HP3ICC Esteban Mackay 73
 2 " APRS Direwolf RTL-SDR " \
 3 " APRS Multimon-ng " \
 4 " APRS Ionosphere " \
-5 " MMDVMHost " \
-6 " Dvswitch " \
-7 " pYSFReflector " \
-8 " YSF2DMR " \
-9 " HBLink Server " \
-10 " FreeDMR Server " \
-11 " Editar WiFi " \
-12 " DDNS NoIP " \
-13 " Reiniciar Raspberry " \
-14 " APAGAR Raspberry " \
-15 " Salir del menu " 3>&1 1>&2 2>&3)
+5 " Dvswitch " \
+6 " pYSFReflector " \
+7 " YSF2DMR " \
+8 " HBLink Server " \
+9 " FreeDMR Server " \
+10 " Editar WiFi " \
+11 " DDNS NoIP " \
+12 " Reiniciar Raspberry " \
+13 " APAGAR Raspberry " \
+14 " Salir del menu " 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 
@@ -497,26 +342,24 @@ menu-mm-rtl;;
 4)
 menu-ionos;;
 5)
-menu-mmdvm;;
-6)
 menu-dvs;;
-7)
+6)
 menu-ysf;;
-8)
+7)
 menu-ysf2dmr;;
-9)
+8)
 menu-hbl;;
-10)
+9)
 menu-fdmr;;
-11)
+10)
 menu-wifi;;
-12)
+11)
 menu-noip ;;
-13)
+12)
 sudo reboot ;;
-14)
+13)
 menu-apagar;;
-15)
+14)
 break;
 
 
@@ -680,55 +523,7 @@ exit 0
 EOF
 
 
-####menu-mmdvm
-cat > /bin/menu-mmdvm <<- "EOF"
-#!/bin/bash
-while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu MMDVMHost" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 10 \
-1 " Editar MMDVMHost " \
-2 " Iniciar MMDVMHost " \
-3 " Detener MMDVMHost " \
-4 " Dashboard ON " \
-5 " Dashboard Off " \
-6 " Editar Puerto WebServer " \
-7 " Editar HTML  " \
-8 " actualizar nombres de TG y sala europelink  " \
-9 " actualizar nombres de TG y sala worldlink " \
-10 " Menu Principal " 3>&1 1>&2 2>&3)
-exitstatus=$?
-#on recupere ce choix
-#exitstatus=$?
-if [ $exitstatus = 0 ]; then
-    echo "Your chosen option:" $choix
-else
-    echo "You chose cancel."; break;
-fi
-# case : action en fonction du choix
-case $choix in
-1)
-sudo nano /opt/MMDVMHost/MMDVM.ini;;
-2)
-sudo sh /opt/MMDVMHost/DMRIDUpdate.sh && sudo systemctl enable dmrid-mmdvm.service ;;
-3)
-sudo systemctl stop mmdvmh.service && sudo systemctl stop dmrid-mmdvm.service && sudo systemctl disable dmrid-mmdvm.service && sudo rm /var/log/mmdvm/MMDVMH.* ;;
-4)
-sudo systemctl restart logtailer-mmdvmh.service && sudo systemctl enable logtailer-mmdvmh.service && sudo systemctl restart http.server-mmdvmh.service && sudo systemctl enable http.server-mmdvmh.service ;;
-5)
-sudo systemctl stop logtailer-mmdvmh.service && sudo systemctl disable logtailer-mmdvmh.service && sudo systemctl stop http.server-mmdvmh.service && sudo systemctl disable http.server-mmdvmh.service ;;
-6)
-sudo nano /lib/systemd/system/http.server-mmdvmh.service && sudo systemctl daemon-reload && sudo systemctl restart http.server-mmdvmh.service ;;
-7)
-sudo nano /opt/MMDVMHost-Websocketboard/html/index.html ;;
-8)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv ;;
-9)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo mv TG_List-WL.csv TG_List.csv;;
-10)
-break;
-esac
-done
-exit 0
-EOF
+
 ########menu-ysf
 cat > /bin/menu-ysf <<- "EOF"
 #!/bin/bash
@@ -1054,24 +849,7 @@ WantedBy=multi-user.target
 
 EOF
 ###################
-cat > /lib/systemd/system/mmdvmh.service  <<- "EOF"
-[Unit]
-Description=MMDVM Host Service
-After=syslog.target network.target
 
-[Service]
-User=root
-WorkingDirectory=/opt/MMDVMHost
-#ExecStartPre=/bin/sleep 10
-ExecStart=/opt/MMDVMHost/MMDVMHost /opt/MMDVMHost/MMDVM.ini
-#ExecStart=/usr/bin/screen -S MMDVMHost -D -m /home/MMDVMHost/MMDVMHost /home/M$
-ExecStop=/usr/bin/screen -S MMDVMHost -X quit
-
-[Install]
-WantedBy=multi-user.target
-
-EOF
-################
 cat > /lib/systemd/system/direwolf.service  <<- "EOF"
 [Unit]
 Description=DireWolf is a software "soundcard" modem/TNC and APRS decoder
@@ -1164,308 +942,7 @@ EOF
 ############
 
 ###############
-cat > /opt/MMDVMHost/MMDVM.ini  <<- "EOF"
-[General]
-Callsign=HP3ICC
-Id=714000000
-Timeout=300
-Duplex=0
-ModeHang=3
-#RFModeHang=10
-#NetModeHang=3
-Display=None
-#Display=OLED
-Daemon=0
 
-[Info]
-RXFrequency=431800000
-TXFrequency=431800000
-Power=1
-# The following lines are only needed if a direct connection to a DMR master is being used
-Latitude=0.0
-Longitude=0.0
-Height=0
-Location=Panama
-Description=Multi-Mode-MMDVM
-URL=www.google.co.uk
-
-[Log]
-# Logging levels, 0=No logging
-DisplayLevel=1
-FileLevel=1
-FilePath=/var/log/mmdvm
-FileRoot=MMDVMH
-FileRotate=0
-
-[CW Id]
-Enable=0
-Time=10
-# Callsign=
-
-[DMR Id Lookup]
-File=/opt/MMDVMHost/DMRIds.dat
-Time=24
-
-[NXDN Id Lookup]
-File=NXDN.csv
-Time=24
-
-[Modem]
-# Port=/dev/ttyACM0
-Port=/dev/ttyAMA0
-#Port=\\.\COM4
-#Protocol=uart
-# Address=0x22
-TXInvert=1
-RXInvert=0
-PTTInvert=0
-TXDelay=100
-RXOffset=0
-TXOffset=0
-DMRDelay=0
-RXLevel=50
-TXLevel=50
-RXDCOffset=0
-TXDCOffset=0
-RFLevel=50
-# CWIdTXLevel=50
-# D-StarTXLevel=50
-DMRTXLevel=50
-YSFTXLevel=50
-# P25TXLevel=50
-# NXDNTXLevel=50
-# POCSAGTXLevel=50
-FMTXLevel=50
-RSSIMappingFile=RSSI.dat
-UseCOSAsLockout=0
-Trace=0
-Debug=0
-
-[Transparent Data]
-Enable=0
-RemoteAddress=127.0.0.1
-RemotePort=40094
-LocalPort=40095
-# SendFrameType=0
-
-[UMP]
-Enable=0
-# Port=\\.\COM4
-Port=/dev/ttyACM1
-
-[D-Star]
-Enable=0
-Module=C
-SelfOnly=0
-AckReply=1
-AckTime=750
-AckMessage=0
-ErrorReply=1
-RemoteGateway=0
-# ModeHang=10
-WhiteList=
-
-[DMR]
-Enable=1
-Beacons=0
-BeaconInterval=60
-BeaconDuration=3
-ColorCode=1
-SelfOnly=0
-EmbeddedLCOnly=1
-DumpTAData=0
-# Prefixes=234,235
-# Slot1TGWhiteList=
-# Slot2TGWhiteList=
-CallHang=3
-TXHang=4
-# ModeHang=10
-# OVCM Values, 0=off, 1=rx_on, 2=tx_on, 3=both_on, 4=force off
-# OVCM=0
-
-[System Fusion]
-Enable=1
-LowDeviation=0
-SelfOnly=0
-TXHang=4
-RemoteGateway=1
-# ModeHang=10
-
-[P25]
-Enable=0
-NAC=293
-SelfOnly=0
-OverrideUIDCheck=0
-RemoteGateway=0
-TXHang=5
-# ModeHang=10
-
-[NXDN]
-Enable=0
-RAN=1
-SelfOnly=0
-RemoteGateway=0
-TXHang=5
-# ModeHang=10
-
-[POCSAG]
-Enable=0
-Frequency=439987500
-
-[FM]
-Enable=0
-# Callsign=HP3ICC
-CallsignSpeed=20
-CallsignFrequency=1000
-CallsignTime=10
-CallsignHoldoff=0
-CallsignHighLevel=50
-CallsignLowLevel=20
-CallsignAtStart=1
-CallsignAtEnd=1
-CallsignAtLatch=0
-RFAck=K
-ExtAck=N
-AckSpeed=20
-AckFrequency=1750
-AckMinTime=4
-AckDelay=1000
-AckLevel=50
-# Timeout=180
-TimeoutLevel=80
-CTCSSFrequency=88.4
-CTCSSThreshold=30
-# CTCSSHighThreshold=30
-# CTCSSLowThreshold=20
-CTCSSLevel=20
-KerchunkTime=0
-HangTime=7
-AccessMode=1
-COSInvert=0
-RFAudioBoost=1
-MaxDevLevel=90
-ExtAudioBoost=1
-
-[D-Star Network]
-Enable=0
-GatewayAddress=127.0.0.1
-GatewayPort=20010
-LocalPort=20011
-# ModeHang=3
-Debug=0
-
-[DMR Network]
-Enable=1
-# Type may be either 'Direct' or 'Gateway'. When Direct you must provide the Master's
-# address as well as the Password, and for DMR+, Options also.
-Type=Direct
-Address=3021.master.brandmeister.network
-Port=62031
-#Local=62032
-Password=*********
-Jitter=360
-Slot1=1
-Slot2=1
-# Options=
-# ModeHang=3
-Debug=0
-
-[System Fusion Network]
-Enable=1
-LocalAddress=127.0.0.1
-#LocalPort=3200
-GatewayAddress=europelink.pa7lim.nl
-GatewayPort=42000
-# ModeHang=3
-Debug=0
-
-[P25 Network]
-Enable=0
-GatewayAddress=127.0.0.1
-GatewayPort=42020
-LocalPort=32010
-# ModeHang=3
-Debug=0
-
-[NXDN Network]
-Enable=0
-Protocol=Icom
-LocalAddress=127.0.0.1
-LocalPort=14021
-GatewayAddress=127.0.0.1
-GatewayPort=14020
-# ModeHang=3
-Debug=0
-
-[POCSAG Network]
-Enable=0
-LocalAddress=127.0.0.1
-LocalPort=3800
-GatewayAddress=127.0.0.1
-GatewayPort=4800
-# ModeHang=3
-Debug=0
-
-[TFT Serial]
-# Port=modem
-Port=/dev/ttyAMA0
-Brightness=50
-
-[HD44780]
-Rows=2
-Columns=16
-# For basic HD44780 displays (4-bit connection)
-# rs, strb, d0, d1, d2, d3
-Pins=11,10,0,1,2,3
-# Device address for I2C
-I2CAddress=0x20
-# PWM backlight
-PWM=0
-PWMPin=21
-PWMBright=100
-PWMDim=16
-DisplayClock=1
-UTC=0
-
-[Nextion]
-# Port=modem
-Port=/dev/ttyAMA0
-Brightness=50
-DisplayClock=1
-UTC=0
-#Screen Layout: 0=G4KLX 2=ON7LDS
-ScreenLayout=2
-IdleBrightness=20
-
-[OLED]
-Type=3
-Brightness=1
-Invert=0
-Scroll=0
-Rotate=1
-Cast=0
-LogoScreensaver=0
-
-[LCDproc]
-Address=localhost
-Port=13666
-#LocalPort=13667
-DimOnIdle=0
-DisplayClock=1
-UTC=0
-
-[Lock File]
-Enable=0
-File=/tmp/MMDVM_Active.lck
-
-[Remote Control]
-Enable=0
-Address=127.0.0.1
-Port=7642
-
-
-EOF
-########
 cat > /opt/YSF2DMR/YSF2DMR.ini  <<- "EOF"
 [Info]
 RXFrequency=438800000
@@ -3025,16 +2502,15 @@ IGTXLIMIT 6 10
 EOF
 ########################
 echo finalizando instalacion
-sudo chown -R mmdvm:mmdvm /opt/MMDVMHost/MMDVMHost
+
 sudo chmod +777 /opt/*
-sudo chmod +777 /opt/MMDVMHost-Websocketboard/*
+
 sudo chmod +777 /opt/WSYSFDash/*
 sudo chmod +777 /opt/direwolf/*
 sudo chmod +777 /opt/direwolf/dw.conf
 sudo chmod +777 /opt/direwolf/sdr.conf
 sudo chmod +777 /opt/direwolf/src/*
-sudo chmod +777 /opt/MMDVMHost/*
-sudo chmod +777 /opt/MMDVMHost/MMDVM.ini
+
 sudo chmod +777 /opt/YSF2DMR/*
 sudo chmod +777 /opt/YSF2DMR/YSF2DMR.ini
 sudo chmod +777 /opt/ionsphere/*
@@ -3056,7 +2532,7 @@ sudo chmod +x /opt/HBlink3/playback.py
 sudo chmod +x /opt/HBlink3/bridge.py
 sudo chmod +x /opt/MMDVM_Bridge/DMRIDUpdate.sh
 sudo chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
-sudo chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
+
 
 sudo chmod 755 /lib/systemd/system/freedmr.service
 sudo chmod 755 /lib/systemd/system/proxy.service
@@ -3069,14 +2545,13 @@ sudo chmod 755 /lib/systemd/system/monp.service
 sudo chmod 755 /lib/systemd/system/dmrid-ysf2dmr.service
 sudo chmod 755 /lib/systemd/system/dmrid-dvs.service
 sudo chmod 755 /lib/systemd/system/dmrid-mmdvm.service
-sudo chmod 755 /lib/systemd/system/mmdvmh.service
+
 sudo chmod 755 /lib/systemd/system/direwolf.service
 sudo chmod 755 /lib/systemd/system/direwolf-rtl.service
 sudo chmod 755 /lib/systemd/system/multimon-rtl.service
 sudo chmod 755 /lib/systemd/system/ionos.service
 sudo chmod 755 /lib/systemd/system/ysf2dmr.service
-sudo chmod 755 /lib/systemd/system/http.server-mmdvmh.service
-sudo chmod 755 /lib/systemd/system/logtailer-mmdvmh.service
+
 sudo chmod 755 /lib/systemd/system/http.server-ysf.service
 sudo chmod 755 /lib/systemd/system/logtailer-ysf.service
 sudo systemctl daemon-reload
