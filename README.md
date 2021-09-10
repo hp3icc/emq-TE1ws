@@ -7,7 +7,7 @@ Continuamente todo el contenido publicado aqui, es actualizado , si esta observa
 
 https://github.com/hp3icc/emq-TE1ws
 
-Ultima revision: emq-TE1ws-Rev10c 29/8/2021 
+Ultima revision: emq-TE1ws-Rev10d 9/9/2021 
 
 #
 
@@ -57,9 +57,9 @@ Compatible con Raspberry pi : zero , P2 , P3 y P4
 
 Puede descargara y utilizar el bash de instalacion con el siguiente comando :
 
-wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10c.sh
+wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10d.sh
 
-sh TE1ws-Rev10.sh
+sh emq-TE1ws-Rev10d.sh
 
 al finalizar la instalacion el equipo se reiniciara y podra accesar via ssh o por consola a la lista de aplicaciones escribiendo ( menu ) en su consola.
 
@@ -132,7 +132,7 @@ Esteban Mackay Q.
  
  https://github.com/hp3icc/emq-TE1ws
  
- Last revision: emq-TE1ws-Rev10b 08/29/2021 
+ Last revision: emq-TE1ws-Rev10d 9/9/2021 
 
 #
 
@@ -183,9 +183,9 @@ List of amateur radio applications, including image and installation attempt:
 
  You can download and use the install bash with the following command:
 
- wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10c.sh
+ wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10d.sh
 
- sh TE1ws-Rev10.sh
+ sh emq-TE1ws-Rev10d.sh
 
  At the end of the installation the computer will restart and you will be able to access via ssh or by console to the list of applications by typing (menu) in your console.
 
