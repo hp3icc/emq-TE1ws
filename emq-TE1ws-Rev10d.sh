@@ -2982,7 +2982,9 @@ KISSPORT 8001
 #                                                           #
 #############################################################
 #GPSD
-#TBEACON every=0:30 symbol="/v" comment="APRS TRACKER / Raspbian Proyect by hp3icc" via=WIDE1-1,WIDE2-1
+#TBEACON symbol="/v" comment="HP3ICC-9 / APRS TRACKER / Raspbian Proyect by hp3icc" via=WIDE2-2
+#SMARTBEACONING 28 0:30 12 0:1800 0:30 15 45 via=WIDE2-2
+#
 #PBEACON delay=0:05 every=30 symbol="/r" lat=08^31.27N long=080^21.59W comment="APRS DIGI-IGATE / Raspbian Proyect by hp3icc" via=WIDE2-2
 #PBEACON sendto=IG delay=0:40 every=30 symbol="/r" lat=08^31.27N long=080^21.59W comment="APRS DIGI-IGATE / Raspbian Proyect by hp3icc"
 #############################################################
