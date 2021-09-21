@@ -416,7 +416,6 @@ chmod +x /bin/menu*
 sudo chmod +777 /opt/WSYSFDash/*
 sudo chmod +777 /opt/YSF2DMR/*
 sudo chmod +777 /opt/YSF2DMR/YSF2DMR.ini
-sudo chmod +777 /opt/YSFClients/*
 sudo chmod +777 /opt/MMDVM_CM/*
 
 sudo chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
