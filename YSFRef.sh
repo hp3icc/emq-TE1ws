@@ -24,9 +24,16 @@ sudo apt install signal
 sudo apt install bisect
 sudo apt install struct
 sudo apt install socket
+sudo apt install ansi2html
+sudo apt install logrotate
 sudo pip3 install ansi2html
 sudo apt-get install python-pip -y
-
+sudo apt-get install python-dev -y
+sudo apt-get install rrdtool -y
+#
+mkdir /var/www
+mkdir /var/www/html
+#
 cd /opt
 git clone https://github.com/iu5jae/pYSFReflector.git
 cd pYSFReflector/
