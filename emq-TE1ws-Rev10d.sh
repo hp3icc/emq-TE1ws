@@ -717,7 +717,7 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu MMDVMHost" --menu "Suba o
 3 " Detener MMDVMHost " \
 4 " Dashboard ON " \
 5 " Dashboard Off " \
-6 " Editar Puerto WebServer " \
+6 " Editar Puerto http " \
 7 " Editar HTML  " \
 8 " actualizar nombres de TG y sala europelink  " \
 9 " actualizar nombres de TG y sala worldlink " \
@@ -743,7 +743,7 @@ sudo systemctl restart logtailer-mmdvmh.service && sudo systemctl enable logtail
 5)
 sudo systemctl stop logtailer-mmdvmh.service && sudo systemctl disable logtailer-mmdvmh.service && sudo systemctl stop http.server-mmdvmh.service && sudo systemctl disable http.server-mmdvmh.service ;;
 6)
-sudo nano /lib/systemd/system/http.server-mmdvmh.service && sudo systemctl daemon-reload && sudo systemctl restart http.server-mmdvmh.service ;;
+sudo nano /lib/systemd/system/http.server-mmdvmh.service && sudo systemctl daemon-reload ;;
 7)
 sudo nano /opt/MMDVMHost-Websocketboard/html/index.html ;;
 8)
@@ -766,7 +766,7 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu YSFReflector" --menu "Sub
 3 " Detener Reflector  " \
 4 " Dashboard on  " \
 5 " Dashboard off  " \
-6 " Editar Puerto WebServer  " \
+6 " Editar Puerto http  " \
 7 " Editar HTML  " \
 8 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
@@ -790,7 +790,7 @@ sudo systemctl restart logtailer-ysf.service && sudo systemctl enable logtailer-
 5)
 sudo systemctl stop logtailer-ysf.service && sudo systemctl disable logtailer-ysf.service && sudo systemctl stop http.server-ysf.service && sudo systemctl disable http.server-ysf.service ;;
 6)
-sudo nano /lib/systemd/system/http.server-ysf.service && sudo systemctl daemon-reload && sudo systemctl restart http.server-ysf.service ;;
+sudo nano /lib/systemd/system/http.server-ysf.service && sudo systemctl daemon-reload ;;
 7)
 sudo nano /opt/WSYSFDash/html/index.html ;;
 8)
