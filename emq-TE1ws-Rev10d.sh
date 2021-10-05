@@ -535,13 +535,14 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Suba o B
 1 " Editar FreeDMR Server " \
 2 " Editar Interlink  " \
 3 " Editar HBMon2  " \
-4 " Parrot on  " \
-5 " Parrot off  " \
-6 " Iniciar FreeDMR Server  " \
-7 " Detener FreeDMR Server   " \
-8 " Dashboard HBMon2 on " \
-9 " Dashboard HBMon2 off  " \
-10 " Menu Principal " 3>&1 1>&2 2>&3)
+4 " Editar Puerto HTTP  " \
+5 " Parrot on  " \
+6 " Parrot off  " \
+7 " Iniciar FreeDMR Server  " \
+8 " Detener FreeDMR Server   " \
+9 " Dashboard HBMon2 on " \
+10 " Dashboard HBMon2 off  " \
+11 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -559,18 +560,20 @@ sudo nano /opt/FreeDMR/config/rules.py ;;
 3)
 sudo nano /opt/HBMonv2/config.py ;;
 4)
-sudo systemctl stop fdmrparrot.service && sudo systemctl start fdmrparrot.service && sudo systemctl enable fdmrparrot.service ;;
+sudo nano /lib/systemd/system/http.server-fmr.service && sudo systemctl daemon-reload ;;
 5)
-sudo systemctl stop fdmrparrot.service &&  sudo systemctl disable fdmrparrot.service ;;
+sudo systemctl stop fdmrparrot.service && sudo systemctl start fdmrparrot.service && sudo systemctl enable fdmrparrot.service ;;
 6)
-sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo systemctl enable proxy.service && sudo systemctl stop freedmr.service && sudo systemctl start freedmr.service && sudo systemctl enable freedmr.service ;;
+sudo systemctl stop fdmrparrot.service &&  sudo systemctl disable fdmrparrot.service ;;
 7)
-sudo systemctl stop freedmr.service &&  sudo systemctl disable freedmr.service ;;
+sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo systemctl enable proxy.service && sudo systemctl stop freedmr.service && sudo systemctl start freedmr.service && sudo systemctl enable freedmr.service ;;
 8)
-sudo rm /opt/HBMonv2/sysinfo/*.rrd && sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' add && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' add && sudo systemctl stop hbmon2.service && sudo rm /opt/HBMonv2/*.json && sudo systemctl enable hbmon2.service && sudo cp -r /opt/HBMonv2/html/* /var/www/html/ && sudo systemctl restart lighttpd.service && sudo systemctl enable lighttpd.service && sudo chown -R www-data:www-data /var/www/html && sudo chmod +777 /var/www/html/* && sudo sh /opt/HBMonv2/updateTGIDS.sh ;;
+sudo systemctl stop freedmr.service &&  sudo systemctl disable freedmr.service ;;
 9)
-sudo systemctl stop hbmon2.service && sudo systemctl disable hbmon2.service && sudo systemctl disable lighttpd.service && sudo systemctl stop lighttpd.service && sudo rm -r  /var/www/html/* && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' remove && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' remove ;;
+sudo rm /opt/HBMonv2/sysinfo/*.rrd && sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' add && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' add && sudo systemctl stop hbmon2.service && sudo rm /opt/HBMonv2/*.json && sudo systemctl enable hbmon2.service && sudo systemctl start http.server-fmr.service && sudo systemctl enable http.server-fmr.service && sudo sh /opt/HBMonv2/updateTGIDS.sh ;;
 10)
+sudo systemctl stop hbmon2.service && sudo systemctl disable hbmon2.service && sudo systemctl stop http.server-fmr.service && sudo systemctl disable http.server-fmr.service && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' remove && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' remove ;;
+11)
 break;
 esac
 done
@@ -578,8 +581,32 @@ exit 0
 
 
 
+
+
 EOF
 ############################
+sudo cat > /lib/systemd/system/http.server-fmr.service <<- "EOF"
+[Unit]
+Description=Python3 http.server.fdmr
+After=network.target
+
+[Service]
+User=root
+Type=simple
+#User=mmdvm
+#Group=mmdvm
+Restart=always
+#ExecStartPre=/bin/sleep 30
+# Modify for different location of Python3 or other port
+ExecStart=php -S 0.0.0.0:80 -t /opt/HBMonv2/html/
+
+
+[Install]
+WantedBy=multi-user.target
+
+
+EOF
+#########
 sudo cat > /bin/menu-hbl <<- "EOF"
 #!/bin/bash
 
@@ -2189,11 +2216,15 @@ fi
 
 EOF
 ####
+
+cd /opt/HBMonv2/sysinfo/
+sudo sed -i 's/var\/www\/html/opt\/HBMonv2\/html/' cpu.sh
+sudo sed -i 's/var\/www\/html/opt\/HBMonv2\/html/' graph.sh
+
 sudo chmod +x /opt/HBMonv2/sysinfo/cpu.sh
 sudo chmod +x /opt/HBMonv2/sysinfo/graph.sh
 sudo chmod +x /opt/HBMonv2/sysinfo/rrd-db.sh
 sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh
-
 sudo chmod +x /opt/HBMonv2/updateTGIDS.sh
 
 sudo cat > /opt/HBMonv2/html/buttons.html <<- "EOF"
@@ -3060,6 +3091,7 @@ sudo chmod +x /opt/MMDVM_Bridge/DMRIDUpdate.sh
 sudo chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
 sudo chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
 
+sudo chmod 755 /lib/systemd/system/http.server-fmr.service
 sudo chmod 755 /lib/systemd/system/freedmr.service
 sudo chmod 755 /lib/systemd/system/proxy.service
 sudo chmod 755 /lib/systemd/system/hbmon2.service
