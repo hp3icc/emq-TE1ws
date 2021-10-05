@@ -807,9 +807,10 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu DVSwitch" --menu "Suba o 
 1 " Editar Dvswitch Server " \
 2 " Iniciar Dvswitch  " \
 3 " Detener Dvswitch  " \
-4 " Dashboard on  " \
-5 " Dashboard off  " \
-6 " Menu Principal " 3>&1 1>&2 2>&3)
+4 " Editar Puerto http  " \
+5 " Dashboard on  " \
+6 " Dashboard off  " \
+7 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -827,14 +828,38 @@ sudo systemctl stop dmrid-dvs.service && sudo systemctl restart dmrid-dvs.servic
 3)
 sudo systemctl stop mmdvm_bridge.service && sudo systemctl stop dmrid-dvs.service && sudo systemctl stop analog_bridge.service && sudo systemctl disable analog_bridge.service && sudo systemctl disable mmdvm_bridge.service ;;
 4)
-sudo cp -r /var/www/web-dvs/* /var/www/html/ && sudo systemctl restart lighttpd.service && sudo systemctl enable lighttpd.service && sudo chown -R www-data:www-data /var/www/html && sudo chmod +777 /var/www/html/* ;;
+nano /lib/systemd/system/http.server-dvs.service && sudo systemctl daemon-reload ;;
 5)
-sudo systemctl disable lighttpd.service && sudo systemctl stop lighttpd.service && sudo rm -r  /var/www/html/* ;;
+sudo systemctl restart http.server-dvs.service && sudo systemctl enable http.server-dvs.service ;;
 6)
+sudo systemctl stop http.server-dvs.service && sudo systemctl disable http.server-dvs.service ;;
+7)
 break;
 esac
 done
 exit 0
+EOF
+#
+cat > /lib/systemd/system/http.server-dvs.service <<- "EOF"
+[Unit]
+Description=PHP http.server.DVS
+After=network.target
+
+[Service]
+User=root
+Type=simple
+#User=mmdvm
+#Group=mmdvm
+Restart=always
+#ExecStartPre=/bin/sleep 30
+# Modify for different other port
+ExecStart=php -S 0.0.0.0:80 -t /var/www/html
+
+[Install]
+WantedBy=multi-user.target
+
+
+
 EOF
 ###menu-apagar
 cat > /bin/menu-apagar <<- "EOF"
@@ -1969,15 +1994,9 @@ sudo chown -R www-data:www-data /var/www/html
 
 sudo chmod -R 775 /var/www/html
 #############################
-
-
-mkdir /var/www/web-dvs
 chmod +777 /var/www/web-dvs
 chmod +777 /var/www/html/*
-sudo cp -r /var/www/html/* /var/www/web-dvs/
-sudo rm -r /var/www/html/*
 ##
-
 cat > /opt/DMRIDUpdate.sh <<- "EOF"
 #! /bin/bash
 ###############################################################################
@@ -2067,7 +2086,6 @@ sudo systemctl disable mmdvm_bridge.service
 sudo systemctl disable dmrid-dvs.service
 sudo systemctl disable lighttpd.service
 sudo systemctl stop lighttpd.service
-sudo rm -r  /var/www/html/* 
 ###########################
 cat > /etc/modprobe.d/raspi-blacklist.conf <<- "EOF"
 blacklist snd_bcm2835
@@ -3092,6 +3110,7 @@ sudo chmod +x /opt/MMDVM_Bridge/DMRIDUpdate.sh
 sudo chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
 sudo chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
 
+sudo chmod 755 /lib/systemd/system/http.server-dvs.service
 sudo chmod 755 /lib/systemd/system/http.server-fmr.service
 sudo chmod 755 /lib/systemd/system/freedmr.service
 sudo chmod 755 /lib/systemd/system/proxy.service
