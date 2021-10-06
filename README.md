@@ -66,7 +66,9 @@ al finalizar la instalacion el equipo se reiniciara y podra accesar via ssh o po
 #
 Puede instalar descargando la imagen ya compilada para Raspberry desde cualquiera de los siguientes enlaces : 
 
-* hay nueva imagen , pronto en unas horas se mostraran los enlaces actualizados * 
+*  https://drive.google.com/file/d/1QjOZK-1DQS3T2nQEV1eB3kCeDbsijQB3/view?usp=sharing
+
+*  https://mega.nz/file/4dcDxSpS#9NXF-X8XwHnFhz8IAHs6h1EBpv4QN8M5l63lcRmwgs4
 
 #
 
@@ -191,7 +193,10 @@ List of amateur radio applications, including image and installation attempt:
 
  You can install by downloading the already compiled Raspberry image from any of the following links: 
 
-* There is a new image, soon in a few hours the updated links will be shown  *
+*  https://drive.google.com/file/d/1QjOZK-1DQS3T2nQEV1eB3kCeDbsijQB3/view?usp=sharing
+
+*  https://mega.nz/file/4dcDxSpS#9NXF-X8XwHnFhz8IAHs6h1EBpv4QN8M5l63lcRmwgs4
+
 
  #
 
