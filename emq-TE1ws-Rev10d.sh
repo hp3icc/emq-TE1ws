@@ -894,7 +894,9 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf SDR" --menu "Sub
 1 " Editar Direwolf " \
 2 " Iniciar APRS " \
 3 " Detener APRS " \
-4 " Menu Principal " 3>&1 1>&2 2>&3)
+4 " Compatibilidad Raspberry Zero " \
+5 " Compatibilidad Raspberry Standard " \
+6 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -912,6 +914,10 @@ sudo systemctl restart direwolf.service && sudo systemctl enable direwolf.servic
 3)
 sudo systemctl stop direwolf.service && sudo systemctl disable direwolf.service;;
 4)
+sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf1 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
+5)
+sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf2 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
+6)
  break;
 esac
 done
@@ -925,7 +931,9 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf" --menu "Suba o 
 1 " Editar Direwolf Analogo " \
 2 " Iniciar APRS " \
 3 " Detener APRS " \
-4 " Menu Principal " 3>&1 1>&2 2>&3)
+4 " Compatibilidad Raspberry Zero " \
+5 " Compatibilidad Raspberry Standard " \
+6 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -943,6 +951,10 @@ sudo systemctl restart direwolf.service && sudo systemctl enable direwolf.servic
 3)
 sudo systemctl stop direwolf.service && sudo systemctl disable direwolf.service;;
 4)
+sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf1 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
+5)
+sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf2 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
+6)
 break;
 esac
 done
@@ -2885,21 +2897,18 @@ sudo make -j4
 sudo make install
 sudo make install-conf
 
-sudo mv /usr/local/bin/direwolf /usr/local/bin/direwolf2
-sudo chmod +x /usr/local/bin/direwolf2
+sudo cp /usr/local/bin/direwolf /opt/direwolf/direwolf2
 cd /tmp/
 wget https://github.com/hp3icc/emq-TE1ws/raw/main/direwolf
-sudo mv /tmp/direwolf /usr/local/bin/
-sudo chmod +x /usr/local/bin/direwolf
-cp /usr/local/bin/direwolf /usr/local/bin/direwolf-rtl
-sudo chmod +x /usr/local/bin/direwolf-rtl
+sudo mv /tmp/direwolf /opt/direwolf/direwolf1
+
 ##########
 #############
 cat > /opt/direwolf/rtl.sh  <<- "EOF"
 #!/bin/sh
 PATH=/bin:/usr/bin:/usr/local/bin
 unset LANG
-rtl_fm -M fm -f 144.39M -p 0 -s 22050 -g 42 - | /usr/local/bin/direwolf-rtl -c /opt/direwolf/sdr.conf -r 22050 -D 1 -B 1200 -
+rtl_fm -M fm -f 144.39M -p 0 -s 22050 -g 42 - | /usr/local/bin/direwolf -c /opt/direwolf/sdr.conf -r 22050 -D 1 -B 1200 -
 EOF
 sudo chmod +x /opt/direwolf/rtl.sh
 #
