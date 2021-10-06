@@ -886,43 +886,6 @@ esac
 done
 exit 0
 EOF
-###menu-cp-rtl
-cat > /bin/menu-cp-rtl <<- "EOF"
-#!/bin/bash
-while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf SDR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
-1 " Editar Direwolf " \
-2 " Iniciar APRS " \
-3 " Detener APRS " \
-4 " Compatibilidad Raspberry Zero " \
-5 " Compatibilidad Raspberry Standard " \
-6 " Menu Principal " 3>&1 1>&2 2>&3)
-exitstatus=$?
-#on recupere ce choix
-#exitstatus=$?
-if [ $exitstatus = 0 ]; then
-    echo "Your chosen option:" $choix
-else
-    echo "You chose cancel."; break;
-fi
-# case : action en fonction du choix
-case $choix in
-1)
-sudo nano /opt/direwolf/dw.conf;;
-2)
-sudo systemctl restart direwolf.service && sudo systemctl enable direwolf.service;;
-3)
-sudo systemctl stop direwolf.service && sudo systemctl disable direwolf.service;;
-4)
-sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf1 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
-5)
-sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf2 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
-6)
- break;
-esac
-done
-exit 0
-EOF
 #####menu-dw-analogo
 cat > /bin/menu-dw-analogo <<- "EOF"
 #!/bin/bash
@@ -969,7 +932,9 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf SDR" --menu "Sub
 2 " Editar RTL-SDR " \
 3 " Iniciar APRS RX-IGate " \
 4 " Detener APRS RX-IGate " \
-5 " Menu Principal " 3>&1 1>&2 2>&3)
+5 " Compatibilidad Raspberry Zero " \
+6 " Compatibilidad Raspberry Standard " \
+7 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -989,12 +954,15 @@ sudo systemctl restart direwolf-rtl.service && sudo systemctl enable direwolf-rt
 4)
 sudo systemctl stop direwolf-rtl.service && sudo systemctl disable direwolf-rtl.service;;
 5)
+sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf1 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
+6)
+sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf2 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
+7)
 break;
 esac
 done
 exit 0
 EOF
-
 #####
 ######menu-ysf2dmr
 cat > /bin/menu-ysf2dmr <<- "EOF"
@@ -1191,7 +1159,7 @@ ExecStart=/opt/direwolf/rtl.sh
 
 [Install]
 WantedBy=multi-user.target
-#ExecStart= /usr/local/bin/rtl_fm -M fm -f 144.39M -p 0 -s 22050 -g 42 - | /usr/local/bin/direwolf-rtl -c /opt/direwolf/sdr.conf -r 22050 -D 1 -B 1200 -
+#ExecStart= /usr/local/bin/rtl_fm -M fm -f 144.39M -p 0 -s 22050 -g 42 - | /usr/local/bin/direwolf -c /opt/direwolf/sdr.conf -r 22050 -D 1 -B 1200 -
 EOF
 #############
 
