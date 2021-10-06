@@ -86,7 +86,13 @@ Una vez allá iniciado sesión , escriba la palabra:   menu
 
 De esta forma accederá al listado de aplicaciones incluidas en la compilación y sus configuraciones, recuerde guardar los cambios con la combinación de teclas:     Ctrl + X , posteriormente iniciar o detener la aplicación ya configurada .
 
-Si desea habilitar más de un Dashboard a la vez, recuerde cambiar los puertos para evitar conflictos, para esto se incluye dicha opción en el menú de pYSFReflector y MMDVMHost .
+Si desea habilitar más de un Dashboard a la vez, recuerde cambiar los puertos http para evitar conflictos, para esto se incluye dicha opción en el menú de :
+
+* pYSFReflector  
+* MMDVMHost
+* Dvswitch
+* HBLink3
+* FreeDMR
 
 # Nota importante 
 
@@ -213,7 +219,13 @@ Once logged in, write the word: menu
 
 In this way you will access the list of applications included in the compilation and their configurations, remember to save the changes with the key combination: Ctrl + X, then start or stop the already configured application.
 
-If you want to enable more than one Dashboard at the same time, remember to change the ports to avoid conflicts, for this this option is included in the menu of pYSFReflector and MMDVMHost.
+If you want to enable more than one Dashboard at the same time, remember to change the ports to avoid conflicts, for this this option is included in the menu of :
+
+* pYSFReflector  
+* MMDVMHost
+* Dvswitch
+* HBLink3
+* FreeDMR
 
  # Important note
  
