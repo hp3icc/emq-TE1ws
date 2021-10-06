@@ -2889,7 +2889,7 @@ cat > /opt/direwolf/sdr.conf <<- "EOF"
 #                                                           #
 #                emq-TE1ws                                  #
 #                                                           #
-#        configuration for SDR read-only IGate. 	    #
+#        configuration for SDR read-only IGate.             #
 #############################################################
 ADEVICE null null
 CHANNEL 0
