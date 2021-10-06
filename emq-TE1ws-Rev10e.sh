@@ -2883,11 +2883,11 @@ sudo chmod +x /opt/direwolf/rtl.sh
 cat > /opt/direwolf/sdr.conf <<- "EOF"
 #############################################################
 #                                                           #
-#       Configuration file for Dire Wolf 1.7a               #
+#       Configuration file for DireWolf                     #
 #                                                           #
-#         Linux version setting by hp3icc        	    #
+#         Linux version setting by hp3icc                   #
 #                                                           #
-#                emq-TE1ws      		     	    #
+#                emq-TE1ws                                  #
 #                                                           #
 #        configuration for SDR read-only IGate. 	    #
 #############################################################
@@ -2917,11 +2917,11 @@ EOF
 cat > /opt/direwolf/dw.conf <<- "EOF"
 #############################################################
 #                                                           #
-#       Configuration file for Dire Wolf 1.7a               #
+#       Configuration file for DireWolf                     #
 #                                                           #
-#         Linux version setting by hp3icc        	    #
+#         Linux version setting by hp3icc                   #
 #                                                           #
-#                emq-TE1ws      		     	    #
+#                emq-TE1ws                                  #
 #                                                           #
 #############################################################
 #############################################################
