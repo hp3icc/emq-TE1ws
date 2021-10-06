@@ -59,7 +59,7 @@ Puede descargara y utilizar el bash de instalacion con el siguiente comando :
 
 wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10e.sh
 
-sh emq-TE1ws-Rev10d.sh
+sh emq-TE1ws-Rev10e.sh
 
 al finalizar la instalacion el equipo se reiniciara y podra accesar via ssh o por consola a la lista de aplicaciones escribiendo ( menu ) en su consola.
 
@@ -185,7 +185,7 @@ List of amateur radio applications, including image and installation attempt:
 
  wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10e.sh
 
- sh emq-TE1ws-Rev10d.sh
+ sh emq-TE1ws-Rev10e.sh
 
  At the end of the installation the computer will restart and you will be able to access via ssh or by console to the list of applications by typing (menu) in your console.
 
