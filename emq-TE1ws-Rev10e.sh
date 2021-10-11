@@ -3113,6 +3113,10 @@ sudo chmod 755 /lib/systemd/system/logtailer-ysf.service
 sudo systemctl daemon-reload
 
 sudo systemctl enable monp.service
+sudo systemctl stop rsyslog
+sudo systemctl disable rsyslog
+rm /var/log/syslog*
+rm /var/log/*.log*
 cd /tmp/
 cronedit.sh '* */1 * * *' 'sudo sync ; echo 3 > /proc/sys/vm/drop_caches >/dev/null 2>&1' add
 #####
