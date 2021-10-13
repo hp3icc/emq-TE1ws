@@ -804,9 +804,9 @@ cat > /bin/menu-dvs <<- "EOF"
 #!/bin/bash
 while : ; do
 choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu DVSwitch" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
-1 " Editar Dvswitch Server " \
-2 " Iniciar Dvswitch  " \
-3 " Detener Dvswitch  " \
+1 " Dvswitch ON " \
+2 " Dvswitch OFF  " \
+3 " Editar Dvswitch Server " \
 4 " Editar Puerto http  " \
 5 " Dashboard on  " \
 6 " Dashboard off  " \
@@ -822,11 +822,11 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-sudo /usr/local/dvs/dvs ;;
+sudo systemctl restart analog_bridge.service && sudo systemctl restart mmdvm_bridge.service && sudo systemctl restart nxdngateway.service && sudo systemctl restart p25gateway.service && sudo systemctl restart ysfgateway.service && sudo systemctl enable analog_bridge.service && sudo systemctl enable mmdvm_bridge.service && sudo systemctl enable nxdngateway.service && sudo systemctl enable p25gateway.service && sudo systemctl enable ysfgateway.service ;;
 2)
-sudo systemctl stop dmrid-dvs.service && sudo systemctl restart dmrid-dvs.service && sudo systemctl restart analog_bridge.service && sudo systemctl enable analog_bridge.service && sudo systemctl enable mmdvm_bridge.service ;;
+sudo systemctl stop analog_bridge.service && sudo systemctl stop mmdvm_bridge.service && sudo systemctl stop nxdngateway.service && sudo systemctl stop p25gateway.service && sudo systemctl stop ysfgateway.service && sudo systemctl disable analog_bridge.service && sudo systemctl disable mmdvm_bridge.service && sudo systemctl disable nxdngateway.service && sudo systemctl disable p25gateway.service && sudo systemctl disable ysfgateway.service ;;
 3)
-sudo systemctl stop mmdvm_bridge.service && sudo systemctl stop dmrid-dvs.service && sudo systemctl stop analog_bridge.service && sudo systemctl disable analog_bridge.service && sudo systemctl disable mmdvm_bridge.service ;;
+sudo /usr/local/dvs/dvs ;;
 4)
 nano /lib/systemd/system/http.server-dvs.service && sudo systemctl daemon-reload ;;
 5)
