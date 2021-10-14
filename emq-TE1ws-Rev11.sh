@@ -469,12 +469,12 @@ choix=$(whiptail --title "TE1ws-Rev11 Raspbian Proyect HP3ICC Esteban Mackay 73.
 6 " Dvswitch " \
 7 " pYSFReflector " \
 8 " YSF2DMR " \
-9 " HBLink Server " \
+9 " HBLink3 Server " \
 10 " FreeDMR Server " \
 11 " Editar WiFi " \
 12 " DDNS NoIP " \
 13 " Reiniciar Equipo " \
-14 " APAGAR Raspberry " \
+14 " APAGAR Equipo " \
 15 " Salir del menu " 3>&1 1>&2 2>&3)
 
 exitstatus=$?
