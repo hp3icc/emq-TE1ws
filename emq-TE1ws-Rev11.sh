@@ -208,7 +208,7 @@ Filerotate=False
 
 [MMDVMHost]
 # Don't throw away the trailing slash! It is important but check logfile-location and Prefix twice :-)
-Logdir=/var/log/mmdvm/
+Logdir=/var/log/mmdvmh/
 
 # Change this to DMRHost, if you are using DMRHost and configured this as log-prefix in the host-ini.
 Prefix=MMDVMH
@@ -227,7 +227,7 @@ MMDVM_bin=/opt/MMDVMHost/MMDVMHost
 
 [DAPNETGateway]
 # Don't throw away the trailing slash! It is important but check logfile-location and Prefix twice :-)
-Logdir=/var/log/mmdvm
+Logdir=/var/log/mmdvmh
 #/mnt/ramdisk/
 Prefix=DAPNETGateway
 
@@ -738,7 +738,7 @@ sudo nano /opt/MMDVMHost/MMDVM.ini;;
 2)
 sudo sh /opt/MMDVMHost/DMRIDUpdate.sh && sudo systemctl enable dmrid-mmdvm.service ;;
 3)
-sudo systemctl stop mmdvmh.service && sudo systemctl stop dmrid-mmdvm.service && sudo systemctl disable dmrid-mmdvm.service && sudo rm /var/log/mmdvm/MMDVMH.* ;;
+sudo systemctl stop mmdvmh.service && sudo systemctl stop dmrid-mmdvm.service && sudo systemctl disable dmrid-mmdvm.service && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
 4)
 sudo systemctl restart logtailer-mmdvmh.service && sudo systemctl enable logtailer-mmdvmh.service && sudo systemctl restart http.server-mmdvmh.service && sudo systemctl enable http.server-mmdvmh.service ;;
 5)
@@ -828,7 +828,7 @@ case $choix in
 1)
 sudo systemctl restart analog_bridge.service && sudo systemctl restart mmdvm_bridge.service && sudo systemctl restart nxdngateway.service && sudo systemctl restart p25gateway.service && sudo systemctl restart ysfgateway.service && sudo systemctl enable analog_bridge.service && sudo systemctl enable mmdvm_bridge.service && sudo systemctl enable nxdngateway.service && sudo systemctl enable p25gateway.service && sudo systemctl enable ysfgateway.service ;;
 2)
-sudo systemctl stop analog_bridge.service && sudo systemctl stop mmdvm_bridge.service && sudo systemctl stop nxdngateway.service && sudo systemctl stop p25gateway.service && sudo systemctl stop ysfgateway.service && sudo systemctl disable analog_bridge.service && sudo systemctl disable mmdvm_bridge.service && sudo systemctl disable nxdngateway.service && sudo systemctl disable p25gateway.service && sudo systemctl disable ysfgateway.service ;;
+sudo systemctl stop analog_bridge.service && sudo systemctl stop mmdvm_bridge.service && sudo systemctl stop nxdngateway.service && sudo systemctl stop p25gateway.service && sudo systemctl stop ysfgateway.service && sudo systemctl disable analog_bridge.service && sudo systemctl disable mmdvm_bridge.service && sudo systemctl disable nxdngateway.service && sudo systemctl disable p25gateway.service && sudo systemctl disable ysfgateway.service && rm /var/log/mmdvm/*;;
 3)
 sudo /usr/local/dvs/dvs ;;
 4)
@@ -1229,7 +1229,7 @@ URL=www.google.co.uk
 # Logging levels, 0=No logging
 DisplayLevel=1
 FileLevel=1
-FilePath=/var/log/mmdvm
+FilePath=/var/log/mmdvmh
 FileRoot=MMDVMH
 FileRotate=0
 
