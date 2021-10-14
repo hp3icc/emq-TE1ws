@@ -1,771 +1,881 @@
-﻿MODE,TS,TG,,,
-DMR,2,91,En todo el mundo,,
-DMR,2,907,XLX005 J - Sitio web de JOTA JOTI YOTA ,,
-DMR,2,9071 al 9078,Sitio web de JOTA JOTI YOTA TG ,,
-DMR,2,910,Idioma aleman,,
-DMR,2,913,Idioma en Inglés,,
-DMR,2,914,Lengua española,,
-DMR,2,915,Lengua portuguesa,,
-DMR,2,916,Idioma italiano,,
-DMR,2,919,Idioma polaco,,
-DMR,2,922,Lenguaje alemán,,
-DMR,2,924,Lenguaje sueco,,
-DMR,2,927,Lengua nórdica,,
-DMR,2,928,Idioma ruso,,
-DMR,2,937,FRANCOPHONIE Idioma francés,,
-DMR,2,940,Lenguaje árabe,,
-DMR,2,941,Idioma mandarín,,
-DMR,2,942,Idioma hindi,,
-DMR,2,943,Lengua bengalí,,
-DMR,2,944,Idioma japonés,,
-DMR,2,945,Idioma indonesio,,
-DMR,2,950,Bomberos del mundo,,
-DMR,2,9541,RadHisTec,,
-DMR,2,973,SOTA,,
-DMR,2,202,Nacional de Grecia - YSF ID 00202,,
-DMR,2,2021,Área 1 Nacional - Grecia central,,
-DMR,2,2022,Área 2 Nacional - Macedonia Central y Occidental,,
-DMR,2,2023,Área 3 Nacional - Peloponeso,,
-DMR,2,2024,Área 4 Nacional - Tesalia,,
-DMR,2,2025,Área 5 Nacional - Islas del Dodecaneso,,
-DMR,2,2026,Área 6 Nacional - Epiro,,
-DMR,2,2027,Área 7 Nacional - Tracia y Macedonia Oriental,,
-DMR,2,2028,Área 8 Nacional: todas las islas griegas ,,
-DMR,2,,(excepto las islas del Dodecaneso y la isla de Creta),,
-DMR,2,2029,Área 9 Nacional - Isla de Creta,,
-DMR,2,20201,Tecnología helénica 1,,
-DMR,2,20202,Tecnología helénica 2,,
-DMR,2,20231,Grupo PATRAS,,
-DMR,2,20241,Trikala Grecia,,
-DMR,2,20261,Ioannina Grecia,,
-DMR,2,20281,Isla de Corfú Grecia,,
-DMR,2,204,Nederlands-Nacional,,
-DMR,2,20400,Nederlands-Gateway,,
-DMR,2,20401,Nederlands-Drenthe,,
-DMR,2,20402,Nederlands-Flevoland,,
-DMR,2,20403,Holanda-Frisia,,
-DMR,2,20404,Nederlands-Gelderland,,
-DMR,2,20405,Nederlands-Groningen,,
-DMR,2,20406,Nederlands-Limburg,,
-DMR,2,20407,Nederlands-Noord Brabant,,
-DMR,2,20408,Nederlands-Noord Holland,,
-DMR,2,20409,Nederlands-Overijssel,,
-DMR,2,20410,Nederlands-Zuid Holanda,,
-DMR,2,20411,Nederlands-Utrecht,,
-DMR,2,204112,Nederlands-Emergencia,,
-DMR,2,206,Bélgica-Nacional,,
-DMR,2,2061,Bélgica-Norte,,
-DMR,2,2062,Bélgica-Sur,,
-DMR,2,2063,Bélgica-Este,,
-DMR,2,2064,Bélgica-On Demand,,
-DMR,2,2065,Bélgica-On Demand,,
-DMR,2,2066,Bélgica-On Demand,,
-DMR,2,2067,Bélgica-On Demand,,
-DMR,2,2068,Bélgica-On Demand,,
-DMR,2,2069,Bélgica-On Demand,,
-DMR,2,20600,Bélgica-Lieja,,
-DMR,2,20601,Bélgica-Namur,,
-DMR,2,20602,Bélgica-Luxemburgo,,
-DMR,2,20603,Bélgica-Henao,,
-DMR,2,20604,Bélgica-Bruselas,,
-DMR,2,20605,Bélgica-Brabante Wallon,,
-DMR,2,20606,Bélgica-Vlaams Brabant,,
-DMR,2,20607,Bélgica-Limburgo,,
-DMR,2,20608,Bélgica-Amberes,,
-DMR,2,20609,Bélgica-O.Vlanderen,,
-DMR,2,20610,Bélgica-W.Vlanderen,,
-DMR,2,206112,Bélgica-Emergencia,,
-DMR,2,208,Francia DMR +,,
-DMR,2,2081,Francia IDF,,
-DMR,2,2082,Francia Sud-Est,,
-DMR,2,2083,Francia,,
-DMR,2,2084,Francia Est,,
-DMR,2,2085,Francia,,
-DMR,2,2086,Francia,,
-DMR,2,2087,Francia,,
-DMR,2,2088,Francia,,
-DMR,2,2089,Dom Tom,,
-DMR,2,20800,YSF-France ID 58617,,
-DMR,2,20811,Corse DMR +,,
-DMR,2,20820,Corse / XLX255 K,,
-DMR,2,20833,Gironda,,
-DMR,2,20844,Loire-Atlanique,,
-DMR,2,20853,Mayenne,,
-DMR,2,20857,Mosela,,
-DMR,2,20866,Pirineos Onrientales,,
-DMR,2,20867,Bas-Rhin,,
-DMR,2,20871,Saona y Loira,,
-DMR,2,20878,Yvelines,,
-DMR,2,20887,Linousin,,
-DMR,2,20895,Val d''Oise ',,
-DMR,2,208000,YSF France-Wide ID 64879,,
-DMR,2,214,Nacional (P),,
-DMR,2,2141,ZONA 1 EA,,
-DMR,2,2142,ZONA 2 EA,,
-DMR,2,2143,ZONA 3 EA,,
-DMR,2,2144,ZONA 4 EA,,
-DMR,2,2145,ZONA 5 EA,,
-DMR,2,2146,ZONA 6 EA,,
-DMR,2,2147,ZONA 7 EA,,
-DMR,2,2148,ZONA 8 EA,,
-DMR,2,2149,ZONA 9 EA,,
-DMR,2,21411,URE SEC.COMARCAL S.FERNANDO CÁDIZ,,
-DMR,2,21460,CERT-ESPAÑA,,
-DMR,2,21461,Multiprotocolo DMR / NXDN / FUSION / DSTAR / P25,,
-DMR,2,214112,EMERGENCIA,,
-DMR,2,222,Nacional,,
-DMR,2,22200,Italia Multiprotocolo,,
-DMR,2,22201,Regional LAZIO,,
-DMR,2,22202,Regional SARDEGNA,,
-DMR,2,22203,UMBRIA regional,,
-DMR,2,22211,Regional LIGURIA,,
-DMR,2,22212,PIEMONTE Regional,,
-DMR,2,22213,Regional VALLE D'AOSTA,,
-DMR,2,22221,Regional de LOMBARDIA,,
-DMR,2,22231,Regional FRIULI VENEZIA GIULIA,,
-DMR,2,22232,Regional TRENTINO ALTO ADIGE,,
-DMR,2,22233,Regional VENETO,,
-DMR,2,22241,Regional EMILIA ROMAGNA,,
-DMR,2,22251,Regional TOSCANA,,
-DMR,2,22261,Regional ABRUZZO,,
-DMR,2,22262,MARCHE Regional,,
-DMR,2,22271,PUGLIA Regional,,
-DMR,2,22281,BASILICATA Regional,,
-DMR,2,22282,Regional CALABRIA,,
-DMR,2,22283,CAMPANIA Regional,,
-DMR,2,22284,MOLISE regional,,
-DMR,2,22291,Regional SICILIA,,
-DMR,2,222958,Multiprotocolo D2-ALP,,
-DMR,2,222994,Multiprotocolo Zona 9 Sicilia,,
-DMR,2,223,Nacional,,
-DMR,2,22301,LAZIO,,
-DMR,2,22302,SARDEGNA,,
-DMR,2,22303,UMBRIA,,
-DMR,2,22311,LIGURIA,,
-DMR,2,22312,PIEMONTE,,
-DMR,2,22313,VALLE D'AOSTA,,
-DMR,2,22320,CONFERENCIA ITALYNET,,
-DMR,2,22321,LOMBARDIA,,
-DMR,2,22331,FRIULI VENEZIA GIULIA,,
-DMR,2,22332,TRENTINO ALTO ADIGE,,
-DMR,2,22333,VENETO,,
-DMR,2,22341,EMILIA ROMAGNA,,
-DMR,2,22351,TOSCANA,,
-DMR,2,22361,ABRUZZO,,
-DMR,2,22362,MARCHE,,
-DMR,2,22371,PUGLIA,,
-DMR,2,22381,BASILICATA,,
-DMR,2,22382,CALABRIA,,
-DMR,2,22383,CAMPANIA,,
-DMR,2,22384,MOLISE,,
-DMR,2,22391,Sicilia,,
-DMR,2,223902,RAS-SARDEGNA,,
-DMR,2,223994,ARAS SICLIA,,
-DMR,2,226,Nacional de Rumania,,
-DMR,2,2260,Rumania Chatter,,
-DMR,2,2262,Distrito de Rumanía YO2,,
-DMR,2,2263,Distrito de Rumanía YO3,,
-DMR,2,2264,Distrito de Rumanía YO4,,
-DMR,2,2265,Distrito de Rumanía YO5,,
-DMR,2,2266,Distrito de Rumanía YO6,,
-DMR,2,2267,Distrito de Rumanía YO7,,
-DMR,2,2268,Distrito de Rumanía YO8,,
-DMR,2,2269,Distrito de Rumanía YO9,,
-DMR,2,22601,Rumanía D-Star YO,,
-DMR,2,22602,Rumania Puente SVXLink,,
-DMR,2,22603,Puente de Rumania RoLink,,
-DMR,2,22604,Puente de Rumania SvxNet,,
-DMR,2,22605,Rumanía Condado de Maramures,,
-DMR,2,226999,Loro de Rumania,,
-DMR,2,228,Svizzera nazionale,,
-DMR,2,22801,UA 1,,
-DMR,2,22802,UA 2,,
-DMR,2,22803,UA 3,,
-DMR,2,22804,UA 4,,
-DMR,2,22810,HB9-BM-WIRESX (nodo 27628),,
-DMR,2,22822,XLX229 módulo D,,
-DMR,2,22823,XLX229 módulo G,,
-DMR,2,22824,XLX328 módulo A,,
-DMR,2,22825,XLX328 módulo F,,
-DMR,2,22826,WIRESX HB9T (nodo 47052),,
-DMR,2,2280,Svizzera tedesca,,
-DMR,2,2281,Suisse Romande,,
-DMR,2,2282,Valais,,
-DMR,2,2283,Berna / Soletta,,
-DMR,2,2284,Basilea,,
-DMR,2,2285,Argovia / Svizzera centrale,,
-DMR,2,2286,Ticino,,
-DMR,2,2287,Grigioni,,
-DMR,2,2288,Zúrich,,
-DMR,2,2289,Svizzera orientale,,
-DMR,2,22811,WIRESX HB9VD-ROOM (Nodo 27095),,
-DMR,2,22812,Geneve,,
-DMR,2,22815,Neuchatel,,
-DMR,2,22817,Friburgo,,
-DMR,2,22877,Poschiavo,,
-DMR,2,23402,Reino Unido / XLX005 B,,
-DMR,2,23407,DV-Mega / XLX005 G,,
-DMR,2,23408,Worcestershire / XLX005 H,,
-DMR,2,23409,Irlanda del Norte / XLX005 I,,
-DMR,2,23412,Londres / XLX005 L,,
-DMR,2,23413,Midlands / XLX005 M,,
-DMR,2,23414,Norte / XLX005 N,,
-DMR,2,23415,Chat 1 / XLX005 O,,
-DMR,2,23416,Chat 2 / XLX005 P,,
-DMR,2,23417,Chat 3 / XLX005 Q,,
-DMR,2,23423,Gales y Oeste / XLX005 W,,
-DMR,2,23425,Emergencia / XLX005 Y,,
-DMR,2,2350,Llamadas al Reino Unido - QSY,,
-DMR,2,2351,Chat 1,,
-DMR,2,2352,Chat 2,,
-DMR,2,2353,Chat 3,,
-DMR,2,2354,Chat 4,,
-DMR,2,2355,Chat 5,,
-DMR,2,2356,Chat 6,,
-DMR,2,2357,Isla del hombre,,
-DMR,2,2358,Londres / XLX084 L,,
-DMR,2,2359,Kernow y Jersey,,
-DMR,2,23490,East Anglia YSF GB3GS ID 55182,,
-DMR,2,23500,Sur oeste,,
-DMR,2,23510,Sureste / XLX005 S,,
-DMR,2,23520,noroeste,,
-DMR,2,23530,Yorkshire / XLX899 Z,,
-DMR,2,23540,Chat de Irlanda del Norte,,
-DMR,2,23550,Escocia Chat,,
-DMR,2,23551,Escocia Alba Allstar Multimodo,,
-DMR,2,23557,Este de Escocia,,
-DMR,2,23558,Escocia Highland & Islands,,
-DMR,2,23559,Escocia occidental,,
-DMR,2,23560,Noreste,,
-DMR,2,23562,Corredor M62,,
-DMR,2,23565,Exploradores de Northumberland,,
-DMR,2,23570,Gales Chat,,
-DMR,2,23579,TORC / XLX994 B,,
-DMR,2,23580,West Midland,,
-DMR,2,23590,East Midlands / XLX005 E,,
-DMR,2,23595,Chat OZ-DMR,,
-DMR,2,23490,East Anglia,,
-DMR,2,238,Dinamarca,,
-DMR,2,2381,Dinamarca Nordjylland,,
-DMR,2,2382,Dinamarca Midtjylland,,
-DMR,2,2383,Dinamarca Syddanmark,,
-DMR,2,2384,Dinamarca Copenhague,,
-DMR,2,2385,Dinamarca Sjaelland,,
-DMR,2,260,Polonia HBLink,,
-DMR,2,26000,Techniczna,,
-DMR,2,260201,Chojnice,,
-DMR,2,260202,ChojniceII,,
-DMR,2,260203,Bydgoszcz,,
-DMR,2,260401,Białystok,,
-DMR,2,260501,Warszawa,,
-DMR,2,260525,Kadzidło,,
-DMR,2,260601,Breslavia,,
-DMR,2,260701,Łódź,,
-DMR,2,260778,Kutno,,
-DMR,2,260901,Tarnów,,
-DMR,2,260902,Cracovia,,
-DMR,2,260903,Zakopane,,
-DMR,2,260909,Silesia,,
-DMR,2,260911,Jastrzębie Zdrój,,
-DMR,2,260928,Orzesze,,
-DMR,2,262,Nacional,,
-DMR,2,2620,Sajonia-Anhalt / Mecklenburg,,
-DMR,2,2629,Sajonia / Turingia,,
-DMR,2,268,Portugal_National,,
-DMR,2,2681,Norte,,
-DMR,2,2682,Centro,,
-DMR,2,2683,Capital,,
-DMR,2,2684,Alentejo,,
-DMR,2,2685,Algarve,,
-DMR,2,2686,Azores,,
-DMR,2,2687,Madeira Is.,,
-DMR,2,2688,Infos,,
-DMR,2,272,NRSI,,
-DMR,2,2720,JOTA / JOTI Y JUVENTUD,,
-DMR,2,2721,Apoyo a la administración,,
-DMR,2,2722,Irlanda llamando,,
-DMR,2,2723,Irlanda Chat,,
-DMR,2,2724,YSF Irlanda ID 02724,,
-DMR,2,2725,Puente multimodo,,
-DMR,2,2726,Experimental / Homebrew,,
-DMR,2,2727,Móvil terrestre y portátil,,
-DMR,2,2728,Móvil Marítimo,,
-DMR,2,2729,Espacio / AMSAT Irlanda,,
-DMR,2,27210,Llamada / chat de la provincia de Connacht,,
-DMR,2,27211,C2 - Connacht Chat 2,,
-DMR,2,27212,C3 - Connacht Chat 3,,
-DMR,2,27213,C4 - Connacht Chat 4,,
-DMR,2,27214,C5 - Chat de Connacht 5,,
-DMR,2,27215,Llamada / chat de la provincia de Leinster,,
-DMR,2,27216,L2 - Leinster Chat 2,,
-DMR,2,27217,L3 - Leinster Chat 3,,
-DMR,2,27218,L4 - Leinster Chat 4,,
-DMR,2,27219,L5 - Leinster Chat 5,,
-DMR,2,27220,Llamada / chat de la provincia de Munster,,
-DMR,2,27221,M2 - Munster Chat 2,,
-DMR,2,27222,M3 - Munster Chat 3,,
-DMR,2,27223,M4 - Munster Chat 4,,
-DMR,2,27224,M5 - Munster Chat 5,,
-DMR,2,27225,Llamada / chat de la provincia de Ulster,,
-DMR,2,27226,U2 - Ulster Chat 2,,
-DMR,2,27227,U3 - Ulster Chat 3,,
-DMR,2,27228,U4 - Ulster Chat 4,,
-DMR,2,27229,U5 - Ulster Chat 5,,
-DMR,2,27230,Llamada / chat de la región de Midlands,,
-DMR,2,27231,MID2 - Chat de Midlands 2,,
-DMR,2,27232,MID3 - Chat de Midlands 3,,
-DMR,2,27233,MID4 - Chat de Midlands 4,,
-DMR,2,27234,MID5 - Chat de Midlands 5,,
-DMR,2,27235,Islas Llamada / Chat,,
-DMR,2,27236,I2 - Chat en la isla 2,,
-DMR,2,27237,I3 - Chat en la isla 3,,
-DMR,2,27238,I4 - Chat en la isla 4,,
-DMR,2,27239,I5 - Chat en la isla 5,,
-DMR,2,27241,Frecuencia media y baja,,
-DMR,2,27242,Alta frecuencia,,
-DMR,2,27243,Muy alta frecuencia,,
-DMR,2,27244,Frecuencia ultra alta,,
-DMR,2,27245,Microonda,,
-DMR,2,27246,Concurso,,
-DMR,2,27247,DX Irlanda,,
-DMR,2,27250,Datos,,
-DMR,2,27271,Juventud,,
-DMR,2,27288,YL y XYL,,
-DMR,2,27290,Alerta Nacional de Emergencia,,
-DMR,2,27291,Primario IECRO,,
-DMR,2,27292,Secundario IECRO,,
-DMR,2,284,BG Nacional,,
-DMR,2,2842,Sofía,,
-DMR,2,2843,Plovdiv,,
-DMR,2,2844,Varna,,
-DMR,2,2845,Burgas,,
-DMR,2,2846,Sliven,,
-DMR,2,28411,HBLink-BULGARIA,,
-DMR,2,284016,Sureste de Bulgaria,,
-DMR,2,302,Canada Wide Yukon y NWT,,
-DMR,2,3020,Terranova y Labrador y PEI,,
-DMR,2,3021,nueva Escocia,,
-DMR,2,3022,Quebec,,
-DMR,2,3023,Ontario,,
-DMR,2,3024,Manitoba,,
-DMR,2,3025,Saskatchewan,,
-DMR,2,3026,Alberta,,
-DMR,2,3027,Columbia Británica,,
-DMR,2,3028,Nunavut Yukon y NWT,,
-DMR,2,3029,Nuevo Brunswick,,
-DMR,2,702,Enlace digital Bluffton,,
-DMR,2,3100,Estados Unidos a nivel nacional,,
-DMR,2,31001,NA TAC 1,,
-DMR,2,31002,NA TAC 2,,
-DMR,2,31003,NA TAC 3,,
-DMR,2,31004,NA TAC 4,,
-DMR,2,31005,NA TAC 5,,
-DMR,2,31006,NA TAC 6,,
-DMR,2,31007,NA TAC 7,,
-DMR,2,31008,NA TAC 8,,
-DMR,2,31009,NA TAC 9,,
-DMR,2,3101,Alabama,,
-DMR,2,3102,Alaska,,
-DMR,2,3104,Arizona,,
-DMR,2,3105,Arkansas,,
-DMR,2,3106,California,,
-DMR,2,31061,CA TAC,,
-DMR,2,31068,NorCal,,
-DMR,2,31069,Puente NorCal,,
-DMR,2,3108,Colorado,,
-DMR,2,3109,Connecticut,,
-DMR,2,3110,Delaware,,
-DMR,2,3111,Distrito de Columbia,,
-DMR,2,3112,Florida,,
-DMR,2,3113,Georgia,,
-DMR,2,3115,Hawaiano,,
-DMR,2,3116,Idaho,,
-DMR,2,3117,Illinois,,
-DMR,2,3118,Indiana,,
-DMR,2,3119,Iowa,,
-DMR,2,3120,Kansas,,
-DMR,2,3121,Kentucky,,
-DMR,2,3122,Luisiana,,
-DMR,2,3123,Maine,,
-DMR,2,3124,Maryland,,
-DMR,2,3125,Massachusetts,,
-DMR,2,3126,Michigan,,
-DMR,2,31260,Alerta ZOMBI EE. UU. / XLX240B,,
-DMR,2,3127,Minnesota,,
-DMR,2,3128,Misisipí,,
-DMR,2,3129,Misuri,,
-DMR,2,3130,Montana,,
-DMR,2,3131,Nebraska,,
-DMR,2,3132,Nevada,,
-DMR,2,3133,New Hampshire,,
-DMR,2,3134,New Jersey,,
-DMR,2,3135,Nuevo Mexico,,
-DMR,2,3136,Nueva York,,
-DMR,2,3137,Carolina del Norte,,
-DMR,2,31373,Este de Carolina del Norte,,
-DMR,2,31377,OBX,,
-DMR,2,31379,NC TAC,,
-DMR,2,3138,Dakota del Norte,,
-DMR,2,3139,Ohio,,
-DMR,2,3140,Oklahoma,,
-DMR,2,3141,Oregón,,
-DMR,2,3142,Pensilvania,,
-DMR,2,3143,Puerto Rico,,
-DMR,2,3144,Rhode Island,,
-DMR,2,3145,Carolina del Sur,,
-DMR,2,3146,Dakota del Sur,,
-DMR,2,3147,Tennesse,,
-DMR,2,3148,Texas,,
-DMR,2,3149,Utah,,
-DMR,2,3150,Vermont,,
-DMR,2,3151,Virginia,,
-DMR,2,3152,Islas Virgenes,,
-DMR,2,3153,Washington,,
-DMR,2,3154,Virginia del Oeste,,
-DMR,2,3155,Wisconsin,,
-DMR,2,3156,Wyoming,,
-DMR,2,3160,Reflector Crossroads-USA,,
-DMR,2,31601,Chat 1 de NC4ES,,
-DMR,2,31602,Chat 2 de NC4ES,,
-DMR,2,31603,NC4ES AUXCOMM,,
-DMR,2,31604,Enlace RF NC4ES,,
-DMR,2,31605,NC4ES EHPC,,
-DMR,2,3166,DVSwitch,,
-DMR,2,310001,ECO ORIENTE,,
-DMR,2,330,Nacional,,
-DMR,2,3300,PR00,,
-DMR,2,3301,PR01,,
-DMR,2,3302,PR02,,
-DMR,2,3303,PR03,,
-DMR,2,3304,PR04,,
-DMR,2,3305,PR05,,
-DMR,2,3306,PR06,,
-DMR,2,3307,PR07,,
-DMR,2,3308,PR08,,
-DMR,2,3309,PR09,,
-DMR,2,33010,PR10,,
-DMR,2,33011,PR11,,
-DMR,2,33012,PR12,,
-DMR,2,33013,PR13,,
-DMR,2,33014,PR14,,
-DMR,2,33015,PR15,,
-DMR,2,33016,PR16,,
-DMR,2,33017,PRNet,,
-DMR,2,33018,PR018,,
-DMR,2,33019,PR019,,
-DMR,2,33020,PR020,,
-DMR,2,334,Nacional,,
-DMR,2,3341,Zona XE1,,
-DMR,2,3342,Zona XE2,,
-DMR,2,3343,Zona XE3,,
-DMR,2,3349,Zona W,,
-DMR,2,3340,Segunda Nacional,,
-DMR,2,33450,FMRE,,
-DMR,2,33451,ARAM,,
-DMR,2,33455,Experimentación,,
-DMR,2,33456,DXCC,,
-DMR,2,33457,Scouts y Jamboree JOTA / JOTI,,
-DMR,2,33401,Aguascalientes,,
-DMR,2,33402,Baja California Norte,,
-DMR,2,33403,Baja California Sur,,
-DMR,2,33404,Campeche,,
-DMR,2,33405,Coahuila,,
-DMR,2,33406,Colima,,
-DMR,2,33407,Chiapas,,
-DMR,2,33408,Chihuahua,,
-DMR,2,33409,CDMX / DF,,
-DMR,2,33410,Durango,,
-DMR,2,33411,Guanajuato,,
-DMR,2,33412,Guerrero,,
-DMR,2,33413,Hidalgo,,
-DMR,2,33414,Jalisco,,
-DMR,2,33415,Estado de México,,
-DMR,2,33416,Michoacán,,
-DMR,2,33417,Morelos,,
-DMR,2,33418,Nayarit,,
-DMR,2,33419,Nuevo León,,
-DMR,2,33420,Oaxaca,,
-DMR,2,33421,Puebla,,
-DMR,2,33422,Querétaro,,
-DMR,2,33423,Quintana roo,,
-DMR,2,33424,San Luis Potosí,,
-DMR,2,33425,Sinaloa,,
-DMR,2,33426,Sonora,,
-DMR,2,33427,Tabasco,,
-DMR,2,33428,Tamaulipas,,
-DMR,2,33429,Tlaxcala,,
-DMR,2,33430,Veracruz,,
-DMR,2,33431,Yucatán,,
-DMR,2,33432,Zacatecas,,
-DMR,2,370,República Dominicana,,
-DMR,2,3701,DR Zona 1,,
-DMR,2,3702,DR Zona 2,,
-DMR,2,3703,DR Zona 3,,
-DMR,2,3704,DR Zona 4,,
-DMR,2,3705,DR Zona 5,,
-DMR,2,3706,DR Zona 6,,
-DMR,2,3707,DR Zona 7,,
-DMR,2,3708,DR Zona 8,,
-DMR,2,37022,DR Net,,
-DMR,2,37030,Skynet,,
-DMR,2,37040,DR Multiprotocolo,,
-DMR,2,37050,DR Tech,,
-DMR,2,46600,Taiwán,,
-DMR,2,505,Australia,,
-DMR,2,5051,ACT (Territorio de la Capital Australiana),,
-DMR,2,5052,NSW (Nueva Gales del Sur),,
-DMR,2,5053,VIC (Victoria),,
-DMR,2,5054,QLD (Queensland),,
-DMR,2,5055,SA (Australia del Sur),,
-DMR,2,5056,WA (Australia Occidental),,
-DMR,2,5057,TAS (Tasmania),,
-DMR,2,5058,NT (Territorio del Norte),,
-DMR,2,520,Tailandia en todo el país,,
-DMR,2,5201,Chat 1,,
-DMR,2,5202,TH ASL-55087,,
-DMR,2,5203,Chat 3,,
-DMR,2,5204,XLX727 C,,
-DMR,2,5205,XLX138 F,,
-DMR,2,52007,Estación E20AE Club,,
-DMR,2,52010,Tailandia Regian 1,,
-DMR,2,52020,Tailandia Regian 2,,
-DMR,2,52022,Chantaburi / XLX822 C,,
-DMR,2,52030,Tailandia Regian 3,,
-DMR,2,52040,Tailandia Regian 4,,
-DMR,2,52050,Tailandia Regian 5,,
-DMR,2,52060,Tailandia Regian 6,,
-DMR,2,52070,Tailandia Regian 7,,
-DMR,2,52080,Tailandia Regian 8,,
-DMR,2,52090,Tailandia Regian 9,,
-DMR,2,530,ZL Nacional,,
-DMR,2,5301,Región ZL 1,,
-DMR,2,5302,Región ZL 2,,
-DMR,2,5303,Región ZL 3,,
-DMR,2,5304,Región ZL 4,,
-DMR,2,53020,Enlace CQ-UK / XLX750 A,,
-DMR,2,53029,XLX299 X,,
-DMR,2,53050,XLX750 C,,
-DMR,2,53060,Club de radioaficionados Taupo,,
-DMR,2,53099,XLX750 D (P),,
-DMR,2,530287,XLX287 A (P),,
-DMR,2,530530,XLX750 S (P),,
-DMR,2,604,Marruecos-Nacional,,
-DMR,2,60401,DMR-MAROC,,
-DMR,2,7000,Red Digital Centroamericana,,
-DMR,2,706,El Salvador,,
-DMR,2,7060,El Salvador XLX526 C,,
-DMR,2,7061,Región 1 de El Salvador,,
-DMR,2,7062,Región 2 de El Salvador,,
-DMR,2,7063,Región 3 de El Salvador,,
-DMR,2,7064,Eventos El Salvador,,
-DMR,2,7065,El Salvador Emergencias,,
-DMR,2,710,Nacional,,
-DMR,2,7101,Zona YN1,,
-DMR,2,7102,Zona YN2,,
-DMR,2,7103,Zona YN3,,
-DMR,2,7104,Zona YN4,,
-DMR,2,7105,Zona YN5,,
-DMR,2,71000,XLX711 A,,
-DMR,2,710411,Punto de Encuentro Interno,,
-DMR,2,710911,Emergencia Nacional,,
-DMR,2,712,Costa Rica,,
-DMR,2,714,Panamá Nacional,,
-DMR,2,7143,Alambres de PanamáX,,
-DMR,2,7144,Enlace Chiriquí,,
-DMR,2,7145,GREMPA,,
-DMR,2,7146,UPRA,,
-DMR,2,7147,HUB PANAMÁ,,
-DMR,2,7148,Radio Club Panamá,,
-DMR,2,7149,Scouts de Panamá,,
-DMR,2,71410,Trx Oeste,,
-DMR,2,714911,Emergencia Panamá,,
-DMR,2,716,Perú,,
-DMR,2,7160,Perú Digital / XLX716 C,,
-DMR,2,7161,Perú Zona OA1,,
-DMR,2,7162,Perú Zona OA2,,
-DMR,2,7163,Perú Zona OA3,,
-DMR,2,7164,Perú Zona OA4,,
-DMR,2,7165,Perú Zona OA5,,
-DMR,2,7166,Perú Zona OA6,,
-DMR,2,7167,Perú Zona OA7,,
-DMR,2,7168,Perú Zona OA8,,
-DMR,2,7169,Perú Zona OA9,,
-DMR,2,722,ARG 722,,
-DMR,2,7221,ARG 7221,,
-DMR,2,7222,ARG 7222,,
-DMR,2,7223,ARG 7223,,
-DMR,2,7224,ARG 7224,,
-DMR,2,7225,ARGENTINA DIGITAL,,
-DMR,2,7226,ARG 7226,,
-DMR,2,7227,ARG 7227,,
-DMR,2,7228,ARG 7228,,
-DMR,2,7229,ARG 7229,,
-DMR,2,724,Nacional de Brasil,,
-DMR,2,7241,Norte,,
-DMR,2,7242,Nordeste,,
-DMR,2,7243,Centro-Oeste,,
-DMR,2,7244,Sudeste,,
-DMR,2,7245,Sul,,
-DMR,2,72411,Sao Paulo,,
-DMR,2,72416,YSF-NET,,
-DMR,2,72421,Rio de Janeiro,,
-DMR,2,72427,Espíritu Santo,,
-DMR,2,72431,Minas Gerais,,
-DMR,2,72441,Paraná,,
-DMR,2,72448,Santa Catarina,,
-DMR,2,72451,Rio Grande do Sul,,
-DMR,2,72461,Brasilia,,
-DMR,2,72462,Goiás,,
-DMR,2,72463,Tocantins,,
-DMR,2,72465,Mato Grosso,,
-DMR,2,72467,Mato Grosso del Sur,,
-DMR,2,72468,Acre,,
-DMR,2,72469,Rondônia,,
-DMR,2,72471,Bahía,,
-DMR,2,72479,Sergipe,,
-DMR,2,72481,Pernambuco,,
-DMR,2,72482,Alagoas,,
-DMR,2,72483,Paraíba,,
-DMR,2,72484,Rio Grande do Norte,,
-DMR,2,72485,Ceará,,
-DMR,2,72486,Piauí,,
-DMR,2,72490,Desbravadores,,
-DMR,2,72491,Paraca,,
-DMR,2,72492,Amazonas,,
-DMR,2,72495,Roraima,,
-DMR,2,72496,Amapá,,
-DMR,2,72498,Maranhão,,
-DMR,2,730,CHILE - Nacional,,
-DMR,2,7301,CE1 Zona1 Arica - Atacama,,
-DMR,2,7302,CE2 Zona2 Coquimbo -Valparaiso,,
-DMR,2,7303,CE3 Zona3 Metropolitana,,
-DMR,2,7304,CE4 Zona4 O'Higgins - Ñuble,,
-DMR,2,7305,CE5 Zona5 BioBio,,
-DMR,2,7306,CE6 Zona6 Araucania y Los Rios,,
-DMR,2,7307,CE7 Zona7 Los Lagos - Aysen,,
-DMR,2,7308,CE8 Zona8 Magallanes,,
-DMR,2,7309,CE9 Zona9 U.Esperanza - Antártida,,
-DMR,2,7300,CE0 Zona0 Chile Insular,,
-DMR,2,730911,EMMCOM Chile,,
-DMR,2,73010,YSF CL-Link YSF51028 - Alambres X-81510,,
-DMR,2,73020,XLX200,,
-DMR,2,730907,JOTA,,
-DMR,2,732,HK. Nacional,,
-DMR,2,7320,HK0 Atlantico,,
-DMR,2,7321,HK1 Cesar,,
-DMR,2,7322,HK2 Bogotá,,
-DMR,2,7323,HK3 Antioquia,,
-DMR,2,7324,HK4 Cauca,,
-DMR,2,7325,HK5 Caldas,,
-DMR,2,7326,HK6 Arauca,,
-DMR,2,7327,HK7 Caquetá,,
-DMR,2,7328,HK8 Amazonas,,
-DMR,2,7329,HK9 Malpelo,,
-DMR,2,73230,Calderonet,,
-DMR,2,732075,FRACOL,,
-DMR,2,734,NACIONAL VENEZUELA,,
-DMR,2,7341,Falcón-Trujillo-Zulia,,
-DMR,2,73411,Venezuela enlace YSF,,
-DMR,2,7342,Barinas-Mérida-Táchira,,
-DMR,2,7343,Lara-Portuguesa-Yaracuy,,
-DMR,2,7344,Aragua-Carabobo-Cojedes,,
-DMR,2,7345,Dtto. Capital-Guárico-Miranda-Dep. Federales,,
-DMR,2,7346,Anzoategui-Bolivar,,
-DMR,2,7347,Nueva esparta-Sucre,,
-DMR,2,7348,Monagas-Delta Amacuro,,
-DMR,2,7349,Apure-Amazonas,,
-DMR,2,734911,EMCOMM YV,,
-DMR,2,740,Ecuador,,
-DMR,2,7401,Ecuador HC3 Loja,,
-DMR,2,748,Uruguay,,
-DMR,2,7487,Enlace Uruguay,,
-DMR,2,74800,EMERGENCIA,,
-DMR,2,74803,Artigas,,
-DMR,2,74804,Canelones,,
-DMR,2,74805,Cerro Largo,,
-DMR,2,74806,Colonia,,
-DMR,2,74807,Durazno,,
-DMR,2,74808,Flores,,
-DMR,2,74809,Florida,,
-DMR,2,74810,Lavalleja,,
-DMR,2,74811,Maldonado,,
-DMR,2,74801,Montevideo,,
-DMR,2,74802,Montevideo,,
-DMR,2,74812,Paysandú,,
-DMR,2,74813,Rio negro,,
-DMR,2,74814,Rivera,,
-DMR,2,74815,Rocha,,
-DMR,2,74816,Salto,,
-DMR,2,74817,San Jose,,
-DMR,2,74818,Soriano,,
-DMR,2,74819,Tacuarembó,,
-DMR,2,74820,Treinta y Tres,,
-DMR,2,74830,CXUA1,,
-DMR,2,74840,CXUA2,,
-DMR,2,74850,CXUA3,,
-DMR,2,74860,CXUA4,,
-DMR,2,748230,Actividades de Marconi (IMDetc.),,
-YSF,0,1,PARROT,,
-YSF,0,2,WELCOME,,
-YSF,0,3,WORLD,,
-YSF,0,10,ENGLISH,,
-YSF,0,11,WALLONIE,,
-YSF,0,12,FRANCE,,
-YSF,0,13,OWL-NET,,
-YSF,0,14,GUATEMALA,,
-YSF,0,15,PANAMA-HUB,,
-YSF,0,17,DUTCH,,
-YSF,0,18,VLAAMS-BE,,
-YSF,0,19,WX-ESP,,
-YSF,0,20,FRENCH-BE,,
-YSF,0,21,HISPANO,,
-YSF,0,23,CANARIAS,,
-YSF,0,24,C4FM-LINK,,
-YSF,0,25,CQ-UK-2,,
-YSF,0,27,FUSION-MX,,
-YSF,0,30,GERMAN,,
-YSF,0,33,ARG-ROOM,,
-YSF,0,34,MEXICO,,
-YSF,0,35,CQ-UK,,
-YSF,0,36,DVSCOTLAND,,
-YSF,0,37,GB-NORTH,,
-YSF,0,38,HUBNET,,
-YSF,0,39,DURANGO,,
-YSF,0,40,ITALIAN,,
-YSF,0,41,VENEZUELA,,
-YSF,0,42,IT-MULTIP,,
-YSF,0,43,ZPRV-BE,,
-YSF,0,44,CHIRIQUI,,
-YSF,0,45,W-WL,,
-YSF,0,47,ECUADOR,,
-YSF,0,48,RC-UTIEL,,
-YSF,0,50,ANDALUCIA,,
-YSF,0,52,DE-RAMSES,,
-YSF,0,53,ODW-NET,,
-YSF,0,54,VARG,,
-YSF,0,55,POLAND,,
-YSF,0,60,DE-KUSEL,,
-YSF,0,62,DL-HAMBURG,,
-YSF,0,63,REM,,
-YSF,0,65,ADER,,
-YSF,0,66,RUSSIA,,
-YSF,0,71,PORTUGAL,,
-YSF,0,77,RC-VELETA,,
-YSF,0,78,ELITE,,
-YSF,0,79,ZULURADIO,,
-YSF,0,81,FR-MULTI,,
-YSF,0,82,RADHISTEC,,
-YSF,0,86,ARGENTINA,,
-YSF,0,87,C-AMERICA,,
-YSF,0,88,ALCOYANOS,,
-YSF,0,89,PERU,,
-YSF,0,90,Radio-Net,,
-YSF,0,91,DMR-LNK,,
-YSF,0,92,GDXBSAS,,
-YSF,0,93,DE-RUNDE,,
-YSF,0,94,MESSAGES,,
-YSF,0,95,LATINOS,,
-YSF,0,96,EA7URF,,
-YSF,0,97,DATA-ROOM,,
-YSF,0,98,URUGUAY,,
-YSF,0,99,TEST,,
+﻿MODE,TS,TG,
+DMR,2,91,Worldwide
+DMR,2,907,XLX005 J – JOTA JOTI YOTA Website
+DMR,2,9071,JOTA JOTI YOTA TG's Website
+DMR,2,9072,JOTA JOTI YOTA TG's Website
+DMR,2,9073,JOTA JOTI YOTA TG's Website
+DMR,2,9074,JOTA JOTI YOTA TG's Website
+DMR,2,9075,JOTA JOTI YOTA TG's Website
+DMR,2,9076,JOTA JOTI YOTA TG's Website
+DMR,2,9077,JOTA JOTI YOTA TG's Website
+DMR,2,9078,JOTA JOTI YOTA TG's Website
+DMR,2,910,German Language
+DMR,2,913,English Language
+DMR,2,914,Spanish Language
+DMR,2,915,Portuguese Language
+DMR,2,916,Italian Language
+DMR,2,919,Polish Language
+DMR,2,922,Dutch Language
+DMR,2,924,Swedish Language
+DMR,2,927,Nordic Language
+DMR,2,928,Russian Language
+DMR,2,937,French Language FRANCOPHONIE
+DMR,2,940,Arabic Language
+DMR,2,941,Mandarin Language
+DMR,2,942,Hindi Language
+DMR,2,943,Bengali Language
+DMR,2,944,Japanese Language
+DMR,2,945,Indonesian Language
+DMR,2,950,Firefighters of the world
+DMR,2,9541,RadHisTec
+DMR,2,973,SOTA
+DMR,2,,
+DMR,2,202,National Greece‎‎ - YSF ID 00202
+DMR,2,2021,Area 1 National - Central Greece
+DMR,2,2022,Area 2 National - Central & West Macedonia
+DMR,2,2023,Area 3 National – Peloponnese
+DMR,2,2024,Area 4 National – Thessaly
+DMR,2,2025,Area 5 National - Dodecanese Islands
+DMR,2,2026,Area 6 National - Epirus
+DMR,2,2027,Area 7 National - Thrace and East Macedonia
+DMR,2,2028,Area 8 National - All Greek islands
+DMR,2,,(except the Dodecanese Islands and Crete Island)
+DMR,2,2029,Area 9 National - Crete Island
+DMR,2,20201,Hellenic Tech 1
+DMR,2,20202,Hellenic Tech 2
+DMR,2,20231,PATRAS Group
+DMR,2,20241,Trikala Greece
+DMR,2,20261,Ioannina Greece
+DMR,2,20281,Corfu Island Greece
+DMR,2,,
+DMR,2,204,Nederlands-National
+DMR,2,20400,Nederlands-Gateway
+DMR,2,20401,Nederlands-Drenthe
+DMR,2,20402,Nederlands-Flevoland
+DMR,2,20403,Nederlands-Friesland
+DMR,2,20404,Nederlands-Gelderland
+DMR,2,20405,Nederlands-Groningen
+DMR,2,20406,Nederlands-Limburg
+DMR,2,20407,Nederlands-Noord Brabant
+DMR,2,20408,Nederlands-Noord Holland
+DMR,2,20409,Nederlands-Overijssel
+DMR,2,20410,Nederlands-Zuid Holland
+DMR,2,20411,Nederlands-Utrecht
+DMR,2,204112,Nederlands-Emergency
+DMR,2,,
+DMR,2,206,Belgium-National
+DMR,2,2061,Belgium-North
+DMR,2,2062,Belgium-South
+DMR,2,2063,Belgium-East
+DMR,2,2064,Belgium-On Demand
+DMR,2,2065,Belgium-On Demand
+DMR,2,2066,Belgium-On Demand
+DMR,2,2067,Belgium-On Demand
+DMR,2,2068,Belgium-On Demand
+DMR,2,2069,Belgium-On Demand
+DMR,2,20600,Belgium-Liege
+DMR,2,20601,Belgium-Namur
+DMR,2,20602,Belgium-Luxembourg
+DMR,2,20603,Belgium-Hainaut
+DMR,2,20604,Belgium-Brussels
+DMR,2,20605,Belgium-Brabant Wallon
+DMR,2,20606,Belgium-Vlaams Brabant
+DMR,2,20607,Belgium-Limburg
+DMR,2,20608,Belgium-Antwerpen
+DMR,2,20609,Belgium-O.Vlanderen
+DMR,2,20610,Belgium-W.Vlanderen
+DMR,2,206112,Belgium-Emergency
+DMR,2,,
+DMR,2,208,France DMR+
+DMR,2,2081,France IDF
+DMR,2,2082,France Sud-Est
+DMR,2,2083,France
+DMR,2,2084,France Est
+DMR,2,2085,France
+DMR,2,2086,France
+DMR,2,2087,France
+DMR,2,2088,France
+DMR,2,2089,Dom Tom
+DMR,2,20800,YSF-France ID 58617
+DMR,2,20811,Corse DMR+
+DMR,2,20820,Corse / XLX255 K
+DMR,2,20833,Gironde
+DMR,2,20844,Loire-Atlanique
+DMR,2,20853,Mayenne
+DMR,2,20857,Moselle
+DMR,2,20866,Pyreness-Onrientales
+DMR,2,20867,Bas-Rhin
+DMR,2,20871,Saone-et-Loire
+DMR,2,20878,Yvelines
+DMR,2,20887,Linousin
+DMR,2,20895,Val d''Oise'
+DMR,2,208000,YSF France-Wide ID 64879
+DMR,2,,
+DMR,2,214,National (P)
+DMR,2,2141,ZONE 1 EA
+DMR,2,2142,ZONE 2 EA
+DMR,2,2143,ZONE 3 EA
+DMR,2,2144,ZONE 4 EA
+DMR,2,2145,ZONE 5 EA
+DMR,2,2146,ZONE 6 EA
+DMR,2,2147,ZONE 7 EA
+DMR,2,2148,ZONE 8 EA
+DMR,2,2149,ZONE 9 EA
+DMR,2,21411,URE SEC.COMARCAL S.FERNANDO CADIZ
+DMR,2,21460,CERT-SPAIN
+DMR,2,21461,Multiprotocol DMR / NXDN / FUSION / DSTAR / P25
+DMR,2,214112,EMERGENCY
+DMR,2,,
+DMR,2,222,National
+DMR,2,22200,Italy Multiprotocol
+DMR,2,22201,Regional LAZIO
+DMR,2,22202,Regional SARDEGNA
+DMR,2,22203,Regional UMBRIA
+DMR,2,22211,Regional LIGURIA
+DMR,2,22212,Regional PIEMONTE
+DMR,2,22213,Regional VALLE D’AOSTA
+DMR,2,22221,Regional LOMBARDIA
+DMR,2,22231,Regional FRIULI VENEZIA GIULIA
+DMR,2,22232,Regional TRENTINO ALTO ADIGE
+DMR,2,22233,Regional VENETO
+DMR,2,22241,Regional EMILIA ROMAGNA
+DMR,2,22251,Regional TOSCANA
+DMR,2,22261,Regional ABRUZZO
+DMR,2,22262,Regional MARCHE
+DMR,2,22271,Regional PUGLIA
+DMR,2,22281,Regional BASILICATA
+DMR,2,22282,Regional CALABRIA
+DMR,2,22283,Regional CAMPANIA
+DMR,2,22284,Regional MOLISE
+DMR,2,22291,Regional SICILIA
+DMR,2,222958,Multiprotocol D2-ALP
+DMR,2,222994,Multiprotocol Zone 9 Sicily
+DMR,2,,
+DMR,2,223,National
+DMR,2,22301,LAZIO
+DMR,2,22302,SARDEGNA
+DMR,2,22303,UMBRIA
+DMR,2,22311,LIGURIA
+DMR,2,22312,PIEMONTE
+DMR,2,22313,VALLE D’AOSTA
+DMR,2,22320,ITALYNET CONFERENCE
+DMR,2,22321,LOMBARDIA
+DMR,2,22331,FRIULI VENEZIA GIULIA
+DMR,2,22332,TRENTINO ALTO ADIGE
+DMR,2,22333,VENETO
+DMR,2,22341,EMILIA ROMAGNA
+DMR,2,22351,TOSCANA
+DMR,2,22361,ABRUZZO
+DMR,2,22362,MARCHE
+DMR,2,22371,PUGLIA
+DMR,2,22381,BASILICATA
+DMR,2,22382,CALABRIA
+DMR,2,22383,CAMPANIA
+DMR,2,22384,MOLISE
+DMR,2,22391,SICILIA
+DMR,2,223902,RAS-SARDEGNA
+DMR,2,223994,ARAS SICLIA
+DMR,2,,
+DMR,2,226,Romania National
+DMR,2,2260,Romania Chatter
+DMR,2,2262,Romania District YO2
+DMR,2,2263,Romania District YO3
+DMR,2,2264,Romania District YO4
+DMR,2,2265,Romania District YO5
+DMR,2,2266,Romania District YO6
+DMR,2,2267,Romania District YO7
+DMR,2,2268,Romania District YO8
+DMR,2,2269,Romania District YO9
+DMR,2,22601,Romania D-Star YO
+DMR,2,22602,Romania SVXLink Bridge
+DMR,2,22603,Romania RoLink Bridge
+DMR,2,22604,Romania SvxNet Bridge
+DMR,2,22605,Romania Maramures County
+DMR,2,226999,Romania Parrot
+DMR,2,,
+DMR,2,228,Svizzera nazionale
+DMR,2,22801,UA 1
+DMR,2,22802,UA 2
+DMR,2,22803,UA 3
+DMR,2,22804,UA 4
+DMR,2,22810,HB9-BM-WIRESX (Node 27628)
+DMR,2,22822,XLX229 modulo D
+DMR,2,22823,XLX229 modulo G
+DMR,2,22824,XLX328 modulo A
+DMR,2,22825,XLX328 modulo F
+DMR,2,22826,WIRESX HB9T (Node 47052)
+DMR,2,2280,Svizzera tedesca
+DMR,2,2281,Suisse Romande
+DMR,2,2282,Valais
+DMR,2,2283,Berna / Soletta
+DMR,2,2284,Basilea
+DMR,2,2285,Argovia / Svizzera centrale
+DMR,2,2286,Ticino
+DMR,2,2287,Grigioni
+DMR,2,2288,Zurich
+DMR,2,2289,Svizzera orientale
+DMR,2,22811,WIRESX HB9VD-ROOM (Node 27095)
+DMR,2,22812,Geneve
+DMR,2,22815,Neuchatel
+DMR,2,22817,Friburg
+DMR,2,22877,Poschiavo
+DMR,2,,
+DMR,2,23402,UK / XLX005 B
+DMR,2,23407,DV-Mega / XLX005 G
+DMR,2,23408,Worcestershire / XLX005 H
+DMR,2,23409,N. Ireland / XLX005 I
+DMR,2,23412,London / XLX005 L
+DMR,2,23413,Midlands / XLX005 M
+DMR,2,23414,North / XLX005 N
+DMR,2,23415,Chat 1 / XLX005 O
+DMR,2,23416,Chat 2 / XLX005 P
+DMR,2,23417,Chat 3 / XLX005 Q
+DMR,2,23423,Wales & West / XLX005 W
+DMR,2,23425,Emergency / XLX005 Y
+DMR,2,,
+DMR,2,2350,UK Calling – QSY
+DMR,2,2351,Chat 1
+DMR,2,2352,Chat 2
+DMR,2,2353,Chat 3
+DMR,2,2354,Chat 4
+DMR,2,2355,Chat 5
+DMR,2,2356,Chat 6
+DMR,2,2357,Isle of Man
+DMR,2,2358,London / XLX084 L
+DMR,2,2359,Kernow & Jersey
+DMR,2,23490,East Anglia YSF GB3GS ID 55182
+DMR,2,23500,South West
+DMR,2,23510,South East / XLX005 S
+DMR,2,23520,North West
+DMR,2,23530,Yorkshire / XLX899 Z
+DMR,2,23540,N. Ireland Chat
+DMR,2,23550,Scotland Chat
+DMR,2,23551,Scotland Alba Allstar Multimode
+DMR,2,23557,Scotland East
+DMR,2,23558,Scotland Highland & Islands
+DMR,2,23559,Scotland West
+DMR,2,23560,North East
+DMR,2,23562,M62 Corridor
+DMR,2,23565,Northumberland Scouts
+DMR,2,23570,Wales Chat
+DMR,2,23579,TORC / XLX994 B
+DMR,2,23580,West Midland
+DMR,2,23590,East Midlands / XLX005 E
+DMR,2,23595,OZ-DMR Chat
+DMR,2,23490,East Anglia
+DMR,2,,
+DMR,2,238,Denmark
+DMR,2,2381,Denmark Nordjylland
+DMR,2,2382,Denmark Midtjylland
+DMR,2,2383,Denmark Syddanmark
+DMR,2,2384,Denmark Copenhagen
+DMR,2,2385,Denmark Sjaelland
+DMR,2,,
+DMR,2,260,Poland HBLink
+DMR,2,26000,Techniczna
+DMR,2,260201,Chojnice
+DMR,2,260202,ChojniceII
+DMR,2,260203,Bydgoszcz
+DMR,2,260401,Białystok
+DMR,2,260501,Warszawa
+DMR,2,260525,Kadzidło
+DMR,2,260601,Wrocław
+DMR,2,260701,Łódź
+DMR,2,260778,Kutno
+DMR,2,260901,Tarnów
+DMR,2,260902,Kraków
+DMR,2,260903,Zakopane
+DMR,2,260909,Silesia
+DMR,2,260911,Jastrzębie Zdrój
+DMR,2,260928,Orzesze
+DMR,2,,
+DMR,2,262,National
+DMR,2,2620,Saxony-Anhalt/Mecklenburg
+DMR,2,2629,Saxony/Thuringia
+DMR,2,,
+DMR,2,268,Portugal_National
+DMR,2,2681,Norte
+DMR,2,2682,Centro
+DMR,2,2683,Capital
+DMR,2,2684,Alentejo
+DMR,2,2685,Algarve
+DMR,2,2686,Azores
+DMR,2,2687,Madeira Is.
+DMR,2,2688,Infos
+DMR,2,,
+DMR,2,272,NRSI
+DMR,2,2720,JOTA / JOTI & YOUTH
+DMR,2,2721,Administration / Support
+DMR,2,2722,Ireland Calling
+DMR,2,2723,Ireland Chat
+DMR,2,2724,YSF Ireland ID 02724
+DMR,2,2725,Multimode Bridging
+DMR,2,2726,Experimental / Homebrew
+DMR,2,2727,Portable and Land Mobile
+DMR,2,2728,Maritime Mobile
+DMR,2,2729,Space / AMSAT Ireland
+DMR,2,27210,Connacht Province Call/Chat
+DMR,2,27211,C2 – Connacht Chat 2
+DMR,2,27212,C3 – Connacht Chat 3
+DMR,2,27213,C4 – Connacht Chat 4
+DMR,2,27214,C5 – Connacht Chat 5
+DMR,2,27215,Leinster Province Call/Chat
+DMR,2,27216,L2 – Leinster Chat 2
+DMR,2,27217,L3 – Leinster Chat 3
+DMR,2,27218,L4 – Leinster Chat 4
+DMR,2,27219,L5 – Leinster Chat 5
+DMR,2,27220,Munster Province Call/Chat
+DMR,2,27221,M2 – Munster Chat 2
+DMR,2,27222,M3 – Munster Chat 3
+DMR,2,27223,M4 – Munster Chat 4
+DMR,2,27224,M5 – Munster Chat 5
+DMR,2,27225,Ulster Province Call/Chat
+DMR,2,27226,U2 – Ulster Chat 2
+DMR,2,27227,U3 – Ulster Chat 3
+DMR,2,27228,U4 – Ulster Chat 4
+DMR,2,27229,U5 – Ulster Chat 5
+DMR,2,27230,Midlands Region Call/Chat
+DMR,2,27231,MID2 – Midlands Chat 2
+DMR,2,27232,MID3 – Midlands Chat 3
+DMR,2,27233,MID4 – Midlands Chat 4
+DMR,2,27234,MID5 – Midlands Chat 5
+DMR,2,27235,Islands Call/Chat
+DMR,2,27236,I2 – Island Chat 2
+DMR,2,27237,I3 – Island Chat 3
+DMR,2,27238,I4 – Island Chat 4
+DMR,2,27239,I5 – Island Chat 5
+DMR,2,27241,Low and Medium Frequency
+DMR,2,27242,High Frequency
+DMR,2,27243,Very High Frequency
+DMR,2,27244,Ultra High Frequency
+DMR,2,27245,Microwave
+DMR,2,27246,Contest
+DMR,2,27247,DX Ireland
+DMR,2,27250,Data
+DMR,2,27271,Youth
+DMR,2,27288,YL and XYL
+DMR,2,27290,National Emergency Alert
+DMR,2,27291,IECRO Primary
+DMR,2,27292,IECRO Secondary
+DMR,2,,
+DMR,2,284,BG National
+DMR,2,2842,Sofia
+DMR,2,2843,Plovdiv
+DMR,2,2844,Varna
+DMR,2,2845,Burgas
+DMR,2,2846,Sliven
+DMR,2,28411,HBLink-BULGARIA
+DMR,2,284016,South East Bulgaria
+DMR,2,,
+DMR,2,302,Canada Wide Yukon & NWT
+DMR,2,3020,Newfoundland & Labrador & P.E.I.
+DMR,2,3021,Nova Scotia
+DMR,2,3022,Quebec
+DMR,2,3023,Ontario
+DMR,2,3024,Manitoba
+DMR,2,3025,Saskatchewan
+DMR,2,3026,Alberta
+DMR,2,3027,British Columbia
+DMR,2,3028,Nunavut Yukon & NWT
+DMR,2,3029,New Brunswick
+DMR,2,,
+DMR,2,702,Bluffton Digital link
+DMR,2,3100,USA Nationwide
+DMR,2,31001,N. A. TAC 1
+DMR,2,31002,N. A. TAC 2
+DMR,2,31003,N. A. TAC 3
+DMR,2,31004,N. A. TAC 4
+DMR,2,31005,N. A. TAC 5
+DMR,2,31006,N. A. TAC 6
+DMR,2,31007,N. A. TAC 7
+DMR,2,31008,N. A. TAC 8
+DMR,2,31009,N. A. TAC 9
+DMR,2,,
+DMR,2,3101,Alabama
+DMR,2,3102,Alaska
+DMR,2,3104,Arizona
+DMR,2,3105,Arkansas
+DMR,2,3106,California
+DMR,2,31061,CA TAC
+DMR,2,31068,NorCal
+DMR,2,31069,NorCal Bridge
+DMR,2,3108,Colorado
+DMR,2,3109,Connecticut
+DMR,2,3110,Delaware
+DMR,2,3111,District of Columbia
+DMR,2,3112,Florida
+DMR,2,3113,Georgia
+DMR,2,3115,Hawai
+DMR,2,3116,Idaho
+DMR,2,3117,Illinois
+DMR,2,3118,Indiana
+DMR,2,3119,Iowa
+DMR,2,3120,Kansas
+DMR,2,3121,Kentucky
+DMR,2,3122,Louisiana
+DMR,2,3123,Maine
+DMR,2,3124,Maryland
+DMR,2,3125,Massachusetts
+DMR,2,3126,Michigan
+DMR,2,31260,ZOMBIE Alert USA / XLX240B
+DMR,2,3127,Minnesota
+DMR,2,3128,Mississippi
+DMR,2,3129,Missouri
+DMR,2,3130,Montana
+DMR,2,3131,Nebraska
+DMR,2,3132,Nevada
+DMR,2,3133,New Hampshire
+DMR,2,3134,New Jersey
+DMR,2,3135,New Mexico
+DMR,2,3136,New York
+DMR,2,3137,North Carolina
+DMR,2,31373,East NC
+DMR,2,31377,OBX
+DMR,2,31379,NC TAC
+DMR,2,3138,North Dakota
+DMR,2,3139,Ohio
+DMR,2,3140,Oklahoma
+DMR,2,3141,Oregon
+DMR,2,3142,Pennsylvania
+DMR,2,3143,Puerto Rico
+DMR,2,3144,Rhode Island
+DMR,2,3145,South Carolina
+DMR,2,3146,South Dakota
+DMR,2,3147,Tennessee
+DMR,2,3148,Texas
+DMR,2,3149,Utah
+DMR,2,3150,Vermont
+DMR,2,3151,Virginia
+DMR,2,3152,Virgin Islands
+DMR,2,3153,Washington
+DMR,2,3154,West Virginia
+DMR,2,3155,Wisconsin
+DMR,2,3156,Wyoming
+DMR,2,3160,Crossroads-USA Reflector
+DMR,2,31601,NC4ES Chat 1
+DMR,2,31602,NC4ES Chat 2
+DMR,2,31603,NC4ES AUXCOMM
+DMR,2,31604,NC4ES RF Link
+DMR,2,31605,NC4ES EHPC
+DMR,2,3166,DVSwitch
+DMR,2,310001,ECHO EAST
+DMR,2,,
+DMR,2,330,National
+DMR,2,3300,PR00
+DMR,2,3301,PR01
+DMR,2,3302,PR02
+DMR,2,3303,PR03
+DMR,2,3304,PR04
+DMR,2,3305,PR05
+DMR,2,3306,PR06
+DMR,2,3307,PR07
+DMR,2,3308,PR08
+DMR,2,3309,PR09
+DMR,2,33010,PR10
+DMR,2,33011,PR11
+DMR,2,33012,PR12
+DMR,2,33013,PR13
+DMR,2,33014,PR14
+DMR,2,33015,PR15
+DMR,2,33016,PR16
+DMR,2,33017,PRNet
+DMR,2,33018,PR018
+DMR,2,33019,PR019
+DMR,2,33020,PR020
+DMR,2,,
+DMR,2,334,National
+DMR,2,3341,XE1 Zone
+DMR,2,3342,XE2 Zone
+DMR,2,3343,XE3 Zone
+DMR,2,3349,W Zone
+DMR,2,3340,Second National
+DMR,2,33450,FMRE
+DMR,2,33451,ARAM
+DMR,2,33455,Experimentation
+DMR,2,33456,DXCC
+DMR,2,33457,Scouts and Jamboree JOTA/JOTI
+DMR,2,33401,Aguascalientes
+DMR,2,33402,Baja California Norte
+DMR,2,33403,Baja California Sur
+DMR,2,33404,Campeche
+DMR,2,33405,Coahuila
+DMR,2,33406,Colima
+DMR,2,33407,Chiapas
+DMR,2,33408,Chihuahua
+DMR,2,33409,CDMX/DF
+DMR,2,33410,Durango
+DMR,2,33411,Guanajuato
+DMR,2,33412,Guerrero
+DMR,2,33413,Hidalgo
+DMR,2,33414,Jalisco
+DMR,2,33415,Estado de México
+DMR,2,33416,Michoacán
+DMR,2,33417,Morelos
+DMR,2,33418,Nayarit
+DMR,2,33419,Nuevo León
+DMR,2,33420,Oaxaca
+DMR,2,33421,Puebla
+DMR,2,33422,Querétaro
+DMR,2,33423,Quintana Roo
+DMR,2,33424,San Luis Potosí
+DMR,2,33425,Sinaloa
+DMR,2,33426,Sonora
+DMR,2,33427,Tabasco
+DMR,2,33428,Tamaulipas
+DMR,2,33429,Tlaxcala
+DMR,2,33430,Veracruz
+DMR,2,33431,Yucatán
+DMR,2,33432,Zacatecas
+DMR,2,,
+DMR,2,370,DR National
+DMR,2,3701,DR Zone 1
+DMR,2,3702,DR Zone 2
+DMR,2,3703,DR Zone 3
+DMR,2,3704,DR Zone 4
+DMR,2,3705,DR Zone 5
+DMR,2,3706,DR Zone 6
+DMR,2,3707,DR Zone 7
+DMR,2,3708,DR Zone 8
+DMR,2,37022,DR Net
+DMR,2,37030,Skynet
+DMR,2,37040,DR Multiprotocolo
+DMR,2,37050,DR Tech
+DMR,2,,
+DMR,2,46600,Taiwan
+DMR,2,,
+DMR,2,505,Australia
+DMR,2,5051,ACT (Australian Capital Territory)
+DMR,2,5052,NSW (New South Wales)
+DMR,2,5053,VIC (Victoria)
+DMR,2,5054,QLD (Queensland)
+DMR,2,5055,SA (South Australia)
+DMR,2,5056,WA (Western Australia)
+DMR,2,5057,TAS (Tasmania)
+DMR,2,5058,NT (Northern Territory)
+DMR,2,,
+DMR,2,520,Thailand Nation Wide
+DMR,2,5201,Chat 1
+DMR,2,5202,TH ASL-55087
+DMR,2,5203,Chat 3
+DMR,2,5204,XLX727 C
+DMR,2,5205,XLX138 F
+DMR,2,52007,E20AE Club Station
+DMR,2,52010,Thailand Regian 1
+DMR,2,52020,Thailand Regian 2
+DMR,2,52022,Chantaburi / XLX822 C
+DMR,2,52030,Thailand Regian 3
+DMR,2,52040,Thailand Regian 4
+DMR,2,52050,Thailand Regian 5
+DMR,2,52060,Thailand Regian 6
+DMR,2,52070,Thailand Regian 7
+DMR,2,52080,Thailand Regian 8
+DMR,2,52090,Thailand Regian 9
+DMR,2,,
+DMR,2,530,ZL National
+DMR,2,5301,ZL 1 Region
+DMR,2,5302,ZL 2 Region
+DMR,2,5303,ZL 3 Region
+DMR,2,5304,ZL 4 Region
+DMR,2,53020,CQ-UK link / XLX750 A
+DMR,2,53029,XLX299 X
+DMR,2,53050,XLX750 C
+DMR,2,53060,Taupo Amateur Radio Club
+DMR,2,53099,XLX750 D (P)
+DMR,2,530287,XLX287 A (P)
+DMR,2,530530,XLX750 S (P)
+DMR,2,,
+DMR,2,604,Morocco-National
+DMR,2,60401,DMR-MAROC
+DMR,2,,
+DMR,2,7000,Red Digital Centroamericana
+DMR,2,,
+DMR,2,706,El Salvador
+DMR,2,7060,El Salvador XLX526 C
+DMR,2,7061,El Salvador Region 1
+DMR,2,7062,El Salvador Region 2
+DMR,2,7063,El Salvador Region 3
+DMR,2,7064,El Salvador Eventos
+DMR,2,7065,El Salvador Emergencias
+DMR,2,,
+DMR,2,710,Nacional
+DMR,2,7101,Zona YN1
+DMR,2,7102,Zona YN2
+DMR,2,7103,Zona YN3
+DMR,2,7104,Zona YN4
+DMR,2,7105,Zona YN5
+DMR,2,71000,XLX711 A
+DMR,2,710411,Punto de Encuentro Interno
+DMR,2,710911,Emergencia Nacional
+DMR,2,,
+DMR,2,712,Costa Rica
+DMR,2,,
+DMR,2,714,Panama National
+DMR,2,7143,Panama WiresX
+DMR,2,7144,Chiriqui Link
+DMR,2,7145,GREMPA
+DMR,2,7146,UPRA
+DMR,2,7147,HUB PANAMA
+DMR,2,7148,Radio Club Panama
+DMR,2,7149,Panamá Scouts
+DMR,2,71410,Trx West
+DMR,2,714911,Emergencia Panama
+DMR,2,,
+DMR,2,716,Peru
+DMR,2,7160,Peru Digital / XLX716 C
+DMR,2,7161,Peru Zona OA1
+DMR,2,7162,Peru Zona OA2
+DMR,2,7163,Peru Zona OA3
+DMR,2,7164,Peru Zona OA4
+DMR,2,7165,Peru Zona OA5
+DMR,2,7166,Peru Zona OA6
+DMR,2,7167,Peru Zona OA7
+DMR,2,7168,Peru Zona OA8
+DMR,2,7169,Peru Zona OA9
+DMR,2,722,ARG 722
+DMR,2,7221,ARG 7221
+DMR,2,7222,ARG 7222
+DMR,2,7223,ARG 7223
+DMR,2,7224,ARG 7224
+DMR,2,7225,ARGENTINA DIGITAL
+DMR,2,7226,ARG 7226
+DMR,2,7227,ARG 7227
+DMR,2,7228,ARG 7228
+DMR,2,7229,ARG 7229
+DMR,2,,
+DMR,2,724,Brasil National
+DMR,2,7241,Norte
+DMR,2,7242,Nordeste
+DMR,2,7243,Centro-Oeste
+DMR,2,7244,Sudeste
+DMR,2,7245,Sul
+DMR,2,72411,São Paulo
+DMR,2,72416,YSF-NET
+DMR,2,72421,Rio de Janeiro
+DMR,2,72427,Espírito Santo
+DMR,2,72431,Minas Gerais
+DMR,2,72441,Paraná
+DMR,2,72448,Santa Catarina
+DMR,2,72451,Rio Grande do Sul
+DMR,2,72461,Brasília
+DMR,2,72462,Goiás
+DMR,2,72463,Tocantins
+DMR,2,72465,Mato Grosso
+DMR,2,72467,Mato Grosso do Sul
+DMR,2,72468,Acre
+DMR,2,72469,Rondônia
+DMR,2,72471,Bahia
+DMR,2,72479,Sergipe
+DMR,2,72481,Pernambuco
+DMR,2,72482,Alagoas
+DMR,2,72483,Paraíba
+DMR,2,72484,Rio Grande do Norte
+DMR,2,72485,Ceará
+DMR,2,72486,Piauí
+DMR,2,72490,Desbravadores
+DMR,2,72491,Pará
+DMR,2,72492,Amazonas
+DMR,2,72495,Roraima
+DMR,2,72496,Amapá
+DMR,2,72498,Maranhão
+DMR,2,,
+DMR,2,730,CHILE - Nacional
+DMR,2,7301,CE1 Zona1 Arica - Atacama
+DMR,2,7302,CE2 Zona2 Coquimbo -Valparaiso
+DMR,2,7303,CE3 Zona3 Metropolitana
+DMR,2,7304,CE4 Zona4 O'Higgins - Ñuble
+DMR,2,7305,CE5 Zona5 BioBio
+DMR,2,7306,CE6 Zona6 Araucania y Los Rios
+DMR,2,7307,CE7 Zona7 Los Lagos - Aysen
+DMR,2,7308,CE8 Zona8 Magallanes
+DMR,2,7309,CE9 Zona9 U.Esperanza - Antartica
+DMR,2,7300,CE0 Zona0 Chile Insular
+DMR,2,730911,EMMCOM Chile
+DMR,2,73010,YSF CL-Link YSF51028 - WiresX-81510
+DMR,2,73020,XLX200
+DMR,2,730907,JOTA
+DMR,2,,
+DMR,2,732,HK. National
+DMR,2,7320,HK0 Atlantico
+DMR,2,7321,HK1 Cesar
+DMR,2,7322,HK2 Bogotá
+DMR,2,7323,HK3 Antioquia
+DMR,2,7324,HK4 Cauca
+DMR,2,7325,HK5 Caldas
+DMR,2,7326,HK6 Arauca
+DMR,2,7327,HK7 Caquetá
+DMR,2,7328,HK8 Amazonas
+DMR,2,7329,HK9 Malpelo
+DMR,2,73230,Calderonet
+DMR,2,732075,FRACOL
+DMR,2,,
+DMR,2,734,VENEZUELA NATIONAL
+DMR,2,7341,Falcon-Trujillo-Zulia
+DMR,2,73411,Venezuela link YSF
+DMR,2,7342,Barinas-Merida-Tachira
+DMR,2,7343,Lara-Portuguesa-Yaracuy
+DMR,2,7344,Aragua-Carabobo-Cojedes
+DMR,2,7345,Dtto. Capital-Guarico-Miranda-Dep.Federales
+DMR,2,7346,Anzoategui-Bolivar
+DMR,2,7347,Nueva esparta-Sucre
+DMR,2,7348,Monagas-Delta Amacuro
+DMR,2,7349,Apure-Amazonas
+DMR,2,734911,EMCOMM YV
+DMR,2,,
+DMR,2,740,Ecuador
+DMR,2,7401,Ecuador HC3 Loja
+DMR,2,,
+DMR,2,748,Uruguay
+DMR,2,7487,Uruguay Link
+DMR,2,74800,EMERGENCY
+DMR,2,74803,Artigas
+DMR,2,74804,Canelones
+DMR,2,74805,Cerro Largo
+DMR,2,74806,Colonia
+DMR,2,74807,Durazno
+DMR,2,74808,Flores
+DMR,2,74809,Florida
+DMR,2,74810,Lavalleja
+DMR,2,74811,Maldonado
+DMR,2,74801,Montevideo
+DMR,2,74802,Montevideo
+DMR,2,74812,Paysandú
+DMR,2,74813,Rio Negro
+DMR,2,74814,Rivera
+DMR,2,74815,Rocha
+DMR,2,74816,Salto
+DMR,2,74817,San José
+DMR,2,74818,Soriano
+DMR,2,74819,Tacuarembó
+DMR,2,74820,Treinta y Tres
+DMR,2,74830,CXUA1
+DMR,2,74840,CXUA2
+DMR,2,74850,CXUA3
+DMR,2,74860,CXUA4
+DMR,2,748230,Marconi Activities(IMDetc.)
+YSF,0,1,PARROT
+,,,
+YSF,0,2,WELCOME
+,,,
+YSF,0,3,WORLD
+,,,
+YSF,0,10,ENGLISH
+,,,
+YSF,0,11,WALLONIE
+,,,
+YSF,0,12,FRANCE
+,,,
+YSF,0,13,OWL-NET
+,,,
+YSF,0,14,GUATEMALA
+,,,
+YSF,0,15,PANAMA-HUB
+,,,
+YSF,0,17,DUTCH
+,,,
+YSF,0,18,VLAAMS-BE
+,,,
+YSF,0,19,WX-ESP
+,,,
+YSF,0,20,FRENCH-BE
+,,,
+YSF,0,21,HISPANO
+,,,
+YSF,0,23,CANARIAS
+,,,
+YSF,0,24,C4FM-LINK
+,,,
+YSF,0,25,CQ-UK-2
+,,,
+YSF,0,27,FUSION-MX
+,,,
+YSF,0,30,GERMAN
+,,,
+YSF,0,33,ARG-ROOM
+,,,
+YSF,0,34,MEXICO
+,,,
+YSF,0,35,CQ-UK
+,,,
+YSF,0,36,DVSCOTLAND
+,,,
+YSF,0,37,GB-NORTH
+,,,
+YSF,0,38,HUBNET
+,,,
+YSF,0,39,DURANGO
+,,,
+YSF,0,40,ITALIAN
+,,,
+YSF,0,41,VENEZUELA
+,,,
+YSF,0,42,IT-MULTIP
+,,,
+YSF,0,43,ZPRV-BE
+,,,
+YSF,0,44,CHIRIQUI
+,,,
+YSF,0,45,W-WL
+,,,
+YSF,0,47,ECUADOR
+,,,
+YSF,0,48,RC-UTIEL
+,,,
+YSF,0,50,ANDALUCIA
+,,,
+YSF,0,52,DE-RAMSES
+,,,
+YSF,0,53,ODW-NET
+,,,
+YSF,0,54,VARG
+,,,
+YSF,0,55,POLAND
+,,,
+YSF,0,60,DE-KUSEL
+,,,
+YSF,0,62,DL-HAMBURG
+,,,
+YSF,0,63,REM
+,,,
+YSF,0,65,ADER
+,,,
+YSF,0,66,RUSSIA
+,,,
+YSF,0,71,PORTUGAL
+,,,
+YSF,0,77,RC-VELETA
+,,,
+YSF,0,78,ELITE
+,,,
+YSF,0,79,ZULURADIO
+,,,
+YSF,0,81,FR-MULTI
+,,,
+YSF,0,82,RADHISTEC
+,,,
+YSF,0,86,ARGENTINA
+,,,
+YSF,0,87,C-AMERICA
+,,,
+YSF,0,88,ALCOYANOS
+,,,
+YSF,0,89,PERU
+,,,
+YSF,0,90,Radio-Net
+,,,
+YSF,0,91,DMR-LNK
+,,,
+YSF,0,92,GDXBSAS
+,,,
+YSF,0,93,DE-RUNDE
+,,,
+YSF,0,94,MESSAGES
+,,,
+YSF,0,95,LATINOS
+,,,
+YSF,0,96,EA7URF
+,,,
+YSF,0,97,DATA-ROOM
+,,,
+YSF,0,98,URUGUAY
+,,,
+YSF,0,99,TEST
