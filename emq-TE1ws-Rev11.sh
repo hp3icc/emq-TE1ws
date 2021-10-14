@@ -79,6 +79,14 @@ sudo apt-get install rrdtool -y
 mkdir /var/www
 mkdir /var/www/html
 
+mkdir /var/log/ysf2dmr
+mkdir /var/log/mmdvm
+mkdir /var/log/FreeDMR
+mkdir /var/log/hblink
+mkdir /var/log/YSFReflector
+sudo chmod +777 /var/log
+sudo chmod +777 /var/log/*
+
 cat > /etc/default/gpsd  <<- "EOF"
 USBAUTO="False"
 DEVICES="/dev/ttyACM0"
@@ -116,7 +124,6 @@ cp YSFReflector.service /lib/systemd/system
 
 sudo groupadd mmdvm
 sudo useradd mmdvm -g mmdvm -s /sbin/nologin
-mkdir /var/log/YSFReflector
 sudo chown -R mmdvm:mmdvm /var/log/YSFReflector
 
 ###############################
@@ -362,12 +369,6 @@ WantedBy=multi-user.target
 
 EOF
 #
-sudo mkdir /var/log/ysf2dmr
-sudo mkdir /var/log/mmdvm
-sudo mkdir /var/log/FreeDMR
-sudo chmod +777 /var/log
-sudo chmod +777 /var/log/*
-
 cd  /opt/MMDVMHost-Websocketboard/html/data/
 sudo rm TG_List.csv
 wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv
@@ -1861,7 +1862,6 @@ sudo sed -i 's/MASTER_PORT: 62030/MASTER_PORT: 62031/' hblink.cfg
 sudo sed -i 's/54098/49062/' hblink.cfg
 sudo sed -i 's/MASTER_PORT: 54100/MASTER_PORT: 49063/' hblink.cfg
 
-mkdir /var/log/hblink
 #
 sudo cat > /lib/systemd/system/hbparrot.service <<- "EOF"
 [Unit]
@@ -2111,7 +2111,6 @@ EOF
 sudo chmod +x /bin/cronedit.sh
 
 ##############
-mkdir /var/log/FreeDMR
 cd /opt
 git clone https://gitlab.hacknix.net/hacknix/FreeDMR.git
 cd FreeDMR
