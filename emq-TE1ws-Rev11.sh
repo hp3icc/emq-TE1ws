@@ -362,10 +362,10 @@ WantedBy=multi-user.target
 
 EOF
 #
-
-sudo chmod +777 /var/log
 sudo mkdir /var/log/ysf2dmr
 sudo mkdir /var/log/mmdvm
+sudo mkdir /var/log/FreeDMR
+sudo chmod +777 /var/log
 sudo chmod +777 /var/log/*
 
 cd  /opt/MMDVMHost-Websocketboard/html/data/
@@ -568,7 +568,7 @@ sudo systemctl stop fdmrparrot.service &&  sudo systemctl disable fdmrparrot.ser
 7)
 sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo systemctl enable proxy.service && sudo systemctl stop freedmr.service && sudo systemctl start freedmr.service && sudo systemctl enable freedmr.service ;;
 8)
-sudo systemctl stop freedmr.service &&  sudo systemctl disable freedmr.service ;;
+sudo systemctl stop freedmr.service && sudo systemctl disable freedmr.service && sudo systemctl stop proxy.service && sudo systemctl disable proxy.service ;;
 9)
 sudo rm /opt/HBMonv2/sysinfo/*.rrd && sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' add && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' add && sudo systemctl stop hbmon2.service && sudo rm /opt/HBMonv2/*.json && sudo systemctl enable hbmon2.service && sudo systemctl start http.server-fmr.service && sudo systemctl enable http.server-fmr.service && sudo sh /opt/HBMonv2/updateTGIDS.sh ;;
 10)
@@ -650,7 +650,7 @@ sudo systemctl stop hbparrot.service &&  sudo systemctl disable hbparrot.service
 6)
 sudo systemctl stop hblink.service && sudo systemctl start hblink.service && sudo systemctl enable hblink.service ;;
 7)
-sudo systemctl stop hblink.service &&  sudo systemctl disable hblink.service ;;
+sudo systemctl stop hblink.service &&  sudo systemctl disable hblink.service && rm /var/log/hblink/* ;;
 8)
 sudo systemctl stop hbmon.service && sudo systemctl start hbmon.service && sudo systemctl enable hbmon.service ;;
 9)
@@ -1846,9 +1846,21 @@ sudo ./install.sh
 sudo /usr/bin/python3 -m pip install --upgrade pip
 sudo pip install --upgrade dmr_utils3
 cd /opt/HBlink3
-cp hblink-SAMPLE.cfg hblink.cfg
 cp rules-SAMPLE.py rules.py
+sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' playback.cfg
+sudo sed -i 's/54100/49063/' playback.cfg
 chmod +x playback.py
+cp hblink-SAMPLE.cfg hblink.cfg
+sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' hblink.cfg
+sudo sed -i 's/PORT: 54000/PORT: 62030/' hblink.cfg
+sudo sed -i 's/54001/54901/' hblink.cfg
+sudo sed -i 's/54002/54902/' hblink.cfg
+sudo sed -i 's/tmp/var\/log\/hblink/' hblink.cfg
+sudo sed -i 's/s3cr37w0rd/passw0rd/' hblink.cfg
+sudo sed -i 's/MASTER_PORT: 62030/MASTER_PORT: 62031/' hblink.cfg
+sudo sed -i 's/54098/49062/' hblink.cfg
+sudo sed -i 's/MASTER_PORT: 54100/MASTER_PORT: 49063/' hblink.cfg
+
 mkdir /var/log/hblink
 #
 sudo cat > /lib/systemd/system/hbparrot.service <<- "EOF"
@@ -1902,17 +1914,6 @@ EOF
 sudo rm /opt/HBlink3/*.json
 
 ###############################
-
-#systemctl enable hblink
-
-# Editar estos archivos para configurar el hblink
-# nano /opt/HBlink3/hblink.cfg
-
-# nano /opt/HBlink3/rules.py
-
-#Ejecutar manualmente el servidor
-
-# sudo python3 /opt/HBlink3/bridge.py
 
 ### Instalar el  web monitor de HBLink.
 cd /opt/HBmonitor
@@ -2110,6 +2111,7 @@ EOF
 sudo chmod +x /bin/cronedit.sh
 
 ##############
+mkdir /var/log/FreeDMR
 cd /opt
 git clone https://gitlab.hacknix.net/hacknix/FreeDMR.git
 cd FreeDMR
@@ -2413,7 +2415,7 @@ REPORT_CLIENTS: *
 #   used.
 #
 [LOGGER]
-LOG_FILE: /tmp/hblink.log
+LOG_FILE: /var/log/FreeDMR/FreeDMR.log
 LOG_HANDLERS: console-timed
 LOG_LEVEL: DEBUG
 LOG_NAME: HBlink
