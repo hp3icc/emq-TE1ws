@@ -993,7 +993,7 @@ sudo nano /opt/YSF2DMR/YSF2DMR.ini;;
 2)
 sudo sh /opt/YSF2DMR/DMRIDUpdate.sh && sudo systemctl enable dmrid-ysf2dmr.service;;
 3)
-sudo systemctl stop ysf2dmr.service && sudo systemctl stop dmrid-ysf2dmr.service && sudo systemctl disable dmrid-ysf2dmr.service;;
+sudo systemctl stop ysf2dmr.service && sudo systemctl stop dmrid-ysf2dmr.service && sudo systemctl disable dmrid-ysf2dmr.service && rm /var/log/ysf2dmr/* ;;
 4)
 break;
 esac
