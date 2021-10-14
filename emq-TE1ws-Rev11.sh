@@ -768,7 +768,8 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu YSFReflector" --menu "Sub
 5 " Dashboard off  " \
 6 " Editar Puerto http  " \
 7 " Editar HTML  " \
-8 " Menu Principal " 3>&1 1>&2 2>&3)
+8 " Editar Dashboard  " \
+9 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -794,6 +795,8 @@ sudo nano /lib/systemd/system/http.server-ysf.service && sudo systemctl daemon-r
 7)
 sudo nano /opt/WSYSFDash/html/index.html ;;
 8)
+nano /opt/WSYSFDash/html/js/config.js ;;
+9)
 break;
 esac
 done
