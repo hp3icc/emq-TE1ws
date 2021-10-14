@@ -43,11 +43,13 @@ DMR,2,270,Luxembourg
 DMR,2,272,Ireland
 DMR,2,278,Malta
 DMR,2,280,Cyprus
+DMR,2,282,Georgia
 DMR,2,283,Armenia
 DMR,2,284,Bulgaria
 DMR,2,286,Turkey
 DMR,2,292,San Marino
 DMR,2,293,Slovenia
+DMR,2,295,Liechtenstein
 DMR,2,297,Montenegro
 DMR,2,302,Canada Wide
 DMR,2,310,Tac 310 NOT A CALL CHANNEL
@@ -97,6 +99,7 @@ DMR,2,602,Egypt
 DMR,2,604,Morocco
 DMR,2,655,South Africa
 DMR,2,704,Guatemala
+DMR,2,706,El Salvador
 DMR,2,708,Honduras
 DMR,2,710,Nicaragua
 DMR,2,712,Costa Rica
@@ -224,8 +227,6 @@ DMR,2,2384,Denmark Copenhagen
 DMR,2,2385,Denmark Sjaelland
 DMR,2,2386,QSY1 Chat
 DMR,2,2387,QSY2 Chat
-DMR,2,2388,D-Star DCS699B
-DMR,2,2389,XLX238 Interlink
 DMR,2,2400,Regional SM0
 DMR,2,2401,Regional SM1
 DMR,2,2402,Regional SM2
@@ -305,6 +306,16 @@ DMR,2,2842,Sofia
 DMR,2,2843,Plovdiv
 DMR,2,2860,Turkey 0.Region
 DMR,2,2861,Turkey 1.Region
+DMR,2,2940,EmComm
+DMR,2,2941,Skopje
+DMR,2,2942,Tetovo
+DMR,2,2943,Gostivar
+DMR,2,2944,Kicevo
+DMR,2,2945,Struga
+DMR,2,2946,Ohrid
+DMR,2,2947,Kumanovo
+DMR,2,2948,Prilep
+DMR,2,2949,Strumica
 DMR,2,3020,Newfoundland & Labrador
 DMR,2,3021,Nova Scotia
 DMR,2,3022,Quebec
@@ -378,6 +389,7 @@ DMR,2,3175,Southern Plains
 DMR,2,3176,Southwest
 DMR,2,3177,Mountain
 DMR,2,3180,Missouri Lakes
+DMR,2,3181,POTA
 DMR,2,3190,PADMR
 DMR,2,3195,Chemung Storm Chasers
 DMR,2,3199,US Hurricane Net
@@ -432,6 +444,12 @@ DMR,2,5304,ZL4 Regional
 DMR,2,6041,Rabat
 DMR,2,6471,La Réunion
 DMR,2,6558,SARL Hamnet
+DMR,2,7060,XLX526C
+DMR,2,7061,Región 1
+DMR,2,7062,Región 2
+DMR,2,7063,Región 3
+DMR,2,7064,Eventos Especiales
+DMR,2,7065,Emergencias
 DMR,2,7081,Honduras zone 1
 DMR,2,7082,Honduras zone 2
 DMR,2,7083,Honduras zone 3
@@ -453,6 +471,7 @@ DMR,2,7145,GREMPA
 DMR,2,7146,UPRA
 DMR,2,7147,HP PANAMA HUB
 DMR,2,7148,RadioClubPanama
+DMR,2,7162,TRUJILLO ZONA 2
 DMR,2,7166,Peru Zona OA6
 DMR,2,7221,AR AMBA
 DMR,2,7227,Argentina LINK
@@ -471,6 +490,7 @@ DMR,2,7320,Colombia HK0 Zone
 DMR,2,7323,Colombia HK3 Zone
 DMR,2,7325,Colombia HK5 Zone
 DMR,2,7326,Colombia HK6 Zone
+DMR,2,7400,Ecuador-HC3-Loja-DMR/YSF
 DMR,2,7401,Ecuador HC3 Loja
 DMR,2,7402,Ecuador DX Club
 DMR,2,8515,Dstar Italia XLX-77 Link
@@ -511,6 +531,7 @@ DMR,2,20422,Rijk van Nijmegen
 DMR,2,20423,Utrecht
 DMR,2,20424,Rijnmond
 DMR,2,20426,Drechtsteden
+DMR,2,20427,NHNoord
 DMR,2,20431,Limburg
 DMR,2,20432,Noord Brabant
 DMR,2,20433,Maasdriehoek
@@ -588,7 +609,7 @@ DMR,2,21444,Provincial Teruel
 DMR,2,21445,Provincial Toledo
 DMR,2,21446,Provincial Valencia
 DMR,2,21447,Provincial Valladolid
-DMR,2,21448,Provincial Bizkaia
+DMR,2,21448,Bizkaia
 DMR,2,21449,Provincial Zamora
 DMR,2,21450,Provincial Zaragoza
 DMR,2,21451,Provincial Ceuta
@@ -632,6 +653,7 @@ DMR,2,22298,Wires-X ITALY-NORD
 DMR,2,22299,WIRESX-Room-ITA
 DMR,2,22601,Diaspora YO
 DMR,2,22603,Gate to ROLINK
+DMR,2,22691,YO Start
 DMR,2,22801,UA 1
 DMR,2,22802,UA 2
 DMR,2,22803,UA 3
@@ -670,8 +692,6 @@ DMR,2,23570,Wales Chat
 DMR,2,23575,SALOP Cluster
 DMR,2,23580,West Midland
 DMR,2,23590,East Midlands
-DMR,2,23810,YSF238 YSF DENMARK
-DMR,2,23811,WiresX CQ-SWEDEN
 DMR,2,23812,WiresX CQ-DENMARK
 DMR,2,23824,BornHack
 DMR,2,23888,OZ0FT Link
@@ -794,6 +814,7 @@ DMR,2,26246,Niederrhein
 DMR,2,26247,DG Velbert
 DMR,2,26249,IGFS IG Funk Siebengebirge
 DMR,2,26250,Saarland
+DMR,2,26253,Westpfalz
 DMR,2,26255,Kaiserslautern
 DMR,2,26256,Eifel-Hunsrueck
 DMR,2,26257,Siegerland
@@ -903,6 +924,27 @@ DMR,2,28641,Turkey Kocaeli
 DMR,2,28645,Turkey Manisa
 DMR,2,28646,Turkey K.Maras
 DMR,2,28677,Turkey Yalova
+DMR,2,29410,Bitola
+DMR,2,29411,Gevgelija
+DMR,2,29412,Kocani
+DMR,2,29413,Veles
+DMR,2,29414,Stip
+DMR,2,29415,Kavadarci
+DMR,2,29416,Debar
+DMR,2,29417,Resen
+DMR,2,29418,Negotino
+DMR,2,29419,Krusevo
+DMR,2,29420,Radovis
+DMR,2,29421,Berovo
+DMR,2,29422,Delcevo
+DMR,2,29423,Vinica
+DMR,2,29424,Kriva Palanka
+DMR,2,29425,Demir Hisar
+DMR,2,29495,Mavrovo National Park
+DMR,2,29496,Sport Weapons Hunting
+DMR,2,29497,Traffic NAV Borders
+DMR,2,29498,Multilanguage
+DMR,2,29499,TechZone
 DMR,2,30271,Canada BC 1
 DMR,2,30272,Canada BC 2
 DMR,2,31000,Parrot (Group Call)
@@ -1155,7 +1197,7 @@ DMR,2,31482,South Texas
 DMR,2,31483,West Texas
 DMR,2,31484,SouthEast Texas
 DMR,2,31487,TX ARES EmComm
-DMR,2,31488,Texas-Nexus
+DMR,2,31488,Central Texas
 DMR,2,31489,Texas TAC
 DMR,2,31490,76ers
 DMR,2,31491,Northern Utah
@@ -1261,6 +1303,7 @@ DMR,2,33020,Western PR English
 DMR,2,33033,KP3AV Systems
 DMR,2,33057,Puerto Rico D-ZONE
 DMR,2,37022,RDNet
+DMR,2,37030,Skynet NO BRIDGING!!!
 DMR,2,37040,DMR DOMINICAN REPUBLIC
 DMR,2,40407,Kerala
 DMR,2,40430,New Delhi
@@ -1405,6 +1448,7 @@ DMR,2,250116,Russia / Kazan
 DMR,2,250163,Russia / Samara
 DMR,2,250212,Russia / Joshkar-Ola (Mari El)
 DMR,2,250246,Russia / Ramenskoe
+DMR,2,250250,Motorola users RF
 DMR,2,250351,Russia / Chelyabinsk
 DMR,2,250500,Russia / Rostov-on-Don
 DMR,2,250600,Russia / Ivanovo
@@ -1492,6 +1536,8 @@ DMR,2,263112,HiOrg-Talk EmComm
 DMR,2,263113,(Un)Wetter Netz
 DMR,2,263301,Bahnfreunde
 DMR,2,263333,Twitterrunde
+DMR,2,263815,Funkerportal
+DMR,2,263907,JOTA DL
 DMR,2,264555,IG HamSpirit
 DMR,2,268112,EmComm PT
 DMR,2,268117,Emergencia 117
@@ -1526,14 +1572,17 @@ DMR,2,311584,SCPA Chat
 DMR,2,311662,UORRT
 DMR,2,311678,HSCAREN
 DMR,2,311898,Genesee Valley
+DMR,2,311899,Central IL SKYWARN
 DMR,2,311953,VARG
 DMR,2,311995,SW-LA
 DMR,2,312130,IARPN
 DMR,2,312186,SCARC
+DMR,2,312387,Santa Fe Tac
 DMR,2,313444,Elizabeth  Schools
 DMR,2,314215,PADMR Local
 DMR,2,330013,IslaComm DMR Rpts
 DMR,2,330911,Emergencia
+DMR,2,334911,EMCOMM Mexico
 DMR,2,460666,CHINA SUIZHOU AR
 DMR,2,505999,XLX626B&NZXLXYSF
 DMR,2,530999,XLX626A&YSF
@@ -1545,6 +1594,7 @@ DMR,2,724949,Wires-X BR
 DMR,2,724952,YSF 722
 DMR,2,730911,EMCOMM Chile
 DMR,2,732911,HK EMMCOMM
+DMR,2,734911,EMCOMM RNE Venezuela
 DMR,2,2049125,PI2NOS
 DMR,2,2049881,XRF088 A
 DMR,2,2049882,XRF088 B
@@ -1552,60 +1602,114 @@ DMR,2,2080332,France/DCS033C 16
 DMR,2,2080673,France/XRF067C 17
 DMR,2,2709112,LX EMCOMM
 DMR,2,5059742,XRF740 C
-DMR,2,9999,PARROT HBLINK
 YSF,0,1,PARROT
+,,,
 YSF,0,2,WELCOME
+,,,
 YSF,0,3,WORLD
+,,,
 YSF,0,10,ENGLISH
+,,,
 YSF,0,11,WALLONIE
+,,,
 YSF,0,12,FRANCE
+,,,
 YSF,0,14,GUATEMALA
+,,,
 YSF,0,15,PANAMA-HUB
+,,,
 YSF,0,17,DUTCH
+,,,
 YSF,0,18,VLAAMS-BE
+,,,
 YSF,0,20,FRENCH-BE
+,,,
 YSF,0,21,HISPANO
+,,,
 YSF,0,23,CANARIAS
+,,,
 YSF,0,24,C4FM-LINK
+,,,
 YSF,0,25,CQ-UK-2
+,,,
 YSF,0,27,FUSION-MX
+,,,
 YSF,0,30,GERMAN
+,,,
 YSF,0,33,ARG-ROOM
+,,,
 YSF,0,34,MEXICO
+,,,
 YSF,0,35,CQ-UK
+,,,
 YSF,0,36,DVSCOTLAND
+,,,
 YSF,0,37,GB-NORTH
+,,,
 YSF,0,38,HUBNET
+,,,
 YSF,0,39,DURANGO
+,,,
 YSF,0,40,ITALIAN
+,,,
 YSF,0,42,IT-MULTIP
+,,,
 YSF,0,43,ZPRV-BE
+,,,
 YSF,0,44,CHIRIQUI
+,,,
 YSF,0,45,W-WL
+,,,
 YSF,0,47,ECUADOR
+,,,
 YSF,0,48,RC-UTIEL
+,,,
 YSF,0,49,EA-HBLINK
+,,,
 YSF,0,50,ANDALUCIA
+,,,
 YSF,0,52,DE-RAMSES
+,,,
 YSF,0,53,ODW-NET
+,,,
 YSF,0,54,VARG
+,,,
 YSF,0,55,POLAND
+,,,
 YSF,0,60,KUSEL-HOTS
+,,,
 YSF,0,62,DL-HAMBURG
+,,,
 YSF,0,63,REM
+,,,
 YSF,0,65,ADER
+,,,
 YSF,0,66,RUSSIA
+,,,
 YSF,0,71,PORTUGAL
+,,,
 YSF,0,77,RC-VELETA
+,,,
 YSF,0,78,ELITE
+,,,
 YSF,0,79,ZULURADIO
+,,,
 YSF,0,81,FR-MULTI
+,,,
 YSF,0,86,ARGENTINA
+,,,
 YSF,0,87,C-AMERICA
+,,,
 YSF,0,90,Radio-Net
+,,,
 YSF,0,94,MESSAGES
+,,,
 YSF,0,95,LATINOS
+,,,
 YSF,0,96,EA7URF
+,,,
 YSF,0,97,DATA-ROOM
+,,,
 YSF,0,98,URUGUAY
+,,,
 YSF,0,99,TEST
