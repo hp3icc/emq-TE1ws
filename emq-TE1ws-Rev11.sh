@@ -803,7 +803,7 @@ EOF
 cat > /bin/menu-dvs <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu DVSwitch" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu DVSwitch" --menu "Nota : Debe encender Dvswitch antes de editar para utilizar." 20 60 11 \
 1 " Dvswitch ON " \
 2 " Dvswitch OFF  " \
 3 " Editar Dvswitch Server " \
