@@ -1959,22 +1959,6 @@ WantedBy=multi-user.target
 EOF
 
 ##################
-##DMRI DVS service 
-cat > /lib/systemd/system/dmrid-dvs.service <<- "EOF"
-[Unit]
-Description=DMRIDupdate DVS
-Wants=network-online.target
-After=syslog.target network-online.target
-
-[Service]
-User=root
-#ExecStartPre=/bin/sleep 1800
-ExecStart=/opt/MMDVM_Bridge/DMRIDUpdate.sh
-
-[Install]
-WantedBy=multi-user.target
-EOF
-##########
 #web
 
 sudo groupadd www-data
@@ -2059,24 +2043,24 @@ cd /opt/YSF2DMR/
 sudo sed -i 's/\/opt/\/opt\/YSF2DMR/' DMRIDUpdate.sh
 sudo sed -i 's/systemctl restart mmdvmhost.service/systemctl restart ysf2dmr.service/' DMRIDUpdate.sh
 
-
-
-cp /opt/DMRIDUpdate.sh /opt/MMDVM_Bridge/
-cd /opt/MMDVM_Bridge/
-sudo sed -i 's/\/opt/\/opt\/MMDVM_Bridge/' DMRIDUpdate.sh
-sudo sed -i 's/systemctl restart mmdvmhost.service/systemctl restart mmdvm_bridge.service/' DMRIDUpdate.sh
-
 sudo rm /opt/DMRIDUpdate.sh
 
 ###########################
-sudo systemctl stop mmdvm_bridge.service 
-sudo systemctl stop dmrid-dvs.service 
-sudo systemctl stop analog_bridge.service 
-sudo systemctl disable analog_bridge.service 
-sudo systemctl disable mmdvm_bridge.service 
-sudo systemctl disable dmrid-dvs.service
+
 sudo systemctl disable lighttpd.service
 sudo systemctl stop lighttpd.service
+sudo systemctl stop analog_bridge.service
+sudo systemctl stop mmdvm_bridge.service
+sudo systemctl stop nxdngateway.service
+sudo systemctl stop p25gateway.service
+sudo systemctl stop ysfgateway.service
+sudo systemctl disable analog_bridge.service
+sudo systemctl disable mmdvm_bridge.service
+sudo systemctl disable nxdngateway.service
+sudo systemctl disable p25gateway.service
+sudo systemctl disable ysfgateway.service
+rm /var/log/mmdvm/*
+
 ###########################
 cat > /etc/modprobe.d/raspi-blacklist.conf <<- "EOF"
 blacklist snd_bcm2835
@@ -3094,7 +3078,6 @@ sudo chmod +x /usr/bin/python3
 sudo chmod +x /opt/HBmonitor/monitor.py
 sudo chmod +x /opt/HBlink3/playback.py
 sudo chmod +x /opt/HBlink3/bridge.py
-sudo chmod +x /opt/MMDVM_Bridge/DMRIDUpdate.sh
 sudo chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
 sudo chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
 
@@ -3109,7 +3092,6 @@ sudo chmod 755 /lib/systemd/system/hbparrot.service
 sudo chmod 755 /lib/systemd/system/YSFReflector.service
 sudo chmod 755 /lib/systemd/system/monp.service
 sudo chmod 755 /lib/systemd/system/dmrid-ysf2dmr.service
-sudo chmod 755 /lib/systemd/system/dmrid-dvs.service
 sudo chmod 755 /lib/systemd/system/dmrid-mmdvm.service
 sudo chmod 755 /lib/systemd/system/mmdvmh.service
 sudo chmod 755 /lib/systemd/system/direwolf.service
