@@ -162,23 +162,23 @@ List of amateur radio applications, including image and installation attempt:
 
  Direwolf 
 
- Muntimon-NG 
+Muntimon-NG 
 
- Ionosphere
+Ionosphere
 
- MMDVMHost
+MMDVMHost
 
- pYSFReflector 
+pYSFReflector 
 
- YSF2DMR
+YSF2DMR
 
- Dvswitch 
+Dvswitch 
 
- HBLink3
- 
- FreeDMR
+HBLink3
 
- NoIP
+FreeDMR
+
+NoIP
  
  
  This version has HTML Dashboard running on websock, for the MMDVMHost and YSF Reflector, they are preconfigured to http port 80, but from the menu you can change to port 8000, 8080, or any other of your preference.
