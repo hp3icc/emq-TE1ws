@@ -2140,12 +2140,10 @@ After=multi-user.target
 
 [Service]
 User=root
-ExecStartPre=/bin/sleep 30
-#ExecStart=/usr/bin/python3 /opt/FreeDMR/bridge.py -c /opt/FreeDMR/config/FreeDMR.cfg -r /opt/FreeDMR/config/rules.py
+#ExecStartPre=/bin/sleep 30
 ExecStart=/usr/bin/python3 /opt/FreeDMR/bridge_master.py -c /opt/FreeDMR/config/FreeDMR.cfg -r /opt/FreeDMR/config/rules.py
-#ExecStart=/usr/bin/python3 /opt/FreeDMR/bridge_all_master.py -c /opt/FreeDMR/config/FreeDMR.cfg -r /opt/FreeDMR/config/rules.py
 
-#bridge_all_master.py
+
 
 [Install]
 WantedBy=multi-user.target
