@@ -57,7 +57,8 @@ Compatible con Raspberry pi : zero , P2 , P3 y P4
 
 # Instalación desde terminal:
 
-Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando el Bash de auto instalación desde su consola terminal con permisos de super administrador, importante su sistema operativo debe tener instalado sudo y wget  antes de utilizar el Bash de auto instalación .
+Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando el Bash de auto instalación desde su consola terminal con permisos de super usuario, importante su sistema operativo debe tener instalado sudo y wget  antes de utilizar el Bash de auto instalación .
+
 Bash de auto instalación:
 
 sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev11.sh)"
@@ -193,7 +194,9 @@ List of amateur radio applications, including image and installation attempt:
 
 # Installation from terminal:
 
-You can install on your operating system (Ubuntu, raspberry, Debian) using the self-install Bash from your terminal console with super administrator permissions, importantly your operating system must have sudo and wget installed before using the self-install Bash. Self-install bash:
+You can install on your operating system (Ubuntu, raspberry, Debian) using the self-install Bash from your terminal console with super user permissions, importantly your operating system must have sudo and wget installed before using the self-install Bash. 
+
+Self-install bash:
 
 sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev11.sh )"
 
