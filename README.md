@@ -191,21 +191,21 @@ List of amateur radio applications, including image and installation attempt:
 
  #
 
- You can download and use the install bash with the following command:
+# Installation from terminal:
 
- wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10e.sh
+You can install on your operating system (Ubuntu, raspberry, Debian) using the self-install Bash from your terminal console with super administrator permissions, importantly your operating system must have sudo and wget installed before using the self-install Bash. Self-install bash:
 
- sh emq-TE1ws-Rev10e.sh
+sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev11.sh )"
 
- At the end of the installation the computer will restart and you will be able to access via ssh or by console to the list of applications by typing (menu) in your console.
+#
 
- #
+# Installation in micro sd memory for Raspberry:
 
- You can install by downloading the already compiled Raspberry image from any of the following links: 
+If you have raspbery equipment, you can download and use the preconfigured image ready to load in your micro sd memory, for this you just need to download the preconfigured image file for raspberry, unzip the .zip file and load it into your micro sd memory using tools such as BalenaEtcher, Rufus or any other tool to load .ima files to micro sd memory
 
-*  https://drive.google.com/file/d/1QjOZK-1DQS3T2nQEV1eB3kCeDbsijQB3/view?usp=sharing
+You can download the raspberry image from any of the following links:
 
-*  https://mega.nz/file/4dcDxSpS#9NXF-X8XwHnFhz8IAHs6h1EBpv4QN8M5l63lcRmwgs4
+https://drive.google.com/file/d/107vkehCyLtuwO7g2CixsEUmHIkNLI3wO/view?usp=sharing https://mega.nz/file/wEUUnLZD#PCBjeYrlAf9Cn7N5GdK0IT5H-yF0HIlOho 
 
 
  #
