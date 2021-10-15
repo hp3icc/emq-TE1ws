@@ -7,7 +7,7 @@ Continuamente todo el contenido publicado aqui, es actualizado , si esta observa
 
 https://github.com/hp3icc/emq-TE1ws
 
-Ultima revision: emq-TE1ws-Rev10e 6/10/2021 
+Ultima revision: emq-TE1ws-Rev11 15/10/2021 
 
 #
 
@@ -55,20 +55,24 @@ Compatible con Raspberry pi : zero , P2 , P3 y P4
 
 #
 
-Puede descargara y utilizar el bash de instalacion con el siguiente comando :
+# Instalación desde terminal:
 
-wget https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev10e.sh
+Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando el Bash de auto instalación desde su consola terminal con permisos de super administrador, importante su sistema operativo debe tener instalado sudo y wget  antes de utilizar el Bash de auto instalación .
+Bash de auto instalación:
 
-sh emq-TE1ws-Rev10e.sh
-
-al finalizar la instalacion el equipo se reiniciara y podra accesar via ssh o por consola a la lista de aplicaciones escribiendo ( menu ) en su consola.
+sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev11.sh)"
 
 #
-Puede instalar descargando la imagen ya compilada para Raspberry desde cualquiera de los siguientes enlaces : 
 
-*  https://drive.google.com/file/d/1QjOZK-1DQS3T2nQEV1eB3kCeDbsijQB3/view?usp=sharing
+# Instalación en memoria micro sd para Raspberry:
 
-*  https://mega.nz/file/4dcDxSpS#9NXF-X8XwHnFhz8IAHs6h1EBpv4QN8M5l63lcRmwgs4
+si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  lista para cargar en su memoria micro sd , para esto solo deberá descargar el archivo de la imagen preconfigurada para raspberry, descomprimir el archivo .zip y cargar en su memoria micro sd utilizando herramientas como BalenaEtcher , Rufus o cualquier otra herramienta para cargar archivos .ima a la memoria micro sd
+
+ puede descargar la imagen para raspberry desde cualquiera de los siguientes links:
+
+https://drive.google.com/file/d/107vkehCyLtuwO7g2CixsEUmHIkNLI3wO/view?usp=sharing
+https://mega.nz/file/wEUUnLZD#PCBjeYrlAf9Cn7N5GdK0IT5H-yF0HIlOhoP-0_MSY4Y
+
 
 #
 
