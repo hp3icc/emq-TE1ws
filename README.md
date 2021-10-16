@@ -70,8 +70,11 @@ sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws
 si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  lista para cargar en su memoria micro sd , para esto solo deberá descargar el archivo de la imagen preconfigurada para raspberry, descomprimir el archivo .zip y cargar en su memoria micro sd utilizando herramientas como BalenaEtcher , Rufus o cualquier otra herramienta para cargar archivos .ima a la memoria micro sd
 
  puede descargar la imagen para raspberry desde cualquiera de los siguientes links:
+ 
+* https://drive.google.com/file/d/1K28UqIBnFnmoyC8fKKJLvMKQ-KvM8yQf/view?usp=sharing
 
-https://mega.nz/file/1A0giTIb#25PiWVa6f2Ogu4Kp63RDasBY8NvMQL2uKO0pbGRc0xw
+* https://mega.nz/file/1A0giTIb#25PiWVa6f2Ogu4Kp63RDasBY8NvMQL2uKO0pbGRc0xw
+
 #
 
 # Configuración
@@ -205,8 +208,9 @@ If you have raspbery equipment, you can download and use the preconfigured image
 
 You can download the raspberry image from any of the following links:
 
-https://mega.nz/file/1A0giTIb#25PiWVa6f2Ogu4Kp63RDasBY8NvMQL2uKO0pbGRc0xw
+* https://mega.nz/file/1A0giTIb#25PiWVa6f2Ogu4Kp63RDasBY8NvMQL2uKO0pbGRc0xw
 
+* https://drive.google.com/file/d/1K28UqIBnFnmoyC8fKKJLvMKQ-KvM8yQf/view?usp=sharing
 
  #
 
