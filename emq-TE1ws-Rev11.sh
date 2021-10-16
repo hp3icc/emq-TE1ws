@@ -864,8 +864,7 @@ Type=simple
 Restart=always
 #ExecStartPre=/bin/sleep 30
 # Modify for different other port
-ExecStart=php -S 0.0.0.0:80 -t /var/www/html
-
+ExecStart=php -S 0.0.0.0:80 -t /var/www/dvs-dash/
 [Install]
 WantedBy=multi-user.target
 
@@ -2060,6 +2059,8 @@ sudo systemctl disable nxdngateway.service
 sudo systemctl disable p25gateway.service
 sudo systemctl disable ysfgateway.service
 rm /var/log/mmdvm/*
+mkdir /var/www/dvs-dash
+mv /var/www/html/* /var/www/dvs-dash/
 
 ###########################
 cat > /etc/modprobe.d/raspi-blacklist.conf <<- "EOF"
