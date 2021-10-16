@@ -460,7 +460,7 @@ sudo cat > /bin/menu <<- "EOF"
 
 while : ; do
 
-choix=$(whiptail --title "TE1ws-Rev11 Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 60 15 \
+choix=$(whiptail --title "TE1ws-Rev11a Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 60 15 \
 1 " APRS Direwolf Analogo" \
 2 " APRS Direwolf RTL-SDR " \
 3 " APRS Multimon-ng " \
@@ -864,7 +864,7 @@ Type=simple
 Restart=always
 #ExecStartPre=/bin/sleep 30
 # Modify for different other port
-ExecStart=php -S 0.0.0.0:80 -t /var/www/dvs-dash/
+ExecStart=php -S 0.0.0.0:80 -t /var/www/html/
 [Install]
 WantedBy=multi-user.target
 
@@ -1967,7 +1967,7 @@ sudo chown -R www-data:www-data /var/www/html
 
 sudo chmod -R 775 /var/www/html
 #############################
-chmod +777 /var/www/web-dvs
+
 chmod +777 /var/www/html/*
 ##
 cat > /opt/DMRIDUpdate.sh <<- "EOF"
@@ -2058,8 +2058,6 @@ sudo systemctl disable nxdngateway.service
 sudo systemctl disable p25gateway.service
 sudo systemctl disable ysfgateway.service
 rm /var/log/mmdvm/*
-mkdir /var/www/dvs-dash
-sudo mv /var/www/html/* /var/www/dvs-dash/
 
 ###########################
 cat > /etc/modprobe.d/raspi-blacklist.conf <<- "EOF"
