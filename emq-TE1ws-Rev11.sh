@@ -2060,7 +2060,7 @@ sudo systemctl disable p25gateway.service
 sudo systemctl disable ysfgateway.service
 rm /var/log/mmdvm/*
 mkdir /var/www/dvs-dash
-mv /var/www/html/* /var/www/dvs-dash/
+sudo mv /var/www/html/* /var/www/dvs-dash/
 
 ###########################
 cat > /etc/modprobe.d/raspi-blacklist.conf <<- "EOF"
