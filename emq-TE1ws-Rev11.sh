@@ -1106,7 +1106,6 @@ User=root
 WorkingDirectory=/opt/MMDVMHost
 #ExecStartPre=/bin/sleep 10
 ExecStart=/opt/MMDVMHost/MMDVMHost /opt/MMDVMHost/MMDVM.ini
-#ExecStart=/usr/bin/screen -S MMDVMHost -D -m /home/MMDVMHost/MMDVMHost /home/M$
 ExecStop=/usr/bin/screen -S MMDVMHost -X quit
 
 [Install]
@@ -1203,9 +1202,7 @@ ExecStart=/opt/YSF2DMR/YSF2DMR /opt/YSF2DMR/YSF2DMR.ini
 WantedBy=multi-user.target
 
 EOF
-############
-
-###############
+###########################
 cat > /opt/MMDVMHost/MMDVM.ini  <<- "EOF"
 [General]
 Callsign=HP3ICC
@@ -1400,15 +1397,17 @@ Debug=0
 Enable=1
 # Type may be either 'Direct' or 'Gateway'. When Direct you must provide the Master's
 # address as well as the Password, and for DMR+, Options also.
+
 Type=Direct
+#Address=freedmr-hp.ddns.net
 Address=3021.master.brandmeister.network
 Port=62031
-#Local=62032
-Password=*********
+# Local=62032
+Password=passw0rd
 Jitter=360
 Slot1=1
 Slot2=1
-# Options=
+#Options=TS2=7144,7000;DIAL=0;VOICE=0;TIMER=1;
 # ModeHang=3
 Debug=0
 
@@ -2384,8 +2383,6 @@ REPORT: True
 REPORT_INTERVAL: 60
 REPORT_PORT: 4321
 REPORT_CLIENTS: *
-#127.0.0.1
-
 
 # SYSTEM LOGGER CONFIGURAITON
 #   This allows the logger to be configured without chaning the individual
@@ -2508,7 +2505,7 @@ VOICE_IDENT: False
 TS1_STATIC:
 TS2_STATIC:
 DEFAULT_REFLECTOR: 0
-ANNOUNCEMENT_LANGUAGE: es_ES_2
+ANNOUNCEMENT_LANGUAGE: es_ES
 #es_ES_2
 #es_ES
 GENERATOR: 100
@@ -2518,7 +2515,7 @@ GENERATOR: 100
 
 [EchoTest]
 MODE: PEER
-ENABLED: False
+ENABLED: True
 LOOSE: True
 EXPORT_AMBE: False
 IP: 
@@ -2600,10 +2597,10 @@ configuration file.
 
 BRIDGES = {
 
-# '9990': [ 
-#	{'SYSTEM': 'EchoTest', 		'TS': 2, 'TGID': 9990, 'ACTIVE':True, 'TIMEOUT': 0, 'TO_TYPE': 'NONE', 'ON': [], 'OFF': [], 'RESET': []}, 
+ '9990': [ 
+	{'SYSTEM': 'EchoTest', 		'TS': 2, 'TGID': 9990, 'ACTIVE':True, 'TIMEOUT': 0, 'TO_TYPE': 'NONE', 'ON': [], 'OFF': [], 'RESET': []}, 
 
-#	],
+	],
 
 
 }
