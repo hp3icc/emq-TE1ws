@@ -1146,7 +1146,7 @@ After=syslog.target network-online.target
 
 [Service]
 User=root
-#ExecStartPre=/bin/sleep 1800
+ExecStartPre=/bin/sleep 60
 ExecStart=/opt/YSF2DMR/DMRIDUpdate.sh
 
 [Install]
@@ -1987,7 +1987,7 @@ DATABASEURL='https://www.radioid.net/static/user.csv'
 DMRFILEBACKUP=1
 #
 # Command line to restart MMDVMHost
-RESTARTCOMMAND="systemctl restart mmdvmhost.service"
+RESTARTCOMMAND="sudo systemctl restart mmdvmhost.service"
 # RESTARTCOMMAND="killall MMDVMHost ; /path/to/MMDVMHost/executable/MMDVMHost /path/to/MMDVM/ini/file/MMDVM.ini"
 ###############################################################################
 #
