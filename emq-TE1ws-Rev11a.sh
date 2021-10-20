@@ -122,6 +122,8 @@ cp deny.db /usr/local/etc/
 chmod +x /usr/local/bin/YSFReflector
 cd systemd/
 cp YSFReflector.service /lib/systemd/system
+cd /lib/systemd/system/
+sudo sed -i 's/1/20/' YSFReflector.service
 
 sudo groupadd mmdvm
 sudo useradd mmdvm -g mmdvm -s /sbin/nologin
@@ -336,7 +338,7 @@ After=network.target
 
 [Service]
 User=root
-ExecStartPre=/bin/sleep 10
+ExecStartPre=/bin/sleep 45
 Type=simple
 #User=mmdvm
 #Group=mmdvm
