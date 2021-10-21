@@ -1716,6 +1716,7 @@ apt-get install dvswitch-server -y
 
 cd /opt/YSFGateway/
 sudo sed -i 's/42000/42500/' YSFGateway.ini
+sudo sed -i 's/42001/43001/' YSFGateway.ini
 #/opt/YSFGateway/YSFGateway.ini
 systemctl restart ysfgateway.service
 
@@ -1797,7 +1798,7 @@ Local=62032
 Password=passw0rd
 # for DMR+ see https://github.com/DVSwitch/MMDVM_Bridge/blob/master/DOC/DMRplus_startup_options.md
 # for XLX the syntax is: Options=XLX:4009
-# Options=
+# Options=TS2=7144,7000;DIAL=0;VOICE=0;TIMER=10;
 Slot1=0
 Slot2=1
 Debug=0
