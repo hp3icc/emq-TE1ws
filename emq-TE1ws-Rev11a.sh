@@ -1406,7 +1406,7 @@ Address=3021.master.brandmeister.network
 Port=62031
 # Local=62032
 Password=passw0rd
-Jitter=360
+Jitter=500
 Slot1=1
 Slot2=1
 #Options=TS2=7144,7000;DIAL=0;VOICE=0;TIMER=1;
@@ -1792,7 +1792,7 @@ Debug=0
 Enable=0
 Address=hblink.dvswitch.org
 Port=62031
-Jitter=360
+Jitter=500
 Local=62032
 Password=passw0rd
 # for DMR+ see https://github.com/DVSwitch/MMDVM_Bridge/blob/master/DOC/DMRplus_startup_options.md
