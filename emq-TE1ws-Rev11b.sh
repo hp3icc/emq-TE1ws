@@ -1216,19 +1216,20 @@ ModeHang=3
 #NetModeHang=3
 Display=None
 #Display=OLED
+#Display=Nextion
 Daemon=0
 
 [Info]
-RXFrequency=431800000
-TXFrequency=431800000
+RXFrequency=433400000
+TXFrequency=433400000
 Power=1
 # The following lines are only needed if a direct connection to a DMR master is being used
 Latitude=0.0
 Longitude=0.0
 Height=0
 Location=Panama
-Description=Multi-Mode-MMDVM
-URL=www.google.co.uk
+Description=emq-TE1ws-MMDVM
+URL=https://github.com/hp3icc/emq-TE1ws
 
 [Log]
 # Logging levels, 0=No logging
@@ -1252,11 +1253,23 @@ File=NXDN.csv
 Time=24
 
 [Modem]
-# Port=/dev/ttyACM0
-Port=/dev/ttyAMA0
-#Port=\\.\COM4
-#Protocol=uart
-# Address=0x22
+# Valid values are "null", "uart", "udp", and (on Linux) "i2c"
+Protocol=uart
+# The port and speed used for a UART connection
+# UARTPort=\\.\COM4
+# UARTPort=/dev/ttyACM0
+UARTPort=/dev/ttyAMA0
+UARTSpeed=115200
+#460800
+# The port and address for an I2C connection
+I2CPort=/dev/i2c
+I2CAddress=0x22
+# IP parameters for UDP connection
+ModemAddress=192.168.2.100
+ModemPort=3334
+LocalAddress=192.168.2.1
+LocalPort=3335
+
 TXInvert=1
 RXInvert=0
 PTTInvert=0
@@ -1268,15 +1281,17 @@ RXLevel=50
 TXLevel=50
 RXDCOffset=0
 TXDCOffset=0
-RFLevel=50
+RFLevel=100
 # CWIdTXLevel=50
 # D-StarTXLevel=50
-DMRTXLevel=50
-YSFTXLevel=50
+# DMRTXLevel=50
+# YSFTXLevel=50
 # P25TXLevel=50
 # NXDNTXLevel=50
+# M17TXLevel=50
 # POCSAGTXLevel=50
-FMTXLevel=50
+# FMTXLevel=50
+# AX25TXLevel=50
 RSSIMappingFile=RSSI.dat
 UseCOSAsLockout=0
 Trace=0
@@ -1288,11 +1303,6 @@ RemoteAddress=127.0.0.1
 RemotePort=40094
 LocalPort=40095
 # SendFrameType=0
-
-[UMP]
-Enable=0
-# Port=\\.\COM4
-Port=/dev/ttyACM1
 
 [D-Star]
 Enable=0
@@ -1313,8 +1323,8 @@ BeaconInterval=60
 BeaconDuration=3
 ColorCode=1
 SelfOnly=0
-EmbeddedLCOnly=1
-DumpTAData=0
+EmbeddedLCOnly=0
+DumpTAData=1
 # Prefixes=234,235
 # Slot1TGWhiteList=
 # Slot2TGWhiteList=
@@ -1349,13 +1359,20 @@ RemoteGateway=0
 TXHang=5
 # ModeHang=10
 
+[M17]
+Enable=0
+CAN=0
+SelfOnly=0
+TXHang=5
+# ModeHang=10
+
 [POCSAG]
 Enable=0
 Frequency=439987500
 
 [FM]
 Enable=0
-# Callsign=HP3ICC
+# Callsign=G4KLX
 CallsignSpeed=20
 CallsignFrequency=1000
 CallsignTime=10
@@ -1381,17 +1398,38 @@ CTCSSThreshold=30
 CTCSSLevel=20
 KerchunkTime=0
 HangTime=7
+# AccessMode values are:
+#   0 - Carrier access with COS
+#   1 - CTCSS only access without COS
+#   2 - CTCSS only access with COS
+#   3 - CTCSS only access with COS to start, then carrier access with COS
 AccessMode=1
+# LinkMode=1 to remove almost all of the logic control
+LinkMode=0
 COSInvert=0
+NoiseSquelch=0
+SquelchThreshold=30
+# SquelchHighThreshold=30
+# SquelchLowThreshold=20
 RFAudioBoost=1
 MaxDevLevel=90
 ExtAudioBoost=1
+# ModeHang=10
+
+[AX.25]
+Enable=0
+TXDelay=300
+RXTwist=6
+SlotTime=30
+PPersist=128
+Trace=1
 
 [D-Star Network]
 Enable=0
+LocalAddress=127.0.0.1
+LocalPort=20011
 GatewayAddress=127.0.0.1
 GatewayPort=20010
-LocalPort=20011
 # ModeHang=3
 Debug=0
 
@@ -1399,17 +1437,17 @@ Debug=0
 Enable=1
 # Type may be either 'Direct' or 'Gateway'. When Direct you must provide the Master's
 # address as well as the Password, and for DMR+, Options also.
-
 Type=Direct
-#Address=freedmr-hp.ddns.net
-Address=3021.master.brandmeister.network
-Port=62031
-# Local=62032
+#LocalAddress=127.0.0.1
+#LocalPort=62032
+#Address=3021.master.brandmeister.network
+RemoteAddress=freedmr-hp.ddns.net
+RemotePort=62031
 Password=passw0rd
 Jitter=500
 Slot1=1
 Slot2=1
-#Options=TS2=7144,7000;DIAL=0;VOICE=0;TIMER=1;
+# Options=TS2=7144,7000;DIAL=0;VOICE=0;TIMER=1;
 # ModeHang=3
 Debug=0
 
@@ -1424,9 +1462,10 @@ Debug=0
 
 [P25 Network]
 Enable=0
+LocalAddress=127.0.0.1
+LocalPort=32010
 GatewayAddress=127.0.0.1
 GatewayPort=42020
-LocalPort=32010
 # ModeHang=3
 Debug=0
 
@@ -1440,6 +1479,15 @@ GatewayPort=14020
 # ModeHang=3
 Debug=0
 
+[M17 Network]
+Enable=0
+LocalAddress=127.0.0.1
+LocalPort=17011
+GatewayAddress=127.0.0.1
+GatewayPort=17010
+# ModeHang=3
+Debug=0
+
 [POCSAG Network]
 Enable=0
 LocalAddress=127.0.0.1
@@ -1447,6 +1495,26 @@ LocalPort=3800
 GatewayAddress=127.0.0.1
 GatewayPort=4800
 # ModeHang=3
+Debug=0
+
+[FM Network]
+Enable=0
+# Protocol=USRP
+LocalAddress=127.0.0.1
+LocalPort=3810
+GatewayAddress=127.0.0.1
+GatewayPort=4810
+PreEmphasis=1
+DeEmphasis=1
+TXAudioGain=1.0
+RXAudioGain=1.0
+# ModeHang=3
+Debug=0
+
+[AX.25 Network]
+Enable=0
+Port=/dev/ttyp7
+Speed=9600
 Debug=0
 
 [TFT Serial]
@@ -1457,22 +1525,26 @@ Brightness=50
 [HD44780]
 Rows=2
 Columns=16
+
 # For basic HD44780 displays (4-bit connection)
 # rs, strb, d0, d1, d2, d3
 Pins=11,10,0,1,2,3
+
 # Device address for I2C
 I2CAddress=0x20
+
 # PWM backlight
 PWM=0
 PWMPin=21
 PWMBright=100
 PWMDim=16
+
 DisplayClock=1
 UTC=0
 
 [Nextion]
-# Port=modem
-Port=/dev/ttyAMA0
+Port=modem
+#Port=/dev/ttyAMA0
 Brightness=50
 DisplayClock=1
 UTC=0
