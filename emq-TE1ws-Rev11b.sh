@@ -1207,11 +1207,11 @@ EOF
 ###########################
 cat > /opt/MMDVMHost/MMDVM.ini  <<- "EOF"
 [General]
-Callsign=HP3ICC
-Id=714000000
+Callsign=HP3ICC   #Coloque su indicativo
+Id=000000000      #Coloque su DMRID de 7 digitos mas 2 digitos para su conexion
 Timeout=300
 Duplex=0
-ModeHang=3
+ModeHang=10
 #RFModeHang=10
 #NetModeHang=3
 Display=None
@@ -1220,8 +1220,8 @@ Display=None
 Daemon=0
 
 [Info]
-RXFrequency=433400000
-TXFrequency=433400000
+RXFrequency=433400000   #colocar frecuencia 9 digitos sin puntos
+TXFrequency=433400000   #colocar frecuencia 9 digitos sin puntos
 Power=1
 # The following lines are only needed if a direct connection to a DMR master is being used
 Latitude=0.0
@@ -1281,11 +1281,11 @@ RXLevel=50
 TXLevel=50
 RXDCOffset=0
 TXDCOffset=0
-RFLevel=100
+RFLevel=50
 # CWIdTXLevel=50
 # D-StarTXLevel=50
-# DMRTXLevel=50
-# YSFTXLevel=50
+DMRTXLevel=50
+YSFTXLevel=50
 # P25TXLevel=50
 # NXDNTXLevel=50
 # M17TXLevel=50
@@ -1323,8 +1323,8 @@ BeaconInterval=60
 BeaconDuration=3
 ColorCode=1
 SelfOnly=0
-EmbeddedLCOnly=0
-DumpTAData=1
+EmbeddedLCOnly=1
+DumpTAData=0
 # Prefixes=234,235
 # Slot1TGWhiteList=
 # Slot2TGWhiteList=
@@ -1426,8 +1426,8 @@ Trace=1
 
 [D-Star Network]
 Enable=0
-LocalAddress=127.0.0.1
-LocalPort=20011
+#LocalAddress=127.0.0.1
+#LocalPort=20011
 GatewayAddress=127.0.0.1
 GatewayPort=20010
 # ModeHang=3
@@ -1440,20 +1440,21 @@ Enable=1
 Type=Direct
 #LocalAddress=127.0.0.1
 #LocalPort=62032
-#Address=3021.master.brandmeister.network
+#RemoteAddress=3021.master.brandmeister.network
 RemoteAddress=freedmr-hp.ddns.net
 RemotePort=62031
 Password=passw0rd
 Jitter=500
 Slot1=1
 Slot2=1
-# Options=TS2=7144,7000;DIAL=0;VOICE=0;TIMER=1;
+#No active line de Option si utiliza BM
+#Options=TS2=7144,7000;DIAL=0;VOICE=0;TIMER=1;    
 # ModeHang=3
 Debug=0
 
 [System Fusion Network]
 Enable=1
-LocalAddress=127.0.0.1
+#LocalAddress=127.0.0.1
 #LocalPort=3200
 GatewayAddress=europelink.pa7lim.nl
 GatewayPort=42000
@@ -1462,8 +1463,8 @@ Debug=0
 
 [P25 Network]
 Enable=0
-LocalAddress=127.0.0.1
-LocalPort=32010
+#LocalAddress=127.0.0.1
+#LocalPort=32010
 GatewayAddress=127.0.0.1
 GatewayPort=42020
 # ModeHang=3
@@ -1472,8 +1473,8 @@ Debug=0
 [NXDN Network]
 Enable=0
 Protocol=Icom
-LocalAddress=127.0.0.1
-LocalPort=14021
+#LocalAddress=127.0.0.1
+#LocalPort=14021
 GatewayAddress=127.0.0.1
 GatewayPort=14020
 # ModeHang=3
@@ -1481,8 +1482,8 @@ Debug=0
 
 [M17 Network]
 Enable=0
-LocalAddress=127.0.0.1
-LocalPort=17011
+#LocalAddress=127.0.0.1
+#LocalPort=17011
 GatewayAddress=127.0.0.1
 GatewayPort=17010
 # ModeHang=3
@@ -1490,8 +1491,8 @@ Debug=0
 
 [POCSAG Network]
 Enable=0
-LocalAddress=127.0.0.1
-LocalPort=3800
+#LocalAddress=127.0.0.1
+#LocalPort=3800
 GatewayAddress=127.0.0.1
 GatewayPort=4800
 # ModeHang=3
@@ -1500,8 +1501,8 @@ Debug=0
 [FM Network]
 Enable=0
 # Protocol=USRP
-LocalAddress=127.0.0.1
-LocalPort=3810
+#LocalAddress=127.0.0.1
+#LocalPort=3810
 GatewayAddress=127.0.0.1
 GatewayPort=4810
 PreEmphasis=1
