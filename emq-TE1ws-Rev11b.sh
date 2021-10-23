@@ -1207,8 +1207,10 @@ EOF
 ###########################
 cat > /opt/MMDVMHost/MMDVM.ini  <<- "EOF"
 [General]
-Callsign=HP3ICC   #Coloque su indicativo
-Id=000000000      #Coloque su DMRID de 7 digitos mas 2 digitos para su conexion
+# Coloque su indicativo
+Callsign=HP3ICC
+# Coloque su DMRID de 7 digitos mas 2 digitos para su conexion
+Id=000000000      
 Timeout=300
 Duplex=0
 ModeHang=10
@@ -1220,8 +1222,9 @@ Display=None
 Daemon=0
 
 [Info]
-RXFrequency=433400000   #colocar frecuencia 9 digitos sin puntos
-TXFrequency=433400000   #colocar frecuencia 9 digitos sin puntos
+# Colocar frecuencia 9 digitos sin puntos
+RXFrequency=433400000   
+TXFrequency=433400000  
 Power=1
 # The following lines are only needed if a direct connection to a DMR master is being used
 Latitude=0.0
@@ -1447,7 +1450,7 @@ Password=passw0rd
 Jitter=500
 Slot1=1
 Slot2=1
-#No active line de Option si utiliza BM
+# No active linea de Option para TG estaticos, si utiliza BM
 #Options=TS2=7144,7000;DIAL=0;VOICE=0;TIMER=1;    
 # ModeHang=3
 Debug=0
