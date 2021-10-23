@@ -7,7 +7,7 @@ Continuamente todo el contenido publicado aqui, es actualizado , si esta observa
 
 https://github.com/hp3icc/emq-TE1ws
 
-Ultima revision: emq-TE1ws-Rev11b 21/10/2021 
+Ultima revision: emq-TE1ws-Rev11c 23/10/2021 
 
 #
 
@@ -61,7 +61,7 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
 
 Bash de auto instalación:
 
-sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev11b.sh)"
+sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev11c.sh)"
 
 #
 
@@ -143,7 +143,7 @@ Esteban Mackay Q.
  
  https://github.com/hp3icc/emq-TE1ws
  
- Last revision: emq-TE1ws-Rev11b 10/21/2021 
+ Last revision: emq-TE1ws-Rev11c 10/23/2021 
 
 #
 
@@ -198,7 +198,7 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
 Self-install bash:
 
-sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev11b.sh )"
+sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev11c.sh )"
 
 #
 
