@@ -26,24 +26,7 @@ DEP="git build-essential apache2 php libapache2-mod-php php7.0-mbstring"
 DEP2="git build-essential apache2 php libapache2-mod-php php7.3-mbstring"
 VERSION=$(sed 's/\..*//' /etc/debian_version)
 clear
-echo ""
-echo "XLX uses 3 digit numbers for its reflectors. For example: 032, 999, 099."
-read -p "What 3 digit XRF number will you be using?  " XRFDIGIT
-XRFNUM=XLX$XRFDIGIT
-echo ""
-echo "--------------------------------------"
-read -p "What is the FQDN of the XLX Reflector dashboard? Example: xlx.domain.com.  " XLXDOMAIN
-echo ""
-echo "--------------------------------------"
-read -p "What E-Mail address can your users send questions to?  " EMAIL
-echo ""
-echo "--------------------------------------"
-read -p "What is the admins callsign?  " CALLSIGN
-echo ""
-echo ""
-echo "------------------------------------------------------------------------------"
-echo "Making install directories and installing dependicies...."
-echo "------------------------------------------------------------------------------"
+
 mkdir -p $XLXINSTDIR
 mkdir -p $WEBDIR
 apt-get update
@@ -94,20 +77,20 @@ echo "--------------------------------------------------------------------------
 echo "Copying web dashboard files and updating init script... "
 cp -R $XLXINSTDIR/xlxd/dashboard/* /var/www/xlxd/
 cp $XLXINSTDIR/xlxd/scripts/xlxd /etc/init.d/xlxd
-sed -i "s/XLX999 192.168.1.240 127.0.0.1/$XRFNUM 0.0.0.0 127.0.0.1/g" /etc/init.d/xlxd
+sed -i "s/XLX999 192.168.1.240 127.0.0.1/XLX744 0.0.0.0 127.0.0.1/g" /etc/init.d/xlxd
 update-rc.d xlxd defaults
 # Delaying startup time
 mv /etc/rc3.d/S01xlxd /etc/rc3.d/S10xlxd
 echo "Updating XLXD Config file... "
 XLXCONFIG=/var/www/xlxd/pgs/config.inc.php
-sed -i "s/your_email/$EMAIL/g" $XLXCONFIG
-sed -i "s/LX1IQ/$CALLSIGN/g" $XLXCONFIG
-sed -i "s/http:\/\/your_dashboard/http:\/\/$XLXDOMAIN/g" $XLXCONFIG
+sed -i "s/your_email/setcom40@gmail.com/g" $XLXCONFIG
+sed -i "s/LX1IQ/HP3ICC/g" $XLXCONFIG
+sed -i "s/http:\/\/your_dashboard/http:\/\/localhost/g" $XLXCONFIG
 sed -i "s/\/tmp\/callinghome.php/\/xlxd\/callinghome.php/g" $XLXCONFIG
 echo "Copying directives and reloading apache... "
 cp $DIRDIR/templates/apache.tbd.conf /etc/apache2/sites-available/$XLXDOMAIN.conf
 sed -i "s/apache.tbd/$XLXDOMAIN/g" /etc/apache2/sites-available/$XLXDOMAIN.conf
-sed -i "s/ysf-xlxd/xlxd/g" /etc/apache2/sites-available/$XLXDOMAIN.conf
+sed -i "s/ysf-xlxd/xlxd/g" /etc/apache2/sites-available/localhost.conf
 chown -R www-data:www-data /var/www/xlxd/
 chown -R www-data:www-data /xlxd/
 a2ensite $XLXDOMAIN
@@ -140,7 +123,7 @@ echo "There are many online tutorials on 'Editing pi-star host files'.          
 echo ""
 echo ""
 echo "          Your $XRFNUM dashboad should now be accessible...            "
-echo "                http://$XLXDOMAIN                                      "
+echo "                http://localhost/                                      "
 echo ""
 echo ""
 echo "You can make further customizations to the main config file $XLXCONFIG."
