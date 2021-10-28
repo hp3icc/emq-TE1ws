@@ -48,12 +48,12 @@ mkdir -p $XLXINSTDIR
 mkdir -p $WEBDIR
 apt-get update
 if [ $VERSION = 9 ]
- then
+then
     apt-get -y install $DEP
     a2enmod php7.0
 elif [ $VERSION = 10 ]
 then
-   apt-get -y install $DEP2
+    apt-get -y install $DEP2
 fi
 
 echo "------------------------------------------------------------------------------"
@@ -94,7 +94,7 @@ echo "--------------------------------------------------------------------------
 echo "Copying web dashboard files and updating init script... "
 cp -R $XLXINSTDIR/xlxd/dashboard/* /var/www/xlxd/
 cp $XLXINSTDIR/xlxd/scripts/xlxd /etc/init.d/xlxd
-sed -i "s/XLX999 192.168.1.240 127.0.0.1/$XRFNUM $LOCAL_IP 127.0.0.1/g" /etc/init.d/xlxd
+sed -i "s/XLX999 192.168.1.240 127.0.0.1/$XRFNUM 0.0.0.0 127.0.0.1/g" /etc/init.d/xlxd
 update-rc.d xlxd defaults
 # Delaying startup time
 mv /etc/rc3.d/S01xlxd /etc/rc3.d/S10xlxd
@@ -105,24 +105,14 @@ sed -i "s/LX1IQ/$CALLSIGN/g" $XLXCONFIG
 sed -i "s/http:\/\/your_dashboard/http:\/\/$XLXDOMAIN/g" $XLXCONFIG
 sed -i "s/\/tmp\/callinghome.php/\/xlxd\/callinghome.php/g" $XLXCONFIG
 echo "Copying directives and reloading apache... "
-#cp $DIRDIR/templates/apache.tbd.conf /etc/apache2/sites-available/$XLXDOMAIN.conf
-#sed -i "s/apache.tbd/$XLXDOMAIN/g" /etc/apache2/sites-available/$XLXDOMAIN.conf
-#sed -i "s/ysf-xlxd/xlxd/g" /etc/apache2/sites-available/$XLXDOMAIN.conf
+cp $DIRDIR/templates/apache.tbd.conf /etc/apache2/sites-available/$XLXDOMAIN.conf
+sed -i "s/apache.tbd/$XLXDOMAIN/g" /etc/apache2/sites-available/$XLXDOMAIN.conf
+sed -i "s/ysf-xlxd/xlxd/g" /etc/apache2/sites-available/$XLXDOMAIN.conf
 chown -R www-data:www-data /var/www/xlxd/
 chown -R www-data:www-data /xlxd/
-sed -i "s/CallingHome['Active']                               = false/CallingHome['Active']                               = true/g"  /var/www/xlxd/pgs/config.inc.php
 a2ensite $XLXDOMAIN
+sed -i "s/CallingHome\['Active'\]                               = false/CallingHome\['Active'\]                               = true/g" /var/www/xlxd/pgs/config.inc.php
 service xlxd start
-rm /etc/apache2/sites-available/*
-cat > /etc/apache2/sites-available/000-default.conf  <<- "EOF"
-<VirtualHost *:80>
-     
-        ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/xlxd
- 
-</VirtualHost>
-
-EOF
 systemctl restart apache2
 echo "------------------------------------------------------------------------------"
 echo ""
