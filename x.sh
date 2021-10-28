@@ -114,6 +114,15 @@ sed -i "s/CallingHome['Active']                               = false/CallingHom
 a2ensite $XLXDOMAIN
 service xlxd start
 rm /etc/apache2/sites-available/*
+cat > /etc/apache2/sites-available/000-default.conf  <<- "EOF"
+<VirtualHost *:80>
+     
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/xlxd
+ 
+</VirtualHost>
+
+EOF
 systemctl restart apache2
 echo "------------------------------------------------------------------------------"
 echo ""
