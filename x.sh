@@ -22,8 +22,8 @@ XLXDREPO=https://github.com/LX3JL/xlxd.git
 DMRIDURL=http://xlxapi.rlx.lu/api/exportdmr.php
 WEBDIR=/var/www/xlxd
 XLXINSTDIR=/root/reflector-install-files/xlxd
-## DEP="git build-essential apache2 php libapache2-mod-php php7.0-mbstring"
-## DEP2="git build-essential apache2 php libapache2-mod-php php7.3-mbstring"
+DEP="git build-essential apache2 php libapache2-mod-php php7.0-mbstring"
+DEP2="git build-essential apache2 php libapache2-mod-php php7.3-mbstring"
 VERSION=$(sed 's/\..*//' /etc/debian_version)
 clear
 echo ""
@@ -47,14 +47,14 @@ echo "--------------------------------------------------------------------------
 mkdir -p $XLXINSTDIR
 mkdir -p $WEBDIR
 apt-get update
-## if [ $VERSION = 9 ]
-## then
-##    apt-get -y install $DEP
-##    a2enmod php7.0
-## elif [ $VERSION = 10 ]
-## then
-##    apt-get -y install $DEP2
-## fi
+if [ $VERSION = 9 ]
+ then
+    apt-get -y install $DEP
+    a2enmod php7.0
+elif [ $VERSION = 10 ]
+then
+   apt-get -y install $DEP2
+fi
 
 echo "------------------------------------------------------------------------------"
 if [ -e $XLXINSTDIR/xlxd/src/xlxd ]
@@ -104,16 +104,17 @@ sed -i "s/your_email/$EMAIL/g" $XLXCONFIG
 sed -i "s/LX1IQ/$CALLSIGN/g" $XLXCONFIG
 sed -i "s/http:\/\/your_dashboard/http:\/\/$XLXDOMAIN/g" $XLXCONFIG
 sed -i "s/\/tmp\/callinghome.php/\/xlxd\/callinghome.php/g" $XLXCONFIG
-## echo "Copying directives and reloading apache... "
-## cp $DIRDIR/templates/apache.tbd.conf /etc/apache2/sites-available/$XLXDOMAIN.conf
-## sed -i "s/apache.tbd/$XLXDOMAIN/g" /etc/apache2/sites-available/$XLXDOMAIN.conf
-## sed -i "s/ysf-xlxd/xlxd/g" /etc/apache2/sites-available/$XLXDOMAIN.conf
+echo "Copying directives and reloading apache... "
+#cp $DIRDIR/templates/apache.tbd.conf /etc/apache2/sites-available/$XLXDOMAIN.conf
+#sed -i "s/apache.tbd/$XLXDOMAIN/g" /etc/apache2/sites-available/$XLXDOMAIN.conf
+#sed -i "s/ysf-xlxd/xlxd/g" /etc/apache2/sites-available/$XLXDOMAIN.conf
 chown -R www-data:www-data /var/www/xlxd/
 chown -R www-data:www-data /xlxd/
 sed -i "s/CallingHome['Active']                               = false/CallingHome['Active']                               = true/g"  /var/www/xlxd/pgs/config.inc.php
 a2ensite $XLXDOMAIN
 service xlxd start
-## systemctl restart apache2
+rm /etc/apache2/sites-available/*
+systemctl restart apache2
 echo "------------------------------------------------------------------------------"
 echo ""
 echo ""
