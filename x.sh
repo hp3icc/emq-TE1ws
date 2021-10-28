@@ -24,7 +24,7 @@ apt-get install g++-4.7 -y
 ## For YSF you need to define a default HotSpot frequency !!!
 
 ## Download and compile the XLX sources
-
+cd /opt/
 git clone https://github.com/LX3JL/xlxd.git
 cd xlxd/src/
 make clean
@@ -33,7 +33,7 @@ make install
 
 ## Copy startup script "xlxd" to /etc/init.d
 
-cp ~/xlxd/scripts/xlxd /etc/init.d/xlxd
+cp /opt/xlxd/scripts/xlxd /etc/init.d/xlxd
 
 ## Adapt the default startup parameters to your needs
 
@@ -58,7 +58,7 @@ update-rc.d xlxd defaults
 
 ## Copy dashboard to /var/www
 
-cp -r ~/xlxd/dashboard /var/www/db
+cp -r /opt/xlxd/dashboard /var/www/db
 
 ## Give the dashboard read access to the server log file
 
