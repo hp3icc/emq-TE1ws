@@ -1790,11 +1790,10 @@ apt-get update -y
 
 apt-get install dvswitch-server -y
 
-cd /opt/YSFGateway/
-sudo sed -i 's/42000/42500/' YSFGateway.ini
-sudo sed -i 's/42001/43001/' YSFGateway.ini
-#/opt/YSFGateway/YSFGateway.ini
-systemctl restart ysfgateway.service
+sudo sed -i "s/42000/42500/g" /opt/YSFGateway/YSFGateway.ini
+sudo sed -i "s/42001/43001/g" /opt/YSFGateway/YSFGateway.ini
+sudo sed -i "s/RptPort=3200/RptPort=3230/g" /opt/YSFGateway/YSFGateway.ini
+sudo sed -i "s/LocalPort=4200/LocalPort=4230/g" /opt/YSFGateway/YSFGateway.ini
 
 ####
 cat > /opt/MMDVM_Bridge/MMDVM_Bridge.ini  <<- "EOF"
@@ -1811,8 +1810,8 @@ Power=1
 Latitude=8.5211
 Longitude=-80.3598
 Height=0
-Location=Panama
-Description=MMDVM_Bridge
+Location=Raspbian Proyect HP3ICC
+Description=MMDVM DVSwitch
 URL=https://groups.io/g/DVSwitch
 
 [Log]
@@ -1882,9 +1881,9 @@ Debug=0
 [System Fusion Network]
 Enable=0
 LocalAddress=0
-LocalPort=3200
+LocalPort=3230
 GatewayAddress=127.0.0.1
-GatewayPort=4200
+GatewayPort=4230
 Debug=0
 
 [P25 Network]
@@ -1975,9 +1974,7 @@ WantedBy=multi-user.target
 
 EOF
 
-
-#nano /lib/systemd/system/hblink.service
-#Copiar este texto en el archivo
+#
 sudo cat > /lib/systemd/system/hblink.service <<- "EOF"
 [Unit]
 Description=Start HBlink
