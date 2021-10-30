@@ -7,7 +7,7 @@ Continuamente todo el contenido publicado aqui, es actualizado , si esta observa
 
 https://github.com/hp3icc/emq-TE1ws
 
-Ultima revision: emq-TE1ws-Rev11c 23/10/2021 
+Ultima revision: emq-TE1ws-Rev11d 30/10/2021 
 
 #
 
@@ -71,9 +71,9 @@ si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  
 
  puede descargar la imagen para raspberry desde cualquiera de los siguientes links:
  
-* https://mega.nz/file/YIU0CLLa#4SDk7Qi4uBTUzy_QMAEGuBEWZHWpOATnbQegoEDGxOY
+* https://mega.nz/file/xB9wiabS#L2_rNsQrG4rc4It-ARMol6StWjvQ4A85ide_SEQTTCM
 
-* https://drive.google.com/file/d/1qbC3lwYGpaM1HIJP9-V2zryMfIYqfzcc/view?usp=sharing
+* https://drive.google.com/file/d/1ogJo2zC8weEMDSNLoC_ERMPGYNhatj5i/view?usp=sharing
 
 #
 
@@ -143,7 +143,7 @@ Esteban Mackay Q.
  
  https://github.com/hp3icc/emq-TE1ws
  
- Last revision: emq-TE1ws-Rev11c 10/23/2021 
+ Last revision: emq-TE1ws-Rev11d 10/30/2021 
 
 #
 
@@ -208,10 +208,9 @@ If you have raspbery equipment, you can download and use the preconfigured image
 
 You can download the raspberry image from any of the following links:
 
-* https://mega.nz/file/YIU0CLLa#4SDk7Qi4uBTUzy_QMAEGuBEWZHWpOATnbQegoEDGxOY
+* https://mega.nz/file/xB9wiabS#L2_rNsQrG4rc4It-ARMol6StWjvQ4A85ide_SEQTTCM
 
-* https://drive.google.com/file/d/1qbC3lwYGpaM1HIJP9-V2zryMfIYqfzcc/view?usp=sharing
-
+* https://drive.google.com/file/d/1ogJo2zC8weEMDSNLoC_ERMPGYNhatj5i/view?usp=sharing
 
  #
 
