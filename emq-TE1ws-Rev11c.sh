@@ -97,6 +97,82 @@ GPSD_SOCKET="/var/run/gpsd.sock"
 
 EOF
 
+###menu
+sudo cat > /bin/menu <<- "EOF"
+#!/bin/bash
+
+while : ; do
+
+choix=$(whiptail --title "TE1ws-Rev11d Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 61 15 \
+1 " APRS Direwolf Analogo" \
+2 " APRS Direwolf RTL-SDR " \
+3 " APRS Multimon-ng " \
+4 " APRS Ionosphere " \
+5 " MMDVMHost " \
+6 " Dvswitch " \
+7 " pYSFReflector " \
+8 " YSF2DMR " \
+9 " HBLink3 Server " \
+10 " FreeDMR Server " \
+11 " Editar WiFi " \
+12 " DDNS NoIP " \
+13 " Reiniciar Equipo " \
+14 " APAGAR Equipo " \
+15 " Salir del menu " 3>&1 1>&2 2>&3)
+
+exitstatus=$?
+
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+
+# case : action en fonction du choix
+
+case $choix in
+1)
+menu-dw-analogo;;
+2)
+menu-dw-rtl;;
+3)
+menu-mm-rtl;;
+4)
+menu-ionos;;
+5)
+menu-mmdvm;;
+6)
+menu-dvs;;
+7)
+menu-ysf;;
+8)
+menu-ysf2dmr;;
+9)
+menu-hbl;;
+10)
+menu-fdmr;;
+11)
+menu-wifi;;
+12)
+menu-noip ;;
+13)
+sudo shutdown -r now ;;
+14)
+menu-apagar;;
+15)
+break;
+
+
+esac
+
+done
+exit 0
+
+
+EOF
+#
 sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock
 
 #################
@@ -456,81 +532,7 @@ esac
 done
 exit 0
 EOF
-###menu
-sudo cat > /bin/menu <<- "EOF"
-#!/bin/bash
 
-while : ; do
-
-choix=$(whiptail --title "TE1ws-Rev11c Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 61 15 \
-1 " APRS Direwolf Analogo" \
-2 " APRS Direwolf RTL-SDR " \
-3 " APRS Multimon-ng " \
-4 " APRS Ionosphere " \
-5 " MMDVMHost " \
-6 " Dvswitch " \
-7 " pYSFReflector " \
-8 " YSF2DMR " \
-9 " HBLink3 Server " \
-10 " FreeDMR Server " \
-11 " Editar WiFi " \
-12 " DDNS NoIP " \
-13 " Reiniciar Equipo " \
-14 " APAGAR Equipo " \
-15 " Salir del menu " 3>&1 1>&2 2>&3)
-
-exitstatus=$?
-
-#on recupere ce choix
-#exitstatus=$?
-if [ $exitstatus = 0 ]; then
-    echo "Your chosen option:" $choix
-else
-    echo "You chose cancel."; break;
-fi
-
-# case : action en fonction du choix
-
-case $choix in
-1)
-menu-dw-analogo;;
-2)
-menu-dw-rtl;;
-3)
-menu-mm-rtl;;
-4)
-menu-ionos;;
-5)
-menu-mmdvm;;
-6)
-menu-dvs;;
-7)
-menu-ysf;;
-8)
-menu-ysf2dmr;;
-9)
-menu-hbl;;
-10)
-menu-fdmr;;
-11)
-menu-wifi;;
-12)
-menu-noip ;;
-13)
-sudo shutdown -r now ;;
-14)
-menu-apagar;;
-15)
-break;
-
-
-esac
-
-done
-exit 0
-
-
-EOF
 ##################################################
 sudo cat > /bin/menu-fdmr <<- "EOF"
 #!/bin/bash
