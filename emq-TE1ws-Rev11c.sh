@@ -866,7 +866,7 @@ Type=simple
 Restart=always
 #ExecStartPre=/bin/sleep 30
 # Modify for different other port
-ExecStart=php -S 0.0.0.0:80 -t /var/www/html/
+ExecStart=php -S 0.0.0.0:80 -t /var/www/dvs/
 [Install]
 WantedBy=multi-user.target
 
@@ -1794,7 +1794,10 @@ sudo sed -i "s/42000/42500/g" /opt/YSFGateway/YSFGateway.ini
 sudo sed -i "s/42001/43001/g" /opt/YSFGateway/YSFGateway.ini
 sudo sed -i "s/RptPort=3200/RptPort=3230/g" /opt/YSFGateway/YSFGateway.ini
 sudo sed -i "s/LocalPort=4200/LocalPort=4230/g" /opt/YSFGateway/YSFGateway.ini
-
+mkdir /var/www/dvs
+sudo mv /var/www/html/* /var/www/dvs/
+sudo sed -i 's/www\/html/www\/dvs/g' /usr/local/sbin/update-config.sh
+sudo sed -i 's/www\/html/www\/dvs/g' /var/lib/dpkg/info/dvswitch*
 ####
 cat > /opt/MMDVM_Bridge/MMDVM_Bridge.ini  <<- "EOF"
 [General]
