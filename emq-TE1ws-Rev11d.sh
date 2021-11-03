@@ -1764,9 +1764,9 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-cd /opt/noip/ && sudo tar vzxf noip-duc-linux.tar.gz && cd /opt/noip/noip-2.1.9-1/ && sudo make && sudo make install && cronedit.sh '*/10 * * * *' 'sudo /usr/local/bin/noip2' add ;;
+cd /opt/noip/ && sudo tar vzxf noip-duc-linux.tar.gz && cd /opt/noip/noip-2.1.9-1/ && sudo make && sudo make install && cronedit.sh '@reboot' 'sudo /usr/local/bin/noip2' add && /usr/local/bin/noip2 ;;
 2)
-sudo rm -r /usr/local/bin/noip2 && sudo rm -r /usr/local/etc/no-ip2.conf && sudo rm -r /tmp/no-ip2.conf && sudo rm -r /opt/noip/noip-2.1.9-1 && cronedit.sh '*/10 * * * *' 'sudo /usr/local/bin/noip2' remove ;;
+sudo rm -r /usr/local/bin/noip2 && sudo rm -r /usr/local/etc/no-ip2.conf && sudo rm -r /tmp/no-ip2.conf && sudo rm -r /opt/noip/noip-2.1.9-1 && cronedit.sh '@reboot' 'sudo /usr/local/bin/noip2' remove ;;
 3)
 cd /tmp && sudo noip2 -S &> noip.txt && nano noip.txt && sudo rm noip.txt;;
 4)
