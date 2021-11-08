@@ -2442,7 +2442,7 @@ GEN_STAT_BRIDGES: True
 ALLOW_NULL_PASSPHRASE: True
 ANNOUNCEMENT_LANGUAGES: en_GB,en_GB_2,en_US,es_ES,es_ES_2,fr_FR,de_DE,dk_DK,it_IT,no_NO,pl_PL,se_SE,pt_PT,CW
 SERVER_ID: 0000
-
+DATA_GATEWAY: False
 
 # NOT YET WORKING: NETWORK REPORTING CONFIGURATION
 #   Enabling "REPORT" will configure a socket-based reporting
