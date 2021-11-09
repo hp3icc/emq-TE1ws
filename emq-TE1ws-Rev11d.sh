@@ -1000,9 +1000,9 @@ case $choix in
 1)
 sudo nano /opt/YSF2DMR/YSF2DMR.ini;;
 2)
-sudo sh /opt/YSF2DMR/DMRIDUpdate.sh && sudo systemctl enable dmrid-ysf2dmr.service;;
+sudo sh /opt/YSF2DMR/DMRIDUpdate.sh && sudo systemctl enable dmrid-ysf2dmr.service && cronedit.sh '* */24 * * *' 'sudo sh /opt/YSF2DMR/DMRIDUpdate.sh' add ;;
 3)
-sudo systemctl stop ysf2dmr.service && sudo systemctl stop dmrid-ysf2dmr.service && sudo systemctl disable dmrid-ysf2dmr.service && rm /var/log/ysf2dmr/* ;;
+sudo systemctl stop ysf2dmr.service && sudo systemctl stop dmrid-ysf2dmr.service && sudo systemctl disable dmrid-ysf2dmr.service && rm /var/log/ysf2dmr/* && cronedit.sh '* */24 * * *' 'sudo sh /opt/YSF2DMR/DMRIDUpdate.sh' remove ;;
 4)
 break;
 esac
@@ -2980,8 +2980,8 @@ IGLOGIN HP3ICC-10 12345
 # That's all you need for a receive only IGate which relays
 # messages from the local radio channel to the global servers.
 #
-#AGWPORT 9000
-#KISSPORT 9001
+#AGWPORT 8000
+#KISSPORT 8001
 EOF
 ###
 cat > /opt/direwolf/dw.conf <<- "EOF"
