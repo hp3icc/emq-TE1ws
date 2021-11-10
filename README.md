@@ -61,7 +61,7 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
 
 Bash de auto instalación:
 
-sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev11d.sh)"
+sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev12.sh)"
 
 #
 
@@ -198,7 +198,7 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
 Self-install bash:
 
-sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev11d.sh )"
+sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev12.sh )"
 
 #
 
