@@ -908,8 +908,8 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf" --menu "Suba o 
 1 " Editar Direwolf Analogo " \
 2 " Iniciar APRS " \
 3 " Detener APRS " \
-4 " Dowgrade Direwolf 1.7A " \
-5 " Direwolf Standard version" \
+4 " Compatibilidad Raspberry Zero" \
+5 " Compatibilidad Raspberry B" \
 6 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
