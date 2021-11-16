@@ -908,8 +908,8 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf" --menu "Suba o 
 1 " Editar Direwolf Analogo " \
 2 " Iniciar APRS " \
 3 " Detener APRS " \
-4 " Compatibilidad Raspberry Zero " \
-5 " Compatibilidad Raspberry Standard " \
+4 " Dowgrade Direwolf 1.7A " \
+5 " Direwolf Standard version" \
 6 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
@@ -2916,30 +2916,24 @@ network={
         psk="Panama310"
 }
 EOF
-#######
 ################################################
 #Direwolf
-sudo apt-get remove --purge pulseaudio -y
-sudo apt-get autoremove -y
-rm -rf /home/pi/.pulse
 cd /opt
 	
 git clone https://www.github.com/wb2osz/direwolf
 cd direwolf
 git checkout dev
-mkdir build
-cd build
-sudo cmake ..
-sudo make -j4
+mkdir build && cd build
+cmake ..
+make -j4
 sudo make install
-sudo make install-conf
+make install-conf
 
 sudo cp /usr/local/bin/direwolf /opt/direwolf/direwolf2
 cd /tmp/
 wget https://github.com/hp3icc/emq-TE1ws/raw/main/direwolf
 sudo mv /tmp/direwolf /opt/direwolf/direwolf1
 
-##########
 #############
 cat > /opt/direwolf/rtl.sh  <<- "EOF"
 #!/bin/sh
