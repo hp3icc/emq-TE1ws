@@ -2918,7 +2918,7 @@ network={
 EOF
 ################################################
 #Direwolf
-cd /opt
+cd /opt/
 	
 git clone https://www.github.com/wb2osz/direwolf
 cd direwolf
@@ -2930,10 +2930,8 @@ sudo make install
 make install-conf
 
 sudo cp /usr/local/bin/direwolf /opt/direwolf/direwolf2
-cd /tmp/
-wget https://github.com/hp3icc/emq-TE1ws/raw/main/direwolf
-sudo mv /tmp/direwolf /opt/direwolf/direwolf1
-
+cd /opt/direwolf
+wget https://github.com/hp3icc/emq-TE1ws/raw/main/direwolf1
 #############
 cat > /opt/direwolf/rtl.sh  <<- "EOF"
 #!/bin/sh
