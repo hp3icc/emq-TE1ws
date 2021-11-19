@@ -1,0 +1,1 @@
+{1: [{'call': 'N0CALL'}, {'ssid': ''}, {'icon': ''}, {'comment': ''}], 7140001: [{'call': 'HP3ICC'}, {'ssid': '9'}, {'icon': ''}, {'comment': ''}], 7140023: [{'call': 'HP3ICC'}, {'ssid': '9'}, {'icon': ''}, {'comment': 'DIGITAL APRS FREEDMR HP3ICC 73.'}]}
