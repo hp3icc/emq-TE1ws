@@ -51,7 +51,6 @@ sudo apt install python3-distutils -y
 sudo apt install python3-twisted -y
 sudo apt install python3-bitarray -y
 sudo apt install python3-dev -y
-sudo python3 get-pip.py
 sudo apt install python3-websockets
 sudo apt install python3-psutil
 sudo apt-get install python3-serial
@@ -76,9 +75,11 @@ sudo pip3 install ansi2html
 sudo apt-get install python-pip -y
 sudo apt-get install python-dev -y
 sudo apt-get install rrdtool -y
- 
+
 ##################
 cd /home/
+sudo python3 get-pip.py
+wget https://bootstrap.pypa.io/get-pip.py
 sudo cat > /home/requirements.txt <<- "EOF"
 Twisted
 dmr_utils3
@@ -104,6 +105,7 @@ EOF
 pip3 install setuptools wheel
 pip3 install -r requirements.txt
 sudo rm requirements.txt
+sudo rm get-pip.py
 #
 mkdir /var/www
 mkdir /var/www/html
@@ -1937,7 +1939,6 @@ EOF
 ####
 
 cd /opt/
-wget https://bootstrap.pypa.io/get-pip.py
 git clone https://github.com/lz5pn/HBlink3
 sudo mv /opt/HBlink3/ /opt/backup/
 sudo mv /opt/backup/HBlink3/ /opt/
