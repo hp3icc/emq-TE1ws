@@ -78,8 +78,8 @@ sudo apt-get install rrdtool -y
 
 ##################
 cd /home/
-sudo python3 get-pip.py
 wget https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
 sudo cat > /home/requirements.txt <<- "EOF"
 Twisted
 dmr_utils3
