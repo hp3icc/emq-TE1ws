@@ -13,8 +13,8 @@ sudo apt-get install gcc -y
 sudo apt-get install g++ -y
 sudo apt-get install make -y
 sudo apt-get install cmake -y
-musl-dev
-python2
+sudo apt-get install musl-dev -y
+sudo apt-get install python2 -y
 sudo apt-get install libasound2-dev -y
 sudo apt-get install libudev-dev -y
 sudo apt-get install libusb-1.0-0-dev -y
@@ -78,6 +78,33 @@ sudo apt-get install python-dev -y
 sudo apt-get install rrdtool -y
  
 ##################
+cd /home/
+sudo cat > /home/requirements.txt <<- "EOF"
+Twisted
+dmr_utils3
+bitstring
+autobahn
+jinja2==2.11.3
+bitstring>=3.1.5
+bitarray>=0.8.1
+Twisted>=16.3.0
+dmr_utils3>=0.1.19
+configparser>=3.0.0
+aprslib>=0.6.42
+pynmea2
+maidenhead
+flask
+folium
+mysql-connector
+resettabletimer>=0.7.0
+setproctitle
+
+EOF
+#
+pip3 install setuptools wheel
+pip3 install -r requirements.txt
+sudo rm requirements.txt
+#
 mkdir /var/www
 mkdir /var/www/html
 
@@ -1908,20 +1935,7 @@ GatewayAddress=127.0.0.1
 GatewayPort=14020
 EOF
 ####
-cd /home/
-sudo cat > /home/requirements.txt <<- "EOF"
-Twisted
-dmr_utils3
-bitstring
-autobahn
-jinja2==2.11.3
 
-EOF
-#
-pip3 install setuptools wheel
-pip3 install -r requirements.txt
-sudo rm requirements.txt
-#
 cd /opt/
 wget https://bootstrap.pypa.io/get-pip.py
 git clone https://github.com/lz5pn/HBlink3
