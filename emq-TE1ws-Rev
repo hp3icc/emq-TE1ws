@@ -134,7 +134,7 @@ sudo cat > /bin/menu <<- "EOF"
 
 while : ; do
 
-choix=$(whiptail --title "TE1ws-Rev12a Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 61 15 \
+choix=$(whiptail --title "TE1ws-Rev12b Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 61 15 \
 1 " APRS Direwolf Analogo" \
 2 " APRS Direwolf RTL-SDR " \
 3 " APRS Multimon-ng " \
@@ -1941,19 +1941,24 @@ EOF
 cd /opt/
 git clone https://github.com/lz5pn/HBlink3
 sudo mv /opt/HBlink3/ /opt/backup/
-sudo mv /opt/backup/HBlink3/ /opt/
+cd /opt/backup/
+git clone https://github.com/kf7eel/hbnet.git
+#sudo mv /opt/backup/HBlink3/ /opt/
+sudo mv /opt/backup/hbnet/ /opt/HBlink3
 sudo mv /opt/backup/HBmonitor/ /opt/
-sudo mv /opt/backup/dmr_utils3/ /opt/
+#sudo mv /opt/backup/dmr_utils3/ /opt/
+cd /opt/
 sudo rm -r /opt/backup/
-cd /opt/dmr_utils3
-sudo chmod +x install.sh
-sudo ./install.sh
-sudo /usr/bin/python3 -m pip install --upgrade pip
-sudo pip install --upgrade dmr_utils3
+#cd /opt/dmr_utils3
+#sudo chmod +x install.sh
+#sudo ./install.sh
+#sudo /usr/bin/python3 -m pip install --upgrade pip
+#sudo pip install --upgrade dmr_utils3
 cd /opt/HBlink3
-cp rules-SAMPLE.py rules.py
+cp rules_SAMPLE.py rules.py
 sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' playback.cfg
-sudo sed -i 's/54100/49063/' playback.cfg
+sudo sed -i 's/REPORT: True/REPORT: False/' playback.cfg
+sudo sed -i 's/54072/49063/' playback.cfg
 chmod +x playback.py
 cp hblink-SAMPLE.cfg hblink.cfg
 sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' hblink.cfg
@@ -1963,9 +1968,68 @@ sudo sed -i 's/54002/54902/' hblink.cfg
 sudo sed -i 's/tmp/var\/log\/hblink/' hblink.cfg
 sudo sed -i 's/s3cr37w0rd/passw0rd/' hblink.cfg
 sudo sed -i 's/MASTER_PORT: 62030/MASTER_PORT: 62031/' hblink.cfg
-sudo sed -i 's/54098/49062/' hblink.cfg
-sudo sed -i 's/MASTER_PORT: 54100/MASTER_PORT: 49063/' hblink.cfg
+sudo sed -i 's/54070/49064/' hblink.cfg
+sudo sed -i 's/54073/49062/' hblink.cfg
+sudo sed -i 's/MASTER_PORT: 54072/MASTER_PORT: 49063/' hblink.cfg
+cp gps_data-SAMPLE.cfg gps_data.cfg
+sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' gps_data.cfg
+sudo sed -i 's/REPORT: True/REPORT: False/' gps_data.cfg
+sudo sed -i 's/54071/49065/' gps_data.cfg
+sudo sed -i 's/54070/49064/' gps_data.cfg
+#
+cd /opt/
+git clone https://github.com/kf7eel/hbnet.git
 
+cd /opt/hbnet
+wget https://github.com/hp3icc/D-APRS/raw/main/gps_data.cfg
+wget https://github.com/hp3icc/D-APRS/raw/main/user_settings.txt
+
+sudo cat > /bin/menu-igate <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "D-APRS KF7EEL / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 16 65 5 \
+1 " Editar igate" \
+2 " Iniciar Igate " \
+3 " Detener Igate " \
+4 " Salir del menu " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+nano /opt/hbnet/gps_data.cfg ;;
+2)
+sudo systemctl stop daprs.service && sudo systemctl start daprs.service && sudo systemctl enable daprs.service ;;
+3)
+sudo systemctl stop daprs.service && sudo systemctl disable daprs.service ;;
+4)
+break;
+esac
+done
+exit 0
+EOF
+#
+sudo cat > /lib/systemd/system/daprs.service <<- "EOF"
+[Unit]
+Description=Data bridge APRS
+After=network-online.target syslog.target
+Wants=network-online.target
+[Service]
+StandardOutput=null
+WorkingDirectory=/opt/hbnet
+RestartSec=3
+ExecStart=/usr/bin/python3 /opt/hbnet/gps_data.py
+Restart=on-abort
+[Install]
+WantedBy=multi-user.target
+EOF
+#
 #
 sudo cat > /lib/systemd/system/hbparrot.service <<- "EOF"
 [Unit]
@@ -2024,7 +2088,7 @@ sudo ./install.sh
 sudo cp config_SAMPLE.py config.py
 ## Configurar el monitor
 ##nano /opt/HBmonitor/config.py
-sudo cd /opt/HBmonitor/
+cd /opt/HBmonitor/
 sudo sed -i 's/8080/80/' config.py
 #cp utils/hbmon.service /lib/systemd/system/
 sudo cat > /lib/systemd/system/hbmon.service <<- "EOF"
