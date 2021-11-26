@@ -7,6 +7,7 @@ sudo apt-get dist-upgrade -y
 echo instalando pre-requisitos
 ######################################################################################################
 #!/bin/sh
+sudo apt-get purge needrestart -y
 sudo apt-get install git -y
 sudo apt-get install screen -y
 sudo apt-get install gcc -y
@@ -41,10 +42,10 @@ sudo apt-get install wiringpi -y
 sudo apt-get install chkconfig -y
 sudo apt-get install wavemon -y
 sudo apt-get install python3 -y
-sudo apt-get libffi-dev -y
-sudo apt-get libssl-dev -y
-sudo apt-get cargo -y 
-sudo apt-get sed -y
+sudo apt-get install libffi-dev -y
+sudo apt-get install libssl-dev -y
+sudo apt-get install cargo -y 
+sudo apt-get install sed -y
 sudo apt install python3-pip -y
 sudo apt install python3 
 sudo apt install python3-distutils -y
