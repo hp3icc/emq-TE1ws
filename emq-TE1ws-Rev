@@ -2852,12 +2852,10 @@ sudo chmod +x /opt/HBMonv2/sysinfo/graph.sh
 sudo chmod +x /opt/HBMonv2/sysinfo/cpu.sh
 sudo chmod +x /usr/bin/python3
 sudo chmod +x /opt/HBmonitor/monitor.py
-sudo chmod +x /opt/HBlink3/playback.py
-sudo chmod +x /opt/HBlink3/bridge.py
+sudo chmod +x /opt/HBlink3/*.py
 sudo chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
 sudo chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
 sudo chmod +x /opt/hbnet/*.py
-sudo chmod +x /bin/menu-igate
 
 sudo chmod 755 /lib/systemd/system/daprs.service
 sudo chmod 755 /lib/systemd/system/daprs2.service
