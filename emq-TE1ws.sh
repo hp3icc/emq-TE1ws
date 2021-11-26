@@ -224,7 +224,7 @@ case $choix in
 1)
 break;;
 2)
-sudo rm -r /opt/* && sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws.sh)" ;
+sudo rm -r /opt/* && sudo rm /bin/MENU* && sudo rm /bin/menu* && sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws.sh)" ;
 esac
 done
 exit 0
