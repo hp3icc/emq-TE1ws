@@ -2004,7 +2004,7 @@ git clone https://github.com/kf7eel/hbnet.git
 cd /opt/hbnet
 wget https://github.com/hp3icc/D-APRS/raw/main/gps_data.cfg
 wget https://github.com/hp3icc/D-APRS/raw/main/user_settings.txt
-
+cp /opt/hbnet/user_settings.txt /opt/HBlink3/user_settings.txt
 sudo cat > /bin/menu-igate <<- "EOF"
 #!/bin/bash
 while : ; do
