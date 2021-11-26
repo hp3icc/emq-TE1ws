@@ -2029,6 +2029,7 @@ sudo sed -i 's/daprs/daprs2/' /bin/menu-igate2
 sudo sed -i 's/daprs.service/daprs2.service/' /bin/menu-igate2
 sudo sed -i 's/daprs.service/daprs2.service/' /bin/menu-igate2
 sudo sed -i 's/daprs.service/daprs2.service/' /bin/menu-igate2
+sudo sed -i 's/path\/to/opt\/HBlink3/' /opt/HBlink3/gps_data.cfg
 #
 sudo cat > /lib/systemd/system/daprs.service <<- "EOF"
 [Unit]
