@@ -135,7 +135,7 @@ sudo cat > /bin/menu <<- "EOF"
 
 while : ; do
 
-choix=$(whiptail --title "TE1ws-Rev12b Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 61 15 \
+choix=$(whiptail --title "TE1ws-Rev12b / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 63 15 \
 1 " APRS Direwolf Analogo" \
 2 " APRS Direwolf RTL-SDR " \
 3 " APRS Multimon-ng " \
@@ -202,6 +202,32 @@ esac
 done
 exit 0
 
+
+EOF
+###menu-update
+cat > /bin/menu-update <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "emq-TE1Rev-12b / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Nota imortante: Antes de iniciar el proceso de actualizacion, tome nota de sus datos de configuracion, de las aplicaciones que utiliza, el proceso de actualizacion borrara todos sus datos, este proceso puede tomar tomar tiempo, hasta 1 hora o mas segun su equipo, favor sea paciente. " 15 65 2 \
+1 " Salir "  \
+2 " Iniciar Actualizacion Completa " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+break;;
+2)
+sudo rm -r /opt/* && sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws.sh)" ;
+esac
+done
+exit 0
 
 EOF
 #
@@ -911,32 +937,6 @@ ExecStart=php -S 0.0.0.0:80 -t /var/www/dvs/
 WantedBy=multi-user.target
 
 
-
-EOF
-###menu-apagar
-cat > /bin/menu-update <<- "EOF"
-#!/bin/bash
-while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Nota imortante: antes de iniciar el proceso de actualizacion completa, tome nota de todos su datos de configuracion de las aplicaciones que utiliza , el proceso de actualizacion , borrara todos sus datos este proceso puede tomar tomar tiempo , hasta 1 hora o mas segun su equipo, favor sea paciente. " 20 50 4 \
-1 " Salir "  \
-2 " Iniciar Actualizacion Complea " 3>&1 1>&2 2>&3)
-exitstatus=$?
-#on recupere ce choix
-#exitstatus=$?
-if [ $exitstatus = 0 ]; then
-    echo "Your chosen option:" $choix
-else
-    echo "You chose cancel."; break;
-fi
-# case : action en fonction du choix
-case $choix in
-1)
-break;;
-2)
-sudo rm -r /opt/* && sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws.sh)" ;
-esac
-done
-exit 0
 
 EOF
 #####menu-dw-analogo
