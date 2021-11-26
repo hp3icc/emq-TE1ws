@@ -8,8 +8,6 @@ echo instalando pre-requisitos
 ######################################################################################################
 #!/bin/sh
 sudo apt-get purge needrestart -y
-sudo apt-get purge dvswitch -y
-sudo apt autoremove -y
 sudo apt-get install git -y
 sudo apt-get install screen -y
 sudo apt-get install gcc -y
@@ -151,8 +149,7 @@ choix=$(whiptail --title "TE1ws-Rev12b / Raspbian Proyect HP3ICC Esteban Mackay 
 11 " Editar WiFi " \
 12 " DDNS NoIP " \
 13 " Reiniciar Equipo " \
-14 " Actualizar " \
-15 " Salir del menu " 3>&1 1>&2 2>&3)
+14 " Salir del menu " 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 
@@ -194,8 +191,6 @@ menu-noip ;;
 13)
 sudo shutdown -r now ;;
 14)
-menu-update;;
-15)
 break;
 
 
@@ -206,42 +201,6 @@ exit 0
 
 
 EOF
-###menu-update
-cat > /bin/menu-update <<- "EOF"
-#!/bin/bash
-while : ; do
-choix=$(whiptail --title "emq-TE1Rev-12b / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Nota imortante: Antes de iniciar el proceso de actualizacion, tome nota de sus datos de configuracion, de las aplicaciones que utiliza, el proceso de actualizacion borrara todos sus datos, este proceso puede tomar tomar tiempo, hasta 1 hora o mas segun su equipo, favor sea paciente. " 15 65 2 \
-1 " Salir "  \
-2 " Iniciar Actualizacion Completa " 3>&1 1>&2 2>&3)
-exitstatus=$?
-#on recupere ce choix
-#exitstatus=$?
-if [ $exitstatus = 0 ]; then
-    echo "Your chosen option:" $choix
-else
-    echo "You chose cancel."; break;
-fi
-# case : action en fonction du choix
-case $choix in
-1)
-break;;
-2)
-/bin/emq-TE1-update ;
-esac
-done
-exit 0
-
-EOF
-#
-cat > /bin/emq-TE1-update <<- "EOF"
-#!/bin/bash
-sudo rm -r /opt/*
-sudo rm /bin/MENU
-sudo rm /bin/menu*
-sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws.sh)"
-EOF
-#
-chmod +x /bin/emq-TE1-update
 #
 sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock
 
