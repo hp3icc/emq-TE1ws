@@ -224,12 +224,22 @@ case $choix in
 1)
 break;;
 2)
-sudo rm -r /opt/* && sudo rm /bin/MENU* && sudo rm /bin/menu* && sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws.sh)" ;
+/bin/emq-TE1-update ;
 esac
 done
 exit 0
 
 EOF
+#
+cat > /bin/emq-TE1-update <<- "EOF"
+#!/bin/bash
+sudo rm -r /opt/*
+sudo rm /bin/MENU
+sudo rm /bin/menu*
+sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws.sh)"
+EOF
+#
+chmod +x /bin/emq-TE1-update
 #
 sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock
 
