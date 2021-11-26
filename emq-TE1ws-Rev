@@ -2436,7 +2436,7 @@ fi
 
 EOF
 ####
-
+sudo sed -i 's/localhost_2-day.png/localhost_1-day.png/' /opt/HBMonv2/html/sysinfo.php
 cd /opt/HBMonv2/sysinfo/
 sudo sed -i 's/var\/www\/html/opt\/HBMonv2\/html/' cpu.sh
 sudo sed -i 's/var\/www\/html/opt\/HBMonv2\/html/' graph.sh
