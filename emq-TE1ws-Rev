@@ -740,7 +740,7 @@ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf ;;
 2)
 sudo ifconfig wlan0 down && sudo ifconfig wlan0 up ;;
 3)
-cd /tmp && sudo sudo iwlist wlan0 scan | grep ESSID | grep -o '"[^"]\+"' >> ssid.txt && nano ssid.txt && sudo rm ssid.txt ;;
+sudo iwlist wlan0 scan | grep ESSID | grep -o '"[^"]\+"' >> /tmp/ssid.txt && nano /tmp/ssid.txt && sudo rm /tmp/ssid.txt ;;
 4)
 sudo wavemon ;;
 5)
@@ -1789,7 +1789,8 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu NoIP" --menu "Suba o Baje
 1 " Activar NoIP " \
 2 " Desactivar NoIP " \
 3 " Info DDNS " \
-4 " Menu Principal " 3>&1 1>&2 2>&3)
+4 " IP Publica " \
+5 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -1807,6 +1808,8 @@ cronedit.sh '@reboot' 'sudo /usr/local/bin/noip2' remove && sudo rm -r /usr/loca
 3)
 cd /tmp && sudo noip2 -S &> noip.txt && nano noip.txt && sudo rm noip.txt;;
 4)
+wget -qO- ifconfig.co/ip >> /tmp/ipgw.txt && nano /tmp/ipgw.txt && sudo rm /tmp/ipgw.txt ;;
+5)
 break;
 esac
 done
