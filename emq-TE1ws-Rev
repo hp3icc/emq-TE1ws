@@ -569,7 +569,7 @@ EOF
 sudo cat > /bin/menu-fdmr <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 12 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 21 50 12 \
 1 " Editar FreeDMR Server " \
 2 " Editar Interlink  " \
 3 " Editar HBMon2  " \
@@ -653,7 +653,7 @@ sudo cat > /bin/menu-hbl <<- "EOF"
 
 while : ; do
 
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu HBLink3" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 12 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu HBLink3" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 21 50 12 \
 1 " Editar HBLink Server " \
 2 " Editar Interlink  " \
 3 " Editar HBMon  " \
@@ -1994,7 +1994,7 @@ wget https://github.com/hp3icc/D-APRS/raw/main/user_settings.txt
 sudo cat > /bin/menu-igate <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "D-APRS KF7EEL / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 16 65 5 \
+choix=$(whiptail --title "FreeDMR D-APRS KF7EEL / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 16 72 5 \
 1 " Editar igate" \
 2 " Iniciar Igate " \
 3 " Detener Igate " \
@@ -2023,6 +2023,7 @@ exit 0
 EOF
 #
 cp /bin/menu-igate /bin/menu-igate2
+sudo sed -i 's/FreeDMR/HBLink3/' /bin/menu-igate2
 sudo sed -i 's/hbnet/HBlink3/' /bin/menu-igate2
 sudo sed -i 's/daprs/daprs2/' /bin/menu-igate2
 #
