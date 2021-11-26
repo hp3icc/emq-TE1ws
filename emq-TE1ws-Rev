@@ -1,9 +1,53 @@
 #!/bin/sh
 cat > /bin/emq-TE1-update <<- "EOF"
 #!/bin/bash
-sudo rm -r /opt/*
 sudo rm /bin/MENU
 sudo rm /bin/menu*
+sudo rm -r /opt/Analog_Bridge
+sudo rm -r /opt/buster
+sudo rm -r /opt/YSFGateway
+sudo rm -r /opt/YSFParrot
+sudo rm -r /opt/Quantar_Bridge
+sudo rm -r /opt/NXDNGateway
+sudo rm -r /opt/NXDNParrot
+sudo rm -r /opt/P25Gateway
+sudo rm -r /opt/P25Parrot
+sudo rm -r /opt/md380-emu
+sudo rm -r /opt/MMDVM_Bridge
+
+sudo rm -r /opt/direwolf
+sudo rm -r /opt/dmr_utils3
+sudo rm -r /opt/FreeDMR
+sudo rm -r /opt/get-pip.py
+sudo rm -r /opt/HBlink3
+sudo rm -r /opt/hbnet
+sudo rm -r /opt/HBmonitor
+sudo rm -r /opt/HBMonv2
+sudo rm -r /opt/ionsphere
+sudo rm -r /opt/kalibrate-rtl
+sudo rm -r /opt/MMDVM_CM
+sudo rm -r /opt/MMDVMHost
+sudo rm -r /opt/MMDVMHost-Websocketboard
+sudo rm -r /opt/multimon-ng
+sudo rm -r /opt/noip
+sudo rm -r /opt/pymultimonaprs
+sudo rm -r /opt/pYSFReflector
+sudo rm -r /opt/rtl-sdr
+sudo rm -r /opt/Web_Proxy
+sudo rm -r /opt/WSYSFDash
+sudo rm -r /opt/YSF2DMR
+
+sudo systemctl stop analog_bridge.service
+sudo systemctl stop mmdvm_bridge.service
+sudo systemctl stop nxdngateway.service
+sudo systemctl stop p25gateway.service
+sudo systemctl stop ysfgateway.service
+sudo systemctl disable analog_bridge.service
+sudo systemctl disable mmdvm_bridge.service
+sudo systemctl disable nxdngateway.service
+sudo systemctl disable p25gateway.service
+sudo systemctl disable ysfgateway.service
+
 sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws.sh)"
 EOF
 chmod +x /bin/emq-TE1-update
