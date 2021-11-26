@@ -8,6 +8,8 @@ echo instalando pre-requisitos
 ######################################################################################################
 #!/bin/sh
 sudo apt-get purge needrestart -y
+sudo apt-get purge dvswitch -y
+sudo apt autoremove -y
 sudo apt-get install git -y
 sudo apt-get install screen -y
 sudo apt-get install gcc -y
