@@ -2026,6 +2026,7 @@ cp /bin/menu-igate /bin/menu-igate2
 sudo sed -i 's/FreeDMR/HBLink3/' /bin/menu-igate2
 sudo sed -i 's/hbnet/HBlink3/' /bin/menu-igate2
 sudo sed -i 's/daprs/daprs2/' /bin/menu-igate2
+sudo sed -i 's/daprs.service/daprs2.service/' /bin/menu-igate2
 #
 sudo cat > /lib/systemd/system/daprs.service <<- "EOF"
 [Unit]
