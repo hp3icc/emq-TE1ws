@@ -2291,6 +2291,7 @@ sudo chmod +x /opt/FreeDMR/playback.py
 sudo chmod +x /opt/FreeDMR/hotspot_proxy_v2.py
 
 sudo cat > /opt/FreeDMR/conf.txt <<- "EOF"
+
 [EchoTest]
 MODE: PEER
 ENABLED: True
