@@ -79,6 +79,8 @@ si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  
  
 * https://mega.nz/file/1ENHVKQY#NoDi61vl3qz0ZkhBpiQ6W6bBCne4P10dYY5xo1677KA
 
+* https://drive.google.com/file/d/1b2YtuQAVDjeJCmJIonBYcBFtBjpkRb-G/view?usp=sharing
+
 #
 
 # Configuración
@@ -219,6 +221,8 @@ If you have raspbery equipment, you can download and use the preconfigured image
 You can download the raspberry image from any of the following links:
 
 * https://mega.nz/file/1ENHVKQY#NoDi61vl3qz0ZkhBpiQ6W6bBCne4P10dYY5xo1677KA
+
+* https://drive.google.com/file/d/1b2YtuQAVDjeJCmJIonBYcBFtBjpkRb-G/view?usp=sharing
 
  #
 
