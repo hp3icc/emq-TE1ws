@@ -2803,6 +2803,14 @@ FILTER IG 0 t/p
 IGTXLIMIT 6 10
 #
 EOF
+#
+cd /tmp/
+wget -O gotty.tar.gz https://github.com/yudai/gotty/releases/latest/download/gotty_linux_arm.tar.gz
+tar xf gotty.tar.gz
+sudo mv gotty /usr/local/bin
+rm gotty.tar.gz
+sudo chmod a+x /usr/local/bin/gotty
+sed -i "\$i gotty -w -p "8022" -c pi:Panama507 menu" /etc/rc.local
 ########################
 echo finalizando instalacion
 sudo chown -R mmdvm:mmdvm /opt/MMDVMHost/MMDVMHost
