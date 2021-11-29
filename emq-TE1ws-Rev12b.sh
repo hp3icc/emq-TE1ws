@@ -2868,6 +2868,8 @@ sudo systemctl daemon-reload
 sudo systemctl enable monp.service
 sudo systemctl stop rsyslog
 sudo systemctl disable rsyslog
+sudo systemctl stop webproxy.service
+sudo systemctl disable webproxy.service
 rm /var/log/syslog*
 rm /var/log/*.log*
 cd /tmp/
