@@ -93,13 +93,11 @@ Ejemplo:
 
 * emq-TE1:8022/ 
 
-Si descargo la imagen de Raspberry ya compilada estos son los datos para iniciar sesión:
-
 Usuario:    pi
 
 Contraseña:  Panama507
 
-Una vez allá iniciado sesión , escriba la palabra:   menu 
+si esta configurando desde terminal o clliente ssh, una vez allá iniciado sesión , escriba la palabra:   menu 
 
 De esta forma accederá al listado de aplicaciones incluidas en la compilación y sus configuraciones, recuerde guardar los cambios con la combinación de teclas:     Ctrl + X , posteriormente iniciar o detener la aplicación ya configurada .
 
@@ -235,16 +233,18 @@ You can download the raspberry image from any of the following links:
  # Setting
 
  You can configure from terminal console, ssh client application or use your Web browser port 8022, entering the local ip of your raspberry or hostname.
- 
- Example:
- 
- 
+
+Example: 
+
+ * 192.0.0.0:8022/  
+
+ * emq-TE1:8022/
 
 User: pi
 
 Password: Panama507
 
-Once logged in, write the word: menu 
+If you are configuring from terminal or ssh client, once logged in, write the word: menu
 
 In this way you will access the list of applications included in the compilation and their configurations, remember to save the changes with the key combination: Ctrl + X, then start or stop the already configured application.
 
