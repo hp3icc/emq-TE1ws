@@ -85,7 +85,13 @@ si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  
 
 # Configuración
 
-Puede configurar desde consola terminal o utilizando aplicación cliente ssh
+Puede configurar desde consola terminal, aplicación cliente ssh o utilizar su navegador Web puerto 8022, ingresando al ip local de su raspberry o hostname.
+
+Ejemplo: 
+
+* 192.0.0.0:8022/  
+
+* emq-TE1:8022/ 
 
 Si descargo la imagen de Raspberry ya compilada estos son los datos para iniciar sesión:
 
@@ -228,8 +234,11 @@ You can download the raspberry image from any of the following links:
 
  # Setting
 
- You can configure from terminal console or using ssh client application
- If I download the Raspberry image already compiled, these are the data to log in:
+ You can configure from terminal console, ssh client application or use your Web browser port 8022, entering the local ip of your raspberry or hostname.
+ 
+ Example:
+ 
+ 
 
 User: pi
 
