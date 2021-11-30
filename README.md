@@ -75,7 +75,7 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
 
 # Instalación en memoria micro sd para Raspberry:
 
-si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  lista para cargar en su memoria micro sd , para esto solo deberá descargar el archivo de la imagen preconfigurada para raspberry, descomprimir el archivo .zip y cargar en su memoria micro sd utilizando herramientas como BalenaEtcher , Rufus o cualquier otra herramienta para cargar archivos .ima a la memoria micro sd
+si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  lista para cargar en su memoria micro sd , para esto solo deberá descargar el archivo de la imagen preconfigurada para raspberry, descomprimir el archivo .zip y cargar en su memoria micro sd utilizando herramientas como BalenaEtcher , Rufus o cualquier otra herramienta para cargar el archivo .ima a la memoria micro sd
 
  puede descargar la imagen para raspberry desde cualquiera de los siguientes links:
  
@@ -115,7 +115,7 @@ Si desea habilitar más de un Dashboard a la vez, recuerde cambiar los puertos h
 
 * Si utiliza la imagen pre-compilada para Raspberry , recuerde cambiar la contraseña por una de su preferencia . 
 
-* si usted utiliza emq-TE1wsRev8 a la version emq-TE1-ws-Rev10b , y utiliza dashboard de YSFReflector simultaneamente con MMDVMHost , debe corregir los puertos websock de los dashboard de YSFReflector y MMDVMHost, para esto solo debe utilizar la herramienta de correccion para las revisiones 8 a 10b
+* Si usted utiliza emq-TE1wsRev8 a la version emq-TE1-ws-Rev10b , y utiliza dashboard de YSFReflector simultaneamente con MMDVMHost , debe corregir los puertos websock de los dashboard de YSFReflector y MMDVMHost, para esto solo debe utilizar la herramienta de correccion para las revisiones 8 a 10b
 
 wget https://github.com/hp3icc/emq-TE1ws/raw/main/rev8WS-to-rev10b-fix-websosk-conflict.sh
 
@@ -223,7 +223,8 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
 # Installation in micro sd memory for Raspberry:
 
-If you have raspbery equipment, you can download and use the preconfigured image ready to load in your micro sd memory, for this you just need to download the preconfigured image file for raspberry, unzip the .zip file and load it into your micro sd memory using tools such as BalenaEtcher, Rufus or any other tool to load .ima files to micro sd memory
+If you have raspbery equipment, you can download and use the preconfigured image ready to load in your micro sd memory, for this you just need to download the preconfigured image file for raspberry, unzip the .zip file and load it into your micro sd memory using tools such as BalenaEtcher, Rufus or any other tool to load the .ima file to the micro sd memory
+
 
 You can download the raspberry image from any of the following links:
 
