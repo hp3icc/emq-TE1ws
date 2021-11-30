@@ -2935,7 +2935,7 @@ cronedit.sh '* */1 * * *' 'sudo sync ; echo 3 > /proc/sys/vm/drop_caches >/dev/n
 cat > /tmp/completado.sh <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu " Precione enter (return o intro) para finalizar la instalacion y reiniciar su equipo " 11 85 3 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu " Precione enter (return o intro) para finalizar la instalacion y reiniciar" 11 85 3 \
 1 " Iniciar Reinicio de equipo " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
