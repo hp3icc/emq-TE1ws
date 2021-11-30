@@ -81,6 +81,8 @@ si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  
  
 * https://mega.nz/file/9Vtm2SwA#Ydze2vaK7MrfqFhj7SvuVO97GhSLjg4l-x3FikP3mT8
 
+* https://drive.google.com/file/d/19Xti-4rfzkxM3opzvtuwF4pklACWXiB8/view?usp=sharing
+
 #
 
 # Configuración
@@ -91,7 +93,7 @@ Ejemplo:
 
 * 192.0.0.0:8022/  
 
-* emq-TE1:8022/ 
+* emq-te1:8022/ 
 
 Usuario:    pi
 
@@ -227,6 +229,8 @@ You can download the raspberry image from any of the following links:
 
 * https://mega.nz/file/9Vtm2SwA#Ydze2vaK7MrfqFhj7SvuVO97GhSLjg4l-x3FikP3mT8
 
+* https://drive.google.com/file/d/19Xti-4rfzkxM3opzvtuwF4pklACWXiB8/view?usp=sharing
+
  #
 
  # Setting
@@ -237,7 +241,7 @@ Example:
 
  * 192.0.0.0:8022/  
 
- * emq-TE1:8022/
+ * emq-te1:8022/
 
 User: pi
 
