@@ -135,7 +135,7 @@ sudo cat > /bin/menu <<- "EOF"
 
 while : ; do
 
-choix=$(whiptail --title "TE1ws-Rev12c / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 63 15 \
+choix=$(whiptail --title "TE1ws-Rev12d / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 63 15 \
 1 " APRS Direwolf Analogo" \
 2 " APRS Direwolf RTL-SDR " \
 3 " APRS Multimon-ng " \
@@ -189,7 +189,7 @@ menu-wifi;;
 12)
 menu-noip ;;
 13)
-sudo shutdown -r now ;;
+menu-reboot ;;
 14)
 break;
 
@@ -888,6 +888,54 @@ break;
 esac
 done
 exit 0
+EOF
+#
+cat > /bin/menu-reboot <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Nota:  Reinicio automatico, monitorea cada minuto el internet." 15 50 4 \
+1 " Iniciar reinicio de equipo" \
+2 " Habilitar reinicio automatico" \
+3 " Deshabilitar reinicio automatico" \
+4 " Retornar menu principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo reboot
+;;
+2)
+cronedit.sh '*/1 * * * *' 'sudo /usr/local/bin/rebooter1.sh' add ;;
+3)
+cronedit.sh '*/1 * * * *' 'sudo /usr/local/bin/rebooter1.sh' remove ;;
+4) break;
+esac
+done
+exit 0
+
+EOF
+#
+sudo cat > /usr/local/bin/rebooter1.sh <<- "EOF"
+#!/bin/bash
+ 
+SERVER=8.8.8.8
+ 
+ping -c2 ${SERVER} > /dev/null
+ 
+if [ $? != 0 ]
+then
+# 
+sudo reboot
+
+fi
+
 EOF
 #
 cat > /lib/systemd/system/http.server-dvs.service <<- "EOF"
@@ -2573,15 +2621,8 @@ if __name__ == '__main__':
     pprint(BRIDGES)
 
 EOF
-###########
-cp /bin/menu /bin/MENU
-chmod +x /bin/MENU
-chmod +x /bin/menu*
-
 ##########################
-
 sudo timedatectl set-timezone America/Panama
-
 #####
 sudo cat > /boot/wpa_supplicant.conf <<- "EOF"
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -2813,7 +2854,13 @@ sudo chmod a+x /usr/local/bin/gotty
 sed -i "\$i gotty -w -p "8022" -c pi:Panama507 menu" /etc/rc.local
 ########################
 echo finalizando instalacion
+###########
 sudo chown -R mmdvm:mmdvm /opt/MMDVMHost/MMDVMHost
+
+cp /bin/menu /bin/MENU
+sudo chmod +x /bin/MENU
+sudo chmod +x /bin/menu*
+
 sudo chmod +777 /opt/*
 sudo chmod +777 /opt/MMDVMHost-Websocketboard/*
 sudo chmod +777 /opt/WSYSFDash/*
@@ -2846,7 +2893,9 @@ sudo chmod +x /opt/HBlink3/*.py
 sudo chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
 sudo chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
 sudo chmod +x /opt/hbnet/*.py
+sudo chmod +x /usr/local/bin/rebooter1.sh
 
+sudo chmod 755 /usr/local/bin/rebooter1.sh
 sudo chmod 755 /lib/systemd/system/daprs.service
 sudo chmod 755 /lib/systemd/system/daprs2.service
 sudo chmod 755 /lib/systemd/system/http.server-dvs.service
