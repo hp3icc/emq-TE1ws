@@ -102,6 +102,8 @@ si esta configurando desde terminal o clliente ssh, una vez allá iniciado sesi�
 
 De esta forma accederá al listado de aplicaciones incluidas en la compilación y sus configuraciones, recuerde guardar los cambios con la combinación de teclas:     Ctrl + X , posteriormente iniciar o detener la aplicación ya configurada .
 
+A partir de version 12d , se agrega funcion de reinicio automatico del equipo , esto es posible mendiamte prueba de ping al internet cada 1 minuto, esta fumcion esta apagada , si desea utilizar , entre al menu de reinicio de equipo y habilite  
+
 Si desea habilitar más de un Dashboard a la vez, recuerde cambiar los puertos http para evitar conflictos, para esto se incluye dicha opción en el menú de :
 
 * pYSFReflector  
@@ -248,6 +250,8 @@ Password: Panama507
 If you are configuring from terminal or ssh client, once logged in, write the word: menu
 
 In this way you will access the list of applications included in the compilation and their configurations, remember to save the changes with the key combination: Ctrl + X, then start or stop the already configured application.
+
+As of version 12d, the automatic restart function of the equipment is added, this is possible by means of a ping test to the internet every 1 minute, this function is off, if you want to use, enter the equipment restart menu and enable
 
 If you want to enable more than one Dashboard at the same time, remember to change the ports to avoid conflicts, for this this option is included in the menu of :
 
