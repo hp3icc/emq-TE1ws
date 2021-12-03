@@ -225,10 +225,23 @@ sudo sed -i 's/FileRotate=1/FileRotate=0/' YSFReflector.ini
 cd /opt/pYSFReflector/
 cp deny.db /usr/local/etc/
 chmod +x /usr/local/bin/YSFReflector
-cd systemd/
-cp YSFReflector.service /lib/systemd/system
-cd /lib/systemd/system/
-sudo sed -i 's/1/20/' YSFReflector.service
+#
+sudo cat > /lib/systemd/system/YSFReflector.service <<- "EOF"
+[Unit]
+Description=YSFReflector
+After=multi-user.target
+
+[Service]
+User=root
+#ExecStartPre=/bin/sleep 30
+ExecStart=/usr/bin/python3 /usr/local/bin/YSFReflector /etc/YSFReflector/YSFReflector.ini
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+###
+
 
 sudo groupadd mmdvm
 sudo useradd mmdvm -g mmdvm -s /sbin/nologin
