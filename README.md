@@ -9,7 +9,7 @@ Continuamente todo el contenido publicado aqui, es actualizado , si esta observa
 
 https://github.com/hp3icc/emq-TE1ws
 
-Ultima revision: emq-TE1ws-Rev12d 30/11/2021 
+Ultima revision: emq-TE1ws-Rev12e 3/12/2021 
 
 #
 
@@ -44,6 +44,8 @@ FreeDMR
 
 NoIP
 
+GoTTY
+
 Esta versión cuenta con Dashboard HTML corriendo sobre websock , para el MMDVMHost y Reflector YSF , estan preconfigurados a puerto http 80 , pero desde el menú puede cambiar al puerto 8000, 8080 , o cualquier otro de su preferencia .
 
 se agrega Librerias y aplicacion de gps y GPSD
@@ -69,7 +71,7 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
  
 * Bash de auto instalación:
 
-      sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev12d.sh)"
+      sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev12e.sh)"
 
 #
 
@@ -156,7 +158,7 @@ Esteban Mackay Q.
  
  https://github.com/hp3icc/emq-TE1ws
  
- Last revision: emq-TE1ws-Rev12d 11/30/2021 
+ Last revision: emq-TE1ws-Rev12e 12/3/2021 
 
 #
 
@@ -191,6 +193,8 @@ HBLink3
 FreeDMR
 
 NoIP
+
+GoTTY
  
  
  This version has HTML Dashboard running on websock, for the MMDVMHost and YSF Reflector, they are preconfigured to http port 80, but from the menu you can change to port 8000, 8080, or any other of your preference.
@@ -217,7 +221,7 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
 * Self-install bash:
 
-      sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev12d.sh)"
+      sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev12e.sh)"
 
 #
 
