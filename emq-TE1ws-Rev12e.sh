@@ -2950,6 +2950,7 @@ sudo chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
 sudo chmod +x /opt/hbnet/*.py
 sudo chmod +x /usr/local/bin/rebooter1.sh
 
+sudo chmod 755 /lib/systemd/system/gotty.service
 sudo chmod 755 /usr/local/bin/rebooter1.sh
 sudo chmod 755 /lib/systemd/system/daprs.service
 sudo chmod 755 /lib/systemd/system/daprs2.service
@@ -2982,6 +2983,7 @@ sudo systemctl stop rsyslog
 sudo systemctl disable rsyslog
 sudo systemctl stop webproxy.service
 sudo systemctl disable webproxy.service
+sudo systemctl enable gotty.service
 rm /var/log/syslog*
 rm /var/log/*.log*
 cd /tmp/
