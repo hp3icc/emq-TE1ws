@@ -130,7 +130,7 @@ sudo cat > /bin/menu <<- "EOF"
 
 while : ; do
 
-choix=$(whiptail --title "TE1ws-Rev12e / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 63 15 \
+choix=$(whiptail --title "TE1ws-Rev12e / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 63 16 \
 1 " APRS Direwolf Analogo" \
 2 " APRS Direwolf RTL-SDR " \
 3 " APRS Multimon-ng " \
@@ -143,8 +143,9 @@ choix=$(whiptail --title "TE1ws-Rev12e / Raspbian Proyect HP3ICC Esteban Mackay 
 10 " FreeDMR Server " \
 11 " Editar WiFi " \
 12 " DDNS NoIP " \
-13 " Reiniciar Equipo " \
-14 " Salir del menu " 3>&1 1>&2 2>&3)
+13 " GoTTY " \
+14 " Reiniciar Equipo " \
+15 " Salir del menu " 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 
@@ -184,8 +185,10 @@ menu-wifi;;
 12)
 menu-noip ;;
 13)
-menu-reboot ;;
+menu-web ;;
 14)
+menu-reboot ;;
+15)
 break;
 
 
@@ -754,8 +757,38 @@ esac
 done
 exit 0
 EOF
+#
+cat > /bin/menu-web <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Web-Menu" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+1 " Habilitar Web-Menu " \
+2 " Deshabilitar Web-Menu " \
+3 " Editar Web-Menu " \
+4 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo systemctl stop gotty.service && sudo systemctl start gotty.service && sudo systemctl enable gotty.service;;
+2)
+sudo systemctl stop gotty.service && systemctl disable gotty.service ;;
+3)
+sudo nano /lib/systemd/system/gotty.service && sudo systemctl daemon-reload  ;;
+4)
+break;
+esac
+done
+exit 0
 
-
+EOF
 ####menu-mmdvm
 cat > /bin/menu-mmdvm <<- "EOF"
 #!/bin/bash
@@ -2858,8 +2891,23 @@ tar xf gotty.tar.gz
 sudo mv gotty /usr/local/bin
 rm gotty.tar.gz
 sudo chmod a+x /usr/local/bin/gotty
-sed -i "\$i gotty -w -p "8022" -c pi:Panama507 menu" /etc/rc.local
-########################
+#
+sudo cat > /lib/systemd/system/gotty.service <<- "EOF"
+[Unit]
+Description=GoTTY
+After=multi-user.target
+
+[Service]
+User=root
+Environment=TERM=xterm-256color
+ExecStartPre=/bin/sleep 40
+ExecStart=gotty -p "8022" -w -c "pi:Panama507" menu
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+#
 echo finalizando instalacion
 ###########
 sudo chown -R mmdvm:mmdvm /opt/MMDVMHost/MMDVMHost
