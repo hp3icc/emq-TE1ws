@@ -2308,14 +2308,13 @@ cd /opt
 git clone https://gitlab.hacknix.net/hacknix/FreeDMR.git
 cd FreeDMR
 sudo chmod 0755 install.sh
+sudo chmod +x install.sh
 sudo ./install.sh
 mkdir config
 #cp FreeDMR-SAMPLE-commented.cfg config/FreeDMR.cfg
 #cp rules_SAMPLE.py config/rules.py
 
-sudo chmod +x /opt/FreeDMR/bridge_master.py
-sudo chmod +x /opt/FreeDMR/playback.py
-sudo chmod +x /opt/FreeDMR/hotspot_proxy_v2.py
+sudo chmod +x /opt/FreeDMR/*.py
 
 sudo cat > /opt/FreeDMR/conf.txt <<- "EOF"
  
@@ -2366,6 +2365,9 @@ EOF
 cat FreeDMR-SAMPLE.cfg conf.txt >> /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/100/110/' /opt/FreeDMR/config/FreeDMR.cfg
+sudo sed -i 's/file-timed/console-timed/' /opt/FreeDMR/config/FreeDMR.cfg
+sudo sed -i 's/INFO/DEBUG/' /opt/FreeDMR/config/FreeDMR.cfg
+sudo sed -i 's/freedmr.log/\/var\/log\/FreeDMR\/FreeDMR.log/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/ANNOUNCEMENT_LANGUAGE: en_GB/ANNOUNCEMENT_LANGUAGE: es_ES/' /opt/FreeDMR/config/FreeDMR.cfg
 rm /opt/FreeDMR/conf.txt
 mv loro.cfg /opt/FreeDMR/playback.cfg
@@ -2375,13 +2377,13 @@ sudo cat > /lib/systemd/system/proxy.service <<- "EOF"
 [Unit]
 Description= Proxy Service 
 
-After=syslog.target network.target
+After=multi-user.target
 
 
 [Service]
 User=root
-WorkingDirectory=/opt/FreeDMR
-ExecStart=/usr/bin/python3 hotspot_proxy_v2.py
+#WorkingDirectory=/opt/FreeDMR
+ExecStart=/usr/bin/python3 /opt/FreeDMR/hotspot_proxy_v2.py
 
 [Install]
 WantedBy=multi-user.target
