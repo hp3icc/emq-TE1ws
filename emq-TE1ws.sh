@@ -2315,9 +2315,6 @@ sudo chmod +x /bin/cronedit.sh
 cd /opt
 git clone https://gitlab.hacknix.net/hacknix/FreeDMR.git
 cd FreeDMR
-sudo chmod 0755 install.sh
-sudo chmod +x install.sh
-sudo ./install.sh
 mkdir config
 #cp FreeDMR-SAMPLE-commented.cfg config/FreeDMR.cfg
 #cp rules_SAMPLE.py config/rules.py
