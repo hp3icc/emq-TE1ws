@@ -2013,9 +2013,9 @@ cd /opt/
 git clone https://github.com/lz5pn/HBlink3
 sudo mv /opt/HBlink3/ /opt/backup/
 cd /opt/backup/
-git clone https://github.com/kf7eel/hbnet.git
+git clone https://github.com/hp3icc/D-APRS.git
 #sudo mv /opt/backup/HBlink3/ /opt/
-sudo mv /opt/backup/hbnet/ /opt/HBlink3
+sudo mv /opt/backup/D-APRS/ /opt/HBlink3
 sudo mv /opt/backup/HBmonitor/ /opt/
 #sudo mv /opt/backup/dmr_utils3/ /opt/
 cd /opt/
@@ -2049,12 +2049,10 @@ sudo sed -i 's/54071/49065/' gps_data.cfg
 sudo sed -i 's/54070/49064/' gps_data.cfg
 #
 cd /opt/
-git clone https://github.com/kf7eel/hbnet.git
+git clone https://github.com/hp3icc/D-APRS.git
 
-cd /opt/hbnet
-wget https://github.com/hp3icc/D-APRS/raw/main/gps_data.cfg
-wget https://github.com/hp3icc/D-APRS/raw/main/user_settings.txt
-cp /opt/hbnet/user_settings.txt /opt/HBlink3/user_settings.txt
+cd /opt/D-APRS
+cp /opt/D-APRS/user_settings.txt /opt/HBlink3/user_settings.txt
 sudo cat > /bin/menu-igate <<- "EOF"
 #!/bin/bash
 while : ; do
@@ -2074,7 +2072,7 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-nano /opt/hbnet/gps_data.cfg ;;
+nano /opt/D-APRS/gps_data.cfg ;;
 2)
 sudo systemctl stop daprs.service && sudo systemctl start daprs.service && sudo systemctl enable daprs.service ;;
 3)
@@ -2102,16 +2100,16 @@ After=network-online.target syslog.target
 Wants=network-online.target
 [Service]
 StandardOutput=null
-WorkingDirectory=/opt/hbnet
+WorkingDirectory=/opt/D-APRS
 RestartSec=3
-ExecStart=/usr/bin/python3 /opt/hbnet/gps_data.py
+ExecStart=/usr/bin/python3 /opt/D-APRS/gps_data.py
 Restart=on-abort
 [Install]
 WantedBy=multi-user.target
 EOF
 #
 cp /lib/systemd/system/daprs.service /lib/systemd/system/daprs2.service
-sudo sed -i 's/hbnet/HBlink3/' /lib/systemd/system/daprs2.service
+sudo sed -i 's/D-APRS/HBlink3/' /lib/systemd/system/daprs2.service
 sudo sed -i 's/APRS/APRS2/' /lib/systemd/system/daprs2.service
 #
 sudo cat > /lib/systemd/system/hbparrot.service <<- "EOF"
@@ -2947,7 +2945,7 @@ sudo chmod +x /opt/HBmonitor/monitor.py
 sudo chmod +x /opt/HBlink3/*.py
 sudo chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
 sudo chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
-sudo chmod +x /opt/hbnet/*.py
+sudo chmod +x /opt/D-APRS/*.py
 sudo chmod +x /usr/local/bin/rebooter1.sh
 
 sudo chmod 755 /lib/systemd/system/gotty.service
