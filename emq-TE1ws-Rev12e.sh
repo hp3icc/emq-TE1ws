@@ -2086,7 +2086,7 @@ EOF
 #
 cp /bin/menu-igate /bin/menu-igate2
 sudo sed -i 's/FreeDMR/HBLink3/' /bin/menu-igate2
-sudo sed -i 's/hbnet/HBlink3/' /bin/menu-igate2
+sudo sed -i 's/D-APRS/HBlink3/' /bin/menu-igate2
 sudo sed -i 's/daprs/daprs2/' /bin/menu-igate2
 sudo sed -i 's/daprs.service/daprs2.service/' /bin/menu-igate2
 sudo sed -i 's/daprs.service/daprs2.service/' /bin/menu-igate2
@@ -2935,7 +2935,7 @@ sudo chmod +777 /opt/MMDVM_CM/*
 sudo chmod +777 /opt/MMDVM_Bridge/*
 sudo chmod +777 /opt/MMDVM_Bridge/MMDVM_Bridge.ini
 sudo chmod +777 /etc/pymultimonaprs.json
-sudo chmod +777 /opt/hbnet/user_settings.txt
+sudo chmod +777 /opt/D-APRS/user_settings.txt
 sudo chmod +777 /opt/HBlink3/user_settings.txt
 
 sudo chmod +x /opt/HBMonv2/sysinfo/graph.sh
