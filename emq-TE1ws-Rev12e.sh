@@ -2042,17 +2042,17 @@ sudo sed -i 's/MASTER_PORT: 62030/MASTER_PORT: 62031/' hblink.cfg
 sudo sed -i 's/54070/49064/' hblink.cfg
 sudo sed -i 's/54073/49062/' hblink.cfg
 sudo sed -i 's/MASTER_PORT: 54072/MASTER_PORT: 49063/' hblink.cfg
+rm gps_data.cfg
 cp gps_data-SAMPLE.cfg gps_data.cfg
 sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' gps_data.cfg
 sudo sed -i 's/REPORT: True/REPORT: False/' gps_data.cfg
 sudo sed -i 's/54071/49065/' gps_data.cfg
 sudo sed -i 's/54070/49064/' gps_data.cfg
+sudo sed -i 's/path\/to/opt\/HBlink3/' /opt/HBlink3/gps_data.cfg
 #
 cd /opt/
 git clone https://github.com/hp3icc/D-APRS.git
 
-cd /opt/D-APRS
-cp /opt/D-APRS/user_settings.txt /opt/HBlink3/user_settings.txt
 sudo cat > /bin/menu-igate <<- "EOF"
 #!/bin/bash
 while : ; do
@@ -2091,7 +2091,7 @@ sudo sed -i 's/daprs/daprs2/' /bin/menu-igate2
 sudo sed -i 's/daprs.service/daprs2.service/' /bin/menu-igate2
 sudo sed -i 's/daprs.service/daprs2.service/' /bin/menu-igate2
 sudo sed -i 's/daprs.service/daprs2.service/' /bin/menu-igate2
-sudo sed -i 's/path\/to/opt\/HBlink3/' /opt/HBlink3/gps_data.cfg
+
 #
 sudo cat > /lib/systemd/system/daprs.service <<- "EOF"
 [Unit]
