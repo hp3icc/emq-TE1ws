@@ -30,7 +30,7 @@ echo "[INFO]: Processing network setup for OS Version: $OS_VERSION"
 apIpDefault="10.0.0.1"
 apDhcpRangeDefault="10.0.0.50,10.0.0.150,12h"
 apSetupIptablesMasqueradeDefault="iptables -t nat -A POSTROUTING -s 10.0.0.0/24 ! -d 10.0.0.0/24 -j MASQUERADE"
-apCountryCodeDefault="IN"
+apCountryCodeDefault="PA"
 apChannelDefault="1"
 
 apIp="$apIpDefault"
@@ -417,8 +417,8 @@ doRemoveIpTableNatEntries() {
     #iw dev uap0 del
     apDelCmd='iw dev '${apInterfaceName}' del'
     bash -c '$apDelCmd'
-    iptables -F
-    iptables -t nat -F
+#    iptables -F
+#    iptables -t nat -F
     bash -c 'cat /dev/null > /etc/iptables.ipv4.nat'
     bash -c 'cat /dev/null > /proc/sys/net/ipv4/ip_forward'
     sed -i 's/^net.ipv4.ip_forward=.*$/#net.ipv4.ip_forward=1/' /etc/sysctl.conf
@@ -940,9 +940,9 @@ sudo ./setup-network.sh --install-upgrade --ap-ssid="abc-1" --ap-password="passw
     
     doInstall
     # Sleep for 10s before restarting:
-    echo "[Reboot]: In 10 seconds ..."
-    sleep 10
-    reboot
+#    echo "[Reboot]: In 10 seconds ..."
+#    sleep 10
+#    reboot
 fi
 
 if [ "$cleanup" = false -a "$install" = false -a "$installUpgrade" = false ]; then
