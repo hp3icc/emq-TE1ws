@@ -27,10 +27,10 @@ OS_VERSION=`cat /etc/os-release 2>/dev/null | grep -i "VERSION_ID" | awk -F '=' 
 echo ""
 echo "[INFO]: Processing network setup for OS Version: $OS_VERSION"
 
-apIpDefault="192.168.50.1"
-apDhcpRangeDefault="192.168.50.50,192.168.50.150,12h"
-apSetupIptablesMasqueradeDefault="iptables -t nat -A POSTROUTING -s 192.168.50.0/24 ! -d 192.168.50.0/24 -j MASQUERADE"
-apCountryCodeDefault="PA"
+apIpDefault="10.0.0.1"
+apDhcpRangeDefault="10.0.0.50,10.0.0.150,12h"
+apSetupIptablesMasqueradeDefault="iptables -t nat -A POSTROUTING -s 10.0.0.0/24 ! -d 10.0.0.0/24 -j MASQUERADE"
+apCountryCodeDefault="IN"
 apChannelDefault="1"
 
 apIp="$apIpDefault"
@@ -58,7 +58,7 @@ countryCodeArray=('AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'AO', 'AQ', 'AR', 'A
 'TT', 'TV', 'TW', 'TZ', 'UA', 'UG', 'UM', 'US', 'UY', 'UZ', 'VA', 'VC', 'VE', 'VG', 'VI', 'VN', 'VU', 'WF', 'WS', 
 'YE', 'YT', 'ZA', 'ZM', 'ZW')
 
-workDir="/opt"
+workDir="/home/pi"
 installDir="$workDir/network-setup"
 logDir="$installDir/log"
 execDir="$installDir/bin"
@@ -87,7 +87,7 @@ wlanInterfaceNameValid=true
 wlanInterfaceNameDefault="wlan0"
 wlanInterfaceName="$wlanInterfaceNameDefault"
 apInterfaceName="uap0"
-hostNameDefault="emq-te1"
+hostNameDefault="raspberrypi"
 hostName="$hostNameDefault"
 
 # FIX: for https://github.com/idev1/rpihotspot/issues/12#issuecomment-605552834
@@ -417,8 +417,8 @@ doRemoveIpTableNatEntries() {
     #iw dev uap0 del
     apDelCmd='iw dev '${apInterfaceName}' del'
     bash -c '$apDelCmd'
-#    iptables -F
-#    iptables -t nat -F
+    iptables -F
+    iptables -t nat -F
     bash -c 'cat /dev/null > /etc/iptables.ipv4.nat'
     bash -c 'cat /dev/null > /proc/sys/net/ipv4/ip_forward'
     sed -i 's/^net.ipv4.ip_forward=.*$/#net.ipv4.ip_forward=1/' /etc/sysctl.conf
@@ -633,9 +633,9 @@ fi
 # FIX: For issue #13, Raspbian Buster OS unable to correct nameserver entry in /etc/resolv.conf hence,
 # need to correct this entry for downloading the files again:
 if ! isAvailableReqDependancies; then
-    if [ ! `sudo cat /etc/resolv.conf 2>/dev/null | grep "8.8.4.4"` ]; then
-        echo "nameserver 8.8.4.4" >> /etc/resolv.conf
-        echo "[Install]: Google nameserver 8.8.4.4 added into /etc/resolv.conf."
+    if [ ! `sudo cat /etc/resolv.conf 2>/dev/null | grep "8.8.8.8"` ]; then
+        echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+        echo "[Install]: Google nameserver 8.8.8.8 added into /etc/resolv.conf."
         echo "[Install]: Now retrying 2nd time to download required dependancies ..."
         downloadReqDependancies
     fi
@@ -661,7 +661,7 @@ cat > /etc/dnsmasq.conf <<EOF
 interface=lo,${apInterfaceName}               #Use interfaces lo and ${apInterfaceName}
 no-dhcp-interface=lo,${wlanInterfaceName}
 bind-interfaces                 #Bind to the interfaces
-server=8.8.4.4                  #Forward DNS requests to Google DNS
+server=8.8.8.8                  #Forward DNS requests to Google DNS
 #domain-needed                  #Don't forward short names
 bogus-priv                      #Never forward addresses in the non-routed address spaces
 dhcp-range=$apDhcpRange
@@ -774,7 +774,7 @@ iptables-save > /etc/iptables.ipv4.nat
 #iptables-restore < /etc/iptables.ipv4.nat
 
 # Bring up ${apInterfaceName} interface. Commented out line may be a possible alternative to using dhcpcd.conf to set up the IP address.
-#ifconfig ${apInterfaceName} 192.168.50.1 netmask 255.255.255.0 broadcast 192.168.50.255
+#ifconfig ${apInterfaceName} 10.0.0.1 netmask 255.255.255.0 broadcast 10.0.0.255
 ifconfig ${apInterfaceName} up
 
 # Start hostapd. 10-second sleep avoids some race condition, apparently. It may not need to be that long. (?) 
@@ -913,7 +913,7 @@ echo '
 echo '
 --ap-ip-address        Optional field for installation: Set Access Point(AP) IP Address. Default value is: '$apIpDefault'.
                        LAN/WLAN reserved private Access Point(AP) IP address must in the below range:
-                       [192.168.50.0 - 10.255.255.255] or [172.16.0.0 - 172.31.255.255] or [192.168.0.0 - 192.168.255.255]
+                       [10.0.0.0 - 10.255.255.255] or [172.16.0.0 - 172.31.255.255] or [192.168.0.0 - 192.168.255.255]
                        (Refer site: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_addresses to know more 
                        about above IP address range).
                        Access Point(AP) IP address must not be equal to WiFi Station('${wlanInterfaceName}') IP address: '${wlanIpAddr}'
@@ -940,9 +940,9 @@ sudo ./setup-network.sh --install-upgrade --ap-ssid="abc-1" --ap-password="passw
     
     doInstall
     # Sleep for 10s before restarting:
-#    echo "[Reboot]: In 10 seconds ..."
-#    sleep 10
-#    reboot
+    echo "[Reboot]: In 10 seconds ..."
+    sleep 10
+    reboot
 fi
 
 if [ "$cleanup" = false -a "$install" = false -a "$installUpgrade" = false ]; then
@@ -980,7 +980,7 @@ if [ "$cleanup" = false -a "$install" = false -a "$installUpgrade" = false ]; th
                         
     --ap-ip-address     	Optional field for installation: Set Access Point(AP) IP Address. Default value is: '$apIpDefault'. 
                             LAN/WLAN reserved private Access Point(AP) IP address must in the below range:
-                            [192.168.50.0 - 10.255.255.255] or [172.16.0.0 - 172.31.255.255] or [192.168.0.0 - 192.168.255.255]
+                            [10.0.0.0 - 10.255.255.255] or [172.16.0.0 - 172.31.255.255] or [192.168.0.0 - 192.168.255.255]
                             (Refer site: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_addresses to know more 
                             about above IP address range).
                             Access Point(AP) IP address must not be equal to WiFi Station('${wlanInterfaceName}') IP address: '${wlanIpAddr}' 
