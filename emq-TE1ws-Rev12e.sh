@@ -1,13 +1,15 @@
 #!/bin/sh
 echo Actualizando sistema 
-sudo apt-get update -y
-sudo apt-get upgrade -y
-sudo apt-get dist-upgrade -y
+apt-get update -y
+apt-get upgrade -y
+apt-get dist-upgrade -y
 ############################################
 echo instalando pre-requisitos
 ######################################################################################################
 #!/bin/sh
+apt-get install sudo -y
 sudo apt-get purge needrestart -y
+sudo apt-get install wget -y
 sudo apt-get install git -y
 sudo apt-get install screen -y
 sudo apt-get install gcc -y
@@ -130,7 +132,7 @@ sudo cat > /bin/menu <<- "EOF"
 
 while : ; do
 
-choix=$(whiptail --title "TE1ws-Rev12e / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 63 15 \
+choix=$(whiptail --title "TE1ws-Rev14 / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 63 15 \
 1 " APRS Direwolf Analogo" \
 2 " APRS Direwolf RTL-SDR " \
 3 " APRS Multimon-ng " \
@@ -2906,8 +2908,12 @@ WantedBy=multi-user.target
 
 EOF
 #
-echo finalizando instalacion
-###########
+cd /opt/
+wget https://github.com/hp3icc/emq-TE1ws/raw/main/setup-network.sh
+chmod +x setup-network.sh
+sudo ./setup-network.sh --install --ap-ssid="emq-TE1-AP" --ap-password="Panama507" --ap-password-encrypt 
+--ap-country-code="PA" --ap-ip-address="192.168.50.1" --wifi-interface="wlan0"
+#
 sudo chown -R mmdvm:mmdvm /opt/MMDVMHost/MMDVMHost
 
 cp /bin/menu /bin/MENU
