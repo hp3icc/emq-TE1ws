@@ -856,9 +856,9 @@ echo "[Install]: DONE"
 
 if [ "$cleanup" = true ]; then
     doCleanup
-    echo "[Reboot]: In 10 seconds ..."
-    sleep 10
-    reboot
+    #echo "[Reboot]: In 10 seconds ..."
+    #sleep 10
+    #reboot
 fi
 
 if [ "$install" = true -o "$installUpgrade" = true ]; then
