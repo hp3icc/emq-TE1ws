@@ -670,6 +670,8 @@ EOF
 cat > /etc/hostapd/hostapd.conf <<EOF
 channel=$apChannel
 ssid=$apSsid
+# Para calcular Hexadecimal password, abra el siguiente link :
+# http://jorisvr.nl/wpapsk.html
 $apPasswordConfig
 country_code=$apCountryCode
 interface=${apInterfaceName}
