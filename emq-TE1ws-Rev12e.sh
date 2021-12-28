@@ -2995,6 +2995,7 @@ sudo systemctl stop webproxy.service
 sudo systemctl disable webproxy.service
 sudo systemctl enable gotty.service
 sudo systemctl disable systemd-networkd-wait-online.service
+sudo systemctl disable dphys-swapfile-back.service
 mv /lib/systemd/system/dphys-swapfile.service /lib/systemd/system/dphys-swapfile-back.service
 rm /var/log/syslog*
 rm /var/log/*.log*
