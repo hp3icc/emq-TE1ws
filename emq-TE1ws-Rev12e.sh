@@ -497,11 +497,10 @@ wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv
 cat > /lib/systemd/system/rebooter1.service  <<- "EOF"
 [Unit]
 Description=Rebooter
-Wants=network-online.target
-After=syslog.target network-online.target
+#Wants=network-online.target
+#After=syslog.target network-online.target
 
 [Service]
-User=root
 ExecStart=/usr/local/bin/rebooter1.sh
 
 [Install]
@@ -981,18 +980,15 @@ EOF
 #
 sudo cat > /usr/local/bin/rebooter1.sh <<- "EOF"
 #!/bin/bash
- 
-SERVER=8.8.8.8
- 
-sleep 180 && ping  ${SERVER} > /dev/null
- 
-if [ $? != 0 ]
-then
-# 
-sudo reboot
-
-fi
-
+sleep 180
+while :
+do
+  if ping -c 1 8.8.4.4 &> /dev/null
+  else
+  sudo reboot
+  fi
+  sleep 5
+done
 EOF
 #
 cat > /lib/systemd/system/http.server-dvs.service <<- "EOF"
