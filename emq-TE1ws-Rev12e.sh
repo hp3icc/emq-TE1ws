@@ -493,7 +493,20 @@ EOF
 cd  /opt/MMDVMHost-Websocketboard/html/data/
 sudo rm TG_List.csv
 wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv
+#
+cat > /lib/systemd/system/rebooter1.service  <<- "EOF"
+[Unit]
+Description=Rebooter
+Wants=network-online.target
+After=syslog.target network-online.target
 
+[Service]
+User=root
+ExecStart=/usr/local/bin/rebooter1.sh
+
+[Install]
+WantedBy=multi-user.target
+EOF
 ####################################
 
 cd /boot
@@ -956,9 +969,9 @@ case $choix in
 sudo reboot
 ;;
 2)
-cronedit.sh '*/3 * * * *' 'sudo /usr/local/bin/rebooter1.sh' add ;;
+sudo systemctl start rebooter1.service && sudo systemctl enable rebooter1.service ;;
 3)
-cronedit.sh '*/3 * * * *' 'sudo /usr/local/bin/rebooter1.sh' remove ;;
+sudo systemctl stop rebooter1.service && sudo systemctl disable rebooter1.service ;;
 4) break;
 esac
 done
@@ -971,7 +984,7 @@ sudo cat > /usr/local/bin/rebooter1.sh <<- "EOF"
  
 SERVER=8.8.8.8
  
-ping -c2 ${SERVER} > /dev/null
+sleep 180 && ping  ${SERVER} > /dev/null
  
 if [ $? != 0 ]
 then
