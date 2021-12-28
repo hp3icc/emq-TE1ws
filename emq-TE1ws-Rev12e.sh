@@ -1910,6 +1910,46 @@ sudo mv /var/www/html/* /var/www/dvs/
 sudo sed -i 's/www\/html/www\/dvs/g' /usr/local/sbin/update-config.sh
 sudo sed -i 's/www\/html/www\/dvs/g' /var/lib/dpkg/info/dvswitch*
 ####
+sudo sed -i 's/After=/#After=/' /lib/systemd/system/analog_bridge.service
+sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/analog_bridge.service
+sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/analog_bridge.service
+
+sudo sed -i 's/After=/#After=/' /lib/systemd/system/mmdvm_bridge.service
+sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/mmdvm_bridge.service
+sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/mmdvm_bridge.service
+
+sudo sed -i 's/After=/#After=/' /lib/systemd/system/ysfgateway.service
+sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/ysfgateway.service
+sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/ysfgateway.service
+
+sudo sed -i 's/After=/#After=/' /lib/systemd/system/ysfparrot.service
+sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/ysfparrot.service
+sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/ysfparrot.service
+
+sudo sed -i 's/After=/#After=/' /lib/systemd/system/nxdngateway.service
+sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/nxdngateway.service
+sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/nxdngateway.service
+
+sudo sed -i 's/After=/#After=/' /lib/systemd/system/nxdnparrot.service
+sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/nxdnparrot.service
+sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/nxdnparrot.service
+
+sudo sed -i 's/After=/#After=/' /lib/systemd/system/p25gateway.service
+sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/p25gateway.service
+sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/p25gateway.service
+
+sudo sed -i 's/After=/#After=/' /lib/systemd/system/p25parrot.service
+sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/p25parrot.service
+sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/p25parrot.service
+
+sudo sed -i 's/After=/#After=/' /lib/systemd/system/quantar_bridge.service
+sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/quantar_bridge.service
+sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/quantar_bridge.service
+
+sudo sed -i 's/After=/#After=/' /lib/systemd/system/ircddbgatewayd.service
+sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/ircddbgatewayd.service
+sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/ircddbgatewayd.service
+#
 cat > /opt/MMDVM_Bridge/MMDVM_Bridge.ini  <<- "EOF"
 [General]
 Callsign=N0CALL
@@ -2994,6 +3034,7 @@ sudo systemctl disable rsyslog
 sudo systemctl stop webproxy.service
 sudo systemctl disable webproxy.service
 sudo systemctl enable gotty.service
+sudo systemctl disable netcheck.service
 sudo systemctl disable systemd-networkd-wait-online.service
 sudo systemctl disable dphys-swapfile-back.service
 mv /lib/systemd/system/dphys-swapfile.service /lib/systemd/system/dphys-swapfile-back.service
