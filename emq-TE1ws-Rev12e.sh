@@ -937,7 +937,7 @@ EOF
 cat > /bin/menu-reboot <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Nota:  Reinicio automatico, monitorea cada minuto el internet." 15 50 4 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Nota:  Reinicio automatico, verifica cada 3 minutos el internet." 15 50 4 \
 1 " Iniciar reinicio de equipo" \
 2 " Habilitar reinicio automatico" \
 3 " Deshabilitar reinicio automatico" \
@@ -2994,10 +2994,13 @@ sudo systemctl disable rsyslog
 sudo systemctl stop webproxy.service
 sudo systemctl disable webproxy.service
 sudo systemctl enable gotty.service
+sudo systemctl disable systemd-networkd-wait-online.service
+mv /lib/systemd/system/dphys-swapfile.service /lib/systemd/system/dphys-swapfile-back.service
 rm /var/log/syslog*
 rm /var/log/*.log*
 cd /tmp/
-cronedit.sh '* */1 * * *' 'sudo sync ; echo 3 > /proc/sys/vm/drop_caches >/dev/null 2>&1' add
+
+(crontab -l; echo "* */1 * * * sudo sync ; echo 3 > /proc/sys/vm/drop_caches >/dev/null 2>&1")|awk '!x[$0]++'|crontab -
 #####
 cat > /tmp/completado.sh <<- "EOF"
 #!/bin/bash
