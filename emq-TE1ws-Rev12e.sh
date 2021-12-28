@@ -950,7 +950,7 @@ EOF
 cat > /bin/menu-reboot <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Nota:  Reinicio automatico, verifica cada 3 minutos el internet." 15 50 4 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Nota:  Reinicio automatico, verifica su conectividad a internet." 15 50 4 \
 1 " Iniciar reinicio de equipo" \
 2 " Habilitar reinicio automatico" \
 3 " Deshabilitar reinicio automatico" \
