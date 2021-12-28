@@ -1176,6 +1176,7 @@ RestartSec=3
 StandardOutput=null
 WorkingDirectory=/opt/ionsphere/ionosphere-raspberry-pi
 #ExecStartPre=/bin/sleep 30
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
 ExecStart=sh /opt/ionsphere/ionosphere-raspberry-pi/ionos.sh
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
@@ -1195,6 +1196,7 @@ After=syslog.target network-online.target
 [Service]
 User=root
 #ExecStartPre=/bin/sleep 1800
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
 ExecStart=/opt/MMDVMHost/DMRIDUpdate.sh
 
 [Install]
@@ -1252,7 +1254,8 @@ After=syslog.target network-online.target
 
 [Service]
 User=root
-ExecStartPre=/bin/sleep 60
+#ExecStartPre=/bin/sleep 60
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
 ExecStart=/opt/YSF2DMR/DMRIDUpdate.sh
 
 [Install]
@@ -1269,6 +1272,7 @@ After=syslog.target network-online.target
 [Service]
 User=root
 #ExecStartPre=/bin/sleep 1800
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
 ExecStart=/opt/direwolf/rtl.sh
 # | direwolf -c /home/pi/direwolf/sdr.conf
 
@@ -1287,6 +1291,7 @@ After=syslog.target network-online.target
 [Service]
 User=root
 #ExecStartPre=/bin/sleep 1800
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
 ExecStart=sudo pymultimonaprs
 
 [Install]
