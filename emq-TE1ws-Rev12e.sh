@@ -729,9 +729,9 @@ EOF
 cat > /bin/menu-wifi <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu WiFi" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
-1 " Editar redes WiFi " \
-2 " Reiniciar dispositivo WiFi " \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu WiFi" --menu "Nota: al editar configuracion de AP,o redes Wifi conocidas, debe reiniciar el equipo, para aplicar cambios realizados." 20 75 11 \
+1 " Editar AP WiFi " \
+2 " Editar redes WiFi conocidas" \
 3 " Buscar redes wifi cercanas " \
 4 " Ver intensidad de WIFI  " \
 5 " Menu Principal " 3>&1 1>&2 2>&3)
@@ -746,9 +746,9 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-sudo nano /etc/wpa_supplicant/wpa_supplicant.conf ;;
+sudo nano /etc/hostapd/hostapd.conf ;;
 2)
-sudo ifconfig wlan0 down && sudo ifconfig wlan0 up ;;
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf ;;
 3)
 sudo iwlist wlan0 scan | grep ESSID | grep -o '"[^"]\+"' >> /tmp/ssid.txt && nano /tmp/ssid.txt && sudo rm /tmp/ssid.txt ;;
 4)
@@ -758,6 +758,7 @@ break;
 esac
 done
 exit 0
+
 EOF
 #
 cat > /bin/menu-web <<- "EOF"
