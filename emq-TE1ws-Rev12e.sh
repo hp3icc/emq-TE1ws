@@ -2959,6 +2959,7 @@ wget https://github.com/hp3icc/emq-TE1ws/raw/main/setup-network.sh
 chmod +x setup-network.sh
 sudo ./setup-network.sh --install --ap-ssid="emq-TE1-AP" --ap-password="Panama507" --ap-password-encrypt 
 --ap-country-code="PA" --ap-ip-address="192.168.50.1" --wifi-interface="wlan0"
+rm setup-network.sh
 #
 sudo chown -R mmdvm:mmdvm /opt/MMDVMHost/MMDVMHost
 
