@@ -58,7 +58,7 @@ countryCodeArray=('AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'AO', 'AQ', 'AR', 'A
 'TT', 'TV', 'TW', 'TZ', 'UA', 'UG', 'UM', 'US', 'UY', 'UZ', 'VA', 'VC', 'VE', 'VG', 'VI', 'VN', 'VU', 'WF', 'WS', 
 'YE', 'YT', 'ZA', 'ZM', 'ZW')
 
-workDir="/home/pi"
+workDir="/opt"
 installDir="$workDir/network-setup"
 logDir="$installDir/log"
 execDir="$installDir/bin"
