@@ -956,9 +956,9 @@ case $choix in
 sudo reboot
 ;;
 2)
-cronedit.sh '*/1 * * * *' 'sudo /usr/local/bin/rebooter1.sh' add ;;
+cronedit.sh '*/3 * * * *' 'sudo /usr/local/bin/rebooter1.sh' add ;;
 3)
-cronedit.sh '*/1 * * * *' 'sudo /usr/local/bin/rebooter1.sh' remove ;;
+cronedit.sh '*/3 * * * *' 'sudo /usr/local/bin/rebooter1.sh' remove ;;
 4) break;
 esac
 done
