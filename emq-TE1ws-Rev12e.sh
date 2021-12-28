@@ -3014,6 +3014,7 @@ sudo chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
 sudo chmod +x /opt/D-APRS/*.py
 sudo chmod +x /usr/local/bin/rebooter1.sh
 
+sudo chmod 755 /lib/systemd/system/rebooter1.service
 sudo chmod 755 /lib/systemd/system/gotty.service
 sudo chmod 755 /usr/local/bin/rebooter1.sh
 sudo chmod 755 /lib/systemd/system/daprs.service
