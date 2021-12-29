@@ -587,19 +587,22 @@ EOF
 sudo cat > /bin/menu-fdmr <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 21 50 12 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 25 50 15 \
 1 " Editar FreeDMR Server " \
 2 " Editar Interlink  " \
-3 " Editar HBMon2  " \
-4 " Editar Puerto HTTP  " \
-5 " Parrot on  " \
-6 " Parrot off  " \
-7 " Iniciar FreeDMR Server  " \
-8 " Detener FreeDMR Server   " \
-9 " Dashboard HBMon2 on " \
-10 " Dashboard HBMon2 off  " \
-11 " D-APRS Igate  " \
-12 " Menu Principal " 3>&1 1>&2 2>&3)
+3 " Editar HBMon  " \
+4 " Editar HBMon2  " \
+5 " cambiar Puerto HTTP HBMon2 " \
+6 " Parrot on  " \
+7 " Parrot off  " \
+8 " Iniciar FreeDMR Server  " \
+9 " Detener FreeDMR Server   " \
+10 " Dashboard HBMon on " \
+11 " Dashboard HBMon2 on " \
+12 " Dashboard HBMon off  " \
+13 " Dashboard HBMon2 off  " \
+14 " D-APRS Igate  " \
+15 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -615,28 +618,35 @@ sudo nano /opt/FreeDMR/config/FreeDMR.cfg ;;
 2)
 sudo nano /opt/FreeDMR/config/rules.py ;;
 3)
-sudo nano /opt/HBMonv2/config.py ;;
+sudo nano /opt/HBmonitor/config.py ;;
 4)
-sudo nano /lib/systemd/system/http.server-fmr.service && sudo systemctl daemon-reload ;;
+sudo nano /opt/HBMonv2/config.py ;;
 5)
-sudo systemctl stop fdmrparrot.service && sudo systemctl start fdmrparrot.service && sudo systemctl enable fdmrparrot.service ;;
+sudo nano /lib/systemd/system/http.server-fmr.service && sudo systemctl daemon-reload ;;
 6)
-sudo systemctl stop fdmrparrot.service &&  sudo systemctl disable fdmrparrot.service ;;
+sudo systemctl stop fdmrparrot.service && sudo systemctl start fdmrparrot.service && sudo systemctl enable fdmrparrot.service ;;
 7)
-sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo systemctl enable proxy.service && sudo systemctl stop freedmr.service && sudo systemctl start freedmr.service && sudo systemctl enable freedmr.service ;;
+sudo systemctl stop fdmrparrot.service &&  sudo systemctl disable fdmrparrot.service ;;
 8)
-sudo systemctl stop freedmr.service && sudo systemctl disable freedmr.service && sudo systemctl stop proxy.service && sudo systemctl disable proxy.service && rm /var/log/FreeDMR/* ;;
+sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo systemctl enable proxy.service && sudo systemctl stop freedmr.service && sudo systemctl start freedmr.service && sudo systemctl enable freedmr.service ;;
 9)
-sudo rm /opt/HBMonv2/sysinfo/*.rrd && sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' add && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' add && sudo systemctl stop hbmon2.service && sudo rm /opt/HBMonv2/*.json && sudo systemctl enable hbmon2.service && sudo systemctl start http.server-fmr.service && sudo systemctl enable http.server-fmr.service && sudo sh /opt/HBMonv2/updateTGIDS.sh ;;
+sudo systemctl stop freedmr.service && sudo systemctl disable freedmr.service && sudo systemctl stop proxy.service && sudo systemctl disable proxy.service && rm /var/log/FreeDMR/* ;;
 10)
-sudo systemctl stop hbmon2.service && sudo systemctl disable hbmon2.service && sudo systemctl stop http.server-fmr.service && sudo systemctl disable http.server-fmr.service && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' remove && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' remove ;;
+sudo systemctl stop hbmon.service && sudo /opt/HBmonitor/updateTGIDS.sh && cronedit.sh '* */24 * * *' 'sudo /opt/HBmonitor/updateTGIDS.sh >/dev/null 2>&1' add &&  sudo systemctl start hbmon.service && sudo systemctl enable hbmon.service ;;
 11)
-menu-igate ;;
+sudo systemctl stop hbmon2.service && sudo rm /opt/HBMonv2/*.json && sudo rm /opt/HBMonv2/sysinfo/*.rrd && sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' add && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' add &&  sudo systemctl enable hbmon2.service && sudo systemctl start http.server-fmr.service && sudo systemctl enable http.server-fmr.service && sudo sh /opt/HBMonv2/updateTGIDS.sh ;;
 12)
+sudo systemctl stop hbmon.service && cronedit.sh '* */24 * * *' 'sudo /opt/HBmonitor/updateTGIDS.sh >/dev/null 2>&1' remove && sudo systemctl disable hbmon.service && sudo rm /opt/HBmonitor/*.json ;;
+13)
+sudo systemctl stop hbmon2.service && sudo systemctl disable hbmon2.service && sudo systemctl stop http.server-fmr.service && sudo systemctl disable http.server-fmr.service && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' remove && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' remove ;;
+14)
+menu-igate ;;
+15)
 break;
 esac
 done
 exit 0
+
 
 
 
@@ -2388,6 +2398,9 @@ then
 fi
 
 EOF
+cp /opt/HBMonv2/updateTGIDS.sh /opt/HBmonitor
+sudo sed -i 's/HBMonv2/HBmonitor/' /opt/HBmonitor/updateTGIDS.sh
+sudo sed -i 's/hbmon2/hbmon/' /opt/HBmonitor/updateTGIDS.sh
 ####
 sudo sed -i 's/localhost_2-day.png/localhost_1-day.png/' /opt/HBMonv2/html/sysinfo.php
 cd /opt/HBMonv2/sysinfo/
@@ -2399,6 +2412,7 @@ sudo chmod +x /opt/HBMonv2/sysinfo/graph.sh
 sudo chmod +x /opt/HBMonv2/sysinfo/rrd-db.sh
 sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh
 sudo chmod +x /opt/HBMonv2/updateTGIDS.sh
+sudo chmod +x /opt/HBmonitor/updateTGIDS.sh
 
 sudo cat > /opt/HBMonv2/html/buttons.html <<- "EOF"
 <div style="width: 1100px;">
