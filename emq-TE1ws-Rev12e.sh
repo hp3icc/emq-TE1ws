@@ -1291,6 +1291,7 @@ After=syslog.target network-online.target
 [Service]
 User=root
 #ExecStartPre=/bin/sleep 1800
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
 ExecStart=/opt/direwolf/rtl.sh
 # | direwolf -c /home/pi/direwolf/sdr.conf
 
@@ -1302,7 +1303,7 @@ EOF
 
 cat > /lib/systemd/system/multimon-rtl.service  <<- "EOF"
 [Unit]
-Description=Direwolf-RTL Service
+Description=Multimon-RTL Service
 Wants=network-online.target
 After=syslog.target network-online.target
 
@@ -1341,7 +1342,7 @@ cat > /opt/MMDVMHost/MMDVM.ini  <<- "EOF"
 # Coloque su indicativo
 Callsign=HP3ICC
 # Coloque su DMRID de 7 digitos mas 2 digitos para su conexion
-Id=000000000      
+Id=000000000
 Timeout=300
 Duplex=0
 ModeHang=10
@@ -1354,8 +1355,8 @@ Daemon=0
 
 [Info]
 # Colocar frecuencia 9 digitos sin puntos
-RXFrequency=433400000   
-TXFrequency=433400000  
+RXFrequency=433400000
+TXFrequency=433400000
 Power=1
 # The following lines are only needed if a direct connection to a DMR master is being used
 Latitude=0.0
