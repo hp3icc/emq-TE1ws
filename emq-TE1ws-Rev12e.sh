@@ -501,10 +501,12 @@ Description=Rebooter
 #After=syslog.target network-online.target
 
 [Service]
+User=root
 ExecStart=/usr/local/bin/rebooter1.sh
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
+
 EOF
 ####################################
 
