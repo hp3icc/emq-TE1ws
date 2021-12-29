@@ -145,13 +145,12 @@ choix=$(whiptail --title "TE1ws-Rev14 / Raspbian Proyect HP3ICC Esteban Mackay 7
 6 " Dvswitch " \
 7 " pYSFReflector3 " \
 8 " YSF2DMR " \
-9 " HBLink3 Server " \
-10 " FreeDMR Server " \
-11 " Editar WiFi " \
-12 " DDNS NoIP " \
-13 " GoTTY " \
-14 " Reiniciar Equipo " \
-15 " Salir del menu " 3>&1 1>&2 2>&3)
+9 " FreeDMR Server " \
+10 " Editar WiFi " \
+11 " DDNS NoIP " \
+12 " GoTTY " \
+13 " Reiniciar Equipo " \
+14 " Salir del menu " 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 
@@ -183,18 +182,16 @@ menu-ysf;;
 8)
 menu-ysf2dmr;;
 9)
-menu-hbl;;
-10)
 menu-fdmr;;
-11)
+10)
 menu-wifi;;
-12)
+11)
 menu-noip ;;
-13)
+12)
 menu-web ;;
-14)
+13)
 menu-reboot ;;
-15)
+14)
 break;
 
 
@@ -668,75 +665,7 @@ WantedBy=multi-user.target
 
 
 EOF
-#########
-sudo cat > /bin/menu-hbl <<- "EOF"
-#!/bin/bash
-
-while : ; do
-
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu HBLink3" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 21 50 12 \
-1 " Editar HBLink Server " \
-2 " Editar Interlink  " \
-3 " Editar HBMon  " \
-4 " Parrot on  " \
-5 " Parrot off  " \
-6 " Iniciar HBLink Server  " \
-7 " Detener HBLink Server   " \
-8 " Dashboard HBMon on " \
-9 " Dashboard HBMon off  " \
-10 " D-APRS Igate  " \
-11 " Menu Principal " 3>&1 1>&2 2>&3)
-
-exitstatus=$?
-
-#on recupere ce choix
-#exitstatus=$?
-if [ $exitstatus = 0 ]; then
-    echo "Your chosen option:" $choix
-else
-    echo "You chose cancel."; break;
-fi
-
-# case : action en fonction du choix
-
-case $choix in
-1)
-sudo nano /opt/HBlink3/hblink.cfg ;;
-2)
-sudo nano /opt/HBlink3/rules.py ;;
-3)
-sudo nano /opt/HBmonitor/config.py ;;
-4)
-sudo systemctl stop hbparrot.service && sudo systemctl start hbparrot.service && sudo systemctl enable hbparrot.service ;;
-5)
-sudo systemctl stop hbparrot.service &&  sudo systemctl disable hbparrot.service ;;
-6)
-sudo systemctl stop hblink.service && sudo systemctl start hblink.service && sudo systemctl enable hblink.service ;;
-7)
-sudo systemctl stop hblink.service &&  sudo systemctl disable hblink.service && rm /var/log/hblink/* ;;
-8)
-sudo systemctl stop hbmon.service && sudo systemctl start hbmon.service && sudo systemctl enable hbmon.service ;;
-9)
-sudo systemctl stop hbmon.service && sudo systemctl disable hbmon.service && sudo rm /opt/HBmonitor/*.json ;;
-10)
-menu-igate2 ;;
-11)
-break;
-
-
-
-
-esac
-
-done
-exit 0
-
-
-
-
-EOF
-
-######menu-wifi
+#menu-wifi
 cat > /bin/menu-wifi <<- "EOF"
 #!/bin/bash
 while : ; do
@@ -1766,14 +1695,14 @@ Id=714000000
 StartupDstId=714
 # For TG call: StartupPC=0
 StartupPC=0
-Address=3021.master.brandmeister.network
-Port=62031
+Address=127.0.0.1
+Port=54103
 Jitter=500
 EnableUnlink=0
 TGUnlink=4000
 PCUnlink=0
 # Local=62032
-Password=****************
+Password=passw0rd
 # Options=
 TGListFile=TGList-DMR.txt
 Debug=0
@@ -2073,7 +2002,6 @@ git clone https://github.com/lz5pn/HBlink3
 sudo mv /opt/HBlink3/ /opt/backup/
 sudo mv /opt/backup/HBmonitor/ /opt/
 sudo rm -r /opt/backup/
-
 #
 cd /opt/
 git clone https://github.com/hp3icc/D-APRS.git
@@ -2311,11 +2239,7 @@ cd /opt
 git clone https://gitlab.hacknix.net/hacknix/FreeDMR.git
 cd FreeDMR
 mkdir config
-#cp FreeDMR-SAMPLE-commented.cfg config/FreeDMR.cfg
-#cp rules_SAMPLE.py config/rules.py
-
 sudo chmod +x /opt/FreeDMR/*.py
-
 sudo cat > /opt/FreeDMR/conf.txt <<- "EOF"
  
 [EchoTest]
