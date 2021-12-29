@@ -208,23 +208,13 @@ sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock
 echo iniciando instalacion
 
 cd /opt
-git clone https://github.com/iu5jae/pYSFReflector.git
-cd pYSFReflector/
-#cp YSFReflector /usr/local/sbin/
-#cp YSFReflector.ini /usr/local/etc/
-
-cp YSFReflector /usr/local/bin/
-chmod +x /usr/local/bin/YSFReflector
-mkdir /etc/YSFReflector
-
-cp YSFReflector.ini /etc/YSFReflector/
-cd /etc/YSFReflector/
-sudo sed -i 's/FilePath=\/var\/log/FilePath=\/var\/log\/YSFReflector/' YSFReflector.ini
-sudo sed -i 's/42395/42000/' YSFReflector.ini
-sudo sed -i 's/FileRotate=1/FileRotate=0/' YSFReflector.ini
-cd /opt/pYSFReflector/
-cp deny.db /usr/local/etc/
-chmod +x /usr/local/bin/YSFReflector
+git clone https://github.com/iu5jae/pYSFReflector3.git
+cd pYSFReflector3/
+sudo chmod +x *.py
+sudo chmod +x YSFReflector
+sudo sed -i 's/mmdvm/YSFReflector/' pysfreflector.ini
+sudo sed -i 's/0.0.0.0//' pysfreflector.ini
+sudo sed -i 's/pysfreflector/pYSFReflector3/' pysfreflector.ini
 #
 sudo cat > /lib/systemd/system/YSFReflector.service <<- "EOF"
 [Unit]
@@ -234,7 +224,7 @@ After=multi-user.target
 [Service]
 User=root
 #ExecStartPre=/bin/sleep 30
-ExecStart=/usr/bin/python3 /usr/local/bin/YSFReflector /etc/YSFReflector/YSFReflector.ini
+ExecStart=/usr/bin/python3 /opt/pYSFReflector3/YSFReflector /opt/pYSFReflector3/pysfreflector.ini
 
 [Install]
 WantedBy=multi-user.target
@@ -886,7 +876,7 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-sudo nano /etc/YSFReflector/YSFReflector.ini ;;
+sudo nano /opt/pYSFReflector3/pysfreflector.ini ;;
 2)
 sudo systemctl stop YSFReflector.service && sudo systemctl start YSFReflector.service  && sudo systemctl enable YSFReflector.service ;;
 3)
