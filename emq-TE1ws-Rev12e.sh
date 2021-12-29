@@ -980,15 +980,24 @@ EOF
 #
 sudo cat > /usr/local/bin/rebooter1.sh <<- "EOF"
 #!/bin/bash
-sleep 180
+#sleep 180
 while :
 do
-  if ping -c 1 8.8.4.4 &> /dev/null
-  else
-  sudo reboot
-  fi
+SERVER=10.3.22.145
+
+ping -c1 ${SERVER} > /dev/null
+
+if [ $? != 0 ]
+then
+#
+sudo reboot
+
+fi
+
+
   sleep 5
 done
+
 EOF
 #
 cat > /lib/systemd/system/http.server-dvs.service <<- "EOF"
