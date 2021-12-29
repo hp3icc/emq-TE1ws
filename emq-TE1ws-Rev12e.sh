@@ -2829,13 +2829,11 @@ sudo chmod +777 /opt/MMDVM_Bridge/*
 sudo chmod +777 /opt/MMDVM_Bridge/MMDVM_Bridge.ini
 sudo chmod +777 /etc/pymultimonaprs.json
 sudo chmod +777 /opt/D-APRS/user_settings.txt
-sudo chmod +777 /opt/HBlink3/user_settings.txt
 
 sudo chmod +x /opt/HBMonv2/sysinfo/graph.sh
 sudo chmod +x /opt/HBMonv2/sysinfo/cpu.sh
 sudo chmod +x /usr/bin/python3
 sudo chmod +x /opt/HBmonitor/monitor.py
-sudo chmod +x /opt/HBlink3/*.py
 sudo chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
 sudo chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
 sudo chmod +x /opt/D-APRS/*.py
@@ -2845,13 +2843,11 @@ sudo chmod 755 /lib/systemd/system/rebooter1.service
 sudo chmod 755 /lib/systemd/system/gotty.service
 sudo chmod 755 /usr/local/bin/rebooter1.sh
 sudo chmod 755 /lib/systemd/system/daprs.service
-sudo chmod 755 /lib/systemd/system/daprs2.service
 sudo chmod 755 /lib/systemd/system/http.server-dvs.service
 sudo chmod 755 /lib/systemd/system/http.server-fmr.service
 sudo chmod 755 /lib/systemd/system/freedmr.service
 sudo chmod 755 /lib/systemd/system/proxy.service
 sudo chmod 755 /lib/systemd/system/hbmon2.service
-sudo chmod 755 /lib/systemd/system/hblink.service
 sudo chmod 755 /lib/systemd/system/hbmon.service
 sudo chmod 755 /lib/systemd/system/hbparrot.service
 sudo chmod 755 /lib/systemd/system/YSFReflector.service
