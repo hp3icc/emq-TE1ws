@@ -140,7 +140,7 @@ choix=$(whiptail --title "TE1ws-Rev14 / Raspbian Proyect HP3ICC Esteban Mackay 7
 4 " APRS Ionosphere " \
 5 " MMDVMHost " \
 6 " Dvswitch " \
-7 " pYSFReflector " \
+7 " pYSFReflector3 " \
 8 " YSF2DMR " \
 9 " HBLink3 Server " \
 10 " FreeDMR Server " \
