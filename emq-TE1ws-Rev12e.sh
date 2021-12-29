@@ -1924,45 +1924,29 @@ sudo mv /var/www/html/* /var/www/dvs/
 sudo sed -i 's/www\/html/www\/dvs/g' /usr/local/sbin/update-config.sh
 sudo sed -i 's/www\/html/www\/dvs/g' /var/lib/dpkg/info/dvswitch*
 ####
-sudo sed -i 's/After=/#After=/' /lib/systemd/system/analog_bridge.service
-sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/analog_bridge.service
-sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/analog_bridge.service
-
-sudo sed -i 's/After=/#After=/' /lib/systemd/system/mmdvm_bridge.service
-sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/mmdvm_bridge.service
-sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/mmdvm_bridge.service
-
-sudo sed -i 's/After=/#After=/' /lib/systemd/system/ysfgateway.service
-sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/ysfgateway.service
-sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/ysfgateway.service
-
-sudo sed -i 's/After=/#After=/' /lib/systemd/system/ysfparrot.service
-sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/ysfparrot.service
-sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/ysfparrot.service
-
-sudo sed -i 's/After=/#After=/' /lib/systemd/system/nxdngateway.service
-sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/nxdngateway.service
-sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/nxdngateway.service
-
-sudo sed -i 's/After=/#After=/' /lib/systemd/system/nxdnparrot.service
-sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/nxdnparrot.service
-sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/nxdnparrot.service
-
-sudo sed -i 's/After=/#After=/' /lib/systemd/system/p25gateway.service
-sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/p25gateway.service
-sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/p25gateway.service
-
-sudo sed -i 's/After=/#After=/' /lib/systemd/system/p25parrot.service
-sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/p25parrot.service
-sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/p25parrot.service
-
-sudo sed -i 's/After=/#After=/' /lib/systemd/system/quantar_bridge.service
-sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/quantar_bridge.service
-sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/quantar_bridge.service
-
-sudo sed -i 's/After=/#After=/' /lib/systemd/system/ircddbgatewayd.service
-sudo sed -i 's/Requires=/#Requires=/' /lib/systemd/system/ircddbgatewayd.service
-sudo sed -i 's/ExecStartPre =/#ExecStartPre =/' /lib/systemd/system/ircddbgatewayd.service
+rm /lib/systemd/system/analog_bridge.service
+rm /lib/systemd/system/mmdvm_bridge.service
+rm /lib/systemd/system/ysfgateway.service
+rm /lib/systemd/system/ysfparrot.service
+rm /lib/systemd/system/nxdngateway.service
+rm /lib/systemd/system/nxdnparrot.service
+rm /lib/systemd/system/p25gateway.service
+rm /lib/systemd/system/p25parrot.service
+rm /lib/systemd/system/quantar_bridge.service
+rm /lib/systemd/system/ircddbgatewayd.service
+rm /lib/systemd/system/md380-emu.service
+cd /lib/systemd/system/
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/analog_bridge.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/mmdvm_bridge.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ysfgateway.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ysfparrot.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/nxdngateway.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/nxdnparrot.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/p25gateway.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/p25parrot.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/quantar_bridge.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ircddbgatewayd.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/md380-emu.service
 #
 cat > /opt/MMDVM_Bridge/MMDVM_Bridge.ini  <<- "EOF"
 [General]
