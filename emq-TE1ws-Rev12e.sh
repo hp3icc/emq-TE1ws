@@ -1254,11 +1254,11 @@ After=sound.target syslog.target
 
 [Service]
 User=root
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
 ExecStart=sudo direwolf -c /opt/direwolf/dw.conf
-#ExecStart=/usr/bin/direwolf -t 0 -c /opt/direwolf/dw.conf
-StandardOutput=syslog
-StandardError=syslog
-SyslogIdentifier=direwolf
 
 [Install]
 WantedBy=multi-user.target
@@ -1291,7 +1291,6 @@ After=syslog.target network-online.target
 [Service]
 User=root
 #ExecStartPre=/bin/sleep 1800
-ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
 ExecStart=/opt/direwolf/rtl.sh
 # | direwolf -c /home/pi/direwolf/sdr.conf
 
