@@ -218,6 +218,7 @@ sudo sed -i 's/0.0.0.0//' pysfreflector.ini
 sudo sed -i 's/pysfreflector/pYSFReflector3/' pysfreflector.ini
 sudo sed -i 's/enable = 0/enable = 1/' pysfreflector.ini
 sudo sed -i 's/aprs.grupporadiofirenze.net/noam.aprs2.net/' pysfreflector.ini
+sudo sed -i 's/ssid = -10/ssid = -7/' pysfreflector.ini
 #
 sudo cat > /lib/systemd/system/YSFReflector.service <<- "EOF"
 [Unit]
