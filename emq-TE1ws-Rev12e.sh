@@ -90,6 +90,7 @@ Twisted>=16.3.0
 dmr_utils3>=0.1.19
 configparser>=3.0.0
 aprslib>=0.6.42
+tinydb
 pynmea2
 maidenhead
 flask
@@ -215,6 +216,8 @@ sudo chmod +x YSFReflector
 sudo sed -i 's/mmdvm/YSFReflector/' pysfreflector.ini
 sudo sed -i 's/0.0.0.0//' pysfreflector.ini
 sudo sed -i 's/pysfreflector/pYSFReflector3/' pysfreflector.ini
+sudo sed -i 's/enable = 0/enable = 1/' pysfreflector.ini
+sudo sed -i 's/aprs.grupporadiofirenze.net/noam.aprs2.net/' pysfreflector.ini
 #
 sudo cat > /lib/systemd/system/YSFReflector.service <<- "EOF"
 [Unit]
