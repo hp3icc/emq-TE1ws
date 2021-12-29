@@ -2071,43 +2071,9 @@ EOF
 cd /opt/
 git clone https://github.com/lz5pn/HBlink3
 sudo mv /opt/HBlink3/ /opt/backup/
-cd /opt/backup/
-git clone https://github.com/hp3icc/D-APRS.git
-#sudo mv /opt/backup/HBlink3/ /opt/
-sudo mv /opt/backup/D-APRS/ /opt/HBlink3
 sudo mv /opt/backup/HBmonitor/ /opt/
-#sudo mv /opt/backup/dmr_utils3/ /opt/
-cd /opt/
 sudo rm -r /opt/backup/
-#cd /opt/dmr_utils3
-#sudo chmod +x install.sh
-#sudo ./install.sh
-#sudo /usr/bin/python3 -m pip install --upgrade pip
-#sudo pip install --upgrade dmr_utils3
-cd /opt/HBlink3
-cp rules_SAMPLE.py rules.py
-sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' playback.cfg
-sudo sed -i 's/REPORT: True/REPORT: False/' playback.cfg
-sudo sed -i 's/54072/49063/' playback.cfg
-chmod +x playback.py
-cp hblink-SAMPLE.cfg hblink.cfg
-sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' hblink.cfg
-sudo sed -i 's/PORT: 54000/PORT: 62030/' hblink.cfg
-sudo sed -i 's/54001/54901/' hblink.cfg
-sudo sed -i 's/54002/54902/' hblink.cfg
-sudo sed -i 's/tmp/var\/log\/hblink/' hblink.cfg
-sudo sed -i 's/s3cr37w0rd/passw0rd/' hblink.cfg
-sudo sed -i 's/MASTER_PORT: 62030/MASTER_PORT: 62031/' hblink.cfg
-sudo sed -i 's/54070/49064/' hblink.cfg
-sudo sed -i 's/54073/49062/' hblink.cfg
-sudo sed -i 's/MASTER_PORT: 54072/MASTER_PORT: 49063/' hblink.cfg
-rm gps_data.cfg
-cp gps_data-SAMPLE.cfg gps_data.cfg
-sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' gps_data.cfg
-sudo sed -i 's/REPORT: True/REPORT: False/' gps_data.cfg
-sudo sed -i 's/54071/49065/' gps_data.cfg
-sudo sed -i 's/54070/49064/' gps_data.cfg
-sudo sed -i 's/path\/to/opt\/HBlink3/' /opt/HBlink3/gps_data.cfg
+
 #
 cd /opt/
 git clone https://github.com/hp3icc/D-APRS.git
@@ -2143,15 +2109,6 @@ done
 exit 0
 EOF
 #
-cp /bin/menu-igate /bin/menu-igate2
-sudo sed -i 's/FreeDMR/HBLink3/' /bin/menu-igate2
-sudo sed -i 's/D-APRS/HBlink3/' /bin/menu-igate2
-sudo sed -i 's/daprs/daprs2/' /bin/menu-igate2
-sudo sed -i 's/daprs.service/daprs2.service/' /bin/menu-igate2
-sudo sed -i 's/daprs.service/daprs2.service/' /bin/menu-igate2
-sudo sed -i 's/daprs.service/daprs2.service/' /bin/menu-igate2
-
-#
 sudo cat > /lib/systemd/system/daprs.service <<- "EOF"
 [Unit]
 Description=Data bridge APRS
@@ -2167,58 +2124,6 @@ Restart=on-abort
 WantedBy=multi-user.target
 EOF
 #
-cp /lib/systemd/system/daprs.service /lib/systemd/system/daprs2.service
-sudo sed -i 's/D-APRS/HBlink3/' /lib/systemd/system/daprs2.service
-sudo sed -i 's/APRS/APRS2/' /lib/systemd/system/daprs2.service
-#
-sudo cat > /lib/systemd/system/hbparrot.service <<- "EOF"
-[Unit]
-
-Description=HB bridge all Service
-
-After=network-online.target syslog.target
-
-Wants=network-online.target
-
-[Service]
-
-StandardOutput=null
-
-WorkingDirectory=/opt/HBlink3
-
-RestartSec=3
-
-ExecStart=/usr/bin/python3 /opt/HBlink3/playback.py -c /opt/HBlink3/playback.cfg
-
-Restart=on-abort
-
-[Install]
-
-WantedBy=multi-user.target
-
-
-EOF
-
-#
-
-sudo cat > /lib/systemd/system/hblink.service <<- "EOF"
-[Unit]
-Description=Start HBlink
-
-After=multi-user.target
-
-[Service]
-User=root
-ExecStart=/usr/bin/python3 /opt/HBlink3/bridge.py
-
-[Install]
-WantedBy=multi-user.target
-
-
-
-EOF
-############
-sudo rm /opt/HBlink3/*.json
 
 ###############################
 
