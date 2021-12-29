@@ -93,11 +93,14 @@ aprslib>=0.6.42
 tinydb
 pynmea2
 maidenhead
+requests
+libscrc
 flask
 folium
 mysql-connector
 resettabletimer>=0.7.0
 setproctitle
+
 
 EOF
 #
