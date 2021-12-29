@@ -1,0 +1,22 @@
+[Unit]
+Description=P25 Parrot Service
+# Description=Place this file in /lib/systemd/system
+# Description=N4IRS 04/20/2018
+
+#After=netcheck.service
+#Requires=netcheck.service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+WorkingDirectory=/opt/P25Parrot
+#ExecStartPre = /bin/sh -c 'echo "Starting P25Parrot: [`date +%%T.%%3N`]" >> /var/log/netcheck'
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=/opt/P25Parrot/P25Parrot 42011
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

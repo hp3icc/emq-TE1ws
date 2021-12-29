@@ -1,0 +1,27 @@
+[Unit]
+Description=P25 Gateway Service
+# Description=Place this file in /lib/systemd/system
+# Description=N4IRS 04/20/2018
+
+#After=netcheck.service
+#Requires=netcheck.service
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartPreventExitStatus=SEGV
+RestartSec=3
+StandardOutput=null
+WorkingDirectory=/opt/P25Gateway
+#ExecStartPre = /bin/sh -c 'echo "Starting P25Gateway: [`date +%%T.%%3N`]" >> /var/log/netcheck'
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=/opt/P25Gateway/P25Gateway /opt/P25Gateway/P25Gateway.ini
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+

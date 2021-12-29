@@ -1,0 +1,22 @@
+[Unit]
+Description=YSF Parrot Service
+# Description=Place this file in /lib/systemd/system
+# Description=N4IRS 04/30/2020
+
+#After=netcheck.service
+#Requires=netcheck.service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+WorkingDirectory=/opt/YSFParrot
+#ExecStartPre = /bin/sh -c 'echo "Starting YSFParrot: [`date +%%T.%%3N`]" >> /var/log/netcheck'
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=/opt/YSFParrot/YSFParrot 42012
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

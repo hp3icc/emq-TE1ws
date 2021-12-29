@@ -1,0 +1,27 @@
+[Unit]
+Description=YSF Gateway Service
+# Description=Place this file in /lib/systemd/system
+# Description=N4IRS 01/17/2020
+
+#After=netcheck.service
+#Requires=netcheck.service
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartPreventExitStatus=SEGV
+RestartSec=3
+StandardOutput=null
+WorkingDirectory=/opt/YSFGateway
+#ExecStartPre = /bin/sh -c 'echo "Starting YSFGateway: [`date +%%T.%%3N`]" >> /var/log/netcheck'
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=/opt/YSFGateway/YSFGateway /opt/YSFGateway/YSFGateway.ini
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+
