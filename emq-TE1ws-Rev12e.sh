@@ -1225,8 +1225,13 @@ After=syslog.target network.target
 
 [Service]
 User=root
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
 WorkingDirectory=/opt/MMDVMHost
 #ExecStartPre=/bin/sleep 10
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
 ExecStart=/opt/MMDVMHost/MMDVMHost /opt/MMDVMHost/MMDVM.ini
 ExecStop=/usr/bin/screen -S MMDVMHost -X quit
 
@@ -1318,8 +1323,13 @@ Description=YSF2DMR Service
 After=syslog.target network.target
 
 [Service]
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
 WorkingDirectory=/opt/YSF2DMR
-ExecStartPre=/bin/sleep 30
+#ExecStartPre=/bin/sleep 30
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
 ExecStart=/opt/YSF2DMR/YSF2DMR /opt/YSF2DMR/YSF2DMR.ini
 
 [Install]
