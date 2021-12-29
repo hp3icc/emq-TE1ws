@@ -980,10 +980,10 @@ EOF
 #
 sudo cat > /usr/local/bin/rebooter1.sh <<- "EOF"
 #!/bin/bash
-#sleep 180
+sleep 180
 while :
 do
-SERVER=10.3.22.145
+SERVER=8.8.4.4
 
 ping -c1 ${SERVER} > /dev/null
 
