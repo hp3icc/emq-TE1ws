@@ -830,9 +830,9 @@ case $choix in
 1)
 sudo nano /opt/MMDVMHost/MMDVM.ini;;
 2)
-sudo sh /opt/MMDVMHost/DMRIDUpdate.sh && sudo systemctl enable dmrid-mmdvm.service ;;
+sudo sh /opt/MMDVMHost/DMRIDUpdate.sh && sudo systemctl enable dmrid-mmdvm.service && sudo systemctl enable mmdvmh.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/MMDVMHost/DMRIDUpdate.sh' add ;;
 3)
-sudo systemctl stop mmdvmh.service && sudo systemctl stop dmrid-mmdvm.service && sudo systemctl disable dmrid-mmdvm.service && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
+sudo systemctl stop mmdvmh.service && sudo systemctl stop dmrid-mmdvm.service && sudo systemctl disable dmrid-mmdvm.service && sudo systemctl disable mmdvmh.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/MMDVMHost/DMRIDUpdate.sh' remove && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
 4)
 sudo systemctl restart logtailer-mmdvmh.service && sudo systemctl enable logtailer-mmdvmh.service && sudo systemctl restart http.server-mmdvmh.service && sudo systemctl enable http.server-mmdvmh.service ;;
 5)
@@ -1116,9 +1116,9 @@ case $choix in
 1)
 sudo nano /opt/YSF2DMR/YSF2DMR.ini;;
 2)
-sudo sh /opt/YSF2DMR/DMRIDUpdate.sh && sudo systemctl enable dmrid-ysf2dmr.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/YSF2DMR/DMRIDUpdate.sh' add ;;
+sudo sh /opt/YSF2DMR/DMRIDUpdate.sh && sudo systemctl enable dmrid-ysf2dmr.service && sudo systemctl enable ysf2dmr.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/YSF2DMR/DMRIDUpdate.sh' add ;;
 3)
-sudo systemctl stop ysf2dmr.service && sudo systemctl stop dmrid-ysf2dmr.service && sudo systemctl disable dmrid-ysf2dmr.service && rm /var/log/ysf2dmr/* && cronedit.sh '0 3 * * *' 'sudo sh /opt/YSF2DMR/DMRIDUpdate.sh' remove ;;
+sudo systemctl stop ysf2dmr.service && sudo systemctl stop dmrid-ysf2dmr.service && sudo systemctl disable dmrid-ysf2dmr.service && sudo systemctl disable ysf2dmr.service && rm /var/log/ysf2dmr/* && cronedit.sh '0 3 * * *' 'sudo sh /opt/YSF2DMR/DMRIDUpdate.sh' remove ;;
 4)
 break;
 esac
