@@ -840,10 +840,10 @@ cat > /bin/menu-dvs <<- "EOF"
 #!/bin/bash
 while : ; do
 choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu DVSwitch" --menu "Nota : Debe encender Dvswitch antes de editar para utilizar." 20 60 11 \
-1 " Dvswitch ON " \
-2 " Dvswitch OFF  " \
+1 " Encender Dvswitch " \
+2 " Apagar Dvswitch " \
 3 " Editar Dvswitch Server " \
-4 " Editar Puerto http  " \
+4 " Cambiar Puerto http de Dashboard " \
 5 " Dashboard on  " \
 6 " Dashboard off  " \
 7 " Menu Principal " 3>&1 1>&2 2>&3)
