@@ -38,13 +38,13 @@ YSF2DMR
 
 Dvswitch 
 
-HBLink3
-
 FreeDMR
 
 NoIP
 
 GoTTY
+
+WiFi-AP
 
 Esta versión cuenta con Dashboard HTML corriendo sobre websock , para el MMDVMHost y Reflector YSF , estan preconfigurados a puerto http 80 , pero desde el menú puede cambiar al puerto 8000, 8080 , o cualquier otro de su preferencia .
 
@@ -71,7 +71,7 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
  
 * Bash de auto instalación:
 
-      sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev12e.sh)"
+      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev14.sh)"
 
 #
 
@@ -112,7 +112,6 @@ Si desea habilitar más de un Dashboard a la vez, recuerde cambiar los puertos h
 * pYSFReflector  
 * MMDVMHost
 * Dvswitch
-* HBLink3
 * FreeDMR
 
 # Nota importante 
@@ -190,8 +189,6 @@ YSF2DMR
 
 Dvswitch 
 
-HBLink3
-
 FreeDMR
 
 NoIP
@@ -223,7 +220,7 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
 * Self-install bash:
 
-      sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev12e.sh)"
+      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev14.sh)"
 
 #
 
@@ -265,7 +262,6 @@ If you want to enable more than one Dashboard at the same time, remember to chan
 * pYSFReflector  
 * MMDVMHost
 * Dvswitch
-* HBLink3
 * FreeDMR
 
  # Important note
