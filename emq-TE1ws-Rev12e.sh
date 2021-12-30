@@ -367,10 +367,6 @@ After=network.target
 
 [Service]
 User=root
-Type=simple
-#User=mmdvm
-#Group=mmdvm
-Restart=always
 ExecStartPre=/bin/sleep 30
 # Modify for different location of Python3 or other port
 ExecStart=/usr/bin/python3 -m http.server 80 --directory /opt/MMDVMHost-Websocketboard/html
@@ -661,10 +657,6 @@ After=network.target
 
 [Service]
 User=root
-Type=simple
-#User=mmdvm
-#Group=mmdvm
-Restart=always
 #ExecStartPre=/bin/sleep 30
 # Modify for different location of Python3 or other port
 ExecStart=php -S 0.0.0.0:80 -t /opt/HBMonv2/html/
