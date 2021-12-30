@@ -937,10 +937,6 @@ After=network.target
 
 [Service]
 User=root
-Type=simple
-#User=mmdvm
-#Group=mmdvm
-Restart=always
 #ExecStartPre=/bin/sleep 30
 # Modify for different other port
 ExecStart=php -S 0.0.0.0:80 -t /var/www/dvs/
