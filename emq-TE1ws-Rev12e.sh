@@ -925,7 +925,7 @@ sudo reboot
 fi
 
 
-  sleep 5
+  sleep 60
 done
 
 EOF
