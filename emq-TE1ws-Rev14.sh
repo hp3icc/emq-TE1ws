@@ -688,7 +688,7 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-sudo nano /etc/hostapd/hostapd.conf ;;
+sudo nano /etc/hostapd/hostapd.conf && sudo systemctl restart hostapd.service ;;
 2)
 sudo nano /etc/wpa_supplicant/wpa_supplicant.conf ;;
 3)
