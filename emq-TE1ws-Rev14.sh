@@ -1994,13 +1994,6 @@ GatewayAddress=127.0.0.1
 GatewayPort=14020
 EOF
 ####
-
-cd /opt/
-git clone https://github.com/lz5pn/HBlink3
-sudo mv /opt/HBlink3/ /opt/backup/
-sudo mv /opt/backup/HBmonitor/ /opt/
-sudo rm -r /opt/backup/
-#
 cd /opt/
 git clone https://github.com/hp3icc/D-APRS.git
 
@@ -2054,6 +2047,7 @@ EOF
 ###############################
 
 ### Instalar el  web monitor de HBLink.
+git clone https://github.com/sp2ong/HBmonitor.git
 cd /opt/HBmonitor
 sudo chmod +x install.sh
 sudo ./install.sh
