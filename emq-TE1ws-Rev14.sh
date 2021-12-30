@@ -219,7 +219,7 @@ sudo sed -i 's/pysfreflector/pYSFReflector3/' pysfreflector.ini
 sudo sed -i 's/enable = 0/enable = 1/' pysfreflector.ini
 sudo sed -i 's/aprs.grupporadiofirenze.net/noam.aprs2.net/' pysfreflector.ini
 sudo sed -i 's/ssid = -10/ssid = -7/' pysfreflector.ini
-
+sudo sed -i 's/FileRotate=0/FileRotate=1/' pysfreflector.ini
 #
 sudo cat > /lib/systemd/system/YSFReflector.service <<- "EOF"
 [Unit]
@@ -418,7 +418,7 @@ SslKey=/path/to/privkey.pem
 MaxLines=500
 
 # Keep this parameter synchrone to Filerotate in YSFReflector.ini - if 0 then False, if 1 then True
-Filerotate=False
+Filerotate=True
 
 # You can use the logtailer-Service for more than one reflector running on your system.
 # To do this, just copy the [YSFReflectorN]-Section into a new one, renumber it and modify the Logdir and Prefix.
