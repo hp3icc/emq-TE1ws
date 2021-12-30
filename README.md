@@ -9,7 +9,7 @@ Continuamente todo el contenido publicado aqui, es actualizado , si esta observa
 
 https://github.com/hp3icc/emq-TE1ws
 
-Ultima revision: emq-TE1ws-Rev12e 3/12/2021 
+Ultima revision: emq-TE1ws-Rev14 30/12/2021 
 
 #
 
@@ -81,9 +81,9 @@ si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  
 
  puede descargar la imagen para raspberry desde cualquiera de los siguientes links:
  
-* https://mega.nz/file/YFlQWBiZ#wqOUjN8Nn8Nn-D2V_qGQMdXpqD3eRnzuKLLUT3SjD6Y
+* https://mega.nz/file/UUtilToa#3IrG8U36Di-fRHl3O-3xxBBi4EfdzxIZiRX4SP2MADw
 
-* https://drive.google.com/file/d/1fukwJVo1BXaGr-8qSW4D5QniCPuPG7HT/view?usp=sharing
+* https://drive.google.com/file/d/16gCKo0uuYuQje2nQzDoMZewB63shxQE6/view?usp=sharing
 
 #
 
@@ -93,7 +93,7 @@ Puede configurar desde consola terminal, aplicación cliente ssh o utilizar su n
 
 Ejemplo: 
 
-* 192.0.0.0:8022/  
+* 10.0.0.1:8022/  
 
 * emq-te1:8022/ 
 
@@ -159,7 +159,7 @@ Esteban Mackay Q.
  
  https://github.com/hp3icc/emq-TE1ws
  
- Last revision: emq-TE1ws-Rev12e 12/3/2021 
+ Last revision: emq-TE1ws-Rev14 12/30/2021 
 
 #
 
@@ -231,9 +231,9 @@ If you have raspbery equipment, you can download and use the preconfigured image
 
 You can download the raspberry image from any of the following links:
 
-*  https://mega.nz/file/YFlQWBiZ#wqOUjN8Nn8Nn-D2V_qGQMdXpqD3eRnzuKLLUT3SjD6Y
+* https://mega.nz/file/UUtilToa#3IrG8U36Di-fRHl3O-3xxBBi4EfdzxIZiRX4SP2MADw
 
-* https://drive.google.com/file/d/1fukwJVo1BXaGr-8qSW4D5QniCPuPG7HT/view?usp=sharing
+* https://drive.google.com/file/d/16gCKo0uuYuQje2nQzDoMZewB63shxQE6/view?usp=sharing
 
 #
 
@@ -243,7 +243,7 @@ You can download the raspberry image from any of the following links:
 
 Example: 
 
- * 192.0.0.0:8022/  
+ * 10.0.0.1:8022/  
 
  * emq-te1:8022/
 
