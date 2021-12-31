@@ -677,7 +677,7 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu WiFi" --menu "Nota: al ed
 3 " Ver intensidad de WIFI  " \
 4 " Editar AP WiFi " \
 5 " Encender AP WiFi " \
-5 " Apagar AP WiFi " \
+6 " Apagar AP WiFi " \
 7 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
