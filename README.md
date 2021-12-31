@@ -88,9 +88,9 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
 
 # Instalación en memoria micro sd para Raspberry:
 
-si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  lista para cargar en su memoria micro sd , para esto solo deberá descargar el archivo de la imagen preconfigurada para raspberry, descomprimir el archivo .zip y cargar en su memoria micro sd utilizando herramientas como BalenaEtcher , Rufus o cualquier otra herramienta para cargar el archivo .ima a la memoria micro sd
+si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  lista para cargar en su memoria micro sd , para esto solo deberá descargar el archivo de la imagen preconfigurada para raspberry, descomprimir el archivo .zip y cargar en su memoria micro sd utilizando herramientas como BalenaEtcher , Rufus o cualquier otra herramienta para cargar el archivo .img a la memoria micro sd.
 
- puede descargar la imagen para raspberry desde cualquiera de los siguientes links:
+ Puede descargar la imagen para raspberry desde cualquiera de los siguientes links:
  
  Imagen para raspberry, proyecto emq-TE1 con accespoint WiFi
  
@@ -336,8 +336,7 @@ sh rev8WS-to-rev10b-fix-websosk-conflict.sh
 
  * The new version emq-TE1-Rev10c or later, does NOT require this correction
 
-
- #
+#
 
  # WIFI 
 
@@ -350,6 +349,40 @@ If your computer has a wireless network device (WIFI) or is a Raspberry Zero W m
  This file can be edited with the Notepad and within this file, you must include the names of Wi-Fi networks and passwords of each one, to which you want your raspberry to connect, you can add one or how many Wi-Fi networks you have, so that your equipment connect.
 
  #
+ 
+ # WiFi-AP
+
+ Now the emq-TE1ws project includes the function of ap mode to our equipment, this function allows us to use our Raspberry mini computer as a WiFi reuter or if we have a hotspot or aprs on raspberry zero W, it facilitates the connection to our equipment, to add a new connection to known Wi-Fi networks.
+
+ The WiFi-AP function can be turned on or off in the Wi-Fi menu.
+
+ To connect to your computer, select the Wi-Fi network with the name:
+
+ emq-TE1-AP
+
+ password for your wifi connection:
+
+ Panama507
+
+ To change the name and password of your WiFi-AP, enter the edit wifi menu, then edit WiFi AP, and replace the current name in the line ssid =:
+
+ ssid = HP3ICC-1HS
+
+ The password must be entered in hexadecimal format, replacing the current one that is in the wpa_psk = line:
+
+ wpa_psk = cdfce0488f50bac6d77d911e44b33d5c9c7652dc7c7f81c6489bac8a683e04a1
+
+ To generate your password correctly in hexadecimal format, it is the calculation between the ssid and your alphanumeric password, you can use the following link, entering your data and then click on generate:
+
+ http://jorisvr.nl/wpapsk.html
+
+ * Note:
+
+   If your equipment is a vps, fixed server, mini pc or only uses the same internet connections, the emq-TE1 version without WiFi-AP is recommended.
+
+ #
+
+
 
  Successes in your projects with raspberry 
 
