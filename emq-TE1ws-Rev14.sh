@@ -2807,6 +2807,8 @@ rm setup-network.sh
 sudo sed -i 's/echo "Starting hostapd service..."/#echo "Starting hostapd service..."/' /opt/network-setup/bin/netStart
 sudo sed -i 's/systemctl start hostapd.service/#systemctl start hostapd.service/' /opt/network-setup/bin/netStart
 sudo sed -i 's/sleep 10/#sleep 10/' /opt/network-setup/bin/netStart
+sudo sed -i 's/sudo systemctl disable hostapd/#sudo systemctl disable hostapd/' /opt/network-setup/bin/netStop.sh
+sudo sed -i 's/sudo systemctl stop hostapd/#sudo systemctl stop hostapd/' /opt/network-setup/bin/netStop.sh
 sudo systemctl enable hostapd.service
 #
 sudo chown -R mmdvm:mmdvm /opt/MMDVMHost/MMDVMHost
