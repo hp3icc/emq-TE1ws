@@ -189,6 +189,7 @@ http://jorisvr.nl/wpapsk.html
 
   si su equipo es un vps , servidor fijo , mini pc o solo utiliza las mismas conecciones de internet , se recomienda la version de emq-TE1 sin WiFi-AP .
 
+#
 
 Exitos en sus proyectos con raspberry 
 
