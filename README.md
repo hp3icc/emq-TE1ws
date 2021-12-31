@@ -44,7 +44,7 @@ NoIP
 
 GoTTY
 
-WiFi-AP
+* WiFi-AP -opcional
 
 Esta versión cuenta con Dashboard HTML corriendo sobre websock , para el MMDVMHost y Reflector YSF , estan preconfigurados a puerto http 80 , pero desde el menú puede cambiar al puerto 8000, 8080 , o cualquier otro de su preferencia .
 
@@ -56,6 +56,9 @@ Se agrega listado de nombres de salas del Proyecto Treehouse EUROPELINK según e
 
 
 Compatible con Raspberry pi : zero , P2 , P3 y P4
+
+#
+
 
 #
 
@@ -74,8 +77,9 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
  Proyecto emq-TE1 con accespoint WiFi
  
       sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev14a.sh)"
+      
 
- Proyecto emq-TE1 sin accespoint WiFi - recomendado para vps
+ Proyecto emq-TE1 sin accespoint WiFi - recomendado para vps o equipos de escritorio de una sola coneccion a internet
  
       sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev14.sh)"
 
@@ -88,7 +92,18 @@ si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  
 
  puede descargar la imagen para raspberry desde cualquiera de los siguientes links:
  
-* actualizando nuevos enlaces
+ Imagen para raspberry, proyecto emq-TE1 con accespoint WiFi
+ 
+* https://drive.google.com/file/d/1AcOrbssSGQ-BOyDviruxvgv9vrreUNr6/view?usp=sharing
+
+* https://mega.nz/file/RAF1xQRb#4aSqRxxOZr0jWvOwHtzPjjYKI4eEpS0xj75TDRsdeG4
+
+
+Imagen para raspberry, proyecto emq-TE1 sin accespoint WiFi - recomendado para equipos de escritorio o fijos en una sola conecion de internet
+
+* https://drive.google.com/file/d/1Uw0sDGWUNyZ2pA76f5rLrWvGuhR5aJOh/view?usp=sharing
+
+* https://mega.nz/file/QZMzBARB#Qh5jgbPF1syUCADN4F4sFrHpVPLsCqdZWp8sch3iGHc
 
 #
 
@@ -142,6 +157,38 @@ https://drive.google.com/file/d/1m-BJYz3T9LpEL76AirKPOhV228FZZ6lC/view?usp=shari
 Este archivo puede ser editado con el Notepad y dentro de este archivo, debe incluir los nombres de redes wifi y contraseñas de cada una, a las que desea que su raspberry se conecte, puede agregar una o cuantas redes wifi tenga, para que su equipo se conecte.
 
 #
+
+# WiFi-AP
+
+Ahora el proyecto emq-TE1ws , incluye la funcion de modo ap a nuestro equipo, esta funcion nos permite utilizar nuestro mini computador Raspberry como un reuter WiFi o si tenemos un hotspot o aprs sobre raspberry zero W, nos facilita la conexion a nuestro equipo , para agregar una nueva coneccion a redes wifi conocidas .
+
+La funcion de de WiFi-AP puede ser apagada o encendida en el menu wifi
+
+Para conectarse a su equipo, selecciones la red wifi con el nombre:
+
+emq-TE1-AP
+
+contraseña para su coneccion wifi:
+
+Panama507
+
+Para cambiar el nombre y la contraseña de su WiFi-AP , entre al menu editar wifi , luego en editar AP WiFi, y reemplace el nombre actual en la linea ssid= :
+
+ssid=HP3ICC-1HS
+
+la contraseña debe ingresarla en formato hexadecimal, reemplasando la actual que esta en la linea  wpa_psk= :
+
+wpa_psk=cdfce0488f50bac6d77d911e44b33d5c9c7652dc7c7f81c6489bac8a683e04a1
+
+Para generar su contraseña correctamente en formato hexadecimal, es el calculo entre el ssid y su contraseña alfanumerica, puede utilizar el siguiente link, ingresando sus datos y luego dar click en generar :
+
+http://jorisvr.nl/wpapsk.html
+
+
+* Nota:
+
+  si su equipo es un vps , servidor fijo , mini pc o solo utiliza las mismas conecciones de internet , se recomienda la version de emq-TE1 sin WiFi-AP .
+
 
 Exitos en sus proyectos con raspberry 
 
@@ -199,6 +246,8 @@ FreeDMR
 NoIP
 
 GoTTY
+
+* WiFi-AP
  
  
  This version has HTML Dashboard running on websock, for the MMDVMHost and YSF Reflector, they are preconfigured to http port 80, but from the menu you can change to port 8000, 8080, or any other of your preference.
