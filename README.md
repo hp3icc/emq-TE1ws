@@ -71,7 +71,7 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
  
 * Bash de auto instalación:
 
-      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev14.sh)"
+      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev14a.sh)"
 
 #
 
@@ -220,7 +220,7 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
 * Self-install bash:
 
-      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev14.sh)"
+      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev14a.sh)"
 
 #
 
