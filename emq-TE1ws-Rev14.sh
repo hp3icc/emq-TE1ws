@@ -671,12 +671,14 @@ EOF
 cat > /bin/menu-wifi <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu WiFi" --menu "Nota: al editar configuracion de AP,o redes Wifi conocidas, debe reiniciar el equipo, para aplicar cambios realizados." 20 75 11 \
-1 " Editar AP WiFi " \
-2 " Editar redes WiFi conocidas" \
-3 " Buscar redes wifi cercanas " \
-4 " Ver intensidad de WIFI  " \
-5 " Menu Principal " 3>&1 1>&2 2>&3)
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu WiFi" --menu "Nota: al editar configuracion de redes Wifi conocidas, debe reiniciar el equipo, para aplicar cambios realizados." 20 75 11 \
+1 " Editar redes WiFi conocidas" \
+2 " Buscar redes wifi cercanas " \
+3 " Ver intensidad de WIFI  " \
+4 " Editar AP WiFi " \
+5 " Encender AP WiFi " \
+5 " Apagar AP WiFi " \
+7 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -688,18 +690,23 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-sudo nano /etc/hostapd/hostapd.conf && sudo systemctl restart hostapd.service ;;
-2)
 sudo nano /etc/wpa_supplicant/wpa_supplicant.conf ;;
-3)
+2)
 sudo iwlist wlan0 scan | grep ESSID | grep -o '"[^"]\+"' >> /tmp/ssid.txt && nano /tmp/ssid.txt && sudo rm /tmp/ssid.txt ;;
-4)
+3)
 sudo wavemon ;;
+4)
+sudo nano /etc/hostapd/hostapd.conf ;;
 5)
+sudo systemctl stop hostapd.service && sudo systemctl start hostapd.service && sudo systemctl enable hostapd.service ;;
+6)
+sudo systemctl stop hostapd.service && sudo systemctl disable hostapd.service ;;
+7)
 break;
 esac
 done
 exit 0
+
 
 EOF
 #
@@ -2800,6 +2807,7 @@ rm setup-network.sh
 sudo sed -i 's/echo "Starting hostapd service..."/#echo "Starting hostapd service..."/' /opt/network-setup/bin/netStart
 sudo sed -i 's/systemctl start hostapd.service/#systemctl start hostapd.service/' /opt/network-setup/bin/netStart
 sudo sed -i 's/sleep 10/#sleep 10/' /opt/network-setup/bin/netStart
+sudo systemctl enable hostapd.service
 #
 sudo chown -R mmdvm:mmdvm /opt/MMDVMHost/MMDVMHost
 
