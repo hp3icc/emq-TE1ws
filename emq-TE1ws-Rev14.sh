@@ -2797,6 +2797,9 @@ chmod +x setup-network.sh
 sudo ./setup-network.sh --install --ap-ssid="emq-TE1-AP" --ap-password="Panama507" --ap-password-encrypt 
 --ap-country-code="PA" --ap-ip-address="192.168.50.1" --wifi-interface="wlan0"
 rm setup-network.sh
+sudo sed -i 's/echo "Starting hostapd service..."/#echo "Starting hostapd service..."/' /opt/network-setup/bin/netStart
+sudo sed -i 's/systemctl start hostapd.service/#systemctl start hostapd.service/' /opt/network-setup/bin/netStart
+sudo sed -i 's/sleep 10/#sleep 10/' /opt/network-setup/bin/netStart
 #
 sudo chown -R mmdvm:mmdvm /opt/MMDVMHost/MMDVMHost
 
