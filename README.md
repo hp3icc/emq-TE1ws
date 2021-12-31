@@ -69,9 +69,16 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
  
  wget
  
-* Bash de auto instalación:
+* Bash de auto instalación :
 
+ Proyecto emq-TE1 con accespoint WiFi
+ 
       sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev14a.sh)"
+
+ Proyecto emq-TE1 sin accespoint WiFi - recomendado para vps
+ 
+      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev14.sh)"
+
 
 #
 
@@ -218,7 +225,14 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
 * Self-install bash:
 
+ Emq-TE1 project with WiFi access point
+
       sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev14a.sh)"
+
+ Emq-TE1 project without WiFi access point - recommended for vps
+ 
+      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1ws-Rev14.sh)"
+
 
 #
 
