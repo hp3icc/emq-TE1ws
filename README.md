@@ -9,7 +9,7 @@ Continuamente todo el contenido publicado aqui, es actualizado , si esta observa
 
 https://github.com/hp3icc/emq-TE1ws
 
-Ultima revision: emq-TE1ws-Rev14 30/12/2021 
+Ultima revision: emq-TE1ws-Rev14a 31/12/2021 
 
 #
 
@@ -81,9 +81,7 @@ si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  
 
  puede descargar la imagen para raspberry desde cualquiera de los siguientes links:
  
-* https://mega.nz/file/UUtilToa#3IrG8U36Di-fRHl3O-3xxBBi4EfdzxIZiRX4SP2MADw
-
-* https://drive.google.com/file/d/16gCKo0uuYuQje2nQzDoMZewB63shxQE6/view?usp=sharing
+* actualizando nuevos enlaces
 
 #
 
@@ -159,7 +157,7 @@ Esteban Mackay Q.
  
  https://github.com/hp3icc/emq-TE1ws
  
- Last revision: emq-TE1ws-Rev14 12/30/2021 
+ Last revision: emq-TE1ws-Rev14a 12/31/2021 
 
 #
 
@@ -231,9 +229,7 @@ If you have raspbery equipment, you can download and use the preconfigured image
 
 You can download the raspberry image from any of the following links:
 
-* https://mega.nz/file/UUtilToa#3IrG8U36Di-fRHl3O-3xxBBi4EfdzxIZiRX4SP2MADw
-
-* https://drive.google.com/file/d/16gCKo0uuYuQje2nQzDoMZewB63shxQE6/view?usp=sharing
+* update New links
 
 #
 
