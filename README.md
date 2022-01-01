@@ -248,7 +248,7 @@ NoIP
 
 GoTTY
 
-* WiFi-AP
+* WiFi-AP optional
  
  
  This version has HTML Dashboard running on websock, for the MMDVMHost and YSF Reflector, they are preconfigured to http port 80, but from the menu you can change to port 8000, 8080, or any other of your preference.
@@ -288,28 +288,40 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
 # Installation in micro sd memory for Raspberry:
 
-If you have raspbery equipment, you can download and use the preconfigured image ready to load in your micro sd memory, for this you just need to download the preconfigured image file for raspberry, unzip the .zip file and load it into your micro sd memory using tools such as BalenaEtcher, Rufus or any other tool to load the .ima file to the micro sd memory
+ If you have raspbery equipment, you can download and use the preconfigured image ready to load into your micro sd memory, for this you just need to download the preconfigured image file for raspberry, unzip the .zip file and load it into your micro sd memory using tools such as BalenaEtcher, Rufus or any other tool to load the .img file to the micro sd memory.
+
+  You can download the raspberry image from any of the following links:
 
 
-You can download the raspberry image from any of the following links:
+  Image for raspberry, emq-TE1 project with WiFi accespoint
 
-* update New links
+ * https://drive.google.com/file/d/1AcOrbssSGQ-BOyDviruxvgv9vrreUNr6/view?usp=sharing
 
-#
+ * https://mega.nz/file/RAF1xQRb#4aSqRxxOZr0jWvOwHtzPjjYKI4eEpS0xj75TDRsdeG4
+
+
+ Image for raspberry, emq-TE1 project without WiFi access point - recommended for desktop or fixed computers in a single internet connection
+
+ * https://drive.google.com/file/d/1Uw0sDGWUNyZ2pA76f5rLrWvGuhR5aJOh/view?usp=sharing
+
+ * https://mega.nz/file/QZMzBARB#Qh5jgbPF1syUCADN4F4sFrHpVPLsCqdZWp8sch3iGHc
+
+ #
 
  # Setting
 
  You can configure from terminal console, ssh client application or use your Web browser port 8022, entering the local ip of your raspberry or hostname.
 
-Example: 
+ Example: 
 
  * 10.0.0.1:8022/  
 
- * emq-te1:8022/
+ * emq-te1: 8022 / 
 
-User: pi
+ User: pi
 
-Password: Panama507
+ Password: Panama507
+
 
 If you are configuring from terminal or ssh client, once logged in, write the word: menu
 
