@@ -68,9 +68,7 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
 
 * Pre-requisitos :
  
- sudo
- 
- wget
+ curl
  
 * Bash de auto instalación :
 
@@ -269,9 +267,7 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
 * Prerequisites:
  
- sudo
- 
- wget
+ curl
 
 * Self-install bash:
 
