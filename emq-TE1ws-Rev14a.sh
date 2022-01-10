@@ -1909,7 +1909,7 @@ Power=1
 Latitude=8.5211
 Longitude=-80.3598
 Height=0
-Location=Raspbian Proyect HP3ICC
+Location=DVSwitch Server
 Description=MMDVM DVSwitch
 URL=https://groups.io/g/DVSwitch
 
