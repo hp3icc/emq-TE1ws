@@ -2568,6 +2568,10 @@ country=PA
 #							         #
 ##################################################################
 network={
+        key_mgmt=NONE
+}
+
+network={
         ssid="Coloque_aqui_nombre_de_red_wifi"
         psk="Coloque_aqui_la_clave_wifi"
 }
