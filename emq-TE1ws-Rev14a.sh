@@ -2780,11 +2780,7 @@ IGTXLIMIT 6 10
 EOF
 #
 cd /tmp/
-wget -O gotty.tar.gz https://github.com/yudai/gotty/releases/latest/download/gotty_linux_arm.tar.gz
-tar xf gotty.tar.gz
-sudo mv gotty /usr/local/bin
-rm gotty.tar.gz
-sudo chmod a+x /usr/local/bin/gotty
+sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/gotty.sh)"
 #
 sudo cat > /lib/systemd/system/gotty.service <<- "EOF"
 [Unit]
