@@ -583,7 +583,7 @@ EOF
 sudo cat > /bin/menu-fdmr <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 55 15 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 27 56 16 \
 1 " Editar FreeDMR Server " \
 2 " Editar Interlink  " \
 3 " Editar HBMon  " \
@@ -598,7 +598,8 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Suba o B
 12 " Dashboard HBMon off  " \
 13 " Dashboard HBMon2 off  " \
 14 " D-APRS Igate  " \
-15 " Menu Principal " 3>&1 1>&2 2>&3)
+15 " Actualizar FreeDMR  " \
+16 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -638,12 +639,12 @@ sudo systemctl stop hbmon2.service && sudo systemctl disable hbmon2.service && s
 14)
 menu-igate ;;
 15)
+menu-up-fdm ;;
+16)
 break;
 esac
 done
 exit 0
-
-
 
 
 
