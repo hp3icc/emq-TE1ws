@@ -5,6 +5,7 @@ git clone https://gitlab.hacknix.net/hacknix/FreeDMR.git
 cd FreeDMR
 mkdir config
 mkdir /var/log/FreeDMR
+
 sudo cat > /opt/conf.txt <<- "EOF"
  
 [EchoTest]
@@ -122,7 +123,7 @@ EOF
 ###
 sudo chmod +x /opt/FreeDMR/*.py
 rm /opt/FreeDMR-SAMPLE.cfg 
-#sudo systemctl restart freedmr.service
+sudo systemctl restart freedmr.service
 
 # ExecStart=/usr/bin/python3 /opt/FreeDMR/bridge_master.py -c /opt/FreeDMR/config/FreeDMR.cfg -r /opt/FreeDMR/config/rules.py
 
