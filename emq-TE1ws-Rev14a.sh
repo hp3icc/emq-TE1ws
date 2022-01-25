@@ -688,7 +688,11 @@ sudo cat > /opt/obp.txt <<- "EOF"
 
 
 EOF
-#######################
+########
+cd /opt/
+sudo bash -c "$(wget -O - https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/fdmr-update.sh)"
+chmod +x fdmr-update.sh
+###############
 sudo cat > /lib/systemd/system/http.server-fmr.service <<- "EOF"
 [Unit]
 Description=Python3 http.server.fdmr
