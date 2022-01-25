@@ -653,11 +653,11 @@ EOF
 sudo cat > /bin/menu-up-fdm <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Importante: debe debe agregar todos sus obp en la opcion numero uno, ( 1-Lista de OBP )antes de iniciar la actualizacion, el proceso de actualizacion borrara por completo la carpeta /opt/FreeDMR" 30 55 15 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Importante: debe debe agregar todos sus obp en la opcion numero uno, ( 1-Lista de OBP )antes de iniciar la actualizacion, el proceso de actualizacion borrara por completo la carpeta /opt/FreeDMR, al finalizar la actualizacion el servicio Freedmr se reinniciara automaticamente.
+" 17 50 3 \
 1 " Lista de OBP " \
 2 " Iniciar Actualizacion FreeDMR  " \
-3 " Reiniciar FreeDmR  " \
-4 " Menu Principal " 3>&1 1>&2 2>&3)
+3 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -673,13 +673,11 @@ sudo nano /opt/obp.txt ;;
 2)
 sudo /opt/fdmr-update.sh ;;
 3)
-sudo systemctl restart freedmr.service ;;
-4)
 break;
 esac
 done
 exit 0
- 
+
 EOF
 #
 sudo cat > /opt/obp.txt <<- "EOF"
