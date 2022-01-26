@@ -5,7 +5,8 @@ git clone https://gitlab.hacknix.net/hacknix/FreeDMR.git
 cd FreeDMR
 mkdir config
 mkdir /var/log/FreeDMR
-
+chmod +x /opt/FreeDMR/install.sh
+./install.sh
 sudo cat > /opt/conf.txt <<- "EOF"
  
 [EchoTest]
