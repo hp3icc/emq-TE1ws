@@ -126,7 +126,7 @@ EOF
 sudo chmod +x /opt/FreeDMR/*.py
 rm /opt/FreeDMR-SAMPLE.cfg 
 sudo systemctl restart freedmr.service
-
+sudo systemctl restart fdmrparrot.service
 # ExecStart=/usr/bin/python3 /opt/FreeDMR/bridge_master.py -c /opt/FreeDMR/config/FreeDMR.cfg -r /opt/FreeDMR/config/rules.py
 
 # ExecStart=/usr/bin/python3 /opt/FreeDMR/playback.py -c /opt/FreeDMR/playback.cfg
