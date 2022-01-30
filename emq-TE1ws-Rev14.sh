@@ -302,63 +302,12 @@ cd /opt/
 git clone --recurse-submodules -j8 https://github.com/dg9vh/MMDVMHost-Websocketboard
 sudo chown -R mmdvm:mmdvm /opt/MMDVMHost-Websocketboard
 #
-cat > /opt/MMDVMHost-Websocketboard/logtailer.ini <<- "EOF"
-[DEFAULT]
-# No need to touch this. If you want to bind it to a specific IP-address (if there are more than one interface to the
-# network you can set your ip here - but default it listens on every interface
-Host=0.0.0.0
-
-# If changeing the port please change it also in the index.html-file at the parts where you find:
-# new WebSocket("ws://" + window.location.hostname ...
-Port=5679
-
-# set to True if SSL will be used
-Ssl=False
-SslCert=/path/to/cert
-SslKey=/path/to/keyfile
-
-# This defines the maximum amount of loglines to be sent on initial opening of the dashboard
-MaxLines=500
-
-# Keep this parameter synchrone to Filerotate in MMDVM.ini/DMRHost.ini - if 0 then False, if 1 then True
-Filerotate=False
-#True
-
-[MMDVMHost]
-# Don't throw away the trailing slash! It is important but check logfile-location and Prefix twice :-)
-Logdir=/var/log/mmdvmh/
-
-# Change this to DMRHost, if you are using DMRHost and configured this as log-prefix in the host-ini.
-Prefix=MMDVMH
-# if you want to have the operator-names as popup with the callsigns, set this parts = 1 and the LookupFile to
-# the right position. On MMDVMHost comment out the DMRIDs.dat-line to have the DMRIds and not the callsigns in the
-# logfile to have the callsigns with names transported to the dashboard.
-DMR_ID_Lookup=1
-DMR_ID_LookupFile=/opt/MMDVMHost/DMRIds.dat
-
-# Location of your MMDVM.ini/DMRHost.ini or similar
-MMDVM_ini=/opt/MMDVMHost/MMDVM.ini
-
-# Localtion of your MMDVMHost/DMRHost-binary
-MMDVM_bin=/opt/MMDVMHost/MMDVMHost
-#/usr/local/bin/MMDVMHost
-
-[DAPNETGateway]
-# Don't throw away the trailing slash! It is important but check logfile-location and Prefix twice :-)
-Logdir=/var/log/mmdvmh
-#/mnt/ramdisk/
-Prefix=DAPNETGateway
-
-[ServiceMonitoring]
-# Here you list your Services to be monitored. Just add additional lines if needed but be sure to count them up
-BinaryName1=MMDVMHost
-BinaryName2=DMRGateway
-BinaryName3=DGIdGateway
-BinaryName4=YSF2DMR
-
-
-
-EOF
+sudo sed -i 's/Logdir=\/mnt\/ramdisk/Logdir=\/var\/log\/mmdvmh/' /opt/MMDVMHost-Websocketboard/logtailer.ini
+sudo sed -i 's/5678/5679/' /opt/MMDVMHost-Websocketboard/logtailer.ini
+sudo sed -i 's/Filerotate=True/Filerotate=False/' /opt/MMDVMHost-Websocketboard/logtailer.ini
+sudo sed -i 's/etc\/MMDVM/opt\/MMDVMHost/' /opt/MMDVMHost-Websocketboard/logtailer.ini
+sudo sed -i 's/usr\/local\/bin/opt\/MMDVMHost/' /opt/MMDVMHost-Websocketboard/logtailer.ini
+sudo sed -i 's/Prefix=MMDVM/Prefix=MMDVMH/' /opt/MMDVMHost-Websocketboard/logtailer.ini
 #
 cd /opt/MMDVMHost-Websocketboard/html/
 sudo sed -i 's/5678/5679/' index.html
