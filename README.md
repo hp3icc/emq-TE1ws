@@ -150,7 +150,7 @@ sh rev8WS-to-rev10b-fix-websosk-conflict.sh
 Si su equipo cuenta con dispositivo de red inalámbrica (WIFI) o es modelo Raspberry Zero W , después de haber grabado la imagen en la memoria microSD con la herramienta Rufus , Balena u otra aplicación , debe descargar y copiar el archivo wpa_supplicant.conf, a la partición con el nombre boot en su memoria microSD.
 Puede descargar el archivo wpa_supplicant.conf del siguiente link:
 
-https://drive.google.com/file/d/1eKPZiiG_CHfT7-actTmS6JUsTQNEe0hm/view?usp=sharing
+https://drive.google.com/file/d/1uFjl1BbzPBdRQ9g7LTMr3bB1FAgP5ILB/view?usp=sharing
 
 Este archivo puede ser editado con el Notepad y dentro de este archivo, debe incluir los nombres de redes wifi y contraseñas de cada una, a las que desea que su raspberry se conecte, puede agregar una o cuantas redes wifi tenga, para que su equipo se conecte.
 
@@ -352,7 +352,7 @@ If your computer has a wireless network device (WIFI) or is a Raspberry Zero W m
 
  You can download the wpa_supplicant.conf file from the following link:
 
- https://drive.google.com/file/d/1eKPZiiG_CHfT7-actTmS6JUsTQNEe0hm/view?usp=sharing
+ https://drive.google.com/file/d/1uFjl1BbzPBdRQ9g7LTMr3bB1FAgP5ILB/view?usp=sharing
 
  This file can be edited with the Notepad and within this file, you must include the names of Wi-Fi networks and passwords of each one, to which you want your raspberry to connect, you can add one or how many Wi-Fi networks you have, so that your equipment connect.
 
