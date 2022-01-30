@@ -44,7 +44,7 @@ NoIP
 
 GoTTY
 
-* WiFi-AP -opcional
+WiFi-AP -opcional version AP
 
 Esta versión cuenta con Dashboard HTML corriendo sobre websock , para el MMDVMHost y Reflector YSF , estan preconfigurados a puerto http 80 , pero desde el menú puede cambiar al puerto 8000, 8080 , o cualquier otro de su preferencia .
 
@@ -246,7 +246,7 @@ NoIP
 
 GoTTY
 
-* WiFi-AP optional
+WiFi-AP - optional AP version
  
  
  This version has HTML Dashboard running on websock, for the MMDVMHost and YSF Reflector, they are preconfigured to http port 80, but from the menu you can change to port 8000, 8080, or any other of your preference.
