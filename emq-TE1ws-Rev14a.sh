@@ -1,4 +1,5 @@
 #!/bin/sh
+emq=14
 echo Actualizando sistema 
 apt-get update -y
 apt-get upgrade -y
@@ -136,7 +137,7 @@ sudo cat > /bin/menu <<- "EOF"
 
 while : ; do
 
-choix=$(whiptail --title "TE1ws-Rev14a / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 63 15 \
+choix=$(whiptail --title "TE1ws-Rev: R00abA / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 67 15 \
 1 " APRS Direwolf Analogo" \
 2 " APRS Direwolf RTL-SDR " \
 3 " APRS Multimon-ng " \
@@ -203,6 +204,7 @@ exit 0
 
 EOF
 #
+sudo sed -i "s/R00ab/$emq/g"  /bin/menu
 sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock
 
 #################
