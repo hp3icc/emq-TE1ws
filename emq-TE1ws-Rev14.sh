@@ -781,7 +781,7 @@ EOF
 cat > /bin/menu-mmdvm <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu MMDVMHost" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 22 50 13 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu MMDVMHost" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion." 22 50 13 \
 1 " Editar MMDVMHost " \
 2 " Iniciar MMDVMHost " \
 3 " Detener MMDVMHost " \
@@ -789,11 +789,12 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu MMDVMHost" --menu "Suba o
 5 " Dashboard Off " \
 6 " Editar Puerto http " \
 7 " Editar HTML  " \
-8 " Dashboard Rooms: BM, europelink  " \
-9 " Dashboard Rooms: BM, worldlink " \
-10 " Dashboard Rooms: FreeDMR, europelink " \
-11 " Dashboard Rooms: FreeDMR, worldlink " \
-12 " Menu Principal " 3>&1 1>&2 2>&3)
+8 " Editar Dashboard  " \
+9 " Dashboard Rooms: BM, europelink  " \
+10 " Dashboard Rooms: BM, worldlink " \
+11 " Dashboard Rooms: FreeDMR, europelink " \
+12 " Dashboard Rooms: FreeDMR, worldlink " \
+13 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -819,18 +820,21 @@ sudo nano /lib/systemd/system/http.server-mmdvmh.service && sudo systemctl daemo
 7)
 sudo nano /opt/MMDVMHost-Websocketboard/html/index.html ;;
 8)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv ;;
+sudo nano /opt/MMDVMHost-Websocketboard/html/js/config.js ;;
 9)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo mv TG_List-WL.csv TG_List.csv;;
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv ;;
 10)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv  && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv && sudo mv FDMR-EURO.csv TG_List.csv;;
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo mv TG_List-WL.csv TG_List.csv;;
 11)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo mv FDMR-WORLD.csv TG_List.csv;;
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv  && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv && sudo mv FDMR-EURO.csv TG_List.csv;;
 12)
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo mv FDMR-WORLD.csv TG_List.csv;;
+13)
 break;
 esac
 done
 exit 0
+
 EOF
 ########menu-ysf
 cat > /bin/menu-ysf <<- "EOF"
