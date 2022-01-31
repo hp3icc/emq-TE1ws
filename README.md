@@ -9,7 +9,7 @@ Continuamente todo el contenido publicado aqui, es actualizado , si esta observa
 
 https://github.com/hp3icc/emq-TE1ws
 
-Ultima revision: emq-TE1ws-Rev14a 31/12/2021 
+Ultima revision: emq-TE1ws-Rev14a 30/1/2022 
 
 #
 
@@ -92,16 +92,12 @@ si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  
  
  Imagen para raspberry, proyecto emq-TE1 con accespoint WiFi, recomendado para Raspberry Zero W, Zero2 W, B3, B3+, PI4
  
-* https://drive.google.com/file/d/1AcOrbssSGQ-BOyDviruxvgv9vrreUNr6/view?usp=sharing
-
-* https://mega.nz/file/RAF1xQRb#4aSqRxxOZr0jWvOwHtzPjjYKI4eEpS0xj75TDRsdeG4
+* https://mega.nz/file/cF8GSaoY#tEpkklOpP_a2WK7I8PhBt7-ImCmrOFUobZzNIA8uhUo
 
 
 Imagen para raspberry, proyecto emq-TE1 sin accespoint WiFi - recomendado para Raspberry Zero, Zero-W, Zero2, Zero2 W  B2, B3, B3+, PI4
 
-* https://drive.google.com/file/d/1Uw0sDGWUNyZ2pA76f5rLrWvGuhR5aJOh/view?usp=sharing
-
-* https://mega.nz/file/QZMzBARB#Qh5jgbPF1syUCADN4F4sFrHpVPLsCqdZWp8sch3iGHc
+* https://mega.nz/file/IRlWVIxb#ZTiIE4CmMnep37N-YhjW3eCTIINKuKrzMgayPXViWtc
 
 #
 
@@ -210,7 +206,7 @@ Esteban Mackay Q.
  
  https://github.com/hp3icc/emq-TE1ws
  
- Last revision: emq-TE1ws-Rev14a 12/31/2021 
+ Last revision: emq-TE1ws-Rev15 1/330/2022 
 
 #
 
@@ -291,16 +287,12 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
   Image for raspberry, emq-TE1 project with WiFi accespoint, recommended for Raspberry Zero W, Zero2 W, B3, B3+, PI4
 
- * https://drive.google.com/file/d/1AcOrbssSGQ-BOyDviruxvgv9vrreUNr6/view?usp=sharing
-
- * https://mega.nz/file/RAF1xQRb#4aSqRxxOZr0jWvOwHtzPjjYKI4eEpS0xj75TDRsdeG4
+ * https://mega.nz/file/cF8GSaoY#tEpkklOpP_a2WK7I8PhBt7-ImCmrOFUobZzNIA8uhUo
 
 
  Image for raspberry, emq-TE1 project without WiFi access point - recommended for Raspberry Zero, Zero W, Zero2, Zero2 W, Zero-2,  B2, B3, B3+, PI4
 
- * https://drive.google.com/file/d/1Uw0sDGWUNyZ2pA76f5rLrWvGuhR5aJOh/view?usp=sharing
-
- * https://mega.nz/file/QZMzBARB#Qh5jgbPF1syUCADN4F4sFrHpVPLsCqdZWp8sch3iGHc
+ * https://mega.nz/file/IRlWVIxb#ZTiIE4CmMnep37N-YhjW3eCTIINKuKrzMgayPXViWtc
 
  #
 
