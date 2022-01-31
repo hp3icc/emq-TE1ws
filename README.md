@@ -9,7 +9,7 @@ Continuamente todo el contenido publicado aqui, es actualizado , si esta observa
 
 https://github.com/hp3icc/emq-TE1ws
 
-Ultima revision: emq-TE1ws-Rev14a 30/1/2022 
+Ultima revision: emq-TE1ws-Rev15 30/1/2022 
 
 #
 
