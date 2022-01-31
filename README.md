@@ -9,8 +9,10 @@ Continuamente todo el contenido publicado aqui, es actualizado , si esta observa
 
 https://github.com/hp3icc/emq-TE1ws
 
-Ultima revision: emq-TE1ws-Rev15 30/1/2022 
-
+* Ultima revision: emq-TE1ws-Rev15 30/1/2022 
+  Raspberry OS Lite Basado en la versión 11 de Debian (bullseye) 28-1-2022
+  Linux kernel 5.10.92
+  
 #
 
 El proyecto Todo en uno (emq-TE1ws), es una compilación que reúne aplicaciones de diferentes desarrolladores, enfocadas para uso de radioaficionados. Constante mente se trabaja en mejoras y actualizaciones, a medida que los desarrolladores de las aplicaciones incluidas lanzan nuevas versiones.
@@ -206,8 +208,10 @@ Esteban Mackay Q.
  
  https://github.com/hp3icc/emq-TE1ws
  
- Last revision: emq-TE1ws-Rev15 1/30/2022 
-
+ * Last revision: emq-TE1ws-Rev15 1/30/2022 
+   Raspberry OS Lite Based on Debian version 11 (bullseye) 2022-01-28
+   Linux kernel 5.10.92
+   
 #
 
 The All-in-one project (emq-TE1ws), is a compilation that brings together applications from different developers, focused on the use of radio amateurs. Improvements and updates are constantly being worked on, as the developers of the included applications release new versions.
