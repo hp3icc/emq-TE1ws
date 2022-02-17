@@ -1,0 +1,1850 @@
+#!/bin/sh
+emq=15
+echo Actualizando sistema 
+apt-get update -y
+apt-get upgrade -y
+apt-get dist-upgrade -y
+############################################
+echo instalando pre-requisitos
+######################################################################################################
+#!/bin/sh
+apt-get install sudo -y
+sudo apt-get purge needrestart -y
+sudo apt-get install wget -y
+sudo apt-get install git -y
+sudo apt-get install screen -y
+sudo apt-get install gcc -y
+sudo apt-get install g++ -y
+sudo apt-get install make -y
+sudo apt-get install cmake -y
+sudo apt-get install musl-dev -y
+sudo apt-get install python2 -y
+
+update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+
+sudo apt-get install libasound2-dev -y
+sudo apt-get install libudev-dev -y
+sudo apt-get install libusb-1.0-0-dev -y
+sudo apt-get install libgps-dev -y
+sudo apt-get install libx11-dev -y
+sudo apt-get install libfftw3-dev -y
+sudo apt-get install libpulse-dev -y
+sudo apt-get install build-essential -y
+sudo apt-get install alsa-utils -y
+sudo apt-get install rsyslog -y
+sudo apt-get install logrotate -y
+sudo apt-get install gpsd -y
+sudo apt-get install qt4-qmake -y
+sudo apt-get install libtool -y
+sudo apt-get install autoconf -y
+sudo apt-get install automake -y
+sudo apt-get install python-pkg-resources -y
+sudo apt-get install sox -y
+sudo apt-get install git-core -y
+sudo apt-get install libi2c-dev -y
+sudo apt-get install i2c-tools -y
+sudo apt-get install lm-sensors -y
+sudo apt-get install wiringpi -y
+sudo apt-get install chkconfig -y
+sudo apt-get install wavemon -y
+sudo apt-get install libffi-dev -y
+sudo apt-get install libssl-dev -y
+sudo apt-get install cargo -y 
+sudo apt-get install sed -y
+sudo apt install python3-pip -y
+sudo apt install python3-distutils -y
+sudo apt install python3-dev -y
+sudo apt install python3-websockets
+sudo apt install python3-psutil
+sudo apt-get install python3-serial
+sudo apt install python3-gpiozero -y
+sudo apt-get install gpsd gpsd-clients python-gps -y
+sudo apt install socket
+sudo apt install threading
+sudo apt install queue
+sudo apt install sys
+sudo apt install os
+sudo apt install time
+sudo apt install re
+sudo apt install datetime
+sudo apt install signal
+sudo apt install datetime
+sudo apt install bisect
+sudo apt install struct
+sudo apt install ansi2html
+sudo apt install logrotate
+sudo pip3 install ansi2html
+sudo apt-get install python-pip -y
+sudo apt-get install python-dev -y
+sudo apt-get install rrdtool -y
+
+##################
+cd /home/
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
+sudo cat > /home/requirements.txt <<- "EOF"
+autobahn
+jinja2==2.11.3
+bitstring>=3.1.5
+bitarray>=0.8.1
+Twisted>=16.3.0
+dmr_utils3>=0.1.19
+configparser>=3.0.0
+aprslib>=0.6.42
+tinydb
+pynmea2
+maidenhead
+requests
+libscrc
+flask
+folium
+mysql-connector
+resettabletimer>=0.7.0
+setproctitle
+
+
+EOF
+#
+pip3 install setuptools wheel
+pip3 install -r requirements.txt
+sudo rm requirements.txt
+sudo rm get-pip.py
+#
+mkdir /var/www
+mkdir /var/www/html
+
+mkdir /var/log/ysf2dmr
+mkdir /var/log/mmdvm
+mkdir /var/log/mmdvmh
+mkdir /var/log/FreeDMR
+mkdir /var/log/hblink
+mkdir /var/log/YSFReflector
+sudo chmod +777 /var/log
+sudo chmod +777 /var/log/*
+
+cat > /etc/default/gpsd  <<- "EOF"
+USBAUTO="False"
+DEVICES="/dev/ttyACM0"
+START_DAEMON="true"
+GPSD_OPTIONS="-n"
+GPSD_SOCKET="/var/run/gpsd.sock"
+
+EOF
+
+###menu
+sudo cat > /bin/menu <<- "EOF"
+#!/bin/bash
+
+while : ; do
+
+choix=$(whiptail --title "TE1ws-Rev: R00ab / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 67 15 \
+1 " APRS Direwolf Analogo" \
+2 " APRS Direwolf RTL-SDR " \
+3 " APRS Multimon-ng " \
+4 " APRS Ionosphere " \
+5 " MMDVMHost " \
+6 " Dvswitch " \
+7 " pYSFReflector3 " \
+8 " YSF2DMR " \
+9 " FreeDMR Server " \
+10 " Editar WiFi " \
+11 " DDNS NoIP " \
+12 " GoTTY " \
+13 " Reiniciar Equipo " \
+14 " Salir del menu " 3>&1 1>&2 2>&3)
+
+exitstatus=$?
+
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+
+# case : action en fonction du choix
+
+case $choix in
+1)
+menu-dw-analogo;;
+2)
+menu-dw-rtl;;
+3)
+menu-mm-rtl;;
+4)
+menu-ionos;;
+5)
+menu-mmdvm;;
+6)
+menu-dvs;;
+7)
+menu-ysf;;
+8)
+menu-ysf2dmr;;
+9)
+menu-fdmr;;
+10)
+menu-wifi;;
+11)
+menu-noip ;;
+12)
+menu-web ;;
+13)
+menu-reboot ;;
+14)
+break;
+
+
+esac
+
+done
+exit 0
+
+
+EOF
+#
+sudo sed -i "s/R00ab/$emq/g"  /bin/menu
+sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock
+
+#################
+echo iniciando instalacion
+
+cd /opt
+git clone https://github.com/iu5jae/pYSFReflector3.git
+cd pYSFReflector3/
+sudo chmod +x *.py
+sudo chmod +x YSFReflector
+sudo sed -i 's/mmdvm/YSFReflector/' pysfreflector.ini
+sudo sed -i 's/0.0.0.0//' pysfreflector.ini
+sudo sed -i 's/pysfreflector/pYSFReflector3/' pysfreflector.ini
+sudo sed -i 's/enable = 0/enable = 1/' pysfreflector.ini
+sudo sed -i 's/aprs.grupporadiofirenze.net/noam.aprs2.net/' pysfreflector.ini
+sudo sed -i 's/ssid = -10/ssid = -7/' pysfreflector.ini
+#
+sudo cat > /lib/systemd/system/YSFReflector.service <<- "EOF"
+[Unit]
+Description=YSFReflector
+After=multi-user.target
+
+[Service]
+User=root
+#ExecStartPre=/bin/sleep 30
+ExecStart=/usr/bin/python3 /opt/pYSFReflector3/YSFReflector /opt/pYSFReflector3/pysfreflector.ini
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+###
+
+
+sudo groupadd mmdvm
+sudo useradd mmdvm -g mmdvm -s /sbin/nologin
+sudo chown -R mmdvm:mmdvm /var/log/YSFReflector
+
+###############################
+
+mkdir /opt/YSF2DMR
+
+cd /opt/
+git clone https://github.com/juribeparada/MMDVM_CM.git
+sudo cp -r /opt/MMDVM_CM/YSF2DMR /opt/
+cd YSF2DMR
+sudo make
+sudo make install
+
+sudo apt-get install zip gzip tar -y
+
+cd /opt/
+wget https://github.com/hp3icc/emq-TE1ws/raw/main/rtl-sdr-te1ws.zip
+sudo unzip rtl-sdr-te1ws.zip
+sudo rm rtl-sdr-te1ws.zip
+cd rtl-sdr/
+sudo mkdir build
+cd build
+cmake ../ -DINSTALL_UDEV_RULES=ON
+sudo make
+sudo make install
+sudo ldconfig
+sudo cp /opt/rtl-sdr/rtl-sdr.rules /etc/udev/rules.d
+
+cd /opt/
+git clone https://github.com/asdil12/kalibrate-rtl.git
+cd kalibrate-rtl/
+sudo chmod +x bootstrap
+sudo chmod +x configure
+./bootstrap
+./configure
+sudo make
+sudo make install
+
+##################################################################
+#multimon-ng
+cd /opt
+git clone https://github.com/EliasOenal/multimon-ng.git
+cd multimon-ng/
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+
+cd /opt
+git clone https://github.com/asdil12/pymultimonaprs.git
+cd pymultimonaprs
+sudo python2 setup.py install
+
+############################################################################################
+#web
+cd /opt/
+git clone --recurse-submodules -j8 https://github.com/dg9vh/MMDVMHost-Websocketboard
+sudo chown -R mmdvm:mmdvm /opt/MMDVMHost-Websocketboard
+#
+sudo sed -i 's/Logdir=\/mnt\/ramdisk/Logdir=\/var\/log\/mmdvmh/' /opt/MMDVMHost-Websocketboard/logtailer.ini
+sudo sed -i 's/5678/5679/' /opt/MMDVMHost-Websocketboard/logtailer.ini
+sudo sed -i 's/Filerotate=True/Filerotate=False/' /opt/MMDVMHost-Websocketboard/logtailer.ini
+sudo sed -i 's/etc\/MMDVM/opt\/MMDVMHost/' /opt/MMDVMHost-Websocketboard/logtailer.ini
+sudo sed -i 's/usr\/local\/bin/opt\/MMDVMHost/' /opt/MMDVMHost-Websocketboard/logtailer.ini
+sudo sed -i 's/Prefix=MMDVM/Prefix=MMDVMH/' /opt/MMDVMHost-Websocketboard/logtailer.ini
+#
+cd /opt/MMDVMHost-Websocketboard/html/
+sudo sed -i 's/5678/5679/' index.html
+sudo sed -i "s/MMDVM-Dashboard by DG9VH/emq-TE1 MMDVM-Dashboard by DG9VH/g"  /opt/MMDVMHost-Websocketboard/html/index.html
+sudo sed -i 's/<script type="text\/javascript">document.write(customText);<\/script>/<h2><span style="color: #3cff33;"><em><strong>MMDVMHost Dashboard<\/strong><\/em><\/span><\/h2>/g'  /opt/MMDVMHost-Websocketboard/html/index.html
+sudo sed -i 's/<span class="navbar-brand float:center"><script type="text\/javascript">document.write(customHeadlineText);<\/script><\/span>/<h6 style="text-align: center;"><span style="color: #808080;"><a style="color: #808080;" href="https:\/\/github.com\/hp3icc\/emq-TE1ws\/" target="_blank">emq-te1ws Raspbian Proyect hp3icc<\/a> copyright 2018-YK00<\/span><\/h6>/g'  /opt/MMDVMHost-Websocketboard/html/index.html
+variable2=$(date +'%Y' | tail -c 5)
+sudo sed -i "s/YK00/$variable2/g"  /opt/MMDVMHost-Websocketboard/html/index.html
+
+############################
+cat > /lib/systemd/system/http.server-mmdvmh.service <<- "EOF"
+[Unit]
+Description=Python3 http.server.mmdvmhost
+After=network.target
+
+[Service]
+User=root
+ExecStartPre=/bin/sleep 30
+# Modify for different location of Python3 or other port
+ExecStart=/usr/bin/python3 -m http.server 80 --directory /opt/MMDVMHost-Websocketboard/html
+
+[Install]
+WantedBy=multi-user.target
+
+
+EOF
+#
+cat > /lib/systemd/system/logtailer-mmdvmh.service <<- "EOF"
+[Unit]
+Description=Python3 logtailer for MMDVMDash
+After=network.target
+
+[Service]
+Type=simple
+User=mmdvm
+Group=mmdvm
+Restart=always
+ExecStartPre=/bin/sleep 30
+# Modify for different location of Python3 or other port
+WorkingDirectory=/opt/MMDVMHost-Websocketboard/
+ExecStart=/usr/bin/python3 /opt/MMDVMHost-Websocketboard/logtailer.py
+
+[Install]
+WantedBy=multi-user.target
+
+
+EOF
+#
+cd /opt/
+git clone --recurse-submodules -j8 https://github.com/dg9vh/WSYSFDash
+cd /opt/WSYSFDash/
+sudo chown -R mmdvm /opt/WSYSFDash
+#
+cat > /opt/WSYSFDash/logtailer.ini <<- "EOF"
+[DEFAULT]
+# No need to change this line below
+Host=0.0.0.0
+Port=5678
+# set to True if SSL will be used
+Ssl=False
+SslCert=/path/to/fullchain.pem
+SslKey=/path/to/privkey.pem
+
+# This defines the maximum amount of loglines to be sent on initial opening of the dashboard
+MaxLines=500
+
+# Keep this parameter synchrone to Filerotate in YSFReflector.ini - if 0 then False, if 1 then True
+Filerotate=False
+
+# You can use the logtailer-Service for more than one reflector running on your system.
+# To do this, just copy the [YSFReflectorN]-Section into a new one, renumber it and modify the Logdir and Prefix.
+# To use this on systems with more than one reflector, it is recommended to use a real webserver to host the html-files.
+
+[YSFReflector]
+# Localtion of your YSFReflector-binary
+YSFReflector_bin=/opt/pYSFReflector3/YSFReflector
+
+Logdir=/var/log/YSFReflector/
+Prefix=YSFReflector
+
+#[YSFReflector2]
+#Logdir=/var/log/YSFReflector2/
+#Prefix=YSFReflector
+
+
+
+EOF
+#
+cat > /lib/systemd/system/http.server-ysf.service <<- "EOF"
+[Unit]
+Description=Python3 http.server-ysf
+After=network.target
+
+[Service]
+User=root
+ExecStartPre=/bin/sleep 45
+Type=simple
+#User=mmdvm
+#Group=mmdvm
+Restart=always
+# Modify for different location of Python3 or other port
+ExecStart=/usr/bin/python3 -m http.server 80 --directory /opt/WSYSFDash/html
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+#
+cat > /lib/systemd/system/logtailer-ysf.service <<- "EOF"
+[Unit]
+Description=Python3 logtailer for WSYSFDash
+After=network.target
+
+[Service]
+ExecStartPre=/bin/sleep 10
+Type=simple
+User=mmdvm
+Group=mmdvm
+Restart=always
+# Modify for different location of Python3 or location of files
+WorkingDirectory=/opt/WSYSFDash/
+ExecStart=/usr/bin/python3 /opt/WSYSFDash/logtailer.py
+
+[Install]
+WantedBy=multi-user.target
+
+
+EOF
+#
+cd  /opt/MMDVMHost-Websocketboard/html/data/
+sudo rm TG_List.csv
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv
+#
+cat > /lib/systemd/system/rebooter1.service  <<- "EOF"
+[Unit]
+Description=Rebooter
+#Wants=network-online.target
+#After=syslog.target network-online.target
+
+[Service]
+User=root
+ExecStart=/usr/local/bin/rebooter1.sh
+
+[Install]
+WantedBy=default.target
+
+EOF
+####################################
+
+cd /boot
+sudo sed -i 's/console=serial0,115200 //' cmdline.txt
+
+sudo systemctl stop serial-getty@ttyAMA0.service
+sudo systemctl stop bluetooth.service
+sudo systemctl disable serial-getty@ttyAMA0.service
+sudo systemctl disable bluetooth.service
+
+sudo sed -i 's/#dtparam=i2c_arm=on/dtparam=i2c_arm=on/' config.txt
+sudo sed -i 's/dtparam=audio=on/#dtparam=audio=on/' config.txt
+
+echo "enable_uart=1" >> config.txt
+echo "dtoverlay=pi3-disable-bt" >> config.txt
+echo "dtparam=spi=on" >> config.txt
+
+##################
+cat > /lib/systemd/system/monp.service  <<- "EOF"
+[Unit]
+Description=sudo modprobe i2c-dev
+#Wants=network-online.target
+#After=syslog.target network-online.target
+[Service]
+User=root
+#ExecStartPre=/bin/sleep 1800
+ExecStart=sudo modprobe i2c-dev
+[Install]
+WantedBy=multi-user.target
+EOF
+
+##########
+cd /opt
+git clone https://github.com/g4klx/MMDVMHost.git
+cd MMDVMHost/
+sudo make
+sudo make install
+git clone https://github.com/hallard/ArduiPi_OLED
+cd ArduiPi_OLED
+sudo make
+cd /opt/MMDVMHost/
+make clean
+sudo make -f Makefile.Pi.OLED 
+
+groupadd mmdvm 
+useradd mmdvm -g mmdvm -s /sbin/nologin 
+chown mmdvm /var/log/
+
+#############################################################################################################################################################
+######
+cat > /bin/menu-mm-rtl <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Multimon-NG" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+1 " Editar Multimon-ng  APRS " \
+2 " Iniciar APRS " \
+3 " Detener APRS " \
+4 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /etc/pymultimonaprs.json;;
+2)
+sudo systemctl restart multimon-rtl.service && sudo systemctl enable multimon-rtl.service;;
+3)
+sudo systemctl stop multimon-rtl.service && sudo systemctl disable multimon-rtl.service;;
+4)
+break;
+esac
+done
+exit 0
+EOF
+##################################################
+sudo cat > /bin/menu-fdmr <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 27 56 16 \
+1 " Editar FreeDMR Server " \
+2 " Editar Interlink  " \
+3 " Editar HBMon  " \
+4 " Editar HBMon2  " \
+5 " cambiar Puerto HTTP HBMon2 " \
+6 " Parrot on  " \
+7 " Parrot off  " \
+8 " Iniciar FreeDMR Server  " \
+9 " Detener FreeDMR Server   " \
+10 " Dashboard HBMon on " \
+11 " Dashboard HBMon2 on " \
+12 " Dashboard HBMon off  " \
+13 " Dashboard HBMon2 off  " \
+14 " D-APRS Igate  " \
+15 " Actualizar FreeDMR  " \
+16 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /opt/FreeDMR/config/FreeDMR.cfg ;;
+2)
+sudo nano /opt/FreeDMR/config/rules.py ;;
+3)
+sudo nano /opt/HBmonitor/config.py ;;
+4)
+sudo nano /opt/HBMonv2/config.py ;;
+5)
+sudo nano /lib/systemd/system/http.server-fmr.service && sudo systemctl daemon-reload ;;
+6)
+sudo systemctl stop fdmrparrot.service && sudo systemctl start fdmrparrot.service && sudo systemctl enable fdmrparrot.service ;;
+7)
+sudo systemctl stop fdmrparrot.service &&  sudo systemctl disable fdmrparrot.service ;;
+8)
+sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo systemctl enable proxy.service && sudo systemctl stop freedmr.service && sudo systemctl start freedmr.service && sudo systemctl enable freedmr.service ;;
+9)
+sudo systemctl stop freedmr.service && sudo systemctl disable freedmr.service && sudo systemctl stop proxy.service && sudo systemctl disable proxy.service && rm /var/log/FreeDMR/* ;;
+10)
+sudo systemctl stop hbmon.service && sudo /opt/HBmonitor/updateTGIDS.sh && cronedit.sh '* */24 * * *' 'sudo /opt/HBmonitor/updateTGIDS.sh >/dev/null 2>&1' add &&  sudo systemctl start hbmon.service && sudo systemctl enable hbmon.service ;;
+11)
+sudo systemctl stop hbmon2.service && sudo rm /opt/HBMonv2/*.json && sudo rm /opt/HBMonv2/sysinfo/*.rrd && sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' add && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' add &&  sudo systemctl enable hbmon2.service && sudo systemctl start http.server-fmr.service && sudo systemctl enable http.server-fmr.service && sudo sh /opt/HBMonv2/updateTGIDS.sh ;;
+12)
+sudo systemctl stop hbmon.service && cronedit.sh '* */24 * * *' 'sudo /opt/HBmonitor/updateTGIDS.sh >/dev/null 2>&1' remove && sudo systemctl disable hbmon.service && sudo rm /opt/HBmonitor/*.json ;;
+13)
+sudo systemctl stop hbmon2.service && sudo systemctl disable hbmon2.service && sudo systemctl stop http.server-fmr.service && sudo systemctl disable http.server-fmr.service && cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' remove && cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' remove ;;
+14)
+menu-igate ;;
+15)
+menu-up-fdm ;;
+16)
+break;
+esac
+done
+exit 0
+
+
+
+
+EOF
+#####
+sudo cat > /bin/menu-up-fdm <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Importante: debe debe agregar todos sus obp en la opcion numero uno, ( 1-Lista de OBP )antes de iniciar la actualizacion, el proceso de actualizacion borrara por completo la carpeta /opt/FreeDMR, al finalizar la actualizacion el servicio Freedmr se reinniciara automaticamente.
+" 17 50 3 \
+1 " Lista de OBP " \
+2 " Iniciar Actualizacion FreeDMR  " \
+3 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /opt/obp.txt ;;
+2)
+sudo /opt/fdmr-update.sh ;;
+3)
+break;
+esac
+done
+exit 0
+
+EOF
+#
+sudo cat > /opt/obp.txt <<- "EOF"
+#Coloque abajo su lista de obp
+
+
+EOF
+####
+cd /opt/
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/fdmr-update.sh
+chmod +x fdmr-update.sh
+############################
+sudo cat > /lib/systemd/system/http.server-fmr.service <<- "EOF"
+[Unit]
+Description=Python3 http.server.fdmr
+After=network.target
+
+[Service]
+User=root
+#ExecStartPre=/bin/sleep 30
+# Modify for different location of Python3 or other port
+ExecStart=php -S 0.0.0.0:80 -t /opt/HBMonv2/html/
+
+
+[Install]
+WantedBy=multi-user.target
+
+
+EOF
+#menu-wifi
+cat > /bin/menu-wifi <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu WiFi" --menu "Nota: al editar configuracion de redes Wifi conocidas, debe reiniciar el equipo, para aplicar cambios realizados." 20 75 11 \
+1 " Editar redes WiFi conocidas" \
+2 " Buscar redes wifi cercanas " \
+3 " Ver intensidad de WIFI  " \
+4 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf ;;
+2)
+sudo iwlist wlan0 scan | grep ESSID | grep -o '"[^"]\+"' >> /tmp/ssid.txt && nano /tmp/ssid.txt && sudo rm /tmp/ssid.txt ;;
+3)
+sudo wavemon ;;
+4)
+break;
+esac
+done
+exit 0
+
+EOF
+#
+cat > /bin/menu-web <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Web-Menu" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+1 " Habilitar Web-Menu " \
+2 " Deshabilitar Web-Menu " \
+3 " Editar Web-Menu " \
+4 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo systemctl stop gotty.service && sudo systemctl start gotty.service && sudo systemctl enable gotty.service;;
+2)
+sudo systemctl stop gotty.service && systemctl disable gotty.service ;;
+3)
+sudo nano /lib/systemd/system/gotty.service && sudo systemctl daemon-reload  ;;
+4)
+break;
+esac
+done
+exit 0
+
+EOF
+####menu-mmdvm
+cat > /bin/menu-mmdvm <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu MMDVMHost" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion." 22 50 13 \
+1 " Editar MMDVMHost " \
+2 " Iniciar MMDVMHost " \
+3 " Detener MMDVMHost " \
+4 " Dashboard ON " \
+5 " Dashboard Off " \
+6 " Editar Puerto http " \
+7 " Editar HTML  " \
+8 " Editar Dashboard  " \
+9 " Dashboard Rooms: BM, europelink  " \
+10 " Dashboard Rooms: BM, worldlink " \
+11 " Dashboard Rooms: FreeDMR, europelink " \
+12 " Dashboard Rooms: FreeDMR, worldlink " \
+13 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /opt/MMDVMHost/MMDVM.ini;;
+2)
+sudo sh /opt/MMDVMHost/DMRIDUpdate.sh && sudo systemctl enable dmrid-mmdvm.service && sudo systemctl enable mmdvmh.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/MMDVMHost/DMRIDUpdate.sh' add ;;
+3)
+sudo systemctl stop mmdvmh.service && sudo systemctl stop dmrid-mmdvm.service && sudo systemctl disable dmrid-mmdvm.service && sudo systemctl disable mmdvmh.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/MMDVMHost/DMRIDUpdate.sh' remove && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
+4)
+sudo systemctl restart logtailer-mmdvmh.service && sudo systemctl enable logtailer-mmdvmh.service && sudo systemctl restart http.server-mmdvmh.service && sudo systemctl enable http.server-mmdvmh.service ;;
+5)
+sudo systemctl stop logtailer-mmdvmh.service && sudo systemctl disable logtailer-mmdvmh.service && sudo systemctl stop http.server-mmdvmh.service && sudo systemctl disable http.server-mmdvmh.service ;;
+6)
+sudo nano /lib/systemd/system/http.server-mmdvmh.service && sudo systemctl daemon-reload ;;
+7)
+sudo nano /opt/MMDVMHost-Websocketboard/html/index.html ;;
+8)
+sudo nano /opt/MMDVMHost-Websocketboard/html/js/config.js ;;
+9)
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv ;;
+10)
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo mv TG_List-WL.csv TG_List.csv;;
+11)
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv  && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv && sudo mv FDMR-EURO.csv TG_List.csv;;
+12)
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo mv FDMR-WORLD.csv TG_List.csv;;
+13)
+break;
+esac
+done
+exit 0
+
+EOF
+########menu-ysf
+cat > /bin/menu-ysf <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu YSFReflector" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+1 " Editar pYSFReflector Server " \
+2 " Iniciar Reflector  " \
+3 " Detener Reflector  " \
+4 " Dashboard on  " \
+5 " Dashboard off  " \
+6 " Editar Puerto http  " \
+7 " Editar HTML  " \
+8 " Editar Dashboard  " \
+9 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /opt/pYSFReflector3/pysfreflector.ini ;;
+2)
+sudo systemctl stop YSFReflector.service && sudo systemctl start YSFReflector.service  && sudo systemctl enable YSFReflector.service ;;
+3)
+sudo systemctl stop YSFReflector.service && sudo systemctl disable YSFReflector.service && rm /var/log/YSFReflector/* ;;
+4)
+sudo systemctl restart logtailer-ysf.service && sudo systemctl enable logtailer-ysf.service && sudo systemctl restart http.server-ysf.service && sudo systemctl enable http.server-ysf.service ;;
+5)
+sudo systemctl stop logtailer-ysf.service && sudo systemctl disable logtailer-ysf.service && sudo systemctl stop http.server-ysf.service && sudo systemctl disable http.server-ysf.service ;;
+6)
+sudo nano /lib/systemd/system/http.server-ysf.service && sudo systemctl daemon-reload ;;
+7)
+sudo nano /opt/WSYSFDash/html/index.html ;;
+8)
+nano /opt/WSYSFDash/html/js/config.js ;;
+9)
+break;
+esac
+done
+exit 0
+EOF
+##########menu-dvs
+cat > /bin/menu-dvs <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu DVSwitch" --menu "Nota : Debe encender Dvswitch antes de editar para utilizar." 20 60 11 \
+1 " Encender Dvswitch " \
+2 " Apagar Dvswitch " \
+3 " Editar Dvswitch Server " \
+4 " Cambiar Puerto http de Dashboard " \
+5 " Dashboard on  " \
+6 " Dashboard off  " \
+7 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo systemctl restart analog_bridge.service && sudo systemctl restart mmdvm_bridge.service && sudo systemctl restart nxdngateway.service && sudo systemctl restart p25gateway.service && sudo systemctl restart ysfgateway.service && sudo systemctl enable analog_bridge.service && sudo systemctl enable mmdvm_bridge.service && sudo systemctl enable nxdngateway.service && sudo systemctl enable p25gateway.service && sudo systemctl enable ysfgateway.service ;;
+2)
+sudo systemctl stop analog_bridge.service && sudo systemctl stop mmdvm_bridge.service && sudo systemctl stop nxdngateway.service && sudo systemctl stop p25gateway.service && sudo systemctl stop ysfgateway.service && sudo systemctl disable analog_bridge.service && sudo systemctl disable mmdvm_bridge.service && sudo systemctl disable nxdngateway.service && sudo systemctl disable p25gateway.service && sudo systemctl disable ysfgateway.service && rm /var/log/mmdvm/*;;
+3)
+sudo /usr/local/dvs/dvs ;;
+4)
+nano /lib/systemd/system/http.server-dvs.service && sudo systemctl daemon-reload ;;
+5)
+sudo systemctl restart http.server-dvs.service && sudo systemctl enable http.server-dvs.service ;;
+6)
+sudo systemctl stop http.server-dvs.service && sudo systemctl disable http.server-dvs.service ;;
+7)
+break;
+esac
+done
+exit 0
+EOF
+#
+cat > /bin/menu-reboot <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Nota:  Reinicio automatico, verifica su conectividad a internet." 15 50 4 \
+1 " Iniciar reinicio de equipo" \
+2 " Habilitar reinicio automatico" \
+3 " Deshabilitar reinicio automatico" \
+4 " Retornar menu principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo reboot
+;;
+2)
+sudo systemctl start rebooter1.service && sudo systemctl enable rebooter1.service ;;
+3)
+sudo systemctl stop rebooter1.service && sudo systemctl disable rebooter1.service ;;
+4) break;
+esac
+done
+exit 0
+
+EOF
+#
+sudo cat > /usr/local/bin/rebooter1.sh <<- "EOF"
+#!/bin/bash
+sleep 180
+while :
+do
+SERVER=8.8.4.4
+
+ping -c1 ${SERVER} > /dev/null
+
+if [ $? != 0 ]
+then
+#
+sudo reboot
+
+fi
+
+
+  sleep 60
+done
+
+EOF
+#
+cat > /lib/systemd/system/http.server-dvs.service <<- "EOF"
+[Unit]
+Description=PHP http.server.DVS
+After=network.target
+
+[Service]
+User=root
+#ExecStartPre=/bin/sleep 30
+# Modify for different other port
+ExecStart=php -S 0.0.0.0:80 -t /var/www/dvs/
+[Install]
+WantedBy=multi-user.target
+
+
+
+EOF
+#####menu-dw-analogo
+cat > /bin/menu-dw-analogo <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 55 11 \
+1 " Editar Direwolf Analogo " \
+2 " Iniciar APRS " \
+3 " Detener APRS " \
+4 " Compatibilidad Raspberry Zero" \
+5 " Compatibilidad Raspberry B" \
+6 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /opt/direwolf/dw.conf;;
+2)
+sudo systemctl restart direwolf.service && sudo systemctl enable direwolf.service;;
+3)
+sudo systemctl stop direwolf.service && sudo systemctl disable direwolf.service;;
+4)
+sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf1 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
+5)
+sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf2 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
+6)
+break;
+esac
+done
+exit 0
+EOF
+######menu-dw-rtl
+cat > /bin/menu-dw-rtl <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf SDR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+1 " Editar Direwolf SDR " \
+2 " Editar RTL-SDR " \
+3 " Iniciar APRS RX-IGate " \
+4 " Detener APRS RX-IGate " \
+5 " Compatibilidad Raspberry Zero " \
+6 " Compatibilidad Raspberry Standard " \
+7 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /opt/direwolf/sdr.conf ;;
+2)
+sudo nano /opt/direwolf/rtl.sh ;;
+3)
+sudo systemctl restart direwolf-rtl.service && sudo systemctl enable direwolf-rtl.service;;
+4)
+sudo systemctl stop direwolf-rtl.service && sudo systemctl disable direwolf-rtl.service;;
+5)
+sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf1 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
+6)
+sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf2 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
+7)
+break;
+esac
+done
+exit 0
+EOF
+#####
+######menu-ysf2dmr
+cat > /bin/menu-ysf2dmr <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu YSF2DMR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+1 " Editar YSF2DMR " \
+2 " Iniciar YSF2DMR " \
+3 " Detener YSF2DMR " \
+4 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /opt/YSF2DMR/YSF2DMR.ini;;
+2)
+sudo sh /opt/YSF2DMR/DMRIDUpdate.sh && sudo systemctl enable dmrid-ysf2dmr.service && sudo systemctl enable ysf2dmr.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/YSF2DMR/DMRIDUpdate.sh' add ;;
+3)
+sudo systemctl stop ysf2dmr.service && sudo systemctl stop dmrid-ysf2dmr.service && sudo systemctl disable dmrid-ysf2dmr.service && sudo systemctl disable ysf2dmr.service && rm /var/log/ysf2dmr/* && cronedit.sh '0 3 * * *' 'sudo sh /opt/YSF2DMR/DMRIDUpdate.sh' remove ;;
+4)
+break;
+esac
+done
+exit 0
+EOF
+########ionosphere
+mkdir /opt/ionsphere 
+cd /opt/ionsphere 
+wget https://github.com/cceremuga/ionosphere/releases/download/v1.0.0-beta1/ionosphere-raspberry-pi.tar.gz
+tar vzxf ionosphere-raspberry-pi.tar.gz
+
+cd /opt/ionsphere/ionosphere-raspberry-pi
+
+cat > /opt/ionsphere/ionosphere-raspberry-pi/ionos.sh <<- "EOF"
+#!/bin/sh
+PATH=/bin:/usr/bin:/usr/local/bin
+unset LANG
+/opt/ionsphere/ionosphere-raspberry-pi/ionosphere
+EOF
+
+chmod +x /opt/ionsphere/ionosphere-raspberry-pi/ionosphere
+chmod +x /opt/ionsphere/ionosphere-raspberry-pi/ionos.sh
+chmod +777 /opt/ionsphere/ionosphere-raspberry-pi/ionos.sh
+###nano /opt/ionsphere/ionosphere-raspberry-pi/config/config.yml
+
+#####menu-ionos
+cat > /bin/menu-ionos <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu IonosPhere" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+1 " Editar Ionosphere  APRS " \
+2 " Iniciar APRS " \
+3 " Detener APRS " \
+4 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /opt/ionsphere/ionosphere-raspberry-pi/config/config.yml ;;
+2)
+systemctl enable ionos.service && sudo systemctl restart ionos.service ;;
+3)
+sudo systemctl stop ionos.service && sudo systemctl disable ionos.service ;;
+4)
+break;
+esac
+done
+exit 0
+EOF
+################################
+cat > /lib/systemd/system/ionos.service <<- "EOF"
+[Unit]
+Description=Ionphere-RTL Service
+Wants=network-online.target
+After=syslog.target network-online.target
+[Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+WorkingDirectory=/opt/ionsphere/ionosphere-raspberry-pi
+#ExecStartPre=/bin/sleep 30
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=sh /opt/ionsphere/ionosphere-raspberry-pi/ionos.sh
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+[Install]
+# To make the network-online.target available
+# systemctl enable systemd-networkd-wait-online.service
+WantedBy=network-online.target
+EOF
+##########################################
+###################
+cat > /lib/systemd/system/dmrid-mmdvm.service  <<- "EOF"
+[Unit]
+Description=DMRIDupdate MMDVMHost
+Wants=network-online.target
+After=syslog.target network-online.target
+
+[Service]
+User=root
+#ExecStartPre=/bin/sleep 1800
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=/opt/MMDVMHost/DMRIDUpdate.sh
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+###################
+cat > /lib/systemd/system/mmdvmh.service  <<- "EOF"
+[Unit]
+Description=MMDVM Host Service
+After=syslog.target network.target
+
+[Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+WorkingDirectory=/opt/MMDVMHost
+#ExecStartPre=/bin/sleep 10
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=/opt/MMDVMHost/MMDVMHost /opt/MMDVMHost/MMDVM.ini
+ExecStop=/usr/bin/screen -S MMDVMHost -X quit
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+################
+cat > /lib/systemd/system/direwolf.service  <<- "EOF"
+[Unit]
+Description=DireWolf is a software "soundcard" modem/TNC and APRS decoder
+Documentation=man:direwolf
+AssertPathExists=/opt/direwolf/dw.conf
+
+[Unit]
+Description=Direwolf Service
+#Wants=network-online.target
+After=sound.target syslog.target
+#network-online.target
+
+[Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+ExecStart=sudo direwolf -c /opt/direwolf/dw.conf
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+#####
+cat > /lib/systemd/system/dmrid-ysf2dmr.service  <<- "EOF"
+[Unit]
+Description=DMRIDupdate YSF2DMR
+Wants=network-online.target
+After=syslog.target network-online.target
+
+[Service]
+User=root
+#ExecStartPre=/bin/sleep 60
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=/opt/YSF2DMR/DMRIDUpdate.sh
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+#########
+cat > /lib/systemd/system/direwolf-rtl.service  <<- "EOF"
+[Unit]
+Description=Direwolf-RTL Service
+Wants=network-online.target
+After=syslog.target network-online.target
+
+[Service]
+User=root
+#ExecStartPre=/bin/sleep 1800
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=/opt/direwolf/rtl.sh
+# | direwolf -c /home/pi/direwolf/sdr.conf
+
+[Install]
+WantedBy=multi-user.target
+#ExecStart= /usr/local/bin/rtl_fm -M fm -f 144.39M -p 0 -s 22050 -g 42 - | /usr/local/bin/direwolf -c /opt/direwolf/sdr.conf -r 22050 -D 1 -B 1200 -
+EOF
+#############
+
+cat > /lib/systemd/system/multimon-rtl.service  <<- "EOF"
+[Unit]
+Description=Multimon-RTL Service
+Wants=network-online.target
+After=syslog.target network-online.target
+
+[Service]
+User=root
+#ExecStartPre=/bin/sleep 1800
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=sudo pymultimonaprs
+
+[Install]
+WantedBy=multi-user.target
+EOF
+#####################
+cat > /lib/systemd/system/ysf2dmr.service  <<- "EOF"
+[Unit]
+Description=YSF2DMR Service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+WorkingDirectory=/opt/YSF2DMR
+#ExecStartPre=/bin/sleep 30
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=/opt/YSF2DMR/YSF2DMR /opt/YSF2DMR/YSF2DMR.ini
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+###########################
+cat > /opt/MMDVMHost/MMDVM.ini  <<- "EOF"
+[General]
+# Coloque su indicativo
+Callsign=HP3ICC
+# Coloque su DMRID de 7 digitos mas 2 digitos para su conexion
+Id=000000000
+Timeout=300
+Duplex=0
+ModeHang=10
+#RFModeHang=10
+#NetModeHang=3
+Display=None
+#Display=OLED
+#Display=Nextion
+Daemon=0
+
+[Info]
+# Colocar frecuencia 9 digitos sin puntos
+RXFrequency=433400000
+TXFrequency=433400000
+Power=1
+# The following lines are only needed if a direct connection to a DMR master is being used
+Latitude=0.0
+Longitude=0.0
+Height=0
+Location=Panama
+Description=emq-TE1ws-MMDVM
+URL=https://github.com/hp3icc/emq-TE1ws
+
+[Log]
+# Logging levels, 0=No logging
+DisplayLevel=1
+FileLevel=1
+FilePath=/var/log/mmdvmh
+FileRoot=MMDVMH
+FileRotate=0
+
+[CW Id]
+Enable=0
+Time=10
+# Callsign=
+
+[DMR Id Lookup]
+File=/opt/MMDVMHost/DMRIds.dat
+Time=24
+
+[NXDN Id Lookup]
+File=NXDN.csv
+Time=24
+
+[Modem]
+# Valid values are "null", "uart", "udp", and (on Linux) "i2c"
+Protocol=uart
+# The port and speed used for a UART connection
+# UARTPort=\\.\COM4
+# UARTPort=/dev/ttyACM0
+UARTPort=/dev/ttyAMA0
+UARTSpeed=115200
+#460800
+# The port and address for an I2C connection
+I2CPort=/dev/i2c
+I2CAddress=0x22
+# IP parameters for UDP connection
+ModemAddress=192.168.2.100
+ModemPort=3334
+LocalAddress=192.168.2.1
+LocalPort=3335
+
+TXInvert=1
+RXInvert=0
+PTTInvert=0
+TXDelay=100
+RXOffset=0
+TXOffset=0
+DMRDelay=0
+RXLevel=50
+TXLevel=50
+RXDCOffset=0
+TXDCOffset=0
+RFLevel=50
+# CWIdTXLevel=50
+# D-StarTXLevel=50
+DMRTXLevel=50
+YSFTXLevel=50
+# P25TXLevel=50
+# NXDNTXLevel=50
+# M17TXLevel=50
+# POCSAGTXLevel=50
+# FMTXLevel=50
+# AX25TXLevel=50
+RSSIMappingFile=RSSI.dat
+UseCOSAsLockout=0
+Trace=0
+Debug=0
+
+[Transparent Data]
+Enable=0
+RemoteAddress=127.0.0.1
+RemotePort=40094
+LocalPort=40095
+# SendFrameType=0
+
+[D-Star]
+Enable=0
+Module=C
+SelfOnly=0
+AckReply=1
+AckTime=750
+AckMessage=0
+ErrorReply=1
+RemoteGateway=0
+# ModeHang=10
+WhiteList=
+
+[DMR]
+Enable=1
+Beacons=0
+BeaconInterval=60
+BeaconDuration=3
+ColorCode=1
+SelfOnly=0
+EmbeddedLCOnly=1
+DumpTAData=0
+# Prefixes=234,235
+# Slot1TGWhiteList=
+# Slot2TGWhiteList=
+CallHang=3
+TXHang=4
+# ModeHang=10
+# OVCM Values, 0=off, 1=rx_on, 2=tx_on, 3=both_on, 4=force off
+# OVCM=0
+
+[System Fusion]
+Enable=1
+LowDeviation=0
+SelfOnly=0
+TXHang=4
+RemoteGateway=1
+# ModeHang=10
+
+[P25]
+Enable=0
+NAC=293
+SelfOnly=0
+OverrideUIDCheck=0
+RemoteGateway=0
+TXHang=5
+# ModeHang=10
+
+[NXDN]
+Enable=0
+RAN=1
+SelfOnly=0
+RemoteGateway=0
+TXHang=5
+# ModeHang=10
+
+[M17]
+Enable=0
+CAN=0
+SelfOnly=0
+TXHang=5
+# ModeHang=10
+
+[POCSAG]
+Enable=0
+Frequency=439987500
+
+[FM]
+Enable=0
+# Callsign=G4KLX
+CallsignSpeed=20
+CallsignFrequency=1000
+CallsignTime=10
+CallsignHoldoff=0
+CallsignHighLevel=50
+CallsignLowLevel=20
+CallsignAtStart=1
+CallsignAtEnd=1
+CallsignAtLatch=0
+RFAck=K
+ExtAck=N
+AckSpeed=20
+AckFrequency=1750
+AckMinTime=4
+AckDelay=1000
+AckLevel=50
+# Timeout=180
+TimeoutLevel=80
+CTCSSFrequency=88.4
+CTCSSThreshold=30
+# CTCSSHighThreshold=30
+# CTCSSLowThreshold=20
+CTCSSLevel=20
+KerchunkTime=0
+HangTime=7
+# AccessMode values are:
+#   0 - Carrier access with COS
+#   1 - CTCSS only access without COS
+#   2 - CTCSS only access with COS
+#   3 - CTCSS only access with COS to start, then carrier access with COS
+AccessMode=1
+# LinkMode=1 to remove almost all of the logic control
+LinkMode=0
+COSInvert=0
+NoiseSquelch=0
+SquelchThreshold=30
+# SquelchHighThreshold=30
+# SquelchLowThreshold=20
+RFAudioBoost=1
+MaxDevLevel=90
+ExtAudioBoost=1
+# ModeHang=10
+
+[AX.25]
+Enable=0
+TXDelay=300
+RXTwist=6
+SlotTime=30
+PPersist=128
+Trace=1
+
+[D-Star Network]
+Enable=0
+#LocalAddress=127.0.0.1
+#LocalPort=20011
+GatewayAddress=127.0.0.1
+GatewayPort=20010
+# ModeHang=3
+Debug=0
+
+[DMR Network]
+Enable=1
+# Type may be either 'Direct' or 'Gateway'. When Direct you must provide the Master's
+# address as well as the Password, and for DMR+, Options also.
+Type=Direct
+#LocalAddress=127.0.0.1
+#LocalPort=62032
+#RemoteAddress=3021.master.brandmeister.network
+RemoteAddress=freedmr-hp.ddns.net
+RemotePort=62031
+Password=passw0rd
+Jitter=500
+Slot1=1
+Slot2=1
+# No active linea de Option para TG estaticos, si utiliza BM
+#Options=TS2=7144,7000;DIAL=0;VOICE=0;TIMER=1;    
+# ModeHang=3
+Debug=0
+
+[System Fusion Network]
+Enable=1
+#LocalAddress=127.0.0.1
+#LocalPort=3200
+GatewayAddress=europelink.pa7lim.nl
+GatewayPort=42000
+# ModeHang=3
+Debug=0
+
+[P25 Network]
+Enable=0
+#LocalAddress=127.0.0.1
+#LocalPort=32010
+GatewayAddress=127.0.0.1
+GatewayPort=42020
+# ModeHang=3
+Debug=0
+
+[NXDN Network]
+Enable=0
+Protocol=Icom
+#LocalAddress=127.0.0.1
+#LocalPort=14021
+GatewayAddress=127.0.0.1
+GatewayPort=14020
+# ModeHang=3
+Debug=0
+
+[M17 Network]
+Enable=0
+#LocalAddress=127.0.0.1
+#LocalPort=17011
+GatewayAddress=127.0.0.1
+GatewayPort=17010
+# ModeHang=3
+Debug=0
+
+[POCSAG Network]
+Enable=0
+#LocalAddress=127.0.0.1
+#LocalPort=3800
+GatewayAddress=127.0.0.1
+GatewayPort=4800
+# ModeHang=3
+Debug=0
+
+[FM Network]
+Enable=0
+# Protocol=USRP
+#LocalAddress=127.0.0.1
+#LocalPort=3810
+GatewayAddress=127.0.0.1
+GatewayPort=4810
+PreEmphasis=1
+DeEmphasis=1
+TXAudioGain=1.0
+RXAudioGain=1.0
+# ModeHang=3
+Debug=0
+
+[AX.25 Network]
+Enable=0
+Port=/dev/ttyp7
+Speed=9600
+Debug=0
+
+[TFT Serial]
+# Port=modem
+Port=/dev/ttyAMA0
+Brightness=50
+
+[HD44780]
+Rows=2
+Columns=16
+
+# For basic HD44780 displays (4-bit connection)
+# rs, strb, d0, d1, d2, d3
+Pins=11,10,0,1,2,3
+
+# Device address for I2C
+I2CAddress=0x20
+
+# PWM backlight
+PWM=0
+PWMPin=21
+PWMBright=100
+PWMDim=16
+
+DisplayClock=1
+UTC=0
+
+[Nextion]
+Port=modem
+#Port=/dev/ttyAMA0
+Brightness=50
+DisplayClock=1
+UTC=0
+#Screen Layout: 0=G4KLX 2=ON7LDS
+ScreenLayout=2
+IdleBrightness=20
+
+[OLED]
+Type=3
+Brightness=1
+Invert=0
+Scroll=0
+Rotate=1
+Cast=0
+LogoScreensaver=0
+
+[LCDproc]
+Address=localhost
+Port=13666
+#LocalPort=13667
+DimOnIdle=0
+DisplayClock=1
+UTC=0
+
+[Lock File]
+Enable=0
+File=/tmp/MMDVM_Active.lck
+
+[Remote Control]
+Enable=0
+Address=127.0.0.1
+Port=7642
+
+
+EOF
+########
+cat > /opt/YSF2DMR/YSF2DMR.ini  <<- "EOF"
+[Info]
+RXFrequency=438800000
+TXFrequency=438800000
+Power=1
+Latitude=0.0
+Longitude=0.0
+Height=0
+Location=Panama
+Description=Multi-Mode
+URL=www.google.co.uk
+
+[YSF Network]
+Callsign=HP3ICC
+Suffix=ND
+#Suffix=RPT
+DstAddress=127.0.0.1
+DstPort=42000
+LocalAddress=127.0.0.1
+#LocalPort=42013
+EnableWiresX=0
+RemoteGateway=0
+HangTime=1000
+WiresXMakeUpper=0
+# RadioID=*****
+# FICHCallsign=2
+# FICHCallMode=0
+# FICHBlockTotal=0
+# FICHFrameTotal=6
+# FICHMessageRoute=0
+# FICHVOIP=0
+# FICHDataType=2
+# FICHSQLType=0
+# FICHSQLCode=0
+DT1=1,34,97,95,43,3,17,0,0,0
+DT2=0,0,0,0,108,32,28,32,3,8
+Daemon=0
+
+[DMR Network]
+Id=714000000
+#XLXFile=XLXHosts.txt
+#XLXReflector=950
+#XLXModule=D
+StartupDstId=714
+# For TG call: StartupPC=0
+StartupPC=0
+Address=127.0.0.1
+Port=54103
+Jitter=500
+EnableUnlink=0
+TGUnlink=4000
+PCUnlink=0
+# Local=62032
+Password=passw0rd
+# Options=
+TGListFile=TGList-DMR.txt
+Debug=0
+
+[DMR Id Lookup]
+File=/opt/YSF2DMR/DMRIds.dat
+Time=24
+DropUnknown=0
+
+[Log]
+# Logging levels, 0=No logging
+DisplayLevel=1
+FileLevel=1
+FilePath=/var/log/ysf2dmr/
+FileRoot=YSF2DMR
+
+[aprs.fi]
+Enable=0
+AprsCallsign=HP3ICC
+Server=noam.aprs2.net
+#Server=euro.aprs2.net
+Port=14580
+Password=12345
+APIKey=APIKey
+Refresh=240
+Description=APRS Description
+
+
+EOF
+###################
+
+cat > /etc/pymultimonaprs.json  <<- "EOF"
+{
+        "callsign": "HP3ICC-10",
+        "passcode": "12345",
+        "gateway": ["igates.aprs.fi:14580","noam.aprs2.net:14580"],
+        "preferred_protocol": "any",
+        "append_callsign": true,
+        "source": "rtl",
+        "rtl": {
+                "freq": 144.390,
+                "ppm": 0,
+                "gain": 24,
+                "offset_tuning": false,
+                "device_index": 0
+        },
+        "alsa": {
+                "device": "default"
+        },
+        "beacon": {
+                "lat": 8.5212,
+                "lng": -80.3598,
+                "table": "/",
+                "symbol": "r",
+                "comment": "APRS RX-IGATE / Raspbian Proyect by hp3icc",
+                "status": {
+                        "text": "",
+                        "file": false
+                },
+                "weather": false,
+                "send_every": 300,
+                "ambiguity": 0
+        }
+}
+EOF
+#######
+cat > /opt/ionsphere/ionosphere-raspberry-pi/config/config.yml  <<- "EOF"
+rtl:
+  path: "rtl_fm"
+  frequency: "144.390M"
+  gain: "49.6"
+  ppm-error: "0"
+  squelch-level: "0"
+  sample-rate: "22050"
+  additional-flags: ""
+multimon:
+  path: "multimon-ng"
+  additional-flags: ""
+beacon:
+  enabled: false
+  call-sign: ""
+  interval: 30m
+  comment: ""
+handlers:
+- id: "4967ade5-7a97-416f-86bf-6e2ae8a5e581"
+  name: "stdout"
+- id: "b67ac5d5-3612-4618-88a9-a63d36a1777c"
+  name: "aprsis"
+  options:
+    enabled: true
+    server: "igates.aprs.fi:14580"
+    call-sign: "HP3ICC-10"
+    passcode: "12345"
+    filter: ""
+EOF
+
+###############################################
+sudo mkdir /opt/noip
+cd /opt/noip/
+wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz
+tar vzxf noip-duc-linux.tar.gz
+cd noip-2.1.9-1
+sudo make
+
+cat > /bin/menu-noip  <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu NoIP" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+1 " Activar NoIP " \
+2 " Desactivar NoIP " \
+3 " Info DDNS " \
+4 " IP Publica " \
+5 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+cd /opt/noip/ && sudo tar vzxf noip-duc-linux.tar.gz && cd /opt/noip/noip-2.1.9-1/ && sudo make && sudo make install && cronedit.sh '@reboot' 'sudo /usr/local/bin/noip2' add && /usr/local/bin/noip2 ;;
+2)
+cronedit.sh '@reboot' 'sudo /usr/local/bin/noip2' remove && sudo rm -r /usr/local/bin/noip2 && sudo rm -r /usr/local/etc/no-ip2.conf && sudo rm -r /tmp/no-ip2.conf && sudo rm -r /opt/noip/noip-2.1.9-1 ;;
+3)
+cd /tmp && sudo noip2 -S &> noip.txt && nano noip.txt && sudo rm noip.txt;;
+4)
+wget -qO- ifconfig.co/ip >> /tmp/ipgw.txt && nano /tmp/ipgw.txt && sudo rm /tmp/ipgw.txt ;;
+5)
+break;
+esac
+done
+exit 0
+
+
+EOF
+##############################
+#dvswitch
+
+cd /opt
+
+#wget http://dvswitch.org/buster
+
+#chmod +x buster
+
+#./buster
+
