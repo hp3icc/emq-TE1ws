@@ -2052,7 +2052,8 @@ sudo cp config_SAMPLE.py config.py
 ## Configurar el monitor
 ##nano /opt/HBmonitor/config.py
 cd /opt/HBmonitor/
-sudo sed -i 's/8080/80/' config.py
+sudo sed -i 's/8080/80/' /opt/HBmonitor/config.py
+sudo sed -i 's/FREQUENCY       = 10/FREQUENCY       = 60/' /opt/HBmonitor/config.py
 #cp utils/hbmon.service /lib/systemd/system/
 sudo cat > /lib/systemd/system/hbmon.service <<- "EOF"
 [Unit]
@@ -2357,7 +2358,8 @@ sudo chmod +x install.sh
 sudo ./install.sh
 cp config_SAMPLE.py config.py
 sudo chmod +x /opt/HBMonv2/monitor.py
-
+sudo sed -i 's/FREQUENCY       = 10/FREQUENCY       = 60/' /opt/HBMonv2/config.py
+#
 sudo cat > /opt/HBMonv2/updateTGIDS.sh <<- "EOF"
 #!/bin/bash
 
