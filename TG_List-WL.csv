@@ -1,4 +1,48 @@
 MODE,TS,TG,
+YSF,0,1,PARROT
+YSF,0,2,WELCOME
+YSF,0,10,ENGLISH
+YSF,0,11,WV25302
+YSF,0,12,ST-KITTS
+YSF,0,13,CDARIN
+YSF,0,14,WW-SPANISH
+YSF,0,15,COSTA-RICA
+YSF,0,16,TIHAS-ROOM
+YSF,0,17,BELGIUM-FR
+YSF,0,19,CQ-CANADA
+YSF,0,20,AMERICA
+YSF,0,21,HAITI
+YSF,0,22,TEXASNEXUS
+YSF,0,23,QUAHOGRPTR
+YSF,0,24,NEWENGLAND
+YSF,0,25,CANADA
+YSF,0,26,QUEBEC
+YSF,0,27,DX-LINK2
+YSF,0,28,USA-DX
+YSF,0,29,JEEP-TALK
+YSF,0,30,PMSA
+YSF,0,31,ELSALVADOR
+YSF,0,32,GERMAN
+YSF,0,33,IRN-KC1MUV
+YSF,0,34,MEXICO
+YSF,0,35,HISPANIC
+YSF,0,36,GEOTXHAMS
+YSF,0,37,UFB-NEW-EN
+YSF,0,39,COLOMBIA
+YSF,0,44,CHIRIQUI
+YSF,0,60,AUSTRALIA
+YSF,0,61,NEWZEALAND
+YSF,0,70,WW-DUTCH
+YSF,0,71,VLAAMS-BE
+YSF,0,72,BRASIL
+YSF,0,73,AUTXUSA
+YSF,0,74,CQ-OLEBOYZ
+YSF,0,75,DX-LINK-1
+YSF,0,80,INDIA
+YSF,0,86,ARGENTINA
+YSF,0,88,PHILIPPINE
+YSF,0,98,URUGUAY
+YSF,0,99,TEST
 DMR,2,1,Local
 DMR,2,2,Cluster
 DMR,2,8,Regional
@@ -7,9 +51,9 @@ DMR,2,91,World-wide
 DMR,2,92,Europe
 DMR,2,93,North America
 DMR,2,94,Asia Middle East
-DMR,2,95,Australia New Zeland
+DMR,2,95,Australia New Zealand
 DMR,2,98,Radio Test
-DMR,2,202,Διεθνές Ελλάδα
+DMR,2,202,Î”Î¹ÎµÎ¸Î½Î­Ï‚ Î•Î»Î»Î¬Î´Î±
 DMR,2,204,Nederland
 DMR,2,206,Belgium
 DMR,2,208,France
@@ -53,21 +97,21 @@ DMR,2,295,Liechtenstein
 DMR,2,297,Montenegro
 DMR,2,302,Canada Wide
 DMR,2,310,Tac 310 NOT A CALL CHANNEL
-DMR,2,311,TAC 311 USA
-DMR,2,312,TAC 312 USA
-DMR,2,313,TAC 313 USA
-DMR,2,314,TAC 314 USA
-DMR,2,315,TAC 315 USA
-DMR,2,316,TAC 316 USA
-DMR,2,317,TAC 317 USA
-DMR,2,318,TAC 318 USA
-DMR,2,319,TAC 319 USA
+DMR,2,311,TAC 311 USA NO NETS!!!
+DMR,2,312,TAC 312 USA NO NETS!!!
+DMR,2,313,TAC 313 USA NO NETS!!!
+DMR,2,314,TAC 314 USA NO NETS!!!
+DMR,2,315,TAC 315 USA NO NETS!!!
+DMR,2,316,TAC 316 USA NO NETS!!!
+DMR,2,317,TAC 317 USA NO NETS!!!
+DMR,2,318,TAC 318 USA NO NETS!!!
+DMR,2,319,TAC 319 USA NO NETS!!!
 DMR,2,330,Puerto Rico
 DMR,2,334,XE
 DMR,2,338,Jamaica
 DMR,2,352,Grenada
 DMR,2,358,Saint Lucia
-DMR,2,362,Curaçao
+DMR,2,362,CuraÃ§ao
 DMR,2,368,Cuba
 DMR,2,370,Dominican Republic
 DMR,2,372,Haiti
@@ -104,15 +148,18 @@ DMR,2,708,Honduras
 DMR,2,710,Nicaragua
 DMR,2,712,Costa Rica
 DMR,2,714,Panama
-DMR,2,716,Perú
+DMR,2,716,PerÃº
 DMR,2,722,Argentina
 DMR,2,724,Brazil Nacional
 DMR,2,730,Chile
-DMR,2,732,República de Colombia
+DMR,2,732,RepÃºblica de Colombia
 DMR,2,734,Venezuela
 DMR,2,740,Ecuador
 DMR,2,748,Uruguay
 DMR,2,899,Repeater Testing
+DMR,2,901,WW Tac 1
+DMR,2,902,WW Tac 2
+DMR,2,903,WW Tac 3
 DMR,2,907,JOTA
 DMR,2,910,German
 DMR,2,913,English
@@ -131,15 +178,15 @@ DMR,2,940,Arabic
 DMR,2,955,WWYL
 DMR,2,969,DMR-Caribbean
 DMR,2,973,SOTA
-DMR,2,2021,Περιοχή 1 Εθνική
-DMR,2,2022,Περιοχή 2 Εθνική
-DMR,2,2023,Περιοχή 3 Εθνική
-DMR,2,2024,Περιοχή 4 Εθνική
-DMR,2,2025,Περιοχή 5 Εθνική
-DMR,2,2026,Περιοχή 6 Εθνική
-DMR,2,2027,Περιοχή 7 Εθνική
-DMR,2,2028,Περιοχή 8 Εθνική
-DMR,2,2029,Περιοχή 9 Εθνική
+DMR,2,2021,Î ÎµÏÎ¹Î¿Ï‡Î® 1 Î•Î¸Î½Î¹ÎºÎ®
+DMR,2,2022,Î ÎµÏÎ¹Î¿Ï‡Î® 2 Î•Î¸Î½Î¹ÎºÎ®
+DMR,2,2023,Î ÎµÏÎ¹Î¿Ï‡Î® 3 Î•Î¸Î½Î¹ÎºÎ®
+DMR,2,2024,Î ÎµÏÎ¹Î¿Ï‡Î® 4 Î•Î¸Î½Î¹ÎºÎ®
+DMR,2,2025,Î ÎµÏÎ¹Î¿Ï‡Î® 5 Î•Î¸Î½Î¹ÎºÎ®
+DMR,2,2026,Î ÎµÏÎ¹Î¿Ï‡Î® 6 Î•Î¸Î½Î¹ÎºÎ®
+DMR,2,2027,Î ÎµÏÎ¹Î¿Ï‡Î® 7 Î•Î¸Î½Î¹ÎºÎ®
+DMR,2,2028,Î ÎµÏÎ¹Î¿Ï‡Î® 8 Î•Î¸Î½Î¹ÎºÎ®
+DMR,2,2029,Î ÎµÏÎ¹Î¿Ï‡Î® 9 Î•Î¸Î½Î¹ÎºÎ®
 DMR,2,2041,Noord Nederland
 DMR,2,2042,Midden Nederland
 DMR,2,2043,Zuid Nederland
@@ -155,11 +202,12 @@ DMR,2,2067,Belgium OnDemand 7
 DMR,2,2068,Belgium OnDemand 8
 DMR,2,2069,Belgium OnDemand 9
 DMR,2,2080,Urgences FR
-DMR,2,2081,Région Ile de France
-DMR,2,2082,Région Nord-ouest
-DMR,2,2083,Région Nord-est
-DMR,2,2084,Région Sud-est
-DMR,2,2085,Région Sud-ouest
+DMR,2,2081,RÃ©gion Ile de France
+DMR,2,2082,RÃ©gion Nord-ouest
+DMR,2,2083,RÃ©gion Nord-est
+DMR,2,2084,RÃ©gion Sud-est
+DMR,2,2085,RÃ©gion Sud-ouest
+DMR,2,2087,Technique
 DMR,2,2089,France Dom-Tom
 DMR,2,2140,Spain Link
 DMR,2,2141,Regional EA1
@@ -193,8 +241,8 @@ DMR,2,2283,Bern / Solothurn
 DMR,2,2284,Basel
 DMR,2,2285,Aargau / Zentralschweiz
 DMR,2,2286,Ticino
-DMR,2,2287,Graubünden
-DMR,2,2288,Zürich
+DMR,2,2287,GraubÃ¼nden
+DMR,2,2288,ZÃ¼rich
 DMR,2,2289,Ostschweiz
 DMR,2,2300,Czech Crossconect
 DMR,2,2301,Bohemia
@@ -239,7 +287,7 @@ DMR,2,2410,DCS010D
 DMR,2,2411,SM Tactical
 DMR,2,2415,DCS010V
 DMR,2,2416,Swedenlink
-DMR,2,2421,Sør- og Østlandet
+DMR,2,2421,SÃ¸r- og Ã˜stlandet
 DMR,2,2424,Vestlandet
 DMR,2,2426,Midtnorge
 DMR,2,2429,Nordnorge
@@ -278,9 +326,9 @@ DMR,2,2623,Niedersachsen/Bremen
 DMR,2,2624,Nordrhein-Westfalen
 DMR,2,2625,Rheinland-Pfalz/Saarland
 DMR,2,2626,Hessen
-DMR,2,2627,Baden-Württemberg
+DMR,2,2627,Baden-WÃ¼rttemberg
 DMR,2,2628,Bayern
-DMR,2,2629,Sachsen/Thüringen
+DMR,2,2629,Sachsen/ThÃ¼ringen
 DMR,2,2681,North
 DMR,2,2682,Center
 DMR,2,2683,Capital
@@ -326,58 +374,59 @@ DMR,2,3026,Alberta
 DMR,2,3027,British Columbia
 DMR,2,3028,Nunavut Yukon & NWT
 DMR,2,3029,New Brunswick
-DMR,2,3100,BM US Nationwide Bridge
-DMR,2,3101,Alabama
-DMR,2,3102,Alaska
-DMR,2,3104,Arizona
-DMR,2,3105,Arkansas
-DMR,2,3106,California
-DMR,2,3108,Colorado
-DMR,2,3109,Connecticut
-DMR,2,3110,Delaware
-DMR,2,3111,D.C.
-DMR,2,3112,Florida
-DMR,2,3113,Georgia
-DMR,2,3115,Hawaii
-DMR,2,3116,Idaho
-DMR,2,3117,Illinois
-DMR,2,3118,Indiana
-DMR,2,3119,Iowa
-DMR,2,3120,Kansas
-DMR,2,3121,Kentucky
-DMR,2,3122,Louisiana
-DMR,2,3123,Maine
-DMR,2,3124,Maryland
-DMR,2,3125,Massachusetts
-DMR,2,3126,Michigan
-DMR,2,3127,Minnesota
-DMR,2,3128,Mississippi
-DMR,2,3129,Missouri
-DMR,2,3130,Montana
-DMR,2,3131,Nebraska
-DMR,2,3132,Nevada
-DMR,2,3133,New Hampshire
-DMR,2,3134,New Jersey
-DMR,2,3135,New Mexico
-DMR,2,3136,New York
-DMR,2,3137,North Carolina
-DMR,2,3138,North Dakota
-DMR,2,3139,Ohio
-DMR,2,3140,Oklahoma
-DMR,2,3141,Oregon
-DMR,2,3142,Pennsylvania
-DMR,2,3144,Rhode Island
-DMR,2,3145,South Carolina
-DMR,2,3146,South Dakota
-DMR,2,3147,Tennessee
-DMR,2,3148,Texas
-DMR,2,3149,Utah
-DMR,2,3150,Vermont
-DMR,2,3151,Virginia
-DMR,2,3153,Washington
-DMR,2,3154,West Virginia
-DMR,2,3155,Wisconsin
-DMR,2,3156,Wyoming
+DMR,2,3100,USA Bridge - NO POLITICS!
+DMR,2,3101,Alabama - 10 Minute Limit
+DMR,2,3102,Alaska - 10 Minute Limit
+DMR,2,3104,Arizona - 10 Minute Limit
+DMR,2,3105,Arkansas - 10 Minute Limit
+DMR,2,3106,California - 10 Minute Limit
+DMR,2,3108,Colorado - 10 Minute Limit
+DMR,2,3109,Connecticut - 10 Minute Limit
+DMR,2,3110,Delaware - 10 Minute Limit
+DMR,2,3111,D.C. - 10 Minute Limit
+DMR,2,3112,Florida - 10 Minute Limit
+DMR,2,3113,Georgia - 10 Minute Limit
+DMR,2,3115,Hawaii - 10 Minute Limit
+DMR,2,3116,Idaho - 10 Minute Limit
+DMR,2,3117,Illinois - 10 Minute Limit
+DMR,2,3118,Indiana - 10 Minute Limit
+DMR,2,3119,Iowa - 10 Minute Limit
+DMR,2,3120,Kansas - 10 Minute Limit
+DMR,2,3121,Kentucky - 10 Minute Limit
+DMR,2,3122,Louisiana - 10 Minute Limit
+DMR,2,3123,Maine - 10 Minute Limit
+DMR,2,3124,Maryland - 10 Minute Limit
+DMR,2,3125,Massachusetts - 10 Minute Limit
+DMR,2,3126,Michigan - 10 Minute Limit
+DMR,2,3127,Minnesota - 10 Minute Limit
+DMR,2,3128,Mississippi - 10 Minute Limit
+DMR,2,3129,Missouri - 10 Minute Limit
+DMR,2,3130,Montana - 10 Minute Limit
+DMR,2,3131,Nebraska - 10 Minute Limit
+DMR,2,3132,Nevada - 10 Minute Limit
+DMR,2,3133,New Hampshire - 10 Minute Limit
+DMR,2,3134,New Jersey - 10 Minute Limit
+DMR,2,3135,New Mexico - 10 Minute Limit
+DMR,2,3136,New York - 10 Minute Limit
+DMR,2,3137,North Carolina - 10 Minute Limit
+DMR,2,3138,North Dakota - 10 Minute Limit
+DMR,2,3139,Ohio - 10 Minute Limit
+DMR,2,3140,Oklahoma - 10 Minute Limit
+DMR,2,3141,Oregon - 10 Minute Limit
+DMR,2,3142,Pennsylvania - 10 Minute Limit
+DMR,2,3144,Rhode Island - 10 Minute Limit
+DMR,2,3145,South Carolina - 10 Minute Limit
+DMR,2,3146,South Dakota - 10 Minute Limit
+DMR,2,3147,Tennessee - 10 Minute Limit
+DMR,2,3148,Texas - 10 Minute Limit
+DMR,2,3149,Utah - 10 Minute Limit
+DMR,2,3150,Vermont - 10 Minute Limit
+DMR,2,3151,Virginia - 10 Minute Limit
+DMR,2,3153,Washington - 10 Minute Limit
+DMR,2,3154,West Virginia - 10 Minute Limit
+DMR,2,3155,Wisconsin - 10 Minute Limit
+DMR,2,3156,Wyoming - 10 Minute Limit
+DMR,2,3160,CAP - Civil Air Patrol
 DMR,2,3166,DVSwitch
 DMR,2,3167,Allstar
 DMR,2,3169,Midwest
@@ -442,12 +491,12 @@ DMR,2,5302,ZL2 Regional
 DMR,2,5303,ZL3 Regional
 DMR,2,5304,ZL4 Regional
 DMR,2,6041,Rabat
-DMR,2,6471,La Réunion
+DMR,2,6471,La RÃ©union
 DMR,2,6558,SARL Hamnet
 DMR,2,7060,XLX526C
-DMR,2,7061,Región 1
-DMR,2,7062,Región 2
-DMR,2,7063,Región 3
+DMR,2,7061,RegiÃ³n 1
+DMR,2,7062,RegiÃ³n 2
+DMR,2,7063,RegiÃ³n 3
 DMR,2,7064,Eventos Especiales
 DMR,2,7065,Emergencias
 DMR,2,7081,Honduras zone 1
@@ -469,13 +518,12 @@ DMR,2,7143,wires-x fusion link
 DMR,2,7144,Chiriqui
 DMR,2,7145,GREMPA
 DMR,2,7146,UPRA
-DMR,2,7147,HP PANAMA HUB
 DMR,2,7148,RadioClubPanama
 DMR,2,7162,TRUJILLO ZONA 2
 DMR,2,7166,Peru Zona OA6
 DMR,2,7221,AR AMBA
 DMR,2,7227,Argentina LINK
-DMR,2,7229,AR Test
+DMR,2,7229,Argentina ROOM
 DMR,2,7300,CE0
 DMR,2,7301,CE1
 DMR,2,7302,CE2
@@ -493,6 +541,7 @@ DMR,2,7326,Colombia HK6 Zone
 DMR,2,7400,Ecuador-HC3-Loja-DMR/YSF
 DMR,2,7401,Ecuador HC3 Loja
 DMR,2,7402,Ecuador DX Club
+DMR,2,7487,Uruguay Link
 DMR,2,8515,Dstar Italia XLX-77 Link
 DMR,2,9071,JOTA Tac 1
 DMR,2,9072,JOTA Tac 2
@@ -513,7 +562,7 @@ DMR,2,9480,ICQ Podcast
 DMR,2,9500,Collegiate
 DMR,2,9800,Cafe Gratis
 DMR,2,9911,Emcom US
-DMR,2,9990,Parrot
+DMR,2,9990,Parrot - Private Call ONLY
 DMR,2,20201,Hellenic Tech 1
 DMR,2,20202,Hellenic Tech 2
 DMR,2,20203,Hellenic Echolink Bridge
@@ -538,47 +587,51 @@ DMR,2,20433,Maasdriehoek
 DMR,2,20441,Regio IJsselmond
 DMR,2,20443,Gelderland midden
 DMR,2,20492,Veteranendag
+DMR,2,20493,RFDX
 DMR,2,20601,Belgium North YSF Bridge
 DMR,2,20602,Belgium South YSF Bridge
 DMR,2,20610,Belgian CW
 DMR,2,20681,Gembloux
-DMR,2,20800,YSF France
-DMR,2,20803,Dépt Allier
-DMR,2,20810,Dépt Aube
-DMR,2,20812,Dépt Aveyron
-DMR,2,20813,Dépt Bouches-du-Rhône
-DMR,2,20820,Dépt Corse
-DMR,2,20830,Dépt Gard
-DMR,2,20837,Dépt Indre-et-Loire
-DMR,2,20843,Dépt Haute-Loire
-DMR,2,20844,Dépt Loire-Atl
-DMR,2,20845,Dépt Loiret
-DMR,2,20853,Dépt Mayenne
-DMR,2,20857,Dépt Moselle
-DMR,2,20859,Dépt Nord
-DMR,2,20866,Dépt Pyrénées-Orientales
-DMR,2,20867,Dépt Bas-rhin
+DMR,2,20800,Wires-X-France
+DMR,2,20803,DÃ©pt Allier
+DMR,2,20810,DÃ©pt Aube
+DMR,2,20812,DÃ©pt Aveyron
+DMR,2,20813,DÃ©pt Bouches-du-RhÃ´ne
+DMR,2,20820,DÃ©pt Corse
+DMR,2,20828,DÃ©pt Eure-et-Loir
+DMR,2,20830,DÃ©pt Gard
+DMR,2,20835,DÃ©pt Ille et Vilaine
+DMR,2,20837,DÃ©pt Indre-et-Loire
+DMR,2,20840,DÃ©pt Landes
+DMR,2,20843,DÃ©pt Haute-Loire
+DMR,2,20844,DÃ©pt Loire-Atl
+DMR,2,20845,DÃ©pt Loiret
+DMR,2,20853,DÃ©pt Mayenne
+DMR,2,20857,DÃ©pt Moselle
+DMR,2,20859,DÃ©pt Nord
+DMR,2,20866,DÃ©pt PyrÃ©nÃ©es-Orientales
+DMR,2,20867,DÃ©pt Bas-rhin
 DMR,2,20869,Lyon Rhone-Alpes
-DMR,2,20872,Département Sarthe
-DMR,2,20877,Dépt Seine-et-Marne
-DMR,2,20883,Dépt Var
-DMR,2,20887,Dépt Haute-Vienne
-DMR,2,20895,Dépt Val-d'Oise
+DMR,2,20872,DÃ©partement Sarthe
+DMR,2,20877,DÃ©pt Seine-et-Marne
+DMR,2,20883,DÃ©pt Var
+DMR,2,20887,DÃ©pt Haute-Vienne
+DMR,2,20895,DÃ©pt Val-d'Oise
 DMR,2,21401,Provincial Araba
 DMR,2,21402,Provincial Albacete
 DMR,2,21403,Provincial Alicante
-DMR,2,21404,Provincial Almería
+DMR,2,21404,Provincial AlmerÃ­a
 DMR,2,21405,Provincial Avila
 DMR,2,21406,Provincial Badajoz
 DMR,2,21407,Provincial Illes Balears
 DMR,2,21408,Provincial Barcelona
 DMR,2,21409,Provincial Burgos
-DMR,2,21410,Provincial Cáceres
-DMR,2,21411,Provincial Cádiz
-DMR,2,21412,Provincial Castellón
+DMR,2,21410,Provincial CÃ¡ceres
+DMR,2,21411,Provincial CÃ¡diz
+DMR,2,21412,Provincial CastellÃ³n
 DMR,2,21413,Provincial Ciudad Real
-DMR,2,21414,Provincial Córdoba
-DMR,2,21415,Provincial Coruña
+DMR,2,21414,Provincial CÃ³rdoba
+DMR,2,21415,Provincial CoruÃ±a
 DMR,2,21416,Provincial Cuenca
 DMR,2,21417,Provincial Girona
 DMR,2,21418,Provincial Granada
@@ -591,7 +644,7 @@ DMR,2,21424,Provincial Leon
 DMR,2,21425,Provincial Lleida
 DMR,2,21427,Provincial Lugo
 DMR,2,21428,Provincial Madrid
-DMR,2,21429,Provincial Málaga
+DMR,2,21429,Provincial MÃ¡laga
 DMR,2,21430,Provincial Murcial
 DMR,2,21431,Provincial Navarra
 DMR,2,21432,Provincial Ourense
@@ -616,7 +669,7 @@ DMR,2,21451,Provincial Ceuta
 DMR,2,21452,Pronvical Melilla
 DMR,2,21460,BM-CAT
 DMR,2,21461,Multimode Spain
-DMR,2,21462,Técnico
+DMR,2,21462,TÃ©cnico
 DMR,2,21463,TG de uso libre
 DMR,2,21464,TG de uso libre
 DMR,2,21466,TG de uso libre
@@ -630,7 +683,7 @@ DMR,2,22202,Sardegna
 DMR,2,22203,Umbria
 DMR,2,22211,Liguria
 DMR,2,22212,Piemonte
-DMR,2,22213,Valle d’Aosta
+DMR,2,22213,Valle dâ€™Aosta
 DMR,2,22221,Lombardia
 DMR,2,22231,Friuli Venezia Giulia
 DMR,2,22232,Trentino Alto Adige
@@ -660,10 +713,10 @@ DMR,2,22803,UA 3
 DMR,2,22804,UA 4
 DMR,2,22810,HB9-BM-WIRESX
 DMR,2,22811,Vaud
-DMR,2,22812,Genève
+DMR,2,22812,GenÃ¨ve
 DMR,2,22813,Alpes Vaudoises
 DMR,2,22814,Alpes Valaisannes
-DMR,2,22815,Neuchâtel
+DMR,2,22815,NeuchÃ¢tel
 DMR,2,22817,Fribourg
 DMR,2,22860,Swiss-Italiana
 DMR,2,22877,Poschiavo
@@ -695,6 +748,7 @@ DMR,2,23590,East Midlands
 DMR,2,23812,WiresX CQ-DENMARK
 DMR,2,23824,BornHack
 DMR,2,23888,OZ0FT Link
+DMR,2,24020,Young Ladies SM
 DMR,2,24080,SM XIL
 DMR,2,24098,Robust Packet
 DMR,2,24201,Chatrom 1
@@ -753,6 +807,7 @@ DMR,2,25524,Cherkas`ka obl
 DMR,2,25525,Chernigivs`ka obl
 DMR,2,25526,Chernivets`ka obl
 DMR,2,25527,Sevastopol
+DMR,2,25577,UA Azimuth
 DMR,2,25599,Emergency Zakarpattia
 DMR,2,25701,Belarus / Minsk
 DMR,2,25999,MD Tech Group
@@ -798,7 +853,7 @@ DMR,2,26227,DMR Netzverbund Nord
 DMR,2,26228,Ostholstein-Sued
 DMR,2,26229,Suedholstein
 DMR,2,26231,NI Mitte
-DMR,2,26232,Dreiländereck Mitte Deutschland
+DMR,2,26232,DreilÃ¤ndereck Mitte Deutschland
 DMR,2,26233,TAC 3
 DMR,2,26234,NI-Sued
 DMR,2,26235,NI Suedheide
@@ -829,7 +884,7 @@ DMR,2,26270,Stuttgart
 DMR,2,26271,Baden
 DMR,2,26272,Neckar-Odenwald
 DMR,2,26273,BW-Ostalb
-DMR,2,26274,BW-Böblingen
+DMR,2,26274,BW-BÃ¶blingen
 DMR,2,26275,Schwarzwald-Nord
 DMR,2,26276,Neckar-Alb
 DMR,2,26277,Schwarzwald
@@ -837,16 +892,16 @@ DMR,2,26278,BW Herrenberg
 DMR,2,26279,BW-Mittlerer-Neckar
 DMR,2,26280,Niederbayern
 DMR,2,26282,Schwaben
-DMR,2,26283,Region München
+DMR,2,26283,Region MÃ¼nchen
 DMR,2,26284,Region Franken
 DMR,2,26285,Oberbayern
 DMR,2,26286,Coburg-Rennsteig
-DMR,2,26287,Allgäu-Bodensee
+DMR,2,26287,AllgÃ¤u-Bodensee
 DMR,2,26288,Region Bayern Oberland
 DMR,2,26289,Oberpfalz
 DMR,2,26296,Weimar
 DMR,2,26297,Dresden
-DMR,2,26298,Thüringen
+DMR,2,26298,ThÃ¼ringen
 DMR,2,26299,TAC 2
 DMR,2,26301,Sachsen-Erzgebirge
 DMR,2,26302,Leipzig
@@ -910,9 +965,10 @@ DMR,2,28092,Youth 2
 DMR,2,28096,XLX146
 DMR,2,28097,WiresX Cyprus
 DMR,2,28430,LZ0PLD-R
-DMR,2,28600,YSF DMR
+DMR,2,28600,Multimode Turkey
 DMR,2,28601,Turkey Adana
 DMR,2,28606,Turkey Ankara
+DMR,2,28609,Turkey Aydin
 DMR,2,28614,Turkey Bolu
 DMR,2,28616,Turkey Bursa
 DMR,2,28617,Turkey Canakkale
@@ -945,6 +1001,8 @@ DMR,2,29496,Sport Weapons Hunting
 DMR,2,29497,Traffic NAV Borders
 DMR,2,29498,Multilanguage
 DMR,2,29499,TechZone
+DMR,2,30234,FlexRadio SIG
+DMR,2,30235,SWARC
 DMR,2,30271,Canada BC 1
 DMR,2,30272,Canada BC 2
 DMR,2,31000,Parrot (Group Call)
@@ -1053,6 +1111,7 @@ DMR,2,31198,NWS DVN
 DMR,2,31199,NWS DMX/SEOC
 DMR,2,31200,Ks Sw ARES
 DMR,2,31201,BYRG
+DMR,2,31202,BYRG Spotting
 DMR,2,31203,KansasLink
 DMR,2,31204,Central Kansas
 DMR,2,31205,KC Skywarn
@@ -1164,6 +1223,7 @@ DMR,2,31404,SE OK EM TAC
 DMR,2,31408,Oklahoma WX
 DMR,2,31410,Oregon TAC
 DMR,2,31411,Central Oregon
+DMR,2,31412,Western Oregon
 DMR,2,31419,RepeaterBook
 DMR,2,31420,PEMA EmComm RACES
 DMR,2,31421,PA Tac (Inside State Communications)
@@ -1202,6 +1262,7 @@ DMR,2,31489,Texas TAC
 DMR,2,31490,76ers
 DMR,2,31491,Northern Utah
 DMR,2,31492,Davis Utah
+DMR,2,31493,Northeast Utah
 DMR,2,31499,Utah TAC
 DMR,2,31500,Vermont TAC
 DMR,2,31510,VA TAC
@@ -1237,16 +1298,13 @@ DMR,2,31606,USA - Area 6
 DMR,2,31607,USA - Area 7
 DMR,2,31608,USA - Area 8
 DMR,2,31609,USA - Area 9
-DMR,2,31619,CRTS
 DMR,2,31620,Kings of Digital
 DMR,2,31621,HRCC
 DMR,2,31622,South East FL
 DMR,2,31623,Public Safety Chat
 DMR,2,31629,SwiNe
-DMR,2,31630,STEM
 DMR,2,31631,Chicago Star
 DMR,2,31648,Billy Bob's Amateur Radio Klub
-DMR,2,31650,SDFARC
 DMR,2,31652,RVing Hams
 DMR,2,31653,KC2RC WIRESX
 DMR,2,31654,4SQRP
@@ -1285,7 +1343,6 @@ DMR,2,31699,Greek Americans
 DMR,2,31700,CRRG DMR
 DMR,2,31707,Sonoma County
 DMR,2,31771,PNWR
-DMR,2,31773,Geeks in Jeeps
 DMR,2,31774,Weather Watching
 DMR,2,31775,PINOYHAMS
 DMR,2,31777,DX-LINK SYSTEM
@@ -1307,11 +1364,12 @@ DMR,2,37030,Skynet NO BRIDGING!!!
 DMR,2,37040,DMR DOMINICAN REPUBLIC
 DMR,2,40407,Kerala
 DMR,2,40430,New Delhi
+DMR,2,40480,Bangalore
 DMR,2,42201,Muscat
 DMR,2,44155,shounanYSF
 DMR,2,46001,National Multi mode
-DMR,2,46007,China 7 区
-DMR,2,46600,Taiwan 全
+DMR,2,46007,China 7 åŒº
+DMR,2,46600,Taiwan å…¨
 DMR,2,46609,HAMTalk Club
 DMR,2,46610,Taiwan CTARL
 DMR,2,50210,MY Wires-X YSF Bridge
@@ -1369,12 +1427,12 @@ DMR,2,74808,Flores
 DMR,2,74809,Florida
 DMR,2,74810,Lavalleja
 DMR,2,74811,Maldonado
-DMR,2,74812,Paysandú
+DMR,2,74812,PaysandÃº
 DMR,2,74813,R Negro
 DMR,2,74814,Rivera
 DMR,2,74815,Rocha
 DMR,2,74816,Salto
-DMR,2,74817,San José
+DMR,2,74817,San JosÃ©
 DMR,2,74818,Soriano
 DMR,2,74819,Tacuaremb'
 DMR,2,74820,Treinta y Tres
@@ -1382,7 +1440,7 @@ DMR,2,74830,CX TAC 1
 DMR,2,74840,CX TAC 2
 DMR,2,91665,Marines RNLMC
 DMR,2,95150,Global NorCal 5150
-DMR,2,97911,Red Américas EMCOM
+DMR,2,97911,Red AmÃ©ricas EMCOM
 DMR,2,98001,WWARG
 DMR,2,98002,HamFurs
 DMR,2,98003,Reddit
@@ -1395,14 +1453,11 @@ DMR,2,98009,World Events
 DMR,2,98010,DX Explorers
 DMR,2,98011,FT8DMC
 DMR,2,98012,LBGTQ
+DMR,2,98013,Sked TG Europe
+DMR,2,98014,RV-ers World Wide
 DMR,2,98229,Sicily FREE
 DMR,2,98638,WVNET
 DMR,2,98977,OpenGD77
-DMR,2,202011,DV4 Chat
-DMR,2,202012,DMO Chat
-DMR,2,202020,Hellenic RoIP
-DMR,2,202030,Greek QSO net
-DMR,2,202199,HAREN
 DMR,2,204907,JOTA NL CQ
 DMR,2,204911,EmComm NL
 DMR,2,208003,RPT Fontenay JN18kq
@@ -1551,11 +1606,7 @@ DMR,2,268913,PT DMR<>Fusion
 DMR,2,268914,PT DMR<>CS5LART
 DMR,2,268915,PT Hotspot(2)
 DMR,2,268916,YSF BR
-DMR,2,268940,XRF040 A
-DMR,2,268941,XRF040 B
-DMR,2,268942,XRF789 B
-DMR,2,268945,XLX766 D
-DMR,2,268950,XLX950 E
+DMR,2,268945,YSF Bridge Brazil
 DMR,2,272907,JOTA IRL
 DMR,2,283001,Armenia Global
 DMR,2,284112,EmComm BG
@@ -1570,16 +1621,13 @@ DMR,2,311433,BAYAREA-DMR
 DMR,2,311573,Flower City
 DMR,2,311584,SCPA Chat
 DMR,2,311662,UORRT
-DMR,2,311678,HSCAREN
 DMR,2,311898,Genesee Valley
 DMR,2,311899,Central IL SKYWARN
 DMR,2,311953,VARG
-DMR,2,311995,SW-LA
-DMR,2,312130,IARPN
+DMR,2,311995,SWLA-Link
 DMR,2,312186,SCARC
-DMR,2,312387,Santa Fe Tac
+DMR,2,312556,Calnet
 DMR,2,313444,Elizabeth  Schools
-DMR,2,314215,PADMR Local
 DMR,2,330013,IslaComm DMR Rpts
 DMR,2,330911,Emergencia
 DMR,2,334911,EMCOMM Mexico
@@ -1595,91 +1643,10 @@ DMR,2,724952,YSF 722
 DMR,2,730911,EMCOMM Chile
 DMR,2,732911,HK EMMCOMM
 DMR,2,734911,EMCOMM RNE Venezuela
-DMR,2,2049125,PI2NOS
 DMR,2,2049881,XRF088 A
 DMR,2,2049882,XRF088 B
 DMR,2,2080332,France/DCS033C 16
 DMR,2,2080673,France/XRF067C 17
+DMR,2,2169112,Emergency Hungary
 DMR,2,2709112,LX EMCOMM
 DMR,2,5059742,XRF740 C
-YSF,0,1,PARROT
-,,,
-YSF,0,2,WELCOME
-,,,
-YSF,0,10,ENGLISH
-,,,
-YSF,0,11,WV25302
-,,,
-YSF,0,12,ST-KITTS
-,,,
-YSF,0,13,CDARIN
-,,,
-YSF,0,14,WW-SPANISH
-,,,
-YSF,0,15,COSTA-RICA
-,,,
-YSF,0,16,TIHAS-ROOM
-,,,
-YSF,0,17,BELGIUM-FR
-,,,
-YSF,0,19,CQ-CANADA
-,,,
-YSF,0,20,AMERICA
-,,,
-YSF,0,21,HAITI
-,,,
-YSF,0,22,TEXASNEXUS
-,,,
-YSF,0,23,QUAHOGRPTR
-,,,
-YSF,0,24,NEWENGLAND
-,,,
-YSF,0,25,CANADA
-,,,
-YSF,0,26,QUEBEC
-,,,
-YSF,0,27,DX-LINK2
-,,,
-YSF,0,28,USA-DX
-,,,
-YSF,0,29,JEEP-TALK
-,,,
-YSF,0,30,PMSA
-,,,
-YSF,0,31,ELSALVADOR
-,,,
-YSF,0,32,GERMAN
-,,,
-YSF,0,33,IRN-KC1MUV
-,,,
-YSF,0,34,MEXICO
-,,,
-YSF,0,39,COLOMBIA
-,,,
-YSF,0,44,CHIRIQUI
-,,,
-YSF,0,60,AUSTRALIA
-,,,
-YSF,0,61,NEWZEALAND
-,,,
-YSF,0,70,WW-DUTCH
-,,,
-YSF,0,71,VLAAMS-BE
-,,,
-YSF,0,72,BRASIL
-,,,
-YSF,0,73,AUTXUSA
-,,,
-YSF,0,74,CQ-OLEBOYZ
-,,,
-YSF,0,75,DX-LINK-1
-,,,
-YSF,0,80,INDIA
-,,,
-YSF,0,86,ARGENTINA
-,,,
-YSF,0,88,PHILIPPINE
-,,,
-YSF,0,98,URUGUAY
-,,,
-YSF,0,99,TEST
