@@ -2117,8 +2117,8 @@ cat > /opt/DMRIDUpdate.sh <<- "EOF"
 DMRIDPATH=/opt
 DMRIDFILE=${DMRIDPATH}/DMRIds.dat
 # DMR IDs now served by RadioID.net
-#DATABASEURL='https://ham-digital.org/status/users.csv'
-DATABASEURL='https://www.radioid.net/static/user.csv'
+DATABASEURL='https://ham-digital.org/status/users.csv'
+#DATABASEURL='https://www.radioid.net/static/user.csv'
 #
 # How many DMR ID files do you want backed up (0 = do not keep backups)
 DMRFILEBACKUP=1
