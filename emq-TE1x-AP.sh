@@ -2328,8 +2328,10 @@ sudo sed -i 's/ANNOUNCEMENT_LANGUAGE: en_GB/ANNOUNCEMENT_LANGUAGE: es_ES/' /opt/
 sudo sed -i 's/VOICE_IDENT: True/VOICE_IDENT: False/' /opt/FreeDMR/config/FreeDMR.cfg
 
 rm /opt/FreeDMR/conf.txt
+cd /opt/FreeDMR/
 mv loro.cfg /opt/FreeDMR/playback.cfg
 sudo sed -i 's/54915/49061/' /opt/FreeDMR/playback.cfg
+
 #
 sudo cat > /lib/systemd/system/proxy.service <<- "EOF"
 [Unit]
