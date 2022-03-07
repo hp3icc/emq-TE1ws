@@ -2321,7 +2321,6 @@ cp /opt/FreeDMR/FreeDMR-SAMPLE.cfg /opt/
 cd /opt/
 cat FreeDMR-SAMPLE.cfg conf.txt obp.txt >> /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' /opt/FreeDMR/config/FreeDMR.cfg
-sudo sed -i 's/REPORT_PORT: 4321/REPORT_PORT: 50321/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/file-timed/console-timed/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/INFO/DEBUG/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/freedmr.log/\/var\/log\/FreeDMR\/FreeDMR.log/' /opt/FreeDMR/config/FreeDMR.cfg
