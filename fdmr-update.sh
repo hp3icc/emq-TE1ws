@@ -9,6 +9,32 @@ chmod +x /opt/FreeDMR/install.sh
 ./install.sh
 sudo cat > /opt/conf.txt <<- "EOF"
  
+[LINKS]
+MODE: MASTER
+ENABLED: True
+REPEAT: True
+MAX_PEERS: 1
+EXPORT_AMBE: False
+IP:
+PORT: 54101
+PASSPHRASE:
+GROUP_HANGTIME: 5
+USE_ACL: True
+REG_ACL: DENY:1
+SUB_ACL: DENY:1
+TGID_TS1_ACL: PERMIT:ALL
+TGID_TS2_ACL: PERMIT:ALL
+DEFAULT_UA_TIMER: 60
+SINGLE_MODE: True
+VOICE_IDENT: False
+TS1_STATIC:
+TS2_STATIC:
+DEFAULT_REFLECTOR: 0
+ANNOUNCEMENT_LANGUAGE: es_ES
+GENERATOR: 10
+ALLOW_UNREG_ID: True
+PROXY_CONTROL: False
+
 [EchoTest]
 MODE: PEER
 ENABLED: True
@@ -57,10 +83,8 @@ cp /opt/FreeDMR/FreeDMR-SAMPLE.cfg /opt/
 cd /opt/
 cat FreeDMR-SAMPLE.cfg conf.txt obp.txt >> /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' /opt/FreeDMR/config/FreeDMR.cfg
-sudo sed -i 's/100/111/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/file-timed/console-timed/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/INFO/DEBUG/' /opt/FreeDMR/config/FreeDMR.cfg
-sudo sed -i 's/ALLOW_UNREG_ID: False/ALLOW_UNREG_ID: True/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/freedmr.log/\/var\/log\/FreeDMR\/FreeDMR.log/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/ANNOUNCEMENT_LANGUAGE: en_GB/ANNOUNCEMENT_LANGUAGE: es_ES/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/VOICE_IDENT: True/VOICE_IDENT: False/' /opt/FreeDMR/config/FreeDMR.cfg
