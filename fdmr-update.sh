@@ -17,7 +17,7 @@ MAX_PEERS: 1
 EXPORT_AMBE: False
 IP:
 PORT: 54101
-PASSPHRASE:
+PASSPHRASE: passw@rd
 GROUP_HANGTIME: 5
 USE_ACL: True
 REG_ACL: DENY:1
@@ -79,16 +79,22 @@ VOICE_IDENT: False
 
 EOF
 ##
+sudo sed -i 's/ALLOW_NULL_PASSPHRASE: True/ALLOW_NULL_PASSPHRASE: False/' /opt/FreeDMR/FreeDMR-SAMPLE.cfg
+sudo sed -i 's/PASSPHRASE:/PASSPHRASE: passw0rd/' /opt/FreeDMR/FreeDMR-SAMPLE.cfg
+sudo sed -i 's/ALLOW_NULL_PASSPHRASE: passw0rd False/ALLOW_NULL_PASSPHRASE: False/' /opt/FreeDMR/FreeDMR-SAMPLE.cfg
+
 cp /opt/FreeDMR/FreeDMR-SAMPLE.cfg /opt/
 cd /opt/
 cat FreeDMR-SAMPLE.cfg conf.txt obp.txt >> /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' /opt/FreeDMR/config/FreeDMR.cfg
+sudo sed -i 's/REPORT_PORT: 4321/REPORT_PORT: 50321/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/file-timed/console-timed/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/INFO/DEBUG/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/freedmr.log/\/var\/log\/FreeDMR\/FreeDMR.log/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/ANNOUNCEMENT_LANGUAGE: en_GB/ANNOUNCEMENT_LANGUAGE: es_ES/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/VOICE_IDENT: True/VOICE_IDENT: False/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i "s/SERVER_ID: 0000/SERVER_ID: $variable/g"  /opt/FreeDMR/config/FreeDMR.cfg
+
 rm /opt/conf.txt
 #rm /opt/obp.txt
 cd /opt/FreeDMR/
