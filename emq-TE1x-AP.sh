@@ -1,5 +1,5 @@
 #!/bin/sh
-emq=15
+emq=16
 echo Actualizando sistema 
 apt-get update -y
 apt-get upgrade -y
@@ -2242,8 +2242,34 @@ git clone https://gitlab.hacknix.net/hacknix/FreeDMR.git
 cd FreeDMR
 mkdir config
 sudo chmod +x /opt/FreeDMR/*.py
-sudo cat > /opt/FreeDMR/conf.txt <<- "EOF"
+sudo cat > /opt/conf.txt <<- "EOF"
  
+[LINKS]
+MODE: MASTER
+ENABLED: True
+REPEAT: True
+MAX_PEERS: 1
+EXPORT_AMBE: False
+IP:
+PORT: 54101
+PASSPHRASE: passw@rd
+GROUP_HANGTIME: 5
+USE_ACL: True
+REG_ACL: DENY:1
+SUB_ACL: DENY:1
+TGID_TS1_ACL: PERMIT:ALL
+TGID_TS2_ACL: PERMIT:ALL
+DEFAULT_UA_TIMER: 60
+SINGLE_MODE: True
+VOICE_IDENT: False
+TS1_STATIC:
+TS2_STATIC:
+DEFAULT_REFLECTOR: 0
+ANNOUNCEMENT_LANGUAGE: es_ES
+GENERATOR: 10
+ALLOW_UNREG_ID: True
+PROXY_CONTROL: False
+
 [EchoTest]
 MODE: PEER
 ENABLED: True
@@ -2285,18 +2311,23 @@ GENERATOR: 0
 DEFAULT_UA_TIMER: 999
 SINGLE_MODE: True
 VOICE_IDENT: False
-
 EOF
-#
-cat FreeDMR-SAMPLE.cfg conf.txt >> /opt/FreeDMR/config/FreeDMR.cfg
+##
+sudo sed -i 's/ALLOW_NULL_PASSPHRASE: True/ALLOW_NULL_PASSPHRASE: False/' /opt/FreeDMR/FreeDMR-SAMPLE.cfg
+sudo sed -i 's/PASSPHRASE:/PASSPHRASE: passw0rd/' /opt/FreeDMR/FreeDMR-SAMPLE.cfg
+sudo sed -i 's/ALLOW_NULL_PASSPHRASE: passw0rd False/ALLOW_NULL_PASSPHRASE: False/' /opt/FreeDMR/FreeDMR-SAMPLE.cfg
+
+cp /opt/FreeDMR/FreeDMR-SAMPLE.cfg /opt/
+cd /opt/
+cat FreeDMR-SAMPLE.cfg conf.txt obp.txt >> /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' /opt/FreeDMR/config/FreeDMR.cfg
-sudo sed -i 's/100/111/' /opt/FreeDMR/config/FreeDMR.cfg
-sudo sed -i 's/ALLOW_UNREG_ID: False/ALLOW_UNREG_ID: True/' /opt/FreeDMR/config/FreeDMR.cfg
+sudo sed -i 's/REPORT_PORT: 4321/REPORT_PORT: 50321/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/file-timed/console-timed/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/INFO/DEBUG/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/freedmr.log/\/var\/log\/FreeDMR\/FreeDMR.log/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/ANNOUNCEMENT_LANGUAGE: en_GB/ANNOUNCEMENT_LANGUAGE: es_ES/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/VOICE_IDENT: True/VOICE_IDENT: False/' /opt/FreeDMR/config/FreeDMR.cfg
+
 rm /opt/FreeDMR/conf.txt
 mv loro.cfg /opt/FreeDMR/playback.cfg
 sudo sed -i 's/54915/49061/' /opt/FreeDMR/playback.cfg
