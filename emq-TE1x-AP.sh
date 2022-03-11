@@ -2413,7 +2413,8 @@ sudo cat > /opt/HBMonv2/updateTGIDS.sh <<- "EOF"
 
 cd /opt/HBMonv2
 FILE_NAME="talkgroup_ids.json"
-FETCH_URL="http://downloads.freedmr.uk/downloads/talkgroup_ids.json"
+#FETCH_URL="http://downloads.freedmr.uk/downloads/talkgroup_ids.json"
+FETCH_URL="https://freedmr.cymru/talkgroups/talkgroup_ids_json.php"
 
 OLD_MD5=`md5sum ${FILE_NAME}`
 wget -O ${FILE_NAME} ${FETCH_URL}
