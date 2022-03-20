@@ -2520,7 +2520,7 @@ EOF
 
 sudo cat > /lib/systemd/system/hbmon2.service <<- "EOF"
 [Unit]
-Description=HBMonitor
+Description=HBMonitor2
 # To make the network-online.target available
 # systemctl enable systemd-networkd-wait-online.service
 
@@ -2528,12 +2528,14 @@ After=network-online.target syslog.target
 Wants=network-online.target
 
 [Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=3
 StandardOutput=null
 WorkingDirectory=/opt/HBMonv2
-RestartSec=3
-ExecStartPre=/bin/sleep 45
 ExecStart=/usr/bin/python3 /opt/HBMonv2/monitor.py
-Restart=on-abort
+
 
 [Install]
 WantedBy=multi-user.target
