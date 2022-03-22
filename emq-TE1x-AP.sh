@@ -2013,11 +2013,13 @@ git clone https://github.com/hp3icc/D-APRS.git
 sudo cat > /bin/menu-igate <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "FreeDMR D-APRS KF7EEL / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 16 72 5 \
+choix=$(whiptail --title "D-APRS KF7EEL / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 16 65 7 \
 1 " Editar igate" \
 2 " Iniciar Igate " \
 3 " Detener Igate " \
-4 " Salir del menu " 3>&1 1>&2 2>&3)
+4 " Dashboard on " \
+5 " Dashboard off " \
+6 " Salir del menu " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -2035,6 +2037,10 @@ sudo systemctl stop daprs.service && sudo systemctl start daprs.service && sudo 
 3)
 sudo systemctl stop daprs.service && sudo systemctl disable daprs.service ;;
 4)
+sudo systemctl stop daprs-board.service && systemctl start daprs-board.service && sudo systemctl enable daprs-board.service ;;
+5)
+sudo systemctl stop daprs-board.service && sudo systemctl disable daprs-board.service ;;
+6)
 break;
 esac
 done
@@ -2056,8 +2062,21 @@ Restart=on-abort
 WantedBy=multi-user.target
 EOF
 #
-
-###############################
+sudo cat > /lib/systemd/system/daprs-board.service <<- "EOF"
+[Unit]
+Description=Dashboard D-APRS
+After=network-online.target syslog.target
+Wants=network-online.target
+[Service]
+StandardOutput=null
+WorkingDirectory=/opt/D-APRS/dashboard
+RestartSec=3
+ExecStart=/usr/bin/python3 /opt/D-APRS/dashboard/dashboard.py -c /opt/D-APRS/gps_data.cfg
+Restart=on-abort
+[Install]
+WantedBy=multi-user.target
+EOF
+################################
 
 ### Instalar el  web monitor de HBLink.
 git clone https://github.com/sp2ong/HBmonitor.git
@@ -2892,8 +2911,10 @@ sudo chmod +x /opt/HBmonitor/monitor.py
 sudo chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
 sudo chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
 sudo chmod +x /opt/D-APRS/*.py
+sudo chmod +x /opt/D-APRS/dashboard/*.py
 sudo chmod +x /usr/local/bin/rebooter1.sh
 
+sudo chmod 755 /lib/systemd/system/daprs-board.service
 sudo chmod 755 /lib/systemd/system/rebooter1.service
 sudo chmod 755 /lib/systemd/system/gotty.service
 sudo chmod 755 /usr/local/bin/rebooter1.sh
