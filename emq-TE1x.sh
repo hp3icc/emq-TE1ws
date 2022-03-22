@@ -2008,6 +2008,7 @@ choix=$(whiptail --title "D-APRS KF7EEL / Raspbian Proyect HP3ICC Esteban Mackay
 4 " Dashboard on " \
 5 " Dashboard off " \
 6 " Salir del menu " 3>&1 1>&2 2>&3)
+
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
