@@ -2020,6 +2020,7 @@ choix=$(whiptail --title "D-APRS KF7EEL / Raspbian Proyect HP3ICC Esteban Mackay
 4 " Dashboard on " \
 5 " Dashboard off " \
 6 " Salir del menu " 3>&1 1>&2 2>&3)
+
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -2052,14 +2053,17 @@ sudo cat > /lib/systemd/system/daprs.service <<- "EOF"
 Description=Data bridge APRS
 After=network-online.target syslog.target
 Wants=network-online.target
+
 [Service]
 StandardOutput=null
 WorkingDirectory=/opt/D-APRS
 RestartSec=3
 ExecStart=/usr/bin/python3 /opt/D-APRS/gps_data.py
 Restart=on-abort
+
 [Install]
 WantedBy=multi-user.target
+
 EOF
 #
 sudo cat > /lib/systemd/system/daprs-board.service <<- "EOF"
@@ -2067,14 +2071,17 @@ sudo cat > /lib/systemd/system/daprs-board.service <<- "EOF"
 Description=Dashboard D-APRS
 After=network-online.target syslog.target
 Wants=network-online.target
+
 [Service]
 StandardOutput=null
 WorkingDirectory=/opt/D-APRS/dashboard
 RestartSec=3
 ExecStart=/usr/bin/python3 /opt/D-APRS/dashboard/dashboard.py -c /opt/D-APRS/gps_data.cfg
 Restart=on-abort
+
 [Install]
 WantedBy=multi-user.target
+
 EOF
 ################################
 
