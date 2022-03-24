@@ -9,7 +9,7 @@ Continuamente todo el contenido publicado aqui, es actualizado , si esta observa
 
 https://github.com/hp3icc/emq-TE1ws
 
-* Ultima revision: emq-TE1ws-Rev15 30/1/2022 
+* Ultima revision: emq-TE1ws-Rev16 24/3/2022 
 
   Raspberry OS Lite Basado en la versión 11 de Debian (bullseye) 28-1-2022
   
@@ -35,6 +35,8 @@ Muntimon-NG
 Ionosphere
 
 MMDVMHost
+
+DMRGateway
 
 pYSFReflector 
 
@@ -210,7 +212,7 @@ Esteban Mackay Q.
  
  https://github.com/hp3icc/emq-TE1ws
  
- * Last revision: emq-TE1ws-Rev15 1/30/2022 
+ * Last revision: emq-TE1ws-Rev16 3/24/2022 
 
    Raspberry OS Lite Based on Debian version 11 (bullseye) 2022-01-28
    
@@ -237,6 +239,8 @@ Muntimon-NG
 Ionosphere
 
 MMDVMHost
+
+DMRGateway
 
 pYSFReflector 
 
