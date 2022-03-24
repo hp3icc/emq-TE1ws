@@ -1547,7 +1547,7 @@ Enable=1
 #########################################################
 Type=Gateway
 LocalAddress=127.0.0.1
-LocalPort=62032
+LocalPort=62034
 RemoteAddress=127.0.0.1
 RemotePort=62033
 #
@@ -1705,7 +1705,7 @@ Timeout=10
 # RFTimeout=10
 # NetTimeout=7
 RptAddress=127.0.0.1
-RptPort=62032
+RptPort=62034
 LocalAddress=127.0.0.1
 LocalPort=62033
 RuleTrace=0
