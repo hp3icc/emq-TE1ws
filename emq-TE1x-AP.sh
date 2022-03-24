@@ -116,6 +116,7 @@ mkdir /var/www/html
 mkdir /var/log/ysf2dmr
 mkdir /var/log/mmdvm
 mkdir /var/log/mmdvmh
+mkdir /var/log/DMRGateway
 mkdir /var/log/FreeDMR
 mkdir /var/log/hblink
 mkdir /var/log/YSFReflector
@@ -503,6 +504,12 @@ useradd mmdvm -g mmdvm -s /sbin/nologin
 chown mmdvm /var/log/
 
 #############################################################################################################################################################
+cd /opt/	
+git clone https://github.com/g4klx/DMRGateway.git
+cd DMRGateway
+sudo make clean
+sudo make
+sudo make install
 ######
 cat > /bin/menu-mm-rtl <<- "EOF"
 #!/bin/bash
@@ -747,20 +754,21 @@ EOF
 cat > /bin/menu-mmdvm <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu MMDVMHost" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion." 22 50 13 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu MMDVMHost" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion." 23 50 14 \
 1 " Editar MMDVMHost " \
-2 " Iniciar MMDVMHost " \
-3 " Detener MMDVMHost " \
-4 " Dashboard ON " \
-5 " Dashboard Off " \
-6 " Editar Puerto http " \
-7 " Editar HTML  " \
-8 " Editar Dashboard  " \
-9 " Dashboard Rooms: BM, europelink  " \
-10 " Dashboard Rooms: BM, worldlink " \
-11 " Dashboard Rooms: FreeDMR, europelink " \
-12 " Dashboard Rooms: FreeDMR, worldlink " \
-13 " Menu Principal " 3>&1 1>&2 2>&3)
+2 " Editar DMRGateway " \
+3 " Iniciar MMDVMHost & DMRGateway " \
+4 " Detener MMDVMHost & DMRGateway " \
+5 " Dashboard ON " \
+6 " Dashboard Off " \
+7 " Editar Puerto http " \
+8 " Editar HTML  " \
+9 " Editar Dashboard  " \
+10 " Dashboard Rooms: BM, europelink  " \
+11 " Dashboard Rooms: BM, worldlink " \
+12 " Dashboard Rooms: FreeDMR, europelink " \
+13 " Dashboard Rooms: FreeDMR, worldlink " \
+14 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -774,32 +782,35 @@ case $choix in
 1)
 sudo nano /opt/MMDVMHost/MMDVM.ini;;
 2)
-sudo sh /opt/MMDVMHost/DMRIDUpdate.sh && sudo systemctl enable dmrid-mmdvm.service && sudo systemctl enable mmdvmh.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/MMDVMHost/DMRIDUpdate.sh' add ;;
+sudo nano /opt/DMRGateway/DMRGateway.ini;;
 3)
-sudo systemctl stop mmdvmh.service && sudo systemctl stop dmrid-mmdvm.service && sudo systemctl disable dmrid-mmdvm.service && sudo systemctl disable mmdvmh.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/MMDVMHost/DMRIDUpdate.sh' remove && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
+sudo sh /opt/MMDVMHost/DMRIDUpdate.sh && sudo systemctl enable dmrid-mmdvm.service && sudo systemctl enable dmrgw.service && sudo systemctl enable mmdvmh.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/MMDVMHost/DMRIDUpdate.sh' add ;;
 4)
-sudo systemctl restart logtailer-mmdvmh.service && sudo systemctl enable logtailer-mmdvmh.service && sudo systemctl restart http.server-mmdvmh.service && sudo systemctl enable http.server-mmdvmh.service ;;
+sudo systemctl stop mmdvmh.service && sudo systemctl stop dmrid-mmdvm.service && sudo systemctl stop dmrgw.service && sudo systemctl disable dmrgw.service && sudo systemctl disable dmrid-mmdvm.service && sudo systemctl disable mmdvmh.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/MMDVMHost/DMRIDUpdate.sh' remove && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
 5)
-sudo systemctl stop logtailer-mmdvmh.service && sudo systemctl disable logtailer-mmdvmh.service && sudo systemctl stop http.server-mmdvmh.service && sudo systemctl disable http.server-mmdvmh.service ;;
+sudo systemctl restart logtailer-mmdvmh.service && sudo systemctl enable logtailer-mmdvmh.service && sudo systemctl restart http.server-mmdvmh.service && sudo systemctl enable http.server-mmdvmh.service ;;
 6)
-sudo nano /lib/systemd/system/http.server-mmdvmh.service && sudo systemctl daemon-reload ;;
+sudo systemctl stop logtailer-mmdvmh.service && sudo systemctl disable logtailer-mmdvmh.service && sudo systemctl stop http.server-mmdvmh.service && sudo systemctl disable http.server-mmdvmh.service ;;
 7)
-sudo nano /opt/MMDVMHost-Websocketboard/html/index.html ;;
+sudo nano /lib/systemd/system/http.server-mmdvmh.service && sudo systemctl daemon-reload ;;
 8)
-sudo nano /opt/MMDVMHost-Websocketboard/html/js/config.js ;;
+sudo nano /opt/MMDVMHost-Websocketboard/html/index.html ;;
 9)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv ;;
+sudo nano /opt/MMDVMHost-Websocketboard/html/js/config.js ;;
 10)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo mv TG_List-WL.csv TG_List.csv;;
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv ;;
 11)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv  && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv && sudo mv FDMR-EURO.csv TG_List.csv;;
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo mv TG_List-WL.csv TG_List.csv;;
 12)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo mv FDMR-WORLD.csv TG_List.csv;;
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv  && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv && sudo mv FDMR-EURO.csv TG_List.csv;;
 13)
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo mv FDMR-WORLD.csv TG_List.csv;;
+14)
 break;
 esac
 done
 exit 0
+
 
 EOF
 ########menu-ysf
@@ -1183,6 +1194,29 @@ WantedBy=multi-user.target
 
 EOF
 ################
+#
+cat > /lib/systemd/system/dmrgw.service  <<- "EOF"
+[Unit]
+Description=DMRGateway Service
+After=syslog.target network.target
+ 
+[Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+WorkingDirectory=/opt/DMRGateway
+#ExecStartPre=/bin/sleep 10
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=/usr/local/bin/DMRGateway /opt/DMRGateway/DMRGateway.ini
+ExecStop=/usr/bin/screen -S DMRGateway -X quit
+ 
+[Install]
+WantedBy=multi-user.target
+ 
+EOF
+#####
 cat > /lib/systemd/system/direwolf.service  <<- "EOF"
 [Unit]
 Description=DireWolf is a software "soundcard" modem/TNC and APRS decoder
@@ -1659,7 +1693,141 @@ Port=7642
 
 
 EOF
-########
+###
+#####
+cat > /opt/DMRGateway/DMRGateway.ini  <<- "EOF"
+[General]
+Timeout=10
+# RFTimeout=10
+# NetTimeout=7
+RptAddress=127.0.0.1
+RptPort=62032
+LocalAddress=127.0.0.1
+LocalPort=62033
+RuleTrace=0
+Daemon=0
+Debug=0
+[Log]
+# Logging levels, 0=No logging
+DisplayLevel=1
+FileLevel=1
+FilePath=.
+FileRoot=DMRGateway
+FileRotate=1
+[Voice]
+Enabled=1
+Language=es_ES
+Directory=./Audio
+[Info]
+Latitude=0.0
+Longitude=0.0
+Height=0
+Location=DMR Gateway
+Description=Multi-Mode DMRGateway
+URL=https://github.com/hp3icc/emq-TE1ws
+[XLX Network]
+Id=000000000
+Enabled=1
+File=/opt/DMRGateway/XLXHosts.txt
+Port=62030
+Password=passw0rd
+ReloadTime=60
+# Local=3351
+Slot=2
+TG=6
+Base=64000
+Startup=051
+Relink=10
+Debug=0
+#Allow user linking control using Private Calls
+UserControl=1
+#Override default module for startup reflector
+#Module=P
+# BrandMeister
+[DMR Network 1]
+#Id=000000000
+Enabled=1
+Name=BrandMeister
+Address=3021.master.brandmeister.network
+Port=62031
+TGRewrite0=2,1000001,2,1,999999
+PCRewrite=2,1000001,2,1,999999
+PassAllPC=1
+PassAllPC=2
+Password=passw0rd
+Location=1
+Debug=0
+# FreeDMR
+[DMR Network 2]
+#Id=000000000
+Enabled=1
+Name=FreeDMR
+TGRewrite0=2,2000001,2,1,999999
+PCRewrite=2,2000001,2,1,999999
+#TGRewrite0=1,1,2,1,9999998
+#SrcRewrite0=2,1,1,1,9999998
+Address=198.211.36.245
+Password=passw0rd
+Port=62031
+Location=0
+Debug=0
+# TGIF Network
+[DMR Network 3]
+#Id=000000000
+Enabled=1
+Name=TGIF_Network
+TGRewrite0=2,3000001,2,1,999999
+PCRewrite=2,3000001,2,1,999999
+Address=tgif.network
+Password=passw0rd
+Port=62031
+Location=0
+Debug=0
+# DMR Central
+[DMR Network 4]
+#Id=000000000
+Enabled=1
+Name=DMR Central
+Address=dmr.pa7lim.nl
+Port=55555
+TGRewrite0=2,4000001,2,1,999999
+PCRewrite=2,4000001,2,1,999999
+Options="TS2=71442;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;"
+Password=passw0rd
+Location=0
+Debug=0
+# FreeStar Network
+[DMR Network 5]
+#Id=000000000
+Enabled=0
+Name=FreeStar
+Address=dmr.freestar.network
+Port=62031
+TGRewrite0=2,5000001,2,1,999999
+PCRewrite=2,5000001,2,1,999999
+Password=passw0rd
+Location=0
+Debug=0
+[GPSD]
+Enable=0
+Address=127.0.0.1
+Port=2947
+[APRS]
+Enable=0
+Address=127.0.0.1
+Port=8673
+Description=APRS Description
+Suffix=3
+[Dynamic TG Control]
+Enabled=1
+Port=3769
+[Remote Control]
+Enable=0
+Address=127.0.0.1
+Port=7643
+EOF
+#####
+#####
 cat > /opt/YSF2DMR/YSF2DMR.ini  <<- "EOF"
 [Info]
 RXFrequency=438800000
@@ -2947,6 +3115,7 @@ sudo chmod 755 /lib/systemd/system/http.server-mmdvmh.service
 sudo chmod 755 /lib/systemd/system/logtailer-mmdvmh.service
 sudo chmod 755 /lib/systemd/system/http.server-ysf.service
 sudo chmod 755 /lib/systemd/system/logtailer-ysf.service
+sudo chmod 755 /lib/systemd/system/dmrgw.service
 sudo systemctl daemon-reload
 
 sudo systemctl enable monp.service
