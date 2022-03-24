@@ -1547,22 +1547,38 @@ Debug=0
 
 [DMR Network]
 Enable=1
-# Type may be either 'Direct' or 'Gateway'. When Direct you must provide the Master's
-# address as well as the Password, and for DMR+, Options also.
-Type=Direct
-#LocalAddress=127.0.0.1
-#LocalPort=62032
-#RemoteAddress=3021.master.brandmeister.network
-RemoteAddress=freedmr-hp.ddns.net
-RemotePort=62031
-Password=passw0rd
+# habilitar , o deshabilitar todas las lineas de 'Direct' o 'Gateway'
+# quitando los simbolos # segun su tipo de conexion.
+#
+# Configuracion Gateway , habilita DMRGateway, conexion multiples server dmr.
+# configuracion Direct , habilita conexion directa a un solo server dmr.
+#
+#########################################################
+#       Gateway   -    Multiples Server - DMRGateway    #
+#########################################################
+Type=Gateway
+LocalAddress=127.0.0.1
+LocalPort=62034
+RemoteAddress=127.0.0.1
+RemotePort=62033
+#
+#########################################################
+#       Direct    -     single server                   #
+#########################################################
+#Type=Direct
+#RemoteAddress=freedmr-hp.ddns.net
+#RemotePort=62031
+#Password=passw0rd
+#
+#########################################################
 Jitter=500
 Slot1=1
 Slot2=1
 # No active linea de Option para TG estaticos, si utiliza BM
-#Options=TS2=7144,7000;DIAL=0;VOICE=0;TIMER=1;    
+#Options=TS2=7144;DIAL=0;VOICE=0;TIMER=10;
 # ModeHang=3
 Debug=0
+
 
 [System Fusion Network]
 Enable=1
@@ -1701,7 +1717,7 @@ Timeout=10
 # RFTimeout=10
 # NetTimeout=7
 RptAddress=127.0.0.1
-RptPort=62032
+RptPort=62034
 LocalAddress=127.0.0.1
 LocalPort=62033
 RuleTrace=0
