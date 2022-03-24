@@ -1747,7 +1747,7 @@ URL=https://github.com/hp3icc/emq-TE1ws
 
 [XLX Network]
 Id=000000000
-Enabled=1
+Enabled=0
 File=/opt/DMRGateway/XLXHosts.txt
 Port=62030
 Password=passw0rd
