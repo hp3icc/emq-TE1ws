@@ -98,12 +98,12 @@ si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  
  
  Imagen para raspberry, proyecto emq-TE1 con accespoint WiFi, recomendado para Raspberry Zero W, Zero2 W, B3, B3+, PI4
  
-* https://mega.nz/file/cF8GSaoY#tEpkklOpP_a2WK7I8PhBt7-ImCmrOFUobZzNIA8uhUo
+* https://drive.google.com/file/d/1nODstE6V3IwBdp-2dtcZI6RqXOBFSIIX/view?usp=sharing
 
 
 Imagen para raspberry, proyecto emq-TE1 sin accespoint WiFi - recomendado para Raspberry Zero, Zero-W, Zero2, Zero2 W  B2, B3, B3+, PI4
 
-* https://mega.nz/file/IRlWVIxb#ZTiIE4CmMnep37N-YhjW3eCTIINKuKrzMgayPXViWtc
+* https://drive.google.com/file/d/1mW8wHMWojMSevPv1ihd_ANcB9LJYOPea/view?usp=sharing
 
 #
 
@@ -333,12 +333,12 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
   Image for raspberry, emq-TE1 project with WiFi accespoint, recommended for Raspberry Zero W, Zero2 W, B3, B3+, PI4
 
- * https://mega.nz/file/cF8GSaoY#tEpkklOpP_a2WK7I8PhBt7-ImCmrOFUobZzNIA8uhUo
+ * https://drive.google.com/file/d/1nODstE6V3IwBdp-2dtcZI6RqXOBFSIIX/view?usp=sharing
 
 
  Image for raspberry, emq-TE1 project without WiFi access point - recommended for Raspberry Zero, Zero W, Zero2, Zero2 W, Zero-2,  B2, B3, B3+, PI4
 
- * https://mega.nz/file/IRlWVIxb#ZTiIE4CmMnep37N-YhjW3eCTIINKuKrzMgayPXViWtc
+ * https://drive.google.com/file/d/1mW8wHMWojMSevPv1ihd_ANcB9LJYOPea/view?usp=sharing
 
  #
 
