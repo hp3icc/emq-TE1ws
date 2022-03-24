@@ -214,8 +214,11 @@ Cada tg que utilicemos en nuestros radios deve estar cumplir con 6 digitos y est
 Ejemplo de configuracion tg en sus radios para diferentes redes:
 
 TG        Red             Nombre TG         DMRGateway
+
 714       FreeDMR         Panama            2000714
+
 7144      FreeDMR         CHIRIQUI LINK     2007144
+
 2147      DMR Central     Regional-EA7      4002147
 
 Cada tg almacenado en nuestros radios debe completar 6 digitos y estar precesido por el numero de servidor dmr a utilizar , cuando se reciban transmiciones de internet a nuestro hotspot , se recibiran de la misma forma, 6 digitos mas el numero de red que estamos recibiendo .
