@@ -428,7 +428,39 @@ If your computer has a wireless network device (WIFI) or is a Raspberry Zero W m
 
  #
 
+# DMRGateway
 
+DMRGateway allows to have our hotspot , dmo , or dmr repeater; connected to more than one network in the dmr mode, for this it is necessary to select the Gateway connection in the mmdvmhost configuration, and in the radios the tg numbers must be reconfigured according to the network to be used.
+
+DMRGateway is configured to support tg numbers up to 6 digits, if the tg number to use has less than 6 digits, you must fill in zeros up to 6 digits.
+
+Each DMR server connected to DMRGateway has a number from 1 to 5, which identifies it and differentiates it according to the network to be used, and they are distributed as follows:
+
+1 Fire Chief
+
+2 FreeDMR
+
+3 TGif Network
+
+4 Central DMR
+
+5 Freestar
+
+Each tg that we use in our radios must comply with 6 digits and be accompanied by the server number through which our transmission must be sent.
+
+Example of tg configuration in your radios for different networks:
+
+TG Network TG Name DMRGateway
+
+714 FreeDMR Panama 2000714
+
+7144 FreeDMR CHIRIQUI LINK 2007144
+
+2147 DMR Central Regional-EA7 4002147
+
+Each tg stored in our radios must complete 6 digits and be preceded by the number of the dmr server to use, when internet transmissions are received to our hotspot, they will be received in the same way, 6 digits plus the network number that we are receiving. 
+
+#
 
  Successes in your projects with raspberry 
 
