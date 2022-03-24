@@ -187,7 +187,38 @@ http://jorisvr.nl/wpapsk.html
 
 * Nota:
 
-  si su equipo es un vps , servidor fijo , mini pc o solo utiliza las mismas conecciones de internet , se recomienda la version de emq-TE1 sin WiFi-AP .
+  si su equipo es un vps , servidor fijo , mini pc o solo utiliza las mismas conexiones de internet , se recomienda la version de emq-TE1 sin WiFi-AP .
+
+#
+
+# DMRGateway
+
+DMRGateway permite tener nuestro hotspot , dmo , o repetidor dmr; conectado a mas de una red de la modalidad dmr, para esto es necesario seleccionar conexion Gateway en la configuracion del mmdvmhost , y en los radios se debe reconfigurar los numeros de tg segun la red a utilizar .
+
+DMRGateway esta configurado para soportar numeros de tg hasta 6 digitos , si el numero de tg a utilizar tiene menos de 6 digitos , debe completar con ceros hasta llegar a 6 digitos .
+
+Cada servidor DMR conectado a DMRGateway tiene un numero de 1 a 5, que lo identifica y diferencia segun la red a utilizar , y estan distribuidos de la siguiente forma :
+
+  1 Brandmeister
+  
+  2 FreeDMR
+  
+  3 TGif Network
+  
+  4 DMR Central
+  
+  5 Freestar
+  
+Cada tg que utilicemos en nuestros radios deve estar cumplir con 6 digitos y estar acompañado del numero de servidor por el cual debe enviarce nuestra transmision.
+
+Ejemplo de configuracion tg en sus radios para diferentes redes:
+
+TG        Red             Nombre TG         DMRGateway
+714       FreeDMR         Panama            2000714
+7144      FreeDMR         CHIRIQUI LINK     2007144
+2147      DMR Central     Regional-EA7      4002147
+
+Cada tg almacenado en nuestros radios debe completar 6 digitos y estar precesido por el numero de servidor dmr a utilizar , cuando se reciban transmiciones de internet a nuestro hotspot , se recibiran de la misma forma, 6 digitos mas el numero de red que estamos recibiendo .
 
 #
 
