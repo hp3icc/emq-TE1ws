@@ -116,6 +116,7 @@ mkdir /var/www/html
 mkdir /var/log/ysf2dmr
 mkdir /var/log/mmdvm
 mkdir /var/log/mmdvmh
+mkdir /var/log/DMRGateway
 mkdir /var/log/FreeDMR
 mkdir /var/log/hblink
 mkdir /var/log/YSFReflector
