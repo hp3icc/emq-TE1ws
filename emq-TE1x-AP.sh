@@ -1707,6 +1707,7 @@ LocalPort=62033
 RuleTrace=0
 Daemon=0
 Debug=0
+
 [Log]
 # Logging levels, 0=No logging
 DisplayLevel=1
@@ -1714,10 +1715,12 @@ FileLevel=1
 FilePath=.
 FileRoot=DMRGateway
 FileRotate=1
+
 [Voice]
 Enabled=1
 Language=es_ES
 Directory=./Audio
+
 [Info]
 Latitude=0.0
 Longitude=0.0
@@ -1725,6 +1728,7 @@ Height=0
 Location=DMR Gateway
 Description=Multi-Mode DMRGateway
 URL=https://github.com/hp3icc/emq-TE1ws
+
 [XLX Network]
 Id=000000000
 Enabled=1
@@ -1743,6 +1747,7 @@ Debug=0
 UserControl=1
 #Override default module for startup reflector
 #Module=P
+
 # BrandMeister
 [DMR Network 1]
 #Id=000000000
@@ -1757,6 +1762,7 @@ PassAllPC=2
 Password=passw0rd
 Location=1
 Debug=0
+
 # FreeDMR
 [DMR Network 2]
 #Id=000000000
@@ -1764,13 +1770,13 @@ Enabled=1
 Name=FreeDMR
 TGRewrite0=2,2000001,2,1,999999
 PCRewrite=2,2000001,2,1,999999
-#TGRewrite0=1,1,2,1,9999998
-#SrcRewrite0=2,1,1,1,9999998
+#Options="TS2=7144;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;"
 Address=198.211.36.245
 Password=passw0rd
 Port=62031
 Location=0
 Debug=0
+
 # TGIF Network
 [DMR Network 3]
 #Id=000000000
@@ -1778,11 +1784,13 @@ Enabled=1
 Name=TGIF_Network
 TGRewrite0=2,3000001,2,1,999999
 PCRewrite=2,3000001,2,1,999999
+#Options="TS2=7144;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;"
 Address=tgif.network
 Password=passw0rd
 Port=62031
 Location=0
 Debug=0
+
 # DMR Central
 [DMR Network 4]
 #Id=000000000
@@ -1792,10 +1800,11 @@ Address=dmr.pa7lim.nl
 Port=55555
 TGRewrite0=2,4000001,2,1,999999
 PCRewrite=2,4000001,2,1,999999
-Options="TS2=71442;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;"
+#Options="TS2=7144;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;"
 Password=passw0rd
 Location=0
 Debug=0
+
 # FreeStar Network
 [DMR Network 5]
 #Id=000000000
@@ -1805,28 +1814,34 @@ Address=dmr.freestar.network
 Port=62031
 TGRewrite0=2,5000001,2,1,999999
 PCRewrite=2,5000001,2,1,999999
+#Options="TS2=7144;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;"
 Password=passw0rd
 Location=0
 Debug=0
+
 [GPSD]
 Enable=0
 Address=127.0.0.1
 Port=2947
+
 [APRS]
 Enable=0
 Address=127.0.0.1
 Port=8673
 Description=APRS Description
 Suffix=3
+
 [Dynamic TG Control]
 Enabled=1
 Port=3769
+
 [Remote Control]
 Enable=0
 Address=127.0.0.1
 Port=7643
+
+ 
 EOF
-#####
 #####
 cat > /opt/YSF2DMR/YSF2DMR.ini  <<- "EOF"
 [Info]
@@ -1871,7 +1886,7 @@ Id=714000000
 #XLXFile=XLXHosts.txt
 #XLXReflector=950
 #XLXModule=D
-StartupDstId=714
+StartupDstId=700
 # For TG call: StartupPC=0
 StartupPC=0
 Address=127.0.0.1
@@ -1882,7 +1897,7 @@ TGUnlink=4000
 PCUnlink=0
 # Local=62032
 Password=passw0rd
-# Options=
+# Options=TS2=700;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;
 TGListFile=TGList-DMR.txt
 Debug=0
 
