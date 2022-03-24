@@ -2388,7 +2388,7 @@ EOF
 cp /opt/DMRIDUpdate.sh /opt/MMDVMHost/
 cd /opt/MMDVMHost/
 sudo sed -i 's/\/opt/\/opt\/MMDVMHost/' DMRIDUpdate.sh
-sudo sed -i 's/systemctl restart mmdvmhost.service/systemctl restart mmdvmh.service/' DMRIDUpdate.sh
+sudo sed -i 's/systemctl restart mmdvmhost.service/systemctl restart mmdvmh.service && systemctl restart dmrgw.service /' DMRIDUpdate.sh
 
 
 cp /opt/DMRIDUpdate.sh /opt/YSF2DMR/
