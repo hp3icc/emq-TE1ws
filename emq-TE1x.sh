@@ -1774,8 +1774,7 @@ Enabled=1
 Name=FreeDMR
 TGRewrite0=2,2000001,2,1,999999
 PCRewrite=2,2000001,2,1,999999
-#TGRewrite0=1,1,2,1,9999998
-#SrcRewrite0=2,1,1,1,9999998
+#Options="TS2=7144;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;"
 Address=198.211.36.245
 Password=passw0rd
 Port=62031
@@ -1790,6 +1789,7 @@ Enabled=1
 Name=TGIF_Network
 TGRewrite0=2,3000001,2,1,999999
 PCRewrite=2,3000001,2,1,999999
+#Options="TS2=7144;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;"
 Address=tgif.network
 Password=passw0rd
 Port=62031
@@ -1805,7 +1805,7 @@ Address=dmr.pa7lim.nl
 Port=55555
 TGRewrite0=2,4000001,2,1,999999
 PCRewrite=2,4000001,2,1,999999
-Options="TS2=71442;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;"
+#Options="TS2=7144;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;"
 Password=passw0rd
 Location=0
 Debug=0
@@ -1819,6 +1819,7 @@ Address=dmr.freestar.network
 Port=62031
 TGRewrite0=2,5000001,2,1,999999
 PCRewrite=2,5000001,2,1,999999
+Options="TS2=7144;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;"
 Password=passw0rd
 Location=0
 Debug=0
