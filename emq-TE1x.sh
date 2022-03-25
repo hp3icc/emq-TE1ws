@@ -2332,7 +2332,7 @@ cat > /opt/MMDVMHost/DMRIDUpdate.sh <<- "EOF"
 #                              CONFIGURATION
 #
 # Full path to DMR ID file, without final slash
-DMRIDPATH=/opt
+DMRIDPATH=/opt/MMDVMHost
 DMRIDFILE=${DMRIDPATH}/DMRIds.dat
 # DMR IDs now served by RadioID.net
 DATABASEURL='https://ham-digital.org/status/users.csv'
@@ -2391,7 +2391,7 @@ cat > /opt/YSF2DMR/DMRIDUpdate.sh <<- "EOF"
 #                              CONFIGURATION
 #
 # Full path to DMR ID file, without final slash
-DMRIDPATH=/opt
+DMRIDPATH=/opt/YSF2DMR
 DMRIDFILE=${DMRIDPATH}/DMRIds.dat
 # DMR IDs now served by RadioID.net
 DATABASEURL='https://ham-digital.org/status/users.csv'
