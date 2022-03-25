@@ -739,7 +739,7 @@ done
 exit 0
 
 EOF
-####menu-mmdvm
+######menu-mmdvm
 cat > /bin/menu-mmdvm <<- "EOF"
 #!/bin/bash
 while : ; do
@@ -773,9 +773,9 @@ sudo nano /opt/MMDVMHost/MMDVM.ini;;
 2)
 sudo nano /opt/DMRGateway/DMRGateway.ini;;
 3)
-sudo sh /opt/MMDVMHost/DMRIDUpdate.sh && sudo systemctl enable dmrid-mmdvm.service && sudo systemctl enable dmrgw.service && sudo systemctl enable mmdvmh.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/MMDVMHost/DMRIDUpdate.sh' add ;;
+sudo sh /opt/MMDVMHost/DMRIDUpdate.sh && sudo systemctl enable dmrgw.service && sudo systemctl enable mmdvmh.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/MMDVMHost/DMRIDUpdate.sh' add && cronedit.sh '@reboot' 'sudo sh /opt/MMDVMHost/DMRIDUpdate2.sh' add ;;
 4)
-sudo systemctl stop mmdvmh.service && sudo systemctl stop dmrid-mmdvm.service && sudo systemctl stop dmrgw.service && sudo systemctl disable dmrgw.service && sudo systemctl disable dmrid-mmdvm.service && sudo systemctl disable mmdvmh.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/MMDVMHost/DMRIDUpdate.sh' remove && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
+sudo systemctl stop mmdvmh.service && sudo systemctl stop dmrgw.service && sudo systemctl disable dmrgw.service && sudo systemctl disable mmdvmh.service && cronedit.sh '0 3 * * *' 'sudo sh /opt/MMDVMHost/DMRIDUpdate.sh' remove && cronedit.sh '@reboot' 'sudo sh /opt/MMDVMHost/DMRIDUpdate2.sh' remove && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
 5)
 sudo systemctl restart logtailer-mmdvmh.service && sudo systemctl enable logtailer-mmdvmh.service && sudo systemctl restart http.server-mmdvmh.service && sudo systemctl enable http.server-mmdvmh.service ;;
 6)
@@ -803,7 +803,10 @@ exit 0
 
 
 EOF
-########menu-ysf
+###
+cp /opt/MMDVMHost/DMRIDUpdate.sh /opt/MMDVMHost/DMRIDUpdate2.sh
+chmod +x /opt/MMDVMHost/DMRIDUpdate2.sh
+######menu-ysf
 cat > /bin/menu-ysf <<- "EOF"
 #!/bin/bash
 while : ; do
