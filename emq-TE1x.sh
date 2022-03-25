@@ -2325,7 +2325,7 @@ sudo chmod -R 775 /var/www/html
 
 chmod +777 /var/www/html/*
 ##
-cat > /opt/DMRIDUpdate.sh <<- "EOF"
+cat > /opt/MMDVMHost/DMRIDUpdate.sh <<- "EOF"
 #! /bin/bash
 ###############################################################################
 #
@@ -2342,7 +2342,7 @@ DATABASEURL='https://ham-digital.org/status/users.csv'
 DMRFILEBACKUP=1
 #
 # Command line to restart MMDVMHost
-RESTARTCOMMAND="sudo systemctl restart mmdvmhost.service"
+RESTARTCOMMAND="sudo systemctl restart mmdvmh.service && sudo systemctl restart dmrgw.service"
 # RESTARTCOMMAND="killall MMDVMHost ; /path/to/MMDVMHost/executable/MMDVMHost /path/to/MMDVM/ini/file/MMDVM.ini"
 ###############################################################################
 #
@@ -2383,21 +2383,66 @@ fi
 # Restart ysf2dmr
 eval ${RESTARTCOMMAND}
 EOF
-#######
-
-cp /opt/DMRIDUpdate.sh /opt/MMDVMHost/
-cd /opt/MMDVMHost/
-sudo sed -i 's/\/opt/\/opt\/MMDVMHost/' DMRIDUpdate.sh
-sudo sed -i 's/systemctl restart mmdvmhost.service/systemctl restart mmdvmh.service && systemctl restart dmrgw.service /' DMRIDUpdate.sh
-
-
-cp /opt/DMRIDUpdate.sh /opt/YSF2DMR/
-cd /opt/YSF2DMR/
-sudo sed -i 's/\/opt/\/opt\/YSF2DMR/' DMRIDUpdate.sh
-sudo sed -i 's/systemctl restart mmdvmhost.service/systemctl restart ysf2dmr.service/' DMRIDUpdate.sh
-
-sudo rm /opt/DMRIDUpdate.sh
-
+###
+cat > /opt/YSF2DMR/DMRIDUpdate.sh <<- "EOF"
+#! /bin/bash
+###############################################################################
+#
+#                              CONFIGURATION
+#
+# Full path to DMR ID file, without final slash
+DMRIDPATH=/opt
+DMRIDFILE=${DMRIDPATH}/DMRIds.dat
+# DMR IDs now served by RadioID.net
+DATABASEURL='https://ham-digital.org/status/users.csv'
+#DATABASEURL='https://www.radioid.net/static/user.csv'
+#
+# How many DMR ID files do you want backed up (0 = do not keep backups)
+DMRFILEBACKUP=1
+#
+# Command line to restart MMDVMHost
+RESTARTCOMMAND="sudo systemctl restart ysf2dmr.service"
+# RESTARTCOMMAND="killall MMDVMHost ; /path/to/MMDVMHost/executable/MMDVMHost /path/to/MMDVM/ini/file/MMDVM.ini"
+###############################################################################
+#
+# Do not edit below here
+#
+###############################################################################
+# Check we are root
+if [ "$(id -u)" != "0" ]
+then
+        echo "This script must be run as root" 1>&2
+        exit 1
+fi
+# Create backup of old file
+if [ ${DMRFILEBACKUP} -ne 0 ]
+then
+        cp ${DMRIDFILE} ${DMRIDFILE}.$(date +%d%m%y)
+fi
+# Prune backups
+BACKUPCOUNT=$(ls ${DMRIDFILE}.* | wc -l)
+BACKUPSTODELETE=$(expr ${BACKUPCOUNT} - ${DMRFILEBACKUP})
+if [ ${BACKUPCOUNT} -gt ${DMRFILEBACKUP} ]
+then
+        for f in $(ls -tr ${DMRIDFILE}.* | head -${BACKUPSTODELETE})
+        do
+               rm $f
+        done
+fi
+# Generate new file
+curl ${DATABASEURL} 2>/dev/null | sed -e 's/\t//g' | awk -F"," '/,/{gsub(/ /, "", $2); printf "%s\t%s\t%s\n", $1, $2, $3}' | sed -e 's/\(.\) .*/\1/g' > ${DMRIDPATH}/DMRIds.tmp
+NUMOFLINES=$(wc -l ${DMRIDPATH}/DMRIds.tmp | awk '{print $1}')
+if [ $NUMOFLINES -gt 1 ]
+then
+   mv ${DMRIDPATH}/DMRIds.tmp ${DMRIDFILE}
+else
+   echo " ERROR during file update "
+   rm ${DMRIDPATH}/DMRIds.tmp
+fi
+# Restart ysf2dmr
+eval ${RESTARTCOMMAND}
+EOF
+###
 ###########################
 
 sudo systemctl disable lighttpd.service
