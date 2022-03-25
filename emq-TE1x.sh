@@ -2477,7 +2477,7 @@ cd /usr/share/alsa/
 sudo sed -i 's/defaults.ctl.card 0/defaults.ctl.card 1/' alsa.conf
 sudo sed -i 's/defaults.pcm.card 0/defaults.pcm.card 1/' alsa.conf
 ###################################
-cat > /bin/cronedit.sh <<- "EOF"
+cat > /usr/local/bin/cronedit.sh <<- "EOF"
 cronjob_editor () {
 # usage: cronjob_editor '<interval>' '<command>' <add|remove>
 
@@ -2497,7 +2497,7 @@ cronjob_editor "$1" "$2" "$3"
 
 
 EOF
-sudo chmod +x /bin/cronedit.sh
+sudo chmod +x /usr/local/bin/cronedit.sh
 
 ##############
 cd /opt
