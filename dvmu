@@ -107,7 +107,7 @@ else
         echo  " ------------- Vuelva a conectarse en unos momentos. ------------- " 
         echo
         echo
-                sudo rm setup > /dev/null 2>&1
+                sudo rm dvmu > /dev/null 2>&1
                 sudo reboot
         fi
 
