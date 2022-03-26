@@ -814,9 +814,6 @@ exit 0
 
 
 EOF
-###
-cp /opt/MMDVMHost/DMRIDUpdate.sh /opt/MMDVMHost/DMRIDUpdate2.sh
-chmod +x /opt/MMDVMHost/DMRIDUpdate2.sh
 #######menu-ysf
 cat > /bin/menu-ysf <<- "EOF"
 #!/bin/bash
@@ -2400,6 +2397,10 @@ fi
 eval ${RESTARTCOMMAND}
 EOF
 ###
+cp /opt/MMDVMHost/DMRIDUpdate.sh /opt/MMDVMHost/DMRIDUpdate2.sh
+chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
+chmod +x /opt/MMDVMHost/DMRIDUpdate2.sh
+###
 cat > /opt/YSF2DMR/DMRIDUpdate.sh <<- "EOF"
 #! /bin/bash
 ###############################################################################
@@ -2458,7 +2459,12 @@ fi
 # Restart ysf2dmr
 eval ${RESTARTCOMMAND}
 EOF
-###########################
+##
+###
+cp /opt/YSF2DMR/DMRIDUpdate.sh /opt/YSF2DMR/DMRIDUpdate2.sh
+chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
+chmod +x /opt/YSF2DMR/DMRIDUpdate2.sh
+############################
 
 sudo systemctl disable lighttpd.service
 sudo systemctl stop lighttpd.service
