@@ -96,7 +96,7 @@ else
         echo 
         echo  " ---------- ¿Reiniciar? (s/n) -------------- " 
         read reply
-        if [ "$reply" = Y ] || [ "$reply" = y ] || [ "$reply" = "" ]; then
+        if [ "$reply" = S ] || [ "$reply" = s ] || [ "$reply" = "" ]; then
         clear
         echo
         echo
