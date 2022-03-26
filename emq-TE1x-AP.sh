@@ -1,5 +1,5 @@
 #!/bin/sh
-emq=16
+emq=17
 echo Actualizando sistema 
 apt-get update -y
 apt-get upgrade -y
