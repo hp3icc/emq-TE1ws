@@ -45,7 +45,7 @@ sudo chmod +x /var/lib/dvswitch/dvs/adv/user00/dvsm.sh
 echo "----------------------------------------------------"
 
 sudo mkdir /var/lib/dvswitch/dvs/adv/user00EN > /dev/null 2>&1
-sudo mkdir /var/lib/dvswitch/dvs/adv/user00KR > /dev/null 2>&1
+#sudo mkdir /var/lib/dvswitch/dvs/adv/user00KR > /dev/null 2>&1
 
 files="adv_audio.txt adv_dmr.txt adv_hotspot.txt adv_main.txt adv_managetg.txt adv_resetfvrt.txt adv_rxgain.txt adv_tgref.txt adv_tools.txt adv_txgain.txt"
 
