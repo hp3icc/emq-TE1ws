@@ -51,7 +51,7 @@ files="adv_audio.txt adv_dmr.txt adv_hotspot.txt adv_main.txt adv_managetg.txt a
 
 for file in $files; do
 sudo wget -O /var/lib/dvswitch/dvs/adv/user00EN/$file https://raw.githubusercontent.com/hl5btf/DVSMU/main/EN/$file > /dev/null 2>&1
-sudo wget -O /var/lib/dvswitch/dvs/adv/user00KR/$file https://raw.githubusercontent.com/hl5btf/DVSMU/main/KR/$file > /dev/null 2>&1
+#sudo wget -O /var/lib/dvswitch/dvs/adv/user00ES/$file https://raw.githubusercontent.com/hl5btf/DVSMU/main/ES/$file > /dev/null 2>&1
 echo "----------------------------------------------------"
 done
 
