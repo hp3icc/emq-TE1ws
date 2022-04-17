@@ -1,7 +1,7 @@
 sudo cat > /bin/menu-update <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Importante: debe debe agregar todos sus obp en la opcion numero uno, ( 1-Lista de OBP )antes de iniciar la actualizacion, el proceso de actualizacion borrara por completo la carpeta /opt/FreeDMR, al finalizar la actualizacion el servicio Freedmr se reinniciara automaticamente.
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Importante: solo actualice aplicaciones que esten en uso, al finalizar la actualizacion la aplicacion se reiniciaran, tenga pleno dominio de las configuraciones de cada aplicacion antes de actualizar.
 " 17 50 3 \
 1 " Update HBMon2 Version OA4DOA " \
 2 " Update FreeDMR  " \
@@ -29,5 +29,5 @@ esac
 done
 exit 0
 EOF
-sudo chmod +x /bin-menu*
+chmod +x /bin-menu*
 menu-update
