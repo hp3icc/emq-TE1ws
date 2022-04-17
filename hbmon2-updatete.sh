@@ -1,4 +1,4 @@
-
+#!/bin/sh
 rm -r /opt/HBMonv2/
 cd /opt
 git clone https://github.com/yuvelq/FDMR-Monitor.git
@@ -26,9 +26,6 @@ then
   sync ; echo 3 > /proc/sys/vm/drop_caches && sudo systemctl restart hbmon2.service
 fi
 EOF
-cp /opt/HBMonv2/updateTGIDS.sh /opt/HBmonitor
-sudo sed -i 's/HBMonv2/HBmonitor/' /opt/HBmonitor/updateTGIDS.sh
-sudo sed -i 's/hbmon2/hbmon/' /opt/HBmonitor/updateTGIDS.sh
 ####
 sudo sed -i 's/localhost_2-day.png/localhost_1-day.png/' /opt/HBMonv2/html/sysinfo.php
 cd /opt/HBMonv2/sysinfo/
@@ -40,7 +37,6 @@ sudo chmod +x /opt/HBMonv2/sysinfo/graph.sh
 sudo chmod +x /opt/HBMonv2/sysinfo/rrd-db.sh
 sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh
 sudo chmod +x /opt/HBMonv2/updateTGIDS.sh
-sudo chmod +x /opt/HBmonitor/updateTGIDS.sh
 
 sudo cat > /opt/HBMonv2/html/buttons.html <<- "EOF"
 <!-- HBMonitor buttons HTML code -->
@@ -111,3 +107,9 @@ sudo cat > /opt/HBMonv2/html/buttons.html <<- "EOF"
 -->
 EOF
 #
+sudo systemctl stop hbmon2.service 
+sudo rm /opt/HBMonv2/*.json 
+sudo rm /opt/HBMonv2/sysinfo/*.rrd 
+sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh 
+#sudo systemctl start http.server-fmr.service
+sudo sh /opt/HBMonv2/updateTGIDS.sh
