@@ -29,5 +29,6 @@ esac
 done
 exit 0
 EOF
-sudo chmod +x /bin/menu*
+#
+chmod +x /bin/menu*
 menu-update
