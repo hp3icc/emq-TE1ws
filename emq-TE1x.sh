@@ -151,8 +151,9 @@ choix=$(whiptail --title "TE1ws-Rev: R00ab / Raspbian Proyect HP3ICC Esteban Mac
 10 " Editar WiFi " \
 11 " DDNS NoIP " \
 12 " GoTTY " \
-13 " Reiniciar Equipo " \
-14 " Salir del menu " 3>&1 1>&2 2>&3)
+13 " Update " \
+14 " Reiniciar Equipo " \
+15 " Salir del menu " 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 
@@ -192,8 +193,10 @@ menu-noip ;;
 12)
 menu-web ;;
 13)
-menu-reboot ;;
+menu-update ;;
 14)
+menu-reboot ;;
+15)
 break;
 
 
@@ -207,6 +210,39 @@ EOF
 #
 sudo sed -i "s/R00ab/$emq/g"  /bin/menu
 sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock
+
+###
+sudo cat > /bin/menu-update <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Importante: solo actualice aplicaciones que esten en uso, al finalizar la actualizacion la aplicacion se reiniciara, tenga pleno dominio de las configuraciones de cada aplicacion, antes de actualizar.
+" 17 50 5 \
+1 " Update HBMon2 Version OA4DOA " \
+2 " Update FreeDMR  " \
+3 " UPGRADE LIST  " \
+4 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/hbmon2-update.sh)" ;;
+2)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/fdmr-update.sh)" ;;
+3)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/list-update.sh)" ;;
+4)
+break;
+esac
+done
+exit 0
+EOF
 
 #################
 echo iniciando instalacion
