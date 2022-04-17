@@ -2682,7 +2682,8 @@ WantedBy=multi-user.target
 EOF
 #######
 cd /opt
-git clone https://github.com/sp2ong/HBMonv2.git
+git clone https://github.com/yuvelq/FDMR-Monitor.git
+mv /opt/FDMR-Monitor /opt/HBMonv2
 cd HBMonv2
 sudo chmod +x install.sh
 sudo ./install.sh
@@ -2728,9 +2729,8 @@ sudo chmod +x /opt/HBMonv2/updateTGIDS.sh
 sudo chmod +x /opt/HBmonitor/updateTGIDS.sh
 
 sudo cat > /opt/HBMonv2/html/buttons.html <<- "EOF"
-<div style="width: 1100px;">
 <!-- HBMonitor buttons HTML code -->
-<a href="index.php"><button class="button link">&nbsp;Home&nbsp;</button></a>
+<a class="button"  href="index.php">&nbsp;Home&nbsp;</a>
 <!--
 &nbsp;
 <div class="dropdown">
@@ -2742,33 +2742,36 @@ sudo cat > /opt/HBMonv2/html/buttons.html <<- "EOF"
     <a href="bridges.php">&nbsp;Bridges&nbsp;</a>
     <a href="moni.php">&nbsp;Monitor&nbsp;</a>
     <a href="sinfo.php">&nbsp;System Info&nbsp;</a>
- </div>
+  </div>
 </div>
---->
+-->
 &nbsp;
-<a href="masters.php"><button class="button link">&nbsp;Masters&nbsp;</button></a>
+<a class="button" href="linkedsys.php">&nbsp;Linked Systems&nbsp;</a>
 &nbsp;
-<a href="peers.php"><button class="button link">&nbsp;Peers&nbsp;</button></a>
+<a class="button" href="opb.php">&nbsp;OpenBridge&nbsp;</a>
 &nbsp;
-<a href="opb.php"><button class="button link">&nbsp;OpenBridge&nbsp;</button></a>
+<a class="button" href="statictg.php">&nbsp;Static TG&nbsp;</a>
 &nbsp;
-<a href="moni.php"><button class="button link">&nbsp;Monitor&nbsp;</button></a>
+<a class="button" href="moni.php">&nbsp;Monitor&nbsp;</a>
 &nbsp;
-<a href="sysinfo.php"><button class="button link">&nbsp;System Info&nbsp;</button></a>
+<a class="button" href="sysinfo.php">&nbsp;System Info&nbsp;</a>
 &nbsp;
-<a title="Lastheard long list" href="log.php"><button class="button link">&nbsp;Lastheard&nbsp;</button></a>
+<a class="button" href="log.php">&nbsp;Lastheard&nbsp;</a>
+</div>
 &nbsp;
-<a href="http://www.freedmr.uk/index.php/why-use-freedmr/"target="_blank"><button class="button link">&nbsp;Info FreeDMR&nbsp;</button></a>
+<a class="button" href="http://www.freedmr.uk/index.php/why-use-freedmr/"target="_blank">&nbsp;Info FreeDMR&nbsp;</a>
 &nbsp;
-<a href="http://www.freedmr.uk/index.php/freedmr-servers/"target="_blank"><button class="button link">&nbsp;Info Server&nbsp;</button></a>
+<a class="button" href="http://www.freedmr.uk/index.php/freedmr-servers/"target="_blank">&nbsp;Info Server&nbsp;</a>
 &nbsp;
-<a href="http://repeater.uk.freedmr.link/status/server_status.php"target="_blank"><button class="button link">&nbsp;Status Server&nbsp;</button></a>
+<a class="button" href="http://repeater.uk.freedmr.link/status/server_status.php"target="_blank">&nbsp;Status Server&nbsp;</a>
 &nbsp;
-<a href="http://repeater.uk.freedmr.link/status/count.php"target="_blank"><button class="button link">&nbsp;Ranking TG&nbsp;</button></a>
+<a class="button" href="http://repeater.uk.freedmr.link/status/count.php"target="_blank">&nbsp;Ranking TG&nbsp;</a>
+&nbsp;
+<a class="button" href="http://www.freedmr.uk/freedmr/option-calculator-b.php"target="_blank">&nbsp;Static TG Calculator&nbsp;</a>
 &nbsp;
 <!--
 &nbsp;
-<a href="bridges.php"><button class="button link">&nbsp;Bridges&nbsp;</button></a>
+<a class="button" href="bridges.php">&nbsp;Bridges&nbsp;</a>
 -->
 <!-- Own buttons HTML code -->
 
@@ -2792,9 +2795,6 @@ sudo cat > /opt/HBMonv2/html/buttons.html <<- "EOF"
   </div>
 </div>
 -->
-</div>
-<p></p>
-
 EOF
 ###
 
