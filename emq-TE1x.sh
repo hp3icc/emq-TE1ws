@@ -635,7 +635,7 @@ case $choix in
 1)
 sudo nano /opt/obp.txt ;;
 2)
-sudo /opt/fdmr-update.sh ;;
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/fdmr-update.sh)" ;;
 3)
 break;
 esac
