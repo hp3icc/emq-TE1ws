@@ -93,7 +93,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/fdmr
 3)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/list-update.sh)" ;;
 4)
-/bin/menu;
+break && /bin/menu;
 esac
 done
 exit 0
