@@ -236,7 +236,7 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/hbmon2-update.sh)" ;;
+menu-up-hbmon2 ;;
 2)
 menu-up-fdm ;;
 3)
@@ -246,8 +246,8 @@ break;
 esac
 done
 exit 0
-EOF
 
+EOF
 #################
 echo iniciando instalacion
 
