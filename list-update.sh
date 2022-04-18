@@ -1,4 +1,3 @@
-emq=18
 sudo cat > /bin/menu <<- "EOF"
 #!/bin/bash
 while : ; do
@@ -63,7 +62,8 @@ done
 exit 0
 EOF
 #
-sudo sed -i "s/R00ab/$emq/g"  /bin/menu
+variable22=$(grep "EMQ-VER:" /opt/emq-ver | tail -c 5)
+sudo sed -i "s/R00ab/$variable22/g"  /bin/menu
 rm /bin/MENU
 cp /bin/menu /bin/MENU
 #
