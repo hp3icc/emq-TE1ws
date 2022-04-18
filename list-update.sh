@@ -93,7 +93,7 @@ menu-up-fdm ;;
 3)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/list-update.sh)" ;;
 4)
-/bin/menu;
+break;
 esac
 done
 exit 0
