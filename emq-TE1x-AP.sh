@@ -1,5 +1,4 @@
 #!/bin/sh
-emq=17
 echo Actualizando sistema 
 apt-get update -y
 apt-get upgrade -y
@@ -78,7 +77,11 @@ sudo apt-get install python-pip -y
 sudo apt-get install python-dev -y
 sudo apt-get install rrdtool -y
 
-##################
+#############################
+sudo cat > /opt/emq-ver <<- "EOF"
+EMQ-VER:  18AP
+EOF
+#############################
 cd /home/
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
@@ -208,7 +211,9 @@ exit 0
 
 EOF
 #
-sudo sed -i "s/R00ab/$emq/g"  /bin/menu
+variable22=$(grep "EMQ-VER:" /opt/emq-ver | tail -c 5)
+sudo sed -i "s/R00ab/$variable22/g"  /bin/menu
+
 sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock
 #
 sudo cat > /bin/menu-update <<- "EOF"
