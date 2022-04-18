@@ -113,3 +113,4 @@ sudo rm /opt/HBMonv2/sysinfo/*.rrd
 sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh 
 #sudo systemctl start http.server-fmr.service
 sudo sh /opt/HBMonv2/updateTGIDS.sh
+sudo sh /opt/extra-1.sh
