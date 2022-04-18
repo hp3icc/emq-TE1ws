@@ -1233,6 +1233,21 @@ KillMode=process
 WantedBy=network-online.target
 EOF
 ##########################################
+sudo cat > /opt/extra-1.sh <<- "EOF"
+######################################################################
+# Coloque en este archivo, cualquier instruccion shell adicional que # 
+# quierre se realice al finalizar la actualizacion.                  #
+######################################################################
+ 
+  
+EOF
+# 
+cp /opt/extra-1.sh /opt/extra-2.sh
+cp /opt/extra-1.sh /opt/extra-3.sh
+cp /opt/extra-1.sh /opt/extra-4.sh
+cp /opt/extra-1.sh /opt/extra-5.sh
+cp /opt/extra-1.sh /opt/extra-6.sh
+chmod +x /opt/extra-*
 ###################
 cat > /lib/systemd/system/dmrid-mmdvm.service  <<- "EOF"
 [Unit]
