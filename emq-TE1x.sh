@@ -657,12 +657,13 @@ EOF
 sudo cat > /bin/menu-up-fdm <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Importante: debe debe agregar todos sus obp en la opcion numero uno, ( 1-Lista de OBP )antes de iniciar la actualizacion, el proceso de actualizacion borrara por completo la carpeta /opt/FreeDMR, al finalizar la actualizacion el servicio Freedmr se reinniciara automaticamente.
+choix=$(whiptail --title "Raspbian Proyect HP3ICC / update FreeDMR" --menu "Nota Importante: debe debe agregar todos sus obp en la opcion numero uno, ( 1-Lista de OBP )antes de iniciar la actualizacion, el proceso de actualizacion borrara por completo la carpeta /opt/FreeDMR, al finalizar la actualizacion el servicio Freedmr se reinniciara automaticamente.
 " 17 50 4 \
 1 " List OBP " \
 2 " List Rules  " \
-3 " Iniciar Actualizacion FreeDMR  " \
-4 " Menu Principal " 3>&1 1>&2 2>&3)
+3 " shell extra " \
+4 " Iniciar Actualizacion FreeDMR  " \
+5 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -678,12 +679,46 @@ sudo nano /opt/obp.txt ;;
 2)
 sudo nano /opt/rules.txt ;;
 3)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/fdmr-update.sh)" ;;
+sudo nano /opt/extra-1.sh && chmod +x /opt/extra* ;;
 4)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/fdmr-update.sh)" ;;
+5)
 break;
 esac
 done
 exit 0
+
+
+EOF
+#
+sudo cat > /bin/menu-up-hbmon2 <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC / update HBMon2" --menu "Nota Importante: antes de iniciar la actualizacion, el proceso de actualizacion borrara por completo todas las configuraciones, al finalizar la actualizacion el servicio se reinniciara automaticamente.
+" 17 50 4 \
+1 " shell extra " \
+2 " Iniciar Actualizacion HBMon2  " \
+3 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /opt/extra-2.sh && chmod +x /opt/extra* ;;
+2)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/hbmon2-update.sh)" ;;
+3)
+break;
+esac
+done
+exit 0
+
 
 EOF
 #
