@@ -9,11 +9,11 @@ Continuamente todo el contenido publicado aqui, es actualizado , si esta observa
 
 https://github.com/hp3icc/emq-TE1ws
 
-* Ultima revision: emq-TE1ws-Rev17 25/3/2022 
+* Ultima revision: emq-TE1ws-Rev18 21/4/2022 
 
-  Raspberry OS Lite Basado en la versión 11 de Debian (bullseye) 28-1-2022
+  Raspberry OS Lite Basado en la versión 11 de Debian (bullseye) 04-04-2022
   
-  Linux kernel 5.10.92
+  Linux kernel 5.15
   
 #
 
@@ -98,12 +98,12 @@ si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  
  
  Imagen para raspberry, proyecto emq-TE1 con accespoint WiFi, recomendado para Raspberry Zero W, Zero2 W, B3, B3+, PI4
  
-* https://drive.google.com/file/d/1mJXenUmt87VuC0hrP_aW8t8N6aOfMCks/view?usp=sharing
+* https://drive.google.com/file/d/1zWFwk3CnyAfUzRLCiuci1T-v6_88LCgL/view?usp=sharing
 
 
 Imagen para raspberry, proyecto emq-TE1 sin accespoint WiFi - recomendado para Raspberry Zero, Zero-W, Zero2, Zero2 W  B2, B3, B3+, PI4
 
-* https://drive.google.com/file/d/1HxWaAjYhHf9f9jTJFpt1y3Lu3xhS0i_U/view?usp=sharing
+* https://drive.google.com/file/d/1AuCyqnFFA5sLVbXRBuKrRC8jBITcf8IY/view?usp=sharing
 
 #
 
@@ -246,11 +246,11 @@ Esteban Mackay Q.
  
  https://github.com/hp3icc/emq-TE1ws
  
- * Last revision: emq-TE1ws-Rev17 3/25/2022 
+ * Last revision: emq-TE1ws-Rev18 4/21/2022 
 
-   Raspberry OS Lite Based on Debian version 11 (bullseye) 2022-01-28
+   Raspberry OS Lite Based on Debian version 11 (bullseye) 2022-04-04
    
-   Linux kernel 5.10.92
+   Linux kernel 5.15
    
 #
 
@@ -333,12 +333,12 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
   Image for raspberry, emq-TE1 project with WiFi accespoint, recommended for Raspberry Zero W, Zero2 W, B3, B3+, PI4
 
- * https://drive.google.com/file/d/1mJXenUmt87VuC0hrP_aW8t8N6aOfMCks/view?usp=sharing
+ * https://drive.google.com/file/d/1zWFwk3CnyAfUzRLCiuci1T-v6_88LCgL/view?usp=sharing
 
 
  Image for raspberry, emq-TE1 project without WiFi access point - recommended for Raspberry Zero, Zero W, Zero2, Zero2 W, Zero-2,  B2, B3, B3+, PI4
 
- * https://drive.google.com/file/d/1HxWaAjYhHf9f9jTJFpt1y3Lu3xhS0i_U/view?usp=sharing
+ * https://drive.google.com/file/d/1AuCyqnFFA5sLVbXRBuKrRC8jBITcf8IY/view?usp=sharing
 
  #
 
