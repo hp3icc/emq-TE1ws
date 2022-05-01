@@ -76,6 +76,8 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
  
  curl
  
+ sudo
+ 
 * Bash de auto instalación :
 
  Proyecto emq-TE1 con accespoint WiFi
@@ -310,6 +312,8 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 * Prerequisites:
  
  curl
+ 
+ sudo
 
 * Self-install bash:
 
