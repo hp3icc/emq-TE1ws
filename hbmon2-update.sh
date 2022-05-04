@@ -56,18 +56,37 @@ sudo cat > /opt/HBMonv2/html/buttons.html <<- "EOF"
 </div>
 -->
 &nbsp;
+
+<div class="dropdown">
+  <button class="dropbtn">Links</button>
+  <div class="dropdown-content">
+&nbsp;
 <a class="button" href="linkedsys.php">&nbsp;Linked Systems&nbsp;</a>
 &nbsp;
 <a class="button" href="opb.php">&nbsp;OpenBridge&nbsp;</a>
 &nbsp;
 <a class="button" href="statictg.php">&nbsp;Static TG&nbsp;</a>
 &nbsp;
+</div>
+</div>
+
+&nbsp;
+<div class="dropdown">
+  <button class="dropbtn">Local Server</button>
+  <div class="dropdown-content">
+
 <a class="button" href="moni.php">&nbsp;Monitor&nbsp;</a>
 &nbsp;
 <a class="button" href="sysinfo.php">&nbsp;System Info&nbsp;</a>
 &nbsp;
 <a class="button" href="log.php">&nbsp;Lastheard&nbsp;</a>
 </div>
+</div>
+&nbsp;
+<div class="dropdown">
+  <button class="dropbtn">FreeDMR</button>
+  <div class="dropdown-content">
+
 &nbsp;
 <a class="button" href="http://www.freedmr.uk/index.php/why-use-freedmr/"target="_blank">&nbsp;Info FreeDMR&nbsp;</a>
 &nbsp;
@@ -79,6 +98,8 @@ sudo cat > /opt/HBMonv2/html/buttons.html <<- "EOF"
 &nbsp;
 <a class="button" href="http://www.freedmr.uk/freedmr/option-calculator-b.php"target="_blank">&nbsp;Static TG Calculator&nbsp;</a>
 &nbsp;
+</div>
+</div>
 <!--
 &nbsp;
 <a class="button" href="bridges.php">&nbsp;Bridges&nbsp;</a>
