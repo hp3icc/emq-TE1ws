@@ -1394,6 +1394,7 @@ Description=YSF2DMR Service
 After=syslog.target network.target
 
 [Service]
+User=root
 Type=simple
 Restart=always
 RestartSec=3
