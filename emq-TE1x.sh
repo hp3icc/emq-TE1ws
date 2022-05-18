@@ -634,7 +634,7 @@ sudo systemctl stop freedmr.service && sudo systemctl disable freedmr.service &&
 10)
 sudo systemctl stop hbmon.service && sh /opt/HBmonitor/updateTGIDS.sh && cronedit.sh '* */24 * * *' 'sh /opt/HBmonitor/updateTGIDS.sh >/dev/null 2>&1' add &&  sudo systemctl start hbmon.service && sudo systemctl enable hbmon.service ;;
 11)
-sudo systemctl stop hbmon2.service && sudo rm /opt/HBMonv2/*.json && sudo rm /opt/HBMonv2/sysinfo/*.rrd && sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sh /opt/HBMonv2/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sh /opt/HBMonv2/sysinfo/cpu.sh' add && cronedit.sh '* */24 * * *' 'sh /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' add &&  sudo systemctl enable hbmon2.service && sudo systemctl start http.server-fmr.service && sudo systemctl enable http.server-fmr.service && sudo sh /opt/HBMonv2/updateTGIDS.sh ;;
+sudo systemctl stop hbmon2.service && sudo rm /opt/HBMonv2/*.json && sudo rm /opt/HBMonv2/sysinfo/*.rrd && sh /opt/HBMonv2/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sh /opt/HBMonv2/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sh /opt/HBMonv2/sysinfo/cpu.sh' add && cronedit.sh '* */24 * * *' 'sh /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' add &&  sudo systemctl enable hbmon2.service && sudo systemctl start http.server-fmr.service && sudo systemctl enable http.server-fmr.service && sh /opt/HBMonv2/updateTGIDS.sh ;;
 12)
 sudo systemctl stop hbmon.service && cronedit.sh '* */24 * * *' 'sh /opt/HBmonitor/updateTGIDS.sh >/dev/null 2>&1' remove && sudo systemctl disable hbmon.service && sudo rm /opt/HBmonitor/*.json ;;
 13)
@@ -851,7 +851,7 @@ sudo nano /opt/MMDVMHost/MMDVM.ini;;
 2)
 sudo nano /opt/DMRGateway/DMRGateway.ini;;
 3)
-sudo sh /opt/MMDVMHost/DMRIDUpdate.sh && sudo systemctl enable dmrgw.service && sudo systemctl enable mmdvmh.service && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' add && cronedit.sh '@reboot' 'sh /opt/MMDVMHost/DMRIDUpdate2.sh' add ;;
+sh /opt/MMDVMHost/DMRIDUpdate.sh && sudo systemctl enable dmrgw.service && sudo systemctl enable mmdvmh.service && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' add && cronedit.sh '@reboot' 'sh /opt/MMDVMHost/DMRIDUpdate2.sh' add ;;
 4)
 sudo systemctl stop mmdvmh.service && sudo systemctl stop dmrgw.service && sudo systemctl disable dmrgw.service && sudo systemctl disable mmdvmh.service && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' remove && cronedit.sh '@reboot' 'sh /opt/MMDVMHost/DMRIDUpdate2.sh' remove && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
 5)
