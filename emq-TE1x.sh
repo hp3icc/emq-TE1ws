@@ -1212,7 +1212,7 @@ RestartSec=3
 StandardOutput=null
 WorkingDirectory=/opt/ionsphere/ionosphere-raspberry-pi
 #ExecStartPre=/bin/sleep 30
-ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStartPre=/bin/sh -c 'until ping -c1 cnn.com; do sleep 1; done;'
 ExecStart=sh /opt/ionsphere/ionosphere-raspberry-pi/ionos.sh
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
@@ -1249,7 +1249,7 @@ After=syslog.target network-online.target
 [Service]
 User=root
 #ExecStartPre=/bin/sleep 1800
-ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStartPre=/bin/sh -c 'until ping -c1 cnn.com; do sleep 1; done;'
 ExecStart=/opt/MMDVMHost/DMRIDUpdate.sh
 
 [Install]
@@ -1270,7 +1270,7 @@ RestartSec=3
 StandardOutput=null
 WorkingDirectory=/opt/MMDVMHost
 #ExecStartPre=/bin/sleep 10
-ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStartPre=/bin/sh -c 'until ping -c1 cnn.com; do sleep 1; done;'
 ExecStart=/opt/MMDVMHost/MMDVMHost /opt/MMDVMHost/MMDVM.ini
 ExecStop=/usr/bin/screen -S MMDVMHost -X quit
 
@@ -1292,7 +1292,7 @@ RestartSec=3
 StandardOutput=null
 WorkingDirectory=/opt/DMRGateway
 #ExecStartPre=/bin/sleep 10
-ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStartPre=/bin/sh -c 'until ping -c1 cnn.com; do sleep 1; done;'
 ExecStart=/usr/local/bin/DMRGateway /opt/DMRGateway/DMRGateway.ini
 ExecStop=/usr/bin/screen -S DMRGateway -X quit
  
