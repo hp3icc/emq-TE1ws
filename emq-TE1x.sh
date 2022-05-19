@@ -1335,7 +1335,7 @@ After=syslog.target network-online.target
 [Service]
 User=root
 #ExecStartPre=/bin/sleep 60
-ExecStartPre=/bin/sh -c 'until ping -c1 cnn.com; do sleep 1; done;'
+ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
 ExecStart=/opt/YSF2DMR/DMRIDUpdate.sh
 
 [Install]
@@ -1352,7 +1352,7 @@ After=syslog.target network-online.target
 [Service]
 User=root
 #ExecStartPre=/bin/sleep 1800
-ExecStartPre=/bin/sh -c 'until ping -c1 cnn.com; do sleep 1; done;'
+ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
 ExecStart=/opt/direwolf/rtl.sh
 # | direwolf -c /home/pi/direwolf/sdr.conf
 
@@ -1371,7 +1371,7 @@ After=syslog.target network-online.target
 [Service]
 User=root
 #ExecStartPre=/bin/sleep 1800
-ExecStartPre=/bin/sh -c 'until ping -c1 cnn.com; do sleep 1; done;'
+ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
 ExecStart=sudo pymultimonaprs
 
 [Install]
@@ -1391,7 +1391,7 @@ RestartSec=3
 StandardOutput=null
 WorkingDirectory=/opt/YSF2DMR
 #ExecStartPre=/bin/sleep 30
-ExecStartPre=/bin/sh -c 'until ping -c1 cnn.com; do sleep 1; done;'
+ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
 ExecStart=/opt/YSF2DMR/YSF2DMR /opt/YSF2DMR/YSF2DMR.ini
 
 [Install]
