@@ -1335,7 +1335,7 @@ After=syslog.target network-online.target
 [Service]
 User=root
 #ExecStartPre=/bin/sleep 60
-ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStartPre=/bin/sh -c 'until ping -c1 cnn.com; do sleep 1; done;'
 ExecStart=/opt/YSF2DMR/DMRIDUpdate.sh
 
 [Install]
@@ -3324,7 +3324,7 @@ rm /var/log/syslog*
 rm /var/log/*.log*
 cd /tmp/
 
-(crontab -l; echo "* */1 * * * sudo sync ; echo 3 > /proc/sys/vm/drop_caches >/dev/null 2>&1")|awk '!x[$0]++'|crontab -
+(crontab -l; echo "* */1 * * * sync ; echo 3 > /proc/sys/vm/drop_caches >/dev/null 2>&1")|awk '!x[$0]++'|crontab -
 #####
 cat > /tmp/completado.sh <<- "EOF"
 #!/bin/bash
