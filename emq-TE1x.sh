@@ -620,7 +620,7 @@ sudo nano /opt/FreeDMR/config/rules.py ;;
 3)
 sudo nano /opt/HBmonitor/config.py ;;
 4)
-sudo nano /opt/HBMonv2/config.py ;;
+sudo nano /opt/FDMR-Monitor/fdmr-mon.cfg ;;
 5)
 sudo nano /lib/systemd/system/http.server-fmr.service && sudo systemctl daemon-reload ;;
 6)
