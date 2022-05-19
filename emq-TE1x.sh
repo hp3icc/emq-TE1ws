@@ -590,16 +590,16 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Suba o B
 1 " Editar FreeDMR Server " \
 2 " Editar Interlink  " \
 3 " Editar HBMon  " \
-4 " Editar HBMon2  " \
-5 " cambiar Puerto HTTP HBMon2 " \
+4 " Editar FDMR-Monitor  " \
+5 " cambiar Puerto HTTP FDMR-Monitor " \
 6 " Parrot on  " \
 7 " Parrot off  " \
 8 " Iniciar FreeDMR Server  " \
 9 " Detener FreeDMR Server   " \
 10 " Dashboard HBMon on " \
-11 " Dashboard HBMon2 on " \
+11 " Dashboard FDMR-Monitor on " \
 12 " Dashboard HBMon off  " \
-13 " Dashboard HBMon2 off  " \
+13 " Dashboard FDMR-Monitor off  " \
 14 " D-APRS Igate  " \
 15 " Actualizar FreeDMR  " \
 16 " Menu Principal " 3>&1 1>&2 2>&3)
@@ -634,11 +634,11 @@ sudo systemctl stop freedmr.service && sudo systemctl disable freedmr.service &&
 10)
 sudo systemctl stop hbmon.service && sh /opt/HBmonitor/updateTGIDS.sh && cronedit.sh '* */24 * * *' 'sh /opt/HBmonitor/updateTGIDS.sh >/dev/null 2>&1' add &&  sudo systemctl start hbmon.service && sudo systemctl enable hbmon.service ;;
 11)
-sudo systemctl stop hbmon2.service && sudo rm /opt/HBMonv2/*.json && sudo rm /opt/HBMonv2/sysinfo/*.rrd && sh /opt/HBMonv2/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sh /opt/HBMonv2/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sh /opt/HBMonv2/sysinfo/cpu.sh' add && cronedit.sh '* */24 * * *' 'sh /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' add &&  sudo systemctl enable hbmon2.service && sudo systemctl start http.server-fmr.service && sudo systemctl enable http.server-fmr.service && sh /opt/HBMonv2/updateTGIDS.sh ;;
+sudo systemctl stop fdmr_mon.service && sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd && sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/cpu.sh' add && sudo systemctl enable fdmr_mon.service && sudo systemctl start http.server-fmr.service && sudo systemctl enable http.server-fmr.service ;;
 12)
 sudo systemctl stop hbmon.service && cronedit.sh '* */24 * * *' 'sh /opt/HBmonitor/updateTGIDS.sh >/dev/null 2>&1' remove && sudo systemctl disable hbmon.service && sudo rm /opt/HBmonitor/*.json ;;
 13)
-sudo systemctl stop hbmon2.service && sudo systemctl disable hbmon2.service && sudo systemctl stop http.server-fmr.service && sudo systemctl disable http.server-fmr.service && cronedit.sh '*/5 * * * *' 'sh /opt/HBMonv2/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'sh /opt/HBMonv2/sysinfo/cpu.sh' remove && cronedit.sh '* */24 * * *' 'sh /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' remove ;;
+sudo systemctl stop fdmr_mon.service && sudo systemctl disable fdmr_mon.service && sudo systemctl stop http.server-fmr.service && sudo systemctl disable http.server-fmr.service && cronedit.sh '*/5 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/cpu.sh' remove ;;
 14)
 menu-igate ;;
 15)
