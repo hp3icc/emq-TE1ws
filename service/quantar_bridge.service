@@ -14,7 +14,7 @@ StandardOutput=null
 WorkingDirectory=/opt/Quantar_Bridge
 Environment=QuantarBridgeLogDir=/var/log/dvswitch
 #ExecStartPre = /bin/sh -c 'echo "Starting Quantar_Bridge: [`date +%%T.%%3N`]" >> /var/log/netcheck'
-ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
 ExecStart=/opt/Quantar_Bridge/Quantar_Bridge /opt/Quantar_Bridge/Quantar_Bridge.ini
 ExecReload=/bin/kill -2 $MAINPID
 KillMode=process
