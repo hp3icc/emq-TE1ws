@@ -7,6 +7,7 @@ cd HBMonv2
 sudo chmod +x install.sh
 sudo ./install.sh
 cp fdmr-mon_SAMPLE.cfg config.py
+sudo chmod 644 config.py
 sudo chmod +x /opt/HBMonv2/monitor.py
 sudo sed -i 's/FREQUENCY = 10/FREQUENCY = 60/' /opt/HBMonv2/config.py
 #
@@ -38,95 +39,7 @@ sudo chmod +x /opt/HBMonv2/sysinfo/rrd-db.sh
 sudo sh /opt/HBMonv2/sysinfo/rrd-db.sh
 sudo chmod +x /opt/HBMonv2/updateTGIDS.sh
 
-sudo cat > /opt/HBMonv2/html/buttons.html <<- "EOF"
-<!-- HBMonitor buttons HTML code -->
-<a class="button"  href="index.php">&nbsp;Home&nbsp;</a>
-<!--
-&nbsp;
-<div class="dropdown">
-  <button class="dropbtn">&nbsp;Admin Area&nbsp;</button>
-  <div class="dropdown-content">
-    <a href="masters.php">&nbsp;Masters&nbsp;</a>
-    <a href="peers.php">&nbsp;Peers&nbsp;</a>
-    <a href="opb.php">&nbsp;OpenBridge&nbsp;</a>
-    <a href="bridges.php">&nbsp;Bridges&nbsp;</a>
-    <a href="moni.php">&nbsp;Monitor&nbsp;</a>
-    <a href="sinfo.php">&nbsp;System Info&nbsp;</a>
-  </div>
-</div>
--->
-&nbsp;
 
-<div class="dropdown">
-  <button class="dropbtn">Links</button>
-  <div class="dropdown-content">
-&nbsp;
-<a class="button" href="linkedsys.php">&nbsp;Linked Systems&nbsp;</a>
-&nbsp;
-<a class="button" href="opb.php">&nbsp;OpenBridge&nbsp;</a>
-&nbsp;
-<a class="button" href="statictg.php">&nbsp;Static TG&nbsp;</a>
-&nbsp;
-</div>
-</div>
-
-&nbsp;
-<div class="dropdown">
-  <button class="dropbtn">Local Server</button>
-  <div class="dropdown-content">
-
-<a class="button" href="moni.php">&nbsp;Monitor&nbsp;</a>
-&nbsp;
-<a class="button" href="sysinfo.php">&nbsp;System Info&nbsp;</a>
-&nbsp;
-<a class="button" href="log.php">&nbsp;Lastheard&nbsp;</a>
-</div>
-</div>
-&nbsp;
-<div class="dropdown">
-  <button class="dropbtn">FreeDMR</button>
-  <div class="dropdown-content">
-
-&nbsp;
-<a class="button" href="http://www.freedmr.uk/index.php/why-use-freedmr/"target="_blank">&nbsp;Info FreeDMR&nbsp;</a>
-&nbsp;
-<a class="button" href="http://www.freedmr.uk/index.php/freedmr-servers/"target="_blank">&nbsp;Info Server&nbsp;</a>
-&nbsp;
-<a class="button" href="http://repeater.uk.freedmr.link/status/server_status.php"target="_blank">&nbsp;Status Server&nbsp;</a>
-&nbsp;
-<a class="button" href="http://repeater.uk.freedmr.link/status/count.php"target="_blank">&nbsp;Ranking TG&nbsp;</a>
-&nbsp;
-<a class="button" href="http://www.freedmr.uk/freedmr/option-calculator-b.php"target="_blank">&nbsp;Static TG Calculator&nbsp;</a>
-&nbsp;
-</div>
-</div>
-<!--
-&nbsp;
-<a class="button" href="bridges.php">&nbsp;Bridges&nbsp;</a>
--->
-<!-- Own buttons HTML code -->
-
-<!-- Example of buttons dropdown HTML code -->
-<!--
-<p></p>
-<div class="dropdown">
-  <button class="dropbtn">Admin Area</button>
-  <div class="dropdown-content">
-    <a href="masters.php">Master&Peer</a>
-    <a href="opb.php">OpenBridge</a>
-    <a href="moni.php">Monitor</a>
-  </div>
-</div>
-&nbsp;
-<div class="dropdown">
-  <button class="dropbtn">Reflectors</button>
-  <div class="dropdown-content">
-    <a target='_blank' href="#">YSF Reflector</a>
-    <a target='_blank' href="#">XLX950</a>
-  </div>
-</div>
--->
-EOF
 #
 sudo systemctl stop hbmon2.service 
 sudo rm /opt/HBMonv2/*.json 
