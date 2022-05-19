@@ -113,7 +113,7 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 EOF
 
 #
-sudo systemctl stop hbmon2.service 
+#sudo systemctl stop hbmon2.service 
 sudo rm /opt/FDMR-Monitor/*.json 
 sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd 
 sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh 
