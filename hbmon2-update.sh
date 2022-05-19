@@ -6,7 +6,7 @@ mv /opt/FDMR-Monitor /opt/HBMonv2
 cd HBMonv2
 sudo chmod +x install.sh
 sudo ./install.sh
-cp config_SAMPLE.py config.py
+cp fdmr-mon_SAMPLE.cfg config.py
 sudo chmod +x /opt/HBMonv2/monitor.py
 sudo sed -i 's/FREQUENCY       = 10/FREQUENCY       = 60/' /opt/HBMonv2/config.py
 #
