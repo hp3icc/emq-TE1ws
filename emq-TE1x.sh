@@ -634,11 +634,11 @@ sudo systemctl stop freedmr.service && sudo systemctl disable freedmr.service &&
 10)
 sudo systemctl stop hbmon.service && sh /opt/HBmonitor/updateTGIDS.sh && cronedit.sh '* */24 * * *' 'sh /opt/HBmonitor/updateTGIDS.sh >/dev/null 2>&1' add &&  sudo systemctl start hbmon.service && sudo systemctl enable hbmon.service ;;
 11)
-sudo systemctl stop fdmr_mon.service && sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd && sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/cpu.sh' add && sudo systemctl enable fdmr_mon.service && sudo systemctl start http.server-fmr.service && sudo systemctl enable http.server-fmr.service && sudo systemctl start fdmr_mon.service ;;
+echo 123> /opt/FDMR-Monitor/123.json && sudo systemctl stop fdmr_mon.service && sudo rm /opt/FDMR-Monitor/*.json && sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd && sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/cpu.sh' add && sudo systemctl enable fdmr_mon.service && sudo systemctl start http.server-fmr.service && sudo systemctl enable http.server-fmr.service && sudo systemctl start fdmr_mon.service ;;
 12)
 sudo systemctl stop hbmon.service && cronedit.sh '* */24 * * *' 'sh /opt/HBmonitor/updateTGIDS.sh >/dev/null 2>&1' remove && sudo systemctl disable hbmon.service && sudo rm /opt/HBmonitor/*.json ;;
 13)
-sudo systemctl stop fdmr_mon.service && sudo systemctl disable fdmr_mon.service && sudo systemctl stop http.server-fmr.service && sudo systemctl disable http.server-fmr.service && cronedit.sh '*/5 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/cpu.sh' remove && sudo rm /opt/FDMR-Monitor/*.json ;;
+sudo systemctl stop fdmr_mon.service && sudo systemctl disable fdmr_mon.service && sudo systemctl stop http.server-fmr.service && sudo systemctl disable http.server-fmr.service && cronedit.sh '*/5 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/cpu.sh' remove ;;
 14)
 menu-igate ;;
 15)
