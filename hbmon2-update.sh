@@ -1,6 +1,6 @@
 #!/bin/sh
 sudo systemctl stop fdmr_mon.service
-rm -r /opt/HBMonv2/
+rm -r /opt/FDMR-Monitor/
 cd /opt
 sudo git clone https://github.com/yuvelq/FDMR-Monitor
 cd FDMR-Monitor
