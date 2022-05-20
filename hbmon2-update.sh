@@ -33,6 +33,61 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 <!--
 &nbsp;
 <div class="dropdown">
+@hp3icc
+hp3icc /
+emq-TE1ws
+Public
+
+Code
+Issues 1
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+
+    Settings
+
+emq-TE1ws/
+in
+main
+
+1
+
+#!/bin/sh
+
+2
+
+sudo systemctl stop fdmr_mon.service
+
+3
+
+rm -r /opt/FDMR-Monitor/
+
+4
+
+cd /opt
+
+5
+
+sudo git clone https://github.com/yuvelq/FDMR-Monitor
+
+6
+
+cd FDMR-Monitor
+
+7
+
+sudo chmod +x install.sh
+
+8
+
+sudo ./install.sh
+
+9
+
+sudo cp fdmr-mon_SAMPLE.cfg fdmr-mon.cfg
   <button class="dropbtn">&nbsp;Admin Area&nbsp;</button>
   <div class="dropdown-content">
     <a href="masters.php">&nbsp;Masters&nbsp;</a>
@@ -114,6 +169,7 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 EOF
 
 #
+sudo rm /opt/FDMR-Monitor/*.json
 sudo systemctl daemon-reload
 sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd 
 sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh 
