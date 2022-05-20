@@ -81,8 +81,6 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 &nbsp;
 <a class="button" href="http://repeater.uk.freedmr.link/status/server_status.php"target="_blank">&nbsp;Status Server&nbsp;</a>
 &nbsp;
-<a class="button" href="http://repeater.uk.freedmr.link/status/count.php"target="_blank">&nbsp;Ranking TG&nbsp;</a>
-&nbsp;
 <a class="button" href="http://www.freedmr.uk/freedmr/option-calculator-b.php"target="_blank">&nbsp;Static TG Calculator&nbsp;</a>
 &nbsp;
 </div>
@@ -115,11 +113,9 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 EOF
 
 #
-#sudo systemctl stop hbmon2.service 
-sudo rm /opt/FDMR-Monitor/*.json 
 sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd 
 sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh 
 #sudo systemctl start http.server-fmr.service
 sudo chmod +x /opt/extra-2.sh
 sudo sh /opt/extra-2.sh
-sudo systemctl restart fdmr_mon
+sudo systemctl restart fdmr_mon.service
