@@ -10,9 +10,9 @@ rm /lib/systemd/system/hbmon2.service
 cronedit.sh '*/5 * * * *' 'sh /opt/HBMonv2/sysinfo/graph.sh' remove
 cronedit.sh '*/2 * * * *' 'sh /opt/HBMonv2/sysinfo/cpu.sh' remove
 cronedit.sh '* */24 * * *' 'sh /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' remove
-cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' remove
-cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' remove
-cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' remove
+#cronedit.sh '*/5 * * * *' 'sudo /opt/HBMonv2/sysinfo/graph.sh' remove
+#cronedit.sh '*/2 * * * *' 'sudo /opt/HBMonv2/sysinfo/cpu.sh' remove
+#cronedit.sh '* */24 * * *' 'sudo /opt/HBMonv2/updateTGIDS.sh >/dev/null 2>&1' remove
 
 sudo cat > /bin/menu-fdmr <<- "EOF"
 #!/bin/bash
