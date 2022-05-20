@@ -3225,8 +3225,8 @@ sudo chmod +777 /opt/MMDVM_Bridge/MMDVM_Bridge.ini
 sudo chmod +777 /etc/pymultimonaprs.json
 sudo chmod +777 /opt/D-APRS/user_settings.txt
 
-sudo chmod +x /opt/HBMonv2/sysinfo/graph.sh
-sudo chmod +x /opt/HBMonv2/sysinfo/cpu.sh
+sudo chmod +x /opt/FDMR-Monitor/sysinfo/graph.sh
+sudo chmod +x /opt/FDMR-Monitor/sysinfo/cpu.sh
 sudo chmod +x /usr/bin/python3
 sudo chmod +x /opt/HBmonitor/monitor.py
 sudo chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
@@ -3244,7 +3244,7 @@ sudo chmod 755 /lib/systemd/system/http.server-dvs.service
 sudo chmod 755 /lib/systemd/system/http.server-fmr.service
 sudo chmod 755 /lib/systemd/system/freedmr.service
 sudo chmod 755 /lib/systemd/system/proxy.service
-sudo chmod 755 /lib/systemd/system/hbmon2.service
+sudo chmod 755 /lib/systemd/system/fdmr_mon.service
 sudo chmod 755 /lib/systemd/system/hbmon.service
 sudo chmod 755 /lib/systemd/system/hbparrot.service
 sudo chmod 755 /lib/systemd/system/YSFReflector.service
