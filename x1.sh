@@ -118,6 +118,6 @@ cronedit.sh '*/2 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/cpu.sh' add
 sudo systemctl enable fdmr_mon.service
 sudo systemctl start http.server-fmr.service
 sudo systemctl enable http.server-fmr.service
-sudo systemctl start fdmr_mon.service
+sudo systemctl restart fdmr_mon.service
 
 
