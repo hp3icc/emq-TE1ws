@@ -84,7 +84,7 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
 
  Proyecto emq-TE1 con accespoint WiFi
  
-      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1x-AP.sh)"
+      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1x.sh)"
       
 
  Proyecto emq-TE1 sin accespoint WiFi - recomendado para vps o equipos de escritorio de una sola coneccion a internet
@@ -323,7 +323,7 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
  Emq-TE1 project with WiFi access point
 
-      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1x-AP.sh)"
+      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1x.sh)"
 
  Emq-TE1 project without WiFi access point - recommended for vps
  
