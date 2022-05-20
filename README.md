@@ -46,6 +46,8 @@ Dvswitch
 
 FreeDMR
 
+FDMR-Monitor
+
 NoIP
 
 GoTTY
@@ -285,6 +287,8 @@ YSF2DMR
 Dvswitch 
 
 FreeDMR
+
+FDMR-Monitor
 
 NoIP
 
