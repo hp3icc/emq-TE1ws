@@ -1,4 +1,5 @@
 #!/bin/sh
+sudo systemctl stop fdmr_mon.service
 rm -r /opt/HBMonv2/
 cd /opt
 sudo git clone https://github.com/yuvelq/FDMR-Monitor
@@ -113,7 +114,7 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 EOF
 
 #
-systemctl daemon-reload
+sudo systemctl daemon-reload
 sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd 
 sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh 
 #sudo systemctl start http.server-fmr.service
