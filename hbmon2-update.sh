@@ -113,6 +113,7 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 EOF
 
 #
+systemctl daemon-reload
 sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd 
 sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh 
 #sudo systemctl start http.server-fmr.service
