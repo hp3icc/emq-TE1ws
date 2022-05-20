@@ -107,7 +107,7 @@ EOF
 #m
 sudo systemctl daemon-reload
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/hbmon2-update.sh)" ;;
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/hbmon2-update.sh)"
 echo 123> /opt/FDMR-Monitor/123.json
 sudo systemctl stop fdmr_mon.service
 sudo rm /opt/FDMR-Monitor/*.json
