@@ -2787,8 +2787,6 @@ sudo chmod +x /opt/FDMR-Monitor/sysinfo/cpu.sh
 sudo chmod +x /opt/FDMR-Monitor/sysinfo/graph.sh
 sudo chmod +x /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
-sudo chmod +x /opt/FDMR-Monitor/updateTGIDS.sh
-
 
 sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 <!-- HBMonitor buttons HTML code -->
