@@ -79,7 +79,7 @@ sudo apt-get install rrdtool -y
 
 ##################
 sudo cat > /opt/emq-ver <<- "EOF"
-EMQ-VER:  18
+EMQ-VER:  19
 EOF
 #########
 cd /home/
