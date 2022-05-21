@@ -139,7 +139,7 @@ sudo cat > /bin/menu-update <<- "EOF"
 #!/bin/bash
 while : ; do
 choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Importante: solo actualice aplicaciones que esten en uso, al finalizar la actualizacion la aplicacion se reiniciara, tenga pleno dominio de las configuraciones de cada aplicacion, antes de actualizar.
-" 17 50 6 \
+" 20 50 6 \
 1 " Update HBMon2 Version OA4DOA " \
 2 " Update FreeDMR  " \
 3 " UPGRADE LIST Update " \
