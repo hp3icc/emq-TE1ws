@@ -3240,7 +3240,6 @@ exit 0
 EOF
 ###
 sudo chmod +x /tmp/completado.sh
-history -c && history -w
 ##
 sudo update-rc.d dphys-swapfile remove
 sudo chmod -x /etc/init.d/dphys-swapfile
@@ -3251,4 +3250,5 @@ sudo dphys-swapfile uninstall
 cd /etc/
 sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=0/' dphys-swapfile
 ##
+history -c && history -w
 sh /tmp/completado.sh
