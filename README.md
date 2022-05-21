@@ -72,7 +72,7 @@ Compatible con Raspberry pi : zero , P2 , P3 y P4
 
 # Instalación desde terminal:
 
-Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando el Bash de auto instalación desde su consola terminal con permisos de super usuario, importante su sistema operativo debe tener instalado sudo y wget  antes de utilizar el Bash de auto instalación .
+Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando el Bash de auto instalación desde su consola terminal con permisos de super usuario, importante su sistema operativo debe tener instalado sudo y curl  antes de utilizar el Bash de auto instalación .
 
 * Pre-requisitos :
  
@@ -82,14 +82,7 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
  
 * Bash de auto instalación :
 
- Proyecto emq-TE1 con accespoint WiFi
- 
-      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1x.sh)"
-      
-
- Proyecto emq-TE1 sin accespoint WiFi - recomendado para vps o equipos de escritorio de una sola coneccion a internet
- 
-      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1x.sh)"
+       sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1x.sh)"
 
 
 #
@@ -311,7 +304,7 @@ WiFi-AP - optional AP version
 
 # Installation from terminal:
 
-You can install on your operating system (Ubuntu, raspberry, Debian) using the self-install Bash from your terminal console with super user permissions, importantly your operating system must have sudo and wget installed before using the self-install Bash. 
+You can install on your operating system (Ubuntu, raspberry, Debian) using the self-install Bash from your terminal console with super user permissions, importantly your operating system must have sudo and curl installed before using the self-install Bash. 
 
 * Prerequisites:
  
@@ -321,13 +314,7 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
 * Self-install bash:
 
- Emq-TE1 project with WiFi access point
-
-      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1x.sh)"
-
- Emq-TE1 project without WiFi access point - recommended for vps
- 
-      sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1x.sh)"
+       sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1x.sh)"
 
 
 #
