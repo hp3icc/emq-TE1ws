@@ -52,7 +52,7 @@ NoIP
 
 GoTTY
 
-WiFi-AP -opcional version AP
+Reuter WiFi-AP (opcional version - Reuter AP)
 
 Esta versión cuenta con Dashboard HTML corriendo sobre websock , para el MMDVMHost y Reflector YSF , estan preconfigurados a puerto http 80 , pero desde el menú puede cambiar al puerto 8000, 8080 , o cualquier otro de su preferencia .
 
@@ -150,9 +150,9 @@ Este archivo puede ser editado con el Notepad y dentro de este archivo, debe inc
 
 #
 
-# WiFi-AP
+# Reuter WiFi-AP
 
-Ahora el proyecto emq-TE1ws , incluye la funcion de modo ap a nuestro equipo, esta funcion nos permite utilizar nuestro mini computador Raspberry como un reuter WiFi o si tenemos un hotspot o aprs sobre raspberry zero W, nos facilita la conexion a nuestro equipo , para agregar una nueva coneccion a redes wifi conocidas .
+Ahora el proyecto emq-TE1ws , incluye la funcion de modo Reuter Wifi AP, a nuestro equipo, esta funcion nos permite utilizar nuestro mini computador Raspberry como un reuter WiFi o si tenemos un hotspot o aprs sobre raspberry zero W, nos facilita la conexion a nuestro equipo , para agregar una nueva coneccion a redes wifi conocidas .
 
 La funcion de de WiFi-AP puede ser apagada o encendida en el menu wifi
 
@@ -179,7 +179,7 @@ http://jorisvr.nl/wpapsk.html
 
 * Nota:
 
-  si su equipo es un vps , servidor fijo , mini pc o solo utiliza las mismas conexiones de internet , se recomienda la version de emq-TE1 sin WiFi-AP .
+  Para habilitar el moodo Reuter wifi Ap , ingrece al menu upgrade ,luego en update list y selecione upgrade to Reuter AP mode.
 
 #
 
@@ -282,7 +282,7 @@ NoIP
 
 GoTTY
 
-WiFi-AP - optional AP version
+Reuter WiFi-AP (optional Reuter wifi AP mode version)
  
  
  This version has HTML Dashboard running on websock, for the MMDVMHost and YSF Reflector, they are preconfigured to http port 80, but from the menu you can change to port 8000, 8080, or any other of your preference.
@@ -381,7 +381,7 @@ If your computer has a wireless network device (WIFI) or is a Raspberry Zero W m
 
  #
  
- # WiFi-AP
+ # Reuter WiFi-AP
 
  Now the emq-TE1ws project includes the function of ap mode to our equipment, this function allows us to use our Raspberry mini computer as a WiFi reuter or if we have a hotspot or aprs on raspberry zero W, it facilitates the connection to our equipment, to add a new connection to known Wi-Fi networks.
 
@@ -409,8 +409,8 @@ If your computer has a wireless network device (WIFI) or is a Raspberry Zero W m
 
  * Note:
 
-   If your equipment is a vps, fixed server, mini pc or only uses the same internet connections, the emq-TE1 version without WiFi-AP is recommended.
-
+   To enable Reuter wifi Ap mode, go to upgrade menu, then update list and select upgrade to Reuter AP mode.
+   
  #
 
 # DMRGateway
