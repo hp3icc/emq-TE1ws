@@ -52,4 +52,5 @@ done
 exit 0
 EOF
 #
+history -c && history -w
 /sbin/shutdown -r now
