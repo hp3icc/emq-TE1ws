@@ -177,4 +177,8 @@ sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 #sudo systemctl start http.server-fmr.service
 sudo chmod +x /opt/extra-2.sh
 sudo sh /opt/extra-2.sh
+
+sudo rm mon.db
+sudo python3 mon_db.py
+
 sudo systemctl restart fdmr_mon.service
