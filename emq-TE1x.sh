@@ -1650,8 +1650,11 @@ RemotePort=62033
 Jitter=500
 Slot1=1
 Slot2=1
-# No active linea de Option para TG estaticos, si utiliza BM
-#Options=TS2=7144;DIAL=0;VOICE=0;TIMER=10;
+# No active linea de Option para TG estaticos, si utiliza BM,TGIF,DMR-Central
+# Puede activar linea de option de selfcare FDMR-Mon y colocar su propia contraseña o 
+# utilizar linea de options con opciones de tg estaticos
+#Options=PASS=abc123
+#Options=TS2=714,7144;DIAL=0;VOICE=0;LANG=es_ES;SINGLE=0;TIMER=10;
 # ModeHang=3
 Debug=0
 
@@ -1861,7 +1864,10 @@ Enabled=1
 Name=FreeDMR
 TGRewrite0=2,2000001,2,1,999999
 PCRewrite=2,2000001,2,1,999999
-#Options="TS2=7144;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;"
+# Puede activar linea de options de selfcare y colocar su propia contraseña o 
+# utilizar linea de options con opciones de tg estaticos 
+#Options="PASS=abc123"
+#Options="TS2=714,7144;DIAL=0;VOICE=0;LANG=es_ES;SINGLE=0;TIMER=10;"
 Address=198.211.36.245
 Password=passw0rd
 Port=62031
@@ -1944,7 +1950,7 @@ Power=1
 Latitude=0.0
 Longitude=0.0
 Height=0
-Location=Panama
+Location=YSF2DMR Link
 Description=Multi-Mode
 URL=www.google.co.uk
 
@@ -1990,7 +1996,13 @@ TGUnlink=4000
 PCUnlink=0
 # Local=62032
 Password=passw0rd
-# Options=
+
+# No active linea de Option para TG estaticos, si utiliza BM,TGIF,DMR-Central
+# Puede activar linea de option de selfcare FDMR-Mon y colocar su propia contraseña o 
+# utilizar linea de options con opciones de tg estaticos
+#Options=PASS=abc123
+#Options=TS2=714;DIAL=0;VOICE=0;LANG=es_ES;SINGLE=0;TIMER=10;
+
 TGListFile=TGList-DMR.txt
 Debug=0
 
@@ -2254,7 +2266,11 @@ Local=62032
 Password=passw0rd
 # for DMR+ see https://github.com/DVSwitch/MMDVM_Bridge/blob/master/DOC/DMRplus_startup_options.md
 # for XLX the syntax is: Options=XLX:4009
-# Options=TS2=7144,7000;DIAL=0;VOICE=0;TIMER=10;
+# No active linea de Option para TG estaticos, si utiliza BM,TGIF,DMR-Central
+# Puede activar linea de option de selfcare FDMR-Mon y colocar su propia contraseña o 
+# utilizar linea de options con opciones de tg estaticos
+#Options=PASS=abc123
+#Options=TS2=714,7144;DIAL=0;VOICE=0;LANG=es_ES;SINGLE=0;TIMER=10;
 Slot1=0
 Slot2=1
 Debug=0
