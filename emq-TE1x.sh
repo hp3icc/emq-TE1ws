@@ -1642,7 +1642,7 @@ RemotePort=62033
 #       Direct    -     single server                   #
 #########################################################
 #Type=Direct
-#RemoteAddress=freedmr-hp.ddns.net
+#RemoteAddress=198.211.36.245
 #RemotePort=62031
 #Password=passw0rd
 #
