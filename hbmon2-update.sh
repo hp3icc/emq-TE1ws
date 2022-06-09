@@ -3,7 +3,7 @@ sudo systemctl stop fdmr_mon.service
 rm -r /opt/FDMR-Monitor/
 cd /opt
 #sudo git clone https://github.com/yuvelq/FDMR-Monitor
-sudo git clone https://github.com/yuvelq/FDMR-Monitor/tree/Self_service_dev/html
+sudo git clone https://github.com/yuvelq/FDMR-Monitor/raw/Self_service_dev/html
 cd FDMR-Monitor
 sudo chmod +x install.sh
 sudo ./install.sh
