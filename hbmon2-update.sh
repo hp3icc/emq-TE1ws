@@ -5,6 +5,7 @@ cd /opt
 sudo git clone https://github.com/yuvelq/FDMR-Monitor
 #sudo git clone https://github.com/yuvelq/FDMR-Monitor/tree/Self_service_dev
 cd FDMR-Monitor
+git checkout Self_service_dev
 sudo chmod +x install.sh
 sudo ./install.sh
 sudo cp fdmr-mon_SAMPLE.cfg fdmr-mon.cfg
