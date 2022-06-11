@@ -2719,7 +2719,8 @@ WantedBy=multi-user.target
 EOF
 #######
 cd /opt
-sudo git clone https://github.com/yuvelq/FDMR-Monitor
+#sudo git clone https://github.com/yuvelq/FDMR-Monitor
+sudo git clone https://github.com/hp3icc/FDMR-Monitor.git
 cd FDMR-Monitor
 sudo chmod +x install.sh
 sudo ./install.sh
