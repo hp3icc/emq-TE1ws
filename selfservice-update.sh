@@ -133,18 +133,17 @@ EOF
 #
 #sudo rm /opt/FDMR-Monitor/*.json
 sudo systemctl daemon-reload
-#sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd 
-#sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh 
-#sudo systemctl start http.server-fmr.service
+
 sudo chmod +x /opt/extra-2.sh
 sudo sh /opt/extra-2.sh
 cd /opt/FDMR-Monitor
 sudo ./install.sh
-cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/html/
-sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
+#sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
+rm /opt/FDMR-Monitor/sysinfo/*.rrd 
+sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
+cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/html/sysinfo/
 
 sudo rm mon.db
 sudo python3 mon_db.py
 sudo systemctl restart fdmr_mon.service
-
-#sudo systemctl enable fdmr_mon.service
+sudo systemctl enable fdmr_mon.service
