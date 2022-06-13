@@ -17,7 +17,7 @@ sudo git clone https://github.com/yuvelq/FDMR-Monitor.git
 cd FDMR-Monitor
 sudo git checkout Self_Service
 sudo chmod +x install.sh
-sudo ./install.sh
+#sudo ./install.sh
 #sudo cp fdmr-mon_SAMPLE.cfg fdmr-mon.cfg
 sudo sed -i 's/RELOAD_TIME = 15/RELOAD_TIME = 1/' /opt/FDMR-Monitor/fdmr-mon.cfg
 sudo chmod 644 fdmr-mon.cfg
@@ -28,7 +28,7 @@ sudo cp utils/systemd/fdmr_mon.service /lib/systemd/system/
 
 ####
 cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/html/
-sudo sed -i 's/localhost_2-day.png/localhost_1-day.png/' /var/www/html/sysinfo.php
+sudo sed -i 's/localhost_2-day.png/localhost_1-day.png/' /opt/FDMR-Monitor/html/sysinfo.php
 cd /var/www/html/sysinfo/
 #sudo sed -i 's/var\/www\/html/opt\/FDMR-Monitor\/html/' cpu.sh
 #sudo sed -i 's/var\/www\/html/opt\/FDMR-Monitor\/html/' graph.sh
@@ -41,7 +41,7 @@ sudo chmod +x /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 #sudo chmod +x /opt/FDMR-Monitor/updateTGIDS.sh
 #
-sudo cat > /var/www/html/buttons.php <<- "EOF"
+sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 <!-- HBMonitor buttons HTML code -->
 <a class="button"  href="index.php">&nbsp;Home&nbsp;</a>
 <!--
@@ -137,6 +137,7 @@ sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 #sudo systemctl start http.server-fmr.service
 sudo chmod +x /opt/extra-2.sh
 sudo sh /opt/extra-2.sh
+sudo ./install.sh
 
 sudo rm mon.db
 sudo python3 mon_db.py
