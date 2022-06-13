@@ -26,8 +26,8 @@ rm /lib/systemd/system/fdmr_mon.service
 #sudo cp utils/systemd/fdmr_mon.service /lib/systemd/system/
 sudo sed -i 's/FREQUENCY = 10/FREQUENCY = 60/' /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 sudo chmod 644 /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
-sed '33 a <!--' -i /opt/FDMR-Monitor/html/sysinfo.php
-sed '35 a -->' -i /opt/FDMR-Monitor/html/sysinfo.php
+sed '33 a <!--' -i /opt/FDMR-Monitor/sysinfo.php
+sed '35 a -->' -i /opt/FDMR-Monitor/sysinfo.php
 ####
 sudo sed -i 's/localhost_2-day.png/localhost_1-day.png/' /opt/FDMR-Monitor/html/sysinfo.php
 cd /var/www/html/sysinfo/
