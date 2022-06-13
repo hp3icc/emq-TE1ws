@@ -1,4 +1,6 @@
 #!/bin/sh
+sudo systemctl stop apache2
+sudo systemctl disable apache2
 sudo systemctl stop fdmr_mon.service
 rm -r /opt/FDMR-Monitor/
 cd /opt
