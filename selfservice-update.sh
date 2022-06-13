@@ -44,73 +44,46 @@ sudo chmod +x /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 #
 sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 <!-- HBMonitor buttons HTML code -->
-<a class="button"  href="index.php">&nbsp;Home&nbsp;</a>
-<!--
-&nbsp;
+<a class="button" href="index.php">Home</a>
+
+<a class="button" href="linkedsys.php">Linked Systems</a>
+
+<a class="button" href="statictg.php">Static TG</a>
+
+<a class="button" href="opb.php">OpenBridge</a>
+
+<?php if(TGCOUNT_INC){echo '<a class="button" href="tgcount.php">TG Count</a>';}?>
+
 <div class="dropdown">
-  <button class="dropbtn">&nbsp;Admin Area&nbsp;</button>
+  <button class="dropbtn">Self Service</button>
   <div class="dropdown-content">
-    <a href="masters.php">&nbsp;Masters&nbsp;</a>
-    <a href="peers.php">&nbsp;Peers&nbsp;</a>
-    <a href="opb.php">&nbsp;OpenBridge&nbsp;</a>
-    <a href="bridges.php">&nbsp;Bridges&nbsp;</a>
-    <a href="moni.php">&nbsp;Monitor&nbsp;</a>
-    <a href="sinfo.php">&nbsp;System Info&nbsp;</a>
+    <?php if(!PRIVATE_NETWORK){echo '<a href="selfservice.php">SelfService</a>';}?>
+    <a href="login.php">Login</a>
+    <?php 
+    if(isset($_SESSION["auth"], $_SESSION["callsign"], $_SESSION["h_psswd"]) and $_SESSION["auth"]){
+      echo '<a href="devices.php">Devices</a>';
+    }
+    ?>
   </div>
 </div>
--->
-&nbsp;
+
 <div class="dropdown">
-  <button class="dropbtn">Links</button>
+  <button class="dropbtn">Server Stats</button>
   <div class="dropdown-content">
-&nbsp;
-<a class="button" href="linkedsys.php">&nbsp;Linked Systems&nbsp;</a>
-&nbsp;
-<a class="button" href="opb.php">&nbsp;OpenBridge&nbsp;</a>
-&nbsp;
-<a class="button" href="statictg.php">&nbsp;Static TG&nbsp;</a>
-&nbsp;
-<a class="button" href="login.php">&nbsp;Self Service&nbsp;</a>
-&nbsp;
+    <a href="moni.php">Monitor</a>
+    <a href="sysinfo.php">System Info</a>
+    <a href="log.php">Lastheard</a>
+  </div>
 </div>
-</div>
-&nbsp;
-<div class="dropdown">
-  <button class="dropbtn">Local Server</button>
-  <div class="dropdown-content">
-<a class="button" href="moni.php">&nbsp;Monitor&nbsp;</a>
-&nbsp;
-<a class="button" href="sysinfo.php">&nbsp;System Info&nbsp;</a>
-&nbsp;
-<a class="button" href="log.php">&nbsp;Lastheard&nbsp;</a>
-&nbsp;
-<a class="button" href="tgcount.php">&nbsp;TG Count&nbsp;</a>
-&nbsp;
-</div>
-</div>
-&nbsp;
-<div class="dropdown">
-  <button class="dropbtn">FreeDMR</button>
-  <div class="dropdown-content">
-&nbsp;
-<a class="button" href="http://www.freedmr.uk/index.php/why-use-freedmr/"target="_blank">&nbsp;Info FreeDMR&nbsp;</a>
-&nbsp;
-<a class="button" href="http://www.freedmr.uk/index.php/freedmr-servers/"target="_blank">&nbsp;Info Server&nbsp;</a>
-&nbsp;
-<a class="button" href="http://repeater.uk.freedmr.link/status/server_status.php"target="_blank">&nbsp;Status Server&nbsp;</a>
-&nbsp;
-<a class="button" href="http://www.freedmr.uk/freedmr/option-calculator-b.php"target="_blank">&nbsp;Static TG Calculator&nbsp;</a>
-&nbsp;
-</div>
-</div>
+
+<a class="button" href="info.php">Info</a>
+
 <!--
-&nbsp;
-<a class="button" href="bridges.php">&nbsp;Bridges&nbsp;</a>
+<a class="button" href="bridges.php">Bridges</a>
 -->
-<!-- Own buttons HTML code -->
+
 <!-- Example of buttons dropdown HTML code -->
 <!--
-<p></p>
 <div class="dropdown">
   <button class="dropbtn">Admin Area</button>
   <div class="dropdown-content">
@@ -119,7 +92,7 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
     <a href="moni.php">Monitor</a>
   </div>
 </div>
-&nbsp;
+
 <div class="dropdown">
   <button class="dropbtn">Reflectors</button>
   <div class="dropdown-content">
@@ -128,6 +101,7 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
   </div>
 </div>
 -->
+
 EOF
 
 #
