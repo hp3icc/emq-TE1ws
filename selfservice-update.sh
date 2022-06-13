@@ -141,6 +141,9 @@ sudo ./install.sh
 #sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 rm /opt/FDMR-Monitor/sysinfo/*.rrd 
 sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
+sed '33 a <!--' -i /var/www/html/sysinfo.php
+sed '35 a -->' -i /var/www/html/sysinfo.php
+
 cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/html/sysinfo/
 
 sudo rm mon.db
