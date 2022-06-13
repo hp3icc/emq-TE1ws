@@ -19,11 +19,11 @@ sudo git checkout Self_Service
 sudo chmod +x install.sh
 #sudo ./install.sh
 #sudo cp fdmr-mon_SAMPLE.cfg fdmr-mon.cfg
-sudo sed -i 's/RELOAD_TIME = 15/RELOAD_TIME = 1/' /opt/FDMR-Monitor/fdmr-mon.cfg
+sudo sed -i 's/RELOAD_TIME = 15/RELOAD_TIME = 1/' /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 sudo chmod 644 fdmr-mon.cfg
 #sudo cp utils/logrotate/fdmr_mon /etc/logrotate.d/
 sudo cp utils/systemd/fdmr_mon.service /lib/systemd/system/
-#sudo sed -i 's/FREQUENCY = 10/FREQUENCY = 60/' /opt/FDMR-Monitor/fdmr-mon.cfg
+#sudo sed -i 's/FREQUENCY = 10/FREQUENCY = 60/' /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 #
 
 ####
