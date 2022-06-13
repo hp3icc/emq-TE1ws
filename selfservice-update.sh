@@ -141,5 +141,5 @@ sudo sh /opt/extra-2.sh
 
 sudo rm mon.db
 sudo python3 mon_db.py
-
-#sudo systemctl restart fdmr_mon.service
+sudo systemctl daemon-reload
+sudo systemctl restart fdmr_mon.service
