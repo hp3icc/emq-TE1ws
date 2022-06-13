@@ -131,14 +131,15 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 EOF
 
 #
-sudo rm /opt/FDMR-Monitor/*.json
+#sudo rm /opt/FDMR-Monitor/*.json
 sudo systemctl daemon-reload
 sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd 
 sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh 
 #sudo systemctl start http.server-fmr.service
 sudo chmod +x /opt/extra-2.sh
 sudo sh /opt/extra-2.sh
-sh /opt/FDMR-Monitor/install.sh
+cd /opt/FDMR-Monitor
+sudo ./install.sh
 cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/html/
 sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 
