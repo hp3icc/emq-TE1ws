@@ -2,6 +2,7 @@
 sudo systemctl stop apache2
 sudo systemctl disable apache2
 sudo systemctl stop fdmr_mon.service
+sudo systemctl stop http.server-fmr.service 
 rm -r /opt/FDMR-Monitor/
 cd /opt
 #sudo git clone https://github.com/yuvelq/FDMR-Monitor.git
@@ -178,7 +179,7 @@ sudo rm /opt/FDMR-Monitor/*.json
 sudo systemctl daemon-reload
 sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd 
 sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh 
-sudo systemctl restart http.server-fmr.service
+sudo systemctl start http.server-fmr.service 
 sudo systemctl enable http.server-fmr.service
 sudo chmod +x /opt/extra-2.sh
 sudo sh /opt/extra-2.sh
