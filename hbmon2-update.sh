@@ -18,7 +18,8 @@ sudo cp utils/logrotate/fdmr_mon /etc/logrotate.d/
 sudo cp utils/systemd/fdmr_mon.service /lib/systemd/system/
 #sudo sed -i 's/FREQUENCY = 10/FREQUENCY = 60/' /opt/FDMR-Monitor/fdmr-mon.cfg
 #
-
+sed '30 a <!--' -i /opt/FDMR-Monitor/html/sysinfo.php
+sed '32 a -->' -i /opt/FDMR-Monitor/html/sysinfo.php
 ####
 sudo sed -i 's/localhost_2-day.png/localhost_1-day.png/' /opt/FDMR-Monitor/html/sysinfo.php
 cd /opt/FDMR-Monitor/sysinfo/
