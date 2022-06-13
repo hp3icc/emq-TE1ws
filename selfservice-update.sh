@@ -20,14 +20,15 @@ sudo chmod +x install.sh
 #sudo ./install.sh
 #sudo cp fdmr-mon_SAMPLE.cfg fdmr-mon.cfg
 sudo sed -i 's/RELOAD_TIME = 15/RELOAD_TIME = 1/' /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
-sudo chmod 644 fdmr-mon.cfg
 #sudo cp utils/logrotate/fdmr_mon /etc/logrotate.d/
-sudo cp utils/systemd/fdmr_mon.service /lib/systemd/system/
-#sudo sed -i 's/FREQUENCY = 10/FREQUENCY = 60/' /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
+rm /etc/logrotate.d/fdmr_mon
+rm /lib/systemd/system/fdmr_mon.service
+#sudo cp utils/systemd/fdmr_mon.service /lib/systemd/system/
+sudo sed -i 's/FREQUENCY = 10/FREQUENCY = 60/' /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
+sudo chmod 644 /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 #
 
 ####
-cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/html/
 sudo sed -i 's/localhost_2-day.png/localhost_1-day.png/' /opt/FDMR-Monitor/html/sysinfo.php
 cd /var/www/html/sysinfo/
 #sudo sed -i 's/var\/www\/html/opt\/FDMR-Monitor\/html/' cpu.sh
@@ -38,7 +39,7 @@ sudo sed -i "s/HBMonv2/FDMR-Monitor/g"  /opt/FDMR-Monitor/sysinfo/*.sh
 sudo chmod +x /opt/FDMR-Monitor/sysinfo/cpu.sh
 sudo chmod +x /opt/FDMR-Monitor/sysinfo/graph.sh
 sudo chmod +x /opt/FDMR-Monitor/sysinfo/rrd-db.sh
-sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
+
 #sudo chmod +x /opt/FDMR-Monitor/updateTGIDS.sh
 #
 sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
@@ -138,9 +139,11 @@ sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 sudo chmod +x /opt/extra-2.sh
 sudo sh /opt/extra-2.sh
 sudo ./install.sh
+cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/html/
+sudo sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 
 sudo rm mon.db
 sudo python3 mon_db.py
 
-sudo systemctl start fdmr_mon.service
-sudo systemctl enable fdmr_mon.service
+#sudo systemctl start fdmr_mon.service
+#sudo systemctl enable fdmr_mon.service
