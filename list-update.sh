@@ -135,7 +135,7 @@ exit 0
 
 EOF
 #
-sudo cat > /bin/menu-update <<- "EOF"
+sudo cat > /tmp/menu-update <<- "EOF"
 #!/bin/bash
 while : ; do
 choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Importante: solo actualice aplicaciones que esten en uso, al finalizar la actualizacion la aplicacion se reiniciara, tenga pleno dominio de las configuraciones de cada aplicacion, antes de actualizar.
@@ -144,7 +144,8 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Imp
 2 " Update FreeDMR  " \
 3 " UPGRADE LIST Update " \
 4 " UPGRADE to Reuter AP Mode " \
-5 " Menu Principal " 3>&1 1>&2 2>&3)
+5 " UPGRADE to FDMR-Monitor SelfService " \
+6 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -164,6 +165,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/list
 4)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/te1ap.sh)" ;;
 5)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/selfservice-update.sh)" ;;
+6)
 break;
 esac
 done
@@ -173,4 +176,5 @@ EOF
 #
 chmod +x /bin/menu*
 chmod +x /bin/MENU
-menu-update
+chmod +x /tmp/menu-update
+/tmp/menu-update
