@@ -8,15 +8,14 @@ sudo apt install -y apache2 apache2-utils
 systemctl restart apache2
 sudo systemctl enable apache2
 sudo apt install mariadb-server mariadb-client -y
-systemctl restart mariadb
+systemctl start mariadb
 systemctl enable mariadb
 sudo mysql_secure_installation
 #
 cd /opt
 sudo git clone https://github.com/yuvelq/FDMR-Monitor.git
-#sudo git clone https://github.com/hp3icc/FDMR-Monitor.git
 cd FDMR-Monitor
-git checkout Self_service_dev
+sudo git checkout Self_Service
 sudo chmod +x install.sh
 sudo ./install.sh
 #sudo cp fdmr-mon_SAMPLE.cfg fdmr-mon.cfg
@@ -142,4 +141,5 @@ sudo sh /opt/extra-2.sh
 sudo rm mon.db
 sudo python3 mon_db.py
 sudo systemctl daemon-reload
-sudo systemctl restart fdmr_mon.service
+sudo systemctl start fdmr_mon.service
+sudo systemctl enable fdmr_mon.service
