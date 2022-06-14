@@ -6,4 +6,5 @@ sudo systemctl enable apache2
 sudo apt install mariadb-server mariadb-client -y
 systemctl restart mariadb
 systemctl enable mariadb
-sudo mysql_secure_installation
+sudo mysql_secure_installation  --host=localhost --port=3306
+
