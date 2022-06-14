@@ -55,12 +55,21 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 <a class="button" href="statictg.php">Static TG</a>
 
 <a class="button" href="opb.php">OpenBridge</a>
-
-<?php if(TGCOUNT_INC){echo '<a class="button" href="tgcount.php">TG Count</a>';}?>
-
- </div>
-</div>
 &nbsp;
+</div>
+</div>
+<div class="dropdown">
+  <button class="dropbtn">Self Service</button>
+  <div class="dropdown-content">
+    <?php if(!PRIVATE_NETWORK){echo '<a href="selfservice.php">SelfService</a>';}?>
+    <a class="button" href="login.php">Login</a>
+    <?php 
+    if(isset($_SESSION["auth"], $_SESSION["callsign"], $_SESSION["h_psswd"]) and $_SESSION["auth"]){
+      echo '<a href="devices.php">Devices</a>';
+    }
+    ?>
+  </div>
+</div>
 <div class="dropdown">
   <button class="dropbtn">Local Server</button>
   <div class="dropdown-content">
@@ -71,8 +80,6 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 <a class="button" href="log.php">&nbsp;Lastheard&nbsp;</a>
 &nbsp;
 <a class="button" href="tgcount.php">&nbsp;TG Count&nbsp;</a>
-&nbsp;
-<a class="button" href="selfservice.php"">&nbsp;Self Service&nbsp;</a>
 &nbsp;
 </div>
 </div>
@@ -113,7 +120,6 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
   </div>
 </div>
 -->
-
 
 
 EOF
