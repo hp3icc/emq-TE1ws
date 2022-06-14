@@ -4,13 +4,8 @@ sudo systemctl stop http.server-fmr.service
 sudo systemctl disable http.server-fmr.service
 rm -r /opt/FDMR-Monitor/
 #
-sudo apt install -y apache2 apache2-utils
 systemctl restart apache2
 sudo systemctl enable apache2
-sudo apt install mariadb-server mariadb-client -y
-systemctl start mariadb
-systemctl enable mariadb
-sudo mysql_secure_installation
 #
 cd /opt
 sudo git clone https://github.com/yuvelq/FDMR-Monitor.git
