@@ -125,6 +125,9 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 EOF
 
 #
+
+sudo sed -i "s/opt\/FreeDMR\/freedmr.cfg/opt\/FreeDMR\/config\/FreeDMR.cfg/g"  /opt/FDMR-Monitor/install.sh
+
 #sudo rm /opt/FDMR-Monitor/*.json
 sudo systemctl daemon-reload
 
