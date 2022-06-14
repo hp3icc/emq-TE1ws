@@ -145,7 +145,8 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Imp
 3 " UPGRADE LIST Update " \
 4 " UPGRADE to Reuter AP Mode " \
 5 " UPGRADE to FDMR-Monitor SelfService " \
-6 " Menu Principal " 3>&1 1>&2 2>&3)
+6 " install LAMP " \
+7 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -167,6 +168,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/te1a
 5)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/selfservice-update.sh)" ;;
 6)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/lamp.sh)" ;;
+7)
 break;
 esac
 done
