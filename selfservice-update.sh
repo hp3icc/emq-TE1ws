@@ -149,7 +149,7 @@ mon_path=$(pwd)/
 # Copy config file 
 if [ ! -e fdmr-mon.cfg  ]; then
   if [ -e fdmr-mon_SAMPLE.cfg  ]; then
-    cp fdmr-mon_SAMPLE.cfg fdmr-mon.cfg
+    cp /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg /opt/FDMR-Monitor/fdmr-mon.cfg
     echo 'Config file copied successfully.'
   else
     echo 'fdmr-mon_SAMPLE.cfg not found, exiting.'
@@ -241,10 +241,10 @@ if [ "${db_conf,,}" == 'y' ]; then
 fi
 
 # install log rotate file
-  cp utils/logrotate/fdmr_mon /etc/logrotate.d/
+  cp /opt/FDMR-Monitor/utils/logrotate/fdmr_mon /etc/logrotate.d/
   
 # Copy systemd file
-    cp utils/systemd/fdmr_mon.service /etc/systemd/system/
+    cp /opt/FDMR-Monitor/utils/systemd/fdmr_mon.service /etc/systemd/system/
     systemctl daemon-reload
     systemctl enable fdmr_mon.service
     
