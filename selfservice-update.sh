@@ -2,7 +2,7 @@
 sudo systemctl stop fdmr_mon.service
 sudo systemctl stop http.server-fmr.service
 sudo systemctl disable http.server-fmr.service
-rm -r /opt/FDMR-Monitor/
+sudo rm -r /opt/FDMR-Monitor/
 #
 systemctl restart apache2
 sudo systemctl enable apache2
