@@ -108,6 +108,7 @@ sudo chmod +x /opt/FreeDMR/config/*.py
 rm /opt/FreeDMR-SAMPLE.cfg 
 sudo chmod +x /opt/extra-1.sh
 sudo sh /opt/extra-1.sh
+sudo systemctl restart proxy.service
 sudo systemctl restart freedmr.service
 sudo systemctl restart fdmrparrot.service
 # ExecStart=/usr/bin/python3 /opt/FreeDMR/bridge_master.py -c /opt/FreeDMR/config/FreeDMR.cfg -r /opt/FreeDMR/config/rules.py
