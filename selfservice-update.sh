@@ -131,7 +131,9 @@ sudo sh /opt/extra-2.sh
 cd /opt/FDMR-Monitor
 sudo ./install.sh
 #####################
-
+sudo sed -i "s/test/selfcare/g"  /opt/FreeDMR/hotspot_proxy_v2.py
+sudo sed -i "s/\/freedmr.cfg/\/config\/FreeDMR.cfg/g"  /opt/FreeDMR/hotspot_proxy_v2.py
+sudo sed -i "s/test/selfcare/g"  /opt/FreeDMR/proxy_db.py
 #################
 #sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 rm /opt/FDMR-Monitor/sysinfo/*.rrd 
