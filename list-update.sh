@@ -139,12 +139,12 @@ sudo cat > /tmp/menu-update <<- "EOF"
 #!/bin/bash
 while : ; do
 choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Importante: solo actualice aplicaciones que esten en uso, al finalizar la actualizacion la aplicacion se reiniciara, tenga pleno dominio de las configuraciones de cada aplicacion, antes de actualizar.
-" 20 50 6 \
+" 21 50 8 \
 1 " Update HBMon2 Version OA4DOA " \
 2 " Update FreeDMR  " \
 3 " UPGRADE LIST Update " \
 4 " UPGRADE to Reuter AP Mode " \
-5 " UPGRADE to FDMR-Monitor SelfService " \
+5 " UPGRADE to FDMR-Monitor SelfService version " \
 6 " install LAMP " \
 7 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
