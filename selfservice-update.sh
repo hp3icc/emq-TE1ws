@@ -56,11 +56,11 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 <div class="dropdown">
   <button class="dropbtn">Self Service</button>
   <div class="dropdown-content">
-    <?php if(!PRIVATE_NETWORK){echo '<a href="selfservice.php">SelfService</a>';}?>
+    <?php if(!PRIVATE_NETWORK){echo '<a class="button" href="selfservice.php">SelfService</a>';}?>
     <a class="button" href="login.php">Login</a>
     <?php 
     if(isset($_SESSION["auth"], $_SESSION["callsign"], $_SESSION["h_psswd"]) and $_SESSION["auth"]){
-      echo '<a href="devices.php">Devices</a>';
+      echo '<a class="button" href="devices.php">Devices</a>';
     }
     ?>
   </div>
