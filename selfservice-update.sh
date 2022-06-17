@@ -137,7 +137,7 @@ sudo sed -i "s/\/freedmr.cfg/\/config\/FreeDMR.cfg/g"  /opt/FreeDMR/hotspot_prox
 sudo sed -i "s/test/selfcare/g"  /opt/FreeDMR/proxy_db.py
 #################
 #sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
-rm /opt/FDMR-Monitor/sysinfo/*.rrd 
+#rm /opt/FDMR-Monitor/sysinfo/*.rrd 
 sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 #sed '33 a <!--' -i /var/www/html/sysinfo.php
 #sed '35 a -->' -i /var/www/html/sysinfo.php
