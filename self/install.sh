@@ -15,7 +15,7 @@ cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
 cd /opt/FDMR-Nonitor/
   
 rm /var/www/html/* -r
-cp html/* /var/www/html/ -r
+cp /opt/FDMR-Monitor/html/* /var/www/html/ -r
       
 chown www-data:www-data /var/www/html/ -R
      
