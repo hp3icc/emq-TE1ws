@@ -133,8 +133,8 @@ sudo sed -i "s/test/selfcare/g"  /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 sudo sed -i "s/PRIVATE_NETWORK = True/PRIVATE_NETWORK = False/g"  /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 
 cd /opt/FDMR-Monitor
-#rm install.sh
-#wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/install.sh
+rm install.sh
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/install.sh
 chmod +x install.sh
 #
 sudo ./install.sh
