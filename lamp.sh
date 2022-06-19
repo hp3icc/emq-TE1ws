@@ -9,7 +9,7 @@ systemctl enable mariadb
 #sudo mysql_secure_installation  --host=localhost --port=3306
 
 newUser='emqte1'
-newDbPassword=''
+newDbPassword='abc123'
 newDb='fdmrmon'
 host=localhost
 #host='%'
