@@ -6,7 +6,7 @@ default-libmysqlclient-dev build-essential -y
 pip3 install -r requirements.txt
 
 cd /opt/FDMR-Nonitor/
-cp fdmr-mon_SAMPLE.cfg fdmr-mon.cfg
+cp /opt/FDMR-Nonitor/fdmr-mon_SAMPLE.cfg /opt/FDMR-Nonitor/fdmr-mon.cfg
 cd /opt/FreeDMR/
 rm /opt/FreeDMR/hotspot_proxy_v2.py
 rm /opt/FreeDMR/proxy_db.py
@@ -20,8 +20,8 @@ cp /opt/FDMR-Monitor/html/* /var/www/html/ -r
 chown www-data:www-data /var/www/html/ -R
      
 
-cp utils/logrotate/fdmr_mon /etc/logrotate.d/
-cp utils/systemd/fdmr_mon.service /etc/systemd/system/
+cp /opt/FDMR-Nonitor/utils/logrotate/fdmr_mon /etc/logrotate.d/
+cp /opt/FDMR-Nonitor/utils/systemd/fdmr_mon.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable fdmr_mon.service
 systemctl start fdmr_mon.service
