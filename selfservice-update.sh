@@ -138,6 +138,7 @@ wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/install.sh
 chmod +x install.sh
 #
 sudo ./install.sh
+sudo sh /opt/extra-2.sh
 #####################
 sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/hotspot_proxy_v2.py
 sudo sed -i "s/54100/54060/g"  /opt/FreeDMR/hotspot_proxy_v2.py
