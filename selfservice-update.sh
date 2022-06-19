@@ -128,13 +128,21 @@ sudo systemctl daemon-reload
 
 sudo chmod +x /opt/extra-2.sh
 sudo sh /opt/extra-2.sh
+sudo sed -i "s/root/emqte1/g"  /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
+
 cd /opt/FDMR-Monitor
+rm install.sh
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/install.sh
+chmod +x install.sh
+#
 sudo ./install.sh
 #####################
+sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/hotspot_proxy_v2.py
 sudo sed -i "s/54100/54060/g"  /opt/FreeDMR/hotspot_proxy_v2.py
 sudo sed -i "s/test/selfcare/g"  /opt/FreeDMR/hotspot_proxy_v2.py
 sudo sed -i "s/\/freedmr.cfg/\/config\/FreeDMR.cfg/g"  /opt/FreeDMR/hotspot_proxy_v2.py
 sudo sed -i "s/test/selfcare/g"  /opt/FreeDMR/proxy_db.py
+sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/proxy_db.py
 #################
 #sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 #rm /opt/FDMR-Monitor/sysinfo/*.rrd 
