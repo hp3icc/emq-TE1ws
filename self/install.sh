@@ -27,3 +27,5 @@ systemctl daemon-reload
 systemctl enable fdmr_mon.service
 systemctl start fdmr_mon.service
     
+python3 mon_db.py --create
+python3 mon_db.py --update
