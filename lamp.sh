@@ -20,7 +20,8 @@ host=localhost
 # MySQL 8 and higher versions
 commands="CREATE DATABASE \`${newDb}\`;CREATE USER '${newUser}'@'${host}' IDENTIFIED BY '${newDbPassword}';GRANT USAGE ON *.* TO '${newUser}'@'${host}';GRANT ALL ON \`${newDb}\`.* TO '${newUser}'@'${host}';FLUSH PRIVILEGES;"
 
-echo "${commands}" | /usr/bin/mysql -u root -p
+#cho "${commands}" | /usr/bin/mysql -u root -p
+echo "${commands}" | /usr/bin/mysql -u root
 
 systemctl stop apache2
 systemctl disable apache2
