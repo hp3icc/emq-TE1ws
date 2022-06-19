@@ -12,45 +12,12 @@ if [ ! -e fdmr-mon.cfg  ]; then
   if [ -e fdmr-mon_SAMPLE.cfg  ]; then
     cp fdmr-mon_SAMPLE.cfg fdmr-mon.cfg
     echo 'Config file copied successfully.'
-  else
-    echo 'fdmr-mon_SAMPLE.cfg not found, exiting.'
-    exit 1
-  fi
-else
-  echo 'Config file alredy exists.'
-fi
-# Create a new branch and copy proxy files
-read -p 'Do you want to create a new FreeDMR branch and copy the Proxy files into it? [Y/n]: ' branch
-branch=${branch:-y}
-if [ "${branch,,}" == 'y' ]; then
-  valid=''
-  for i in {1..3}; do
-    read -p 'Insert the path to FreeDMR folder e.g. /opt/FreeDMR/: ' p2fdmr
-    if [ -z "/opt/FreeDMR/r" ] | [ ! -d "/opt/FreeDMR/" ]; then
-      echo "Path to FreeDMR folder: '/opt/FreeDMR/' not found, try again."
-      if [ $i -eq 3 ]; then
-        echo 'To many errors, skipping this.'
-      fi
-    else
-      valid=yes
-      break $i
-    fi
-  done
-  if [ ! -z $valid ]; then
+
     cd /opt/FreeDMR/
-    if [ "$(git branch --list Self_Service)" ]; then
-      git checkout Self_Service
-      cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
-      echo 'Self_Service branch already exists, proxy files copied successfully'
-    else
-      git checkout master
-      echo 'Creating new branch: Self_Service'
-      git checkout -b Self_Service
-      cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
-      echo "Proxy files copied into $p2fdmr successfully."
-    fi
-  fi
-fi
+    rm /opt/FreeDMR/hotspot_proxy_v2.py
+    rm /opt/FreeDMR/proxy_db.py
+          cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
+      
 cd /opt/FDMR-Nonitor/
   
       rm /var/www/html/* -r
