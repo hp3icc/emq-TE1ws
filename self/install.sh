@@ -24,8 +24,8 @@ chown www-data:www-data /var/www/html/ -R
 cp /opt/FDMR-Monitor/utils/logrotate/fdmr_mon /etc/logrotate.d/
 cp /opt/FDMR-Monitor/utils/systemd/fdmr_mon.service /etc/systemd/system/
 systemctl daemon-reload
-systemctl enable fdmr_mon.service
-systemctl start fdmr_mon.service
+#systemctl enable fdmr_mon.service
+#systemctl start fdmr_mon.service
     
 python3 mon_db.py --create
 python3 mon_db.py --update
