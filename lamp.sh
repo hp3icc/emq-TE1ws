@@ -10,7 +10,7 @@ systemctl enable mariadb
 
 newUser='emqte1'
 newDbPassword=''
-newDb='fdmrmon'
+newDb='selfcare'
 host=localhost
 #host='%'
 
