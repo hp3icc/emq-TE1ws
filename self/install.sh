@@ -26,8 +26,8 @@ if [ "${branch,,}" == 'y' ]; then
   valid=''
   for i in {1..3}; do
     read -p 'Insert the path to FreeDMR folder e.g. /opt/FreeDMR/: ' p2fdmr
-    if [ -z "$p2fdmr" ] | [ ! -d "$p2fdmr" ]; then
-      echo "Path to FreeDMR folder: '${p2fdmr}' not found, try again."
+    if [ -z "/opt/FreeDMR/r" ] | [ ! -d "/opt/FreeDMR/" ]; then
+      echo "Path to FreeDMR folder: '/opt/FreeDMR/' not found, try again."
       if [ $i -eq 3 ]; then
         echo 'To many errors, skipping this.'
       fi
@@ -37,101 +37,27 @@ if [ "${branch,,}" == 'y' ]; then
     fi
   done
   if [ ! -z $valid ]; then
-    cd $p2fdmr
+    cd /opt/FreeDMR/
     if [ "$(git branch --list Self_Service)" ]; then
       git checkout Self_Service
-      cp ${mon_path}proxy/* $p2fdmr -r
+      cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
       echo 'Self_Service branch already exists, proxy files copied successfully'
     else
       git checkout master
       echo 'Creating new branch: Self_Service'
       git checkout -b Self_Service
-      cp ${mon_path}proxy/* $p2fdmr -r
+      cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
       echo "Proxy files copied into $p2fdmr successfully."
     fi
   fi
 fi
-cd $mon_path
-# Copy html files to web root folder
-read -p 'Do you want to copy html files to the web server root folder? [Y/n]: ' web
-web=${web:-y}
-if [ "${web,,}" == 'y' ]; then
-  valid=''
-  echo 'Insert the path to the web server root folder e.g. /var/www/html/'
-  for i in {1..3}; do
-    read -p 'Insert path: ' p2web
-    if [ -z "$p2web" ] | [ ! -d "$p2web" ]; then
-      echo "Path to web server root folder: '${p2web}' not found, try again."
-      if [ $i -eq 3 ]; then
-        echo 'To many errors, skipping this.'
-      fi
-    else
-      valid=yes
-      break $i
-    fi
-  done
-  if [ ! -z $valid ]; then
-    read -p "This will delete the content of ${p2web} do you want to continue [y/N]: " dele
-    dele=${dele:-n}
-    if [ "${dele,,}" == 'y' ]; then
-      rm ${p2web}/* -r
-      cp html/* $p2web -r
-      echo "html files copied successfully into: ${p2web}"
-      if [ $(systemctl show -p ActiveState --value apache2) == active ]; then
-        chown www-data:www-data $p2web -R
-      elif [ $(systemctl show -p ActiveState --value nginx) == active ]; then
-        chown nginx:nginx $p2web -R
-      fi
-    fi
-  fi
-fi
-
-# Configure database
-read -p 'Do you want to configure Self Service database and create tables? [Y/n]: ' db_conf
-db_conf=${db_conf:-y}
-if [ "${db_conf,,}" == 'y' ]; then
-  db_info () {
-    if [ $1 == 'DB_USERNAME' ]; then
-      stm='Insert database username:'
-      local loop=1
-    elif [  $1 == 'DB_SERVER' ]; then
-      stm='Insert database server host e.g. localhost:'
-      local loop=1
-    elif [ $1 ==  'DB_NAME' ]; then
-      stm='Insert database name:'
-      local loop=1
-    elif [ $1 == 'DB_PASSWORD' ]; then
-      read -p 'Insert database password, for no password leave it blank: ' input
-      local loop=0
-    else
-      echo "invalid value: $1"
-      return
-    fi
-    if [ $loop -eq 1 ]; then
-      for i in {1..3}; do
-        echo -n "${stm} " ; read input
-        if [ -z $input ]; then
-          echo 'invalid value, try again.'
-          if [ $i -eq 3 ]; then
-            echo 'Invalid Value, exiting'
-            exit 1
-          fi
-        else
-          break $i
-        fi
-      done
-    fi
-    sed -i "s/\(^$1 *= *\).*/\1$input/" fdmr-mon.cfg
-  }
-  # Define the keys of the options to modify
-  db_items=('DB_NAME' 'DB_SERVER' 'DB_USERNAME' 'DB_PASSWORD')
-  for i in ${!db_items[@]}; do
-    db_info ${db_items[$i]}
-  done
-  #Create and update database tables
-  python3 mon_db.py --create
-  python3 mon_db.py --update
-fi
+cd /opt/FDMR-Nonitor/
+  
+      rm /var/www/html/* -r
+      cp html/* /var/www/html/ -r
+      
+        chown www-data:www-data /var/www/html/ -R
+     
 
 # install log rotate file
 if [ -d "/etc/logrotate.d/" ]; then
