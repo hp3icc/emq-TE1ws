@@ -6,28 +6,23 @@ default-libmysqlclient-dev build-essential -y
 pip3 install -r requirements.txt
 
 cd /opt/FDMR-Nonitor/
-    cp fdmr-mon_SAMPLE.cfg fdmr-mon.cfg
-    echo 'Config file copied successfully.'
-
-    cd /opt/FreeDMR/
-    rm /opt/FreeDMR/hotspot_proxy_v2.py
-    rm /opt/FreeDMR/proxy_db.py
-          cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
+cp fdmr-mon_SAMPLE.cfg fdmr-mon.cfg
+cd /opt/FreeDMR/
+rm /opt/FreeDMR/hotspot_proxy_v2.py
+rm /opt/FreeDMR/proxy_db.py
+cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
       
 cd /opt/FDMR-Nonitor/
   
-      rm /var/www/html/* -r
-      cp html/* /var/www/html/ -r
+rm /var/www/html/* -r
+cp html/* /var/www/html/ -r
       
-        chown www-data:www-data /var/www/html/ -R
+chown www-data:www-data /var/www/html/ -R
      
 
-  cp utils/logrotate/fdmr_mon /etc/logrotate.d/
-  echo 'fdmr_mon copied into /etc/logrotate.d/'
-
-    cp utils/systemd/fdmr_mon.service /etc/systemd/system/
-       systemctl daemon-reload
-    systemctl enable fdmr_mon.service
-    
-    systemctl start fdmr_mon.service
+cp utils/logrotate/fdmr_mon /etc/logrotate.d/
+cp utils/systemd/fdmr_mon.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable fdmr_mon.service
+systemctl start fdmr_mon.service
     
