@@ -15,15 +15,15 @@ cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
       
 cd /opt/FDMR-Monitor/
   
-rm /var/www/html/* -r
-cp /opt/FDMR-Monitor/html/* /var/www/html/ -r
+sudo rm -r /var/www/html/ 
+cp -r /opt/FDMR-Monitor/html/ /var/www/ 
       
-chown www-data:www-data /var/www/html/ -R
+sudo chown www-data:www-data /var/www/html/ -R
      
 
 cp /opt/FDMR-Monitor/utils/logrotate/fdmr_mon /etc/logrotate.d/
 cp /opt/FDMR-Monitor/utils/systemd/fdmr_mon.service /etc/systemd/system/
-systemctl daemon-reload
+sudo systemctl daemon-reload
 #systemctl enable fdmr_mon.service
 #systemctl start fdmr_mon.service
     
