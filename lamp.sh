@@ -7,6 +7,8 @@ sudo apt install apache2 -y
 systemctl restart mariadb
 systemctl enable mariadb
 #sudo mysql_secure_installation  --host=localhost --port=3306
+echo "DROP USER emqte1@localhost" | /usr/bin/mysql -u root
+echo "DROP DATABASE selfcare" | /usr/bin/mysql -u root
 
 newUser='emqte1'
 newDbPassword=''
