@@ -103,7 +103,7 @@ sudo sed -i 's/54915/49061/' /opt/FreeDMR/playback.cfg
 ######
 cat /opt/rules.txt >> /opt/FreeDMR/config/rules.py
 sed '14 a VALIDATE_SERVER_IDS: True' -i /opt/FreeDMR/config/FreeDMR.cfg
-sed '105 a override_ident_tg:' -i /opt/FreeDMR/config/FreeDMR.cfg
+sed '104 a override_ident_tg:' -i /opt/FreeDMR/config/FreeDMR.cfg
 
 ###
 sudo chmod +x /opt/FreeDMR/*.py
