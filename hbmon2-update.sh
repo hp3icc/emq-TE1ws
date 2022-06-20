@@ -176,6 +176,12 @@ sudo cp fdmr-mon_SAMPLE.cfg fdmr-mon.cfg
 EOF
 
 #
+sudo rm /opt/FreeDMR/hotspot_proxy_v2.py
+sudo rm /opt/FreeDMR/proxy_db.py
+cd /opt/FreeDMR/
+wget https://gitlab.hacknix.net/hacknix/FreeDMR/-/raw/master/hotspot_proxy_v2.py
+chmod +x hotspot_proxy_v2.py
+#
 sudo rm /opt/FDMR-Monitor/*.json
 sudo systemctl daemon-reload
 sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd 
@@ -189,3 +195,4 @@ sudo rm mon.db
 sudo python3 mon_db.py
 
 sudo systemctl restart fdmr_mon.service
+sudo systemctl restart proxy.service
