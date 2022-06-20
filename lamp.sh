@@ -1,5 +1,6 @@
 #! /bin/bash
 
+apt-get update -y
 sudo apt install mariadb-server php libapache2-mod-php php-zip php-mbstring php-cli php-common php-curl php-xml php-mysql -y
 
 sudo apt install apache2 -y
