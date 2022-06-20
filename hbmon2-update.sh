@@ -177,9 +177,10 @@ EOF
 
 #
 sudo rm /opt/FreeDMR/hotspot_proxy_v2.py
-sudo rm /opt/FreeDMR/proxy_db.py
+sudo rm /opt/FreeDMR/proxy_db.*
 cd /opt/FreeDMR/
 wget https://gitlab.hacknix.net/hacknix/FreeDMR/-/raw/master/hotspot_proxy_v2.py
+sudo sed -i "s/54100/54060/g"  /opt/FreeDMR/hotspot_proxy_v2.py
 chmod +x hotspot_proxy_v2.py
 #
 sudo rm /opt/FDMR-Monitor/*.json
