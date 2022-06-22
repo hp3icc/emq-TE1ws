@@ -93,7 +93,7 @@ sudo sed -i 's/ANNOUNCEMENT_LANGUAGE: en_GB/ANNOUNCEMENT_LANGUAGE: es_ES/' /opt/
 sudo sed -i 's/VOICE_IDENT: True/VOICE_IDENT: False/' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i "s/SERVER_ID: 0000/SERVER_ID: $variable/g"  /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i 's/100/60/' /opt/FreeDMR/config/FreeDMR.cfg
-sudo sed -i 's/54100/54060/' /opt/FreeDMR/hotspot_proxy_v2.py
+#sudo sed -i 's/54100/54060/' /opt/FreeDMR/hotspot_proxy_v2.py
 #sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' /opt/FreeDMR/config/FreeDMR.cfg
 rm /opt/conf.txt
 #rm /opt/obp.txt
@@ -104,7 +104,16 @@ sudo sed -i 's/54915/49061/' /opt/FreeDMR/playback.cfg
 cat /opt/rules.txt >> /opt/FreeDMR/config/rules.py
 sed '14 a VALIDATE_SERVER_IDS: True' -i /opt/FreeDMR/config/FreeDMR.cfg
 sed '104 a override_ident_tg:' -i /opt/FreeDMR/config/FreeDMR.cfg
-
+sudo rm /opt/FreeDMR/hotspot_proxy_v2.py
+sudo rm /opt/FreeDMR/proxy_db.*
+cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
+#####################
+sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/hotspot_proxy_v2.py
+sudo sed -i "s/54100/54060/g"  /opt/FreeDMR/hotspot_proxy_v2.py
+sudo sed -i "s/test/selfcare/g"  /opt/FreeDMR/hotspot_proxy_v2.py
+sudo sed -i "s/\/freedmr.cfg/\/config\/FreeDMR.cfg/g"  /opt/FreeDMR/hotspot_proxy_v2.py
+sudo sed -i "s/test/selfcare/g"  /opt/FreeDMR/proxy_db.py
+sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/proxy_db.py
 ###
 sudo chmod +x /opt/FreeDMR/*.py
 sudo chmod +x /opt/FreeDMR/config/*.py
