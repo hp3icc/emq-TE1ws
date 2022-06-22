@@ -590,16 +590,14 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Suba o B
 1 " Editar FreeDMR Server " \
 2 " Editar Interlink  " \
 3 " Editar FDMR-Monitor  " \
-4 " cambiar Puerto HTTP FDMR-Monitor " \
-5 " Parrot on  " \
-6 " Parrot off  " \
-7 " Iniciar FreeDMR Server  " \
-8 " Detener FreeDMR Server   " \
-9 " FDMR-Monitor On-Restart " \
-10 " FDMR-Monitor off  " \
-11 " D-APRS Igate  " \
-12 " Actualizar FreeDMR  " \
-13 " Menu Principal " 3>&1 1>&2 2>&3)
+4 " Parrot on  " \
+5 " Parrot off  " \
+6 " start FreeDMR Server  " \
+7 " stop FreeDMR Server   " \
+8 " FDMR-Monitor On&Restart " \
+9 " FDMR-Monitor off  " \
+10 " D-APRS Igate  " \
+11 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -617,24 +615,20 @@ sudo nano /opt/FreeDMR/config/rules.py ;;
 3)
 sudo nano /opt/FDMR-Monitor/fdmr-mon.cfg ;;
 4)
-sudo nano /lib/systemd/system/http.server-fmr.service && sudo systemctl daemon-reload ;;
-5)
 sudo systemctl stop fdmrparrot.service && sudo systemctl start fdmrparrot.service && sudo systemctl enable fdmrparrot.service ;;
-6)
+5)
 sudo systemctl stop fdmrparrot.service &&  sudo systemctl disable fdmrparrot.service ;;
-7)
+6)
 sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo systemctl enable proxy.service && sudo systemctl stop freedmr.service && sudo systemctl start freedmr.service && sudo systemctl enable freedmr.service ;;
-8)
+7)
 sudo systemctl stop freedmr.service && sudo systemctl disable freedmr.service && sudo systemctl stop proxy.service && sudo systemctl disable proxy.service && rm /var/log/FreeDMR/* ;;
-9)
+8)
 echo 123> /opt/FDMR-Monitor/data/123.json && sudo systemctl stop fdmr_mon.service && sudo rm /opt/FDMR-Monitor/data/*.json && sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd && sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/cpu.sh' add && sudo systemctl enable fdmr_mon.service && sudo systemctl restart apache2.service && sudo systemctl enable apache2.service && sudo systemctl start fdmr_mon.service ;;
-10)
+9)
 sudo systemctl stop fdmr_mon.service && sudo systemctl disable fdmr_mon.service && sudo systemctl stop apache2.service && sudo systemctl disable apache2.service && cronedit.sh '*/5 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/cpu.sh' remove ;;
-11)
+10)
 menu-igate ;;
-12)
-menu-up-fdm ;;
-13)
+11)
 break;
 esac
 done
