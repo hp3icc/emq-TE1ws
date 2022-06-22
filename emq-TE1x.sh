@@ -2147,20 +2147,16 @@ EOF
 cd /opt
 
 wget http://dvswitch.org/buster
-
 chmod +x buster
-
 ./buster
-
 apt-get update -y
-
 apt-get install dvswitch-server -y
 
 sudo sed -i "s/42000/42500/g" /opt/YSFGateway/YSFGateway.ini
 sudo sed -i "s/42001/43001/g" /opt/YSFGateway/YSFGateway.ini
 sudo sed -i "s/RptPort=3200/RptPort=3230/g" /opt/YSFGateway/YSFGateway.ini
 sudo sed -i "s/LocalPort=4200/LocalPort=4230/g" /opt/YSFGateway/YSFGateway.ini
-mkdir /var/www/dvs
+sudo mkdir /var/www/dvs
 sudo mv /var/www/html/* /var/www/dvs/
 sudo sed -i 's/www\/html/www\/dvs/g' /usr/local/sbin/update-config.sh
 sudo sed -i 's/www\/html/www\/dvs/g' /var/lib/dpkg/info/dvswitch*
