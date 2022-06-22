@@ -238,13 +238,9 @@ sudo cat > /tmp/menu-update <<- "EOF"
 while : ; do
 choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Importante: solo actualice aplicaciones que esten en uso, al finalizar la actualizacion la aplicacion se reiniciara, tenga pleno dominio de las configuraciones de cada aplicacion, antes de actualizar.
 " 21 50 8 \
-1 " Update HBMon2 Version OA4DOA " \
-2 " Update FreeDMR  " \
-3 " UPGRADE LIST Update " \
-4 " UPGRADE to Reuter AP Mode " \
-5 " UPGRADE to FDMR-Monitor SelfService version " \
-6 " install LAMP " \
-7 " Menu Principal " 3>&1 1>&2 2>&3)
+1 " UPGRADE to Reuter AP Mode " \
+2 " install LAMP " \
+3 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -256,18 +252,10 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-menu-up-hbmon2 ;;
-2)
-menu-up-fdm ;;
-3)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/list-update.sh)" ;;
-4)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/te1ap.sh)" ;;
-5)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/selfservice-update.sh)" ;;
-6)
+2)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/lamp.sh)" ;;
-7)
+3)
 break;
 esac
 done
