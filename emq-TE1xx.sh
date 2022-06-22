@@ -221,9 +221,9 @@ sudo cat > /bin/menu-update <<- "EOF"
 while : ; do
 choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Importante: solo actualice aplicaciones que esten en uso, al finalizar la actualizacion la aplicacion se reiniciara, tenga pleno dominio de las configuraciones de cada aplicacion, antes de actualizar.
 " 17 50 5 \
-1 " Update HBMon2 Version OA4DOA " \
+1 " Update FDMR-Monitor OA4DOA " \
 2 " Update FreeDMR  " \
-3 " UPGRADE LIST Update " \
+3 " ADVANCE UPGRADE " \
 4 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
@@ -685,7 +685,7 @@ EOF
 sudo cat > /bin/menu-up-hbmon2 <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC / update HBMon2" --menu "Nota Importante: antes de iniciar la actualizacion, el proceso de actualizacion borrara por completo todas las configuraciones, al finalizar la actualizacion el servicio se reinniciara automaticamente.
+choix=$(whiptail --title "Raspbian Proyect HP3ICC / update FDMR-Monitor OA4DOA" --menu "Nota Importante: antes de iniciar la actualizacion, el proceso de actualizacion borrara por completo todas las configuraciones, al finalizar la actualizacion el servicio se reinniciara automaticamente.
 " 17 50 4 \
 1 " shell extra " \
 2 " Iniciar Actualizacion HBMon2  " \
