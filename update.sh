@@ -1,3 +1,5 @@
+echo 123> /bin/menu-update
+sudo rm /bin/menu-update
 sudo cat > /bin/menu-update <<- "EOF"
 #!/bin/bash
 while : ; do
@@ -22,7 +24,7 @@ menu-up-hbmon2 ;;
 2)
 menu-up-fdm ;;
 3)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/list-update.sh)" ;;
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/advance.sh)" ;;
 4)
 break;
 esac
