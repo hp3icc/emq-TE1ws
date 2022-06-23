@@ -24,7 +24,7 @@ menu-up-hbmon2 ;;
 2)
 menu-up-fdm ;;
 3)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/advance.sh)" ;;
+menu-update2 ;;
 4)
 break;
 esac
@@ -33,5 +33,40 @@ exit 0
 
 EOF
 ####
+sudo cat > /tmp/menu-update2 <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Importante: solo actualice aplicaciones que esten en uso, al finalizar la actualizacion la aplicacion se reiniciara, tenga pleno dominio de las configuraciones de cada aplicacion, antes de actualizar.
+" 21 50 8 \
+1 " UPGRADE to Reuter AP Mode " \
+2 " install LAMP " \
+3 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/te1ap.sh)" ;;
+2)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/lamp.sh)" ;;
+3)
+break;
+esac
+done
+exit 0
+
+EOF
+#
+
+
+
+#
 chmod +x /bin/menu*
+chmod +x /bin/MENU
 menu-update
