@@ -40,7 +40,7 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Imp
 " 21 50 8 \
 1 " UPGRADE to Reuter AP Mode " \
 2 " install LAMP " \
-3 " install LAMP " \
+3 " install DVSMU " \
 4 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
