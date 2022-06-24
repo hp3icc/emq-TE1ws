@@ -120,6 +120,7 @@ sudo chmod +x /opt/FreeDMR/config/*.py
 rm /opt/FreeDMR-SAMPLE.cfg 
 sudo chmod +x /opt/extra-1.sh
 sudo sh /opt/extra-1.sh
+sudo systemctl daemon-reload	
 sudo systemctl restart proxy.service
 sudo systemctl restart freedmr.service
 sudo systemctl restart fdmrparrot.service
@@ -127,4 +128,4 @@ sudo systemctl restart fdmrparrot.service
 
 # ExecStart=/usr/bin/python3 /opt/FreeDMR/playback.py -c /opt/FreeDMR/playback.cfg
 
-# sudo systemctl daemon-reload	 
+#  
