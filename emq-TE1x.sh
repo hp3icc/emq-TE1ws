@@ -614,32 +614,7 @@ sudo cat > /opt/obp.txt <<- "EOF"
 
 
 EOF
-####
-cd /opt/
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/fdmr-update.sh
-chmod +x fdmr-update.sh
-############################
-sudo cat > /lib/systemd/system/http.server-fmr.service <<- "EOF"
-[Unit]
-Description=Python3 http.server.fdmr
-After=network.target
-
-[Service]
-User=root
-Type=simple
-Restart=always
-RestartSec=3
-StandardOutput=null
-#ExecStartPre=/bin/sleep 30
-# Modify for different location of Python3 or other port
-ExecStart=php -S 0.0.0.0:80 -t /opt/FDMR-Monitor/html/
-
-
-[Install]
-WantedBy=multi-user.target
-
-
-EOF
+##############################
 #menu-wifi
 cat > /bin/menu-wifi <<- "EOF"
 #!/bin/bash
@@ -1762,8 +1737,8 @@ TGRewrite0=2,2000001,2,1,999999
 PCRewrite=2,2000001,2,1,999999
 # Puede activar linea de options de selfcare y colocar su propia contraseña o 
 # utilizar linea de options con opciones de tg estaticos 
-#Options="PASS=abc123"
-#Options="TS2=714,7144;DIAL=0;VOICE=0;LANG=es_ES;SINGLE=0;TIMER=10;"
+Options="PASS=abc123"
+#Options="TS2=714,7144;DIAL=0;VOICE=0;LANG=es_ES;SINGLE=1;TIMER=10;"
 Address=198.211.36.245
 Password=passw0rd
 Port=62031
@@ -2057,17 +2032,17 @@ sudo mv /var/www/html/* /var/www/dvs/
 sudo sed -i 's/www\/html/www\/dvs/g' /usr/local/sbin/update-config.sh
 sudo sed -i 's/www\/html/www\/dvs/g' /var/lib/dpkg/info/dvswitch*
 ####
-rm /lib/systemd/system/analog_bridge.service
-rm /lib/systemd/system/mmdvm_bridge.service
-rm /lib/systemd/system/ysfgateway.service
-rm /lib/systemd/system/ysfparrot.service
-rm /lib/systemd/system/nxdngateway.service
-rm /lib/systemd/system/nxdnparrot.service
-rm /lib/systemd/system/p25gateway.service
-rm /lib/systemd/system/p25parrot.service
-rm /lib/systemd/system/quantar_bridge.service
-rm /lib/systemd/system/ircddbgatewayd.service
-rm /lib/systemd/system/md380-emu.service
+sudo rm /lib/systemd/system/analog_bridge.service
+sudo rm /lib/systemd/system/mmdvm_bridge.service
+sudo rm /lib/systemd/system/ysfgateway.service
+sudo rm /lib/systemd/system/ysfparrot.service
+sudo rm /lib/systemd/system/nxdngateway.service
+sudo rm /lib/systemd/system/nxdnparrot.service
+sudo rm /lib/systemd/system/p25gateway.service
+sudo rm /lib/systemd/system/p25parrot.service
+sudo rm /lib/systemd/system/quantar_bridge.service
+sudo rm /lib/systemd/system/ircddbgatewayd.service
+sudo rm /lib/systemd/system/md380-emu.service
 cd /lib/systemd/system/
 wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/analog_bridge.service
 wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/mmdvm_bridge.service
