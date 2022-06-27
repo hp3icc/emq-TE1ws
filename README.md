@@ -9,7 +9,7 @@ Continuamente todo el contenido publicado aqui, es actualizado , si esta observa
 
 https://github.com/hp3icc/emq-TE1ws
 
-* Ultima revision: emq-TE1ws-Rev19 21/5/2022 
+* Ultima revision: emq-TE1ws-Rev20 26/6/2022 
 
   Raspberry OS Lite Basado en la versión 11 de Debian (bullseye) 04-04-2022
   
@@ -95,7 +95,7 @@ si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  
  
 Imagen para raspberry, proyecto emq-TE1 - recomendado para cualquier Raspberry : Zero, Zero-W, Zero2, Zero2 W  B2, B3, B3+, PI4
 
-* https://drive.google.com/file/d/171eL_Xo1zSRUz0f01YAlJiQClIP6en1y/view?usp=sharing
+* https://drive.google.com/file/d/1oHMyAKVN95j9WYk3M0gnFndUwKGKJbE6/view?usp=sharing
 
 #
 
@@ -238,7 +238,7 @@ Esteban Mackay Q.
  
  https://github.com/hp3icc/emq-TE1ws
  
- * Last revision: emq-TE1ws-Rev19 5/21/2022 
+ * Last revision: emq-TE1ws-Rev20 6/26/2022 
 
    Raspberry OS Lite Based on Debian version 11 (bullseye) 2022-04-04
    
@@ -323,7 +323,7 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
    Image for raspberry, emq-TE1 project - recommended for any Raspberry : Zero, Zero W, Zero2, Zero2 W, Zero-2,  B2, B3, B3+, PI4
 
- * https://drive.google.com/file/d/171eL_Xo1zSRUz0f01YAlJiQClIP6en1y/view?usp=sharing
+ * https://drive.google.com/file/d/1oHMyAKVN95j9WYk3M0gnFndUwKGKJbE6/view?usp=sharing
 
  #
 
