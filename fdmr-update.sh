@@ -108,7 +108,7 @@ sed '14 a VALIDATE_SERVER_IDS: True' -i /opt/FreeDMR/config/FreeDMR.cfg
 sed '105 a override_ident_tg:' -i /opt/FreeDMR/config/FreeDMR.cfg
 #sudo rm /opt/FreeDMR/hotspot_proxy_v2.py
 #sudo rm /opt/FreeDMR/proxy_db.*
-#cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
+cp /opt/FDMR-Monitor/proxy/proxy* /opt/FreeDMR/ -r
 
 #####################
 sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/hotspot_proxy_v2.py
