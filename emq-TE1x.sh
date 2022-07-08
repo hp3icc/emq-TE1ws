@@ -1777,9 +1777,9 @@ Debug=0
 # FreeStar Network
 [DMR Network 5]
 #Id=000000000
-Enabled=0
+Enabled=1
 Name=FreeStar
-Address=dmr.freestar.network
+Address=es.freestar.network
 Port=62031
 TGRewrite0=2,5000001,2,1,999999
 PCRewrite=2,5000001,2,1,999999
