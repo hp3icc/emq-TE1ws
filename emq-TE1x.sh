@@ -2550,6 +2550,11 @@ After=multi-user.target
 
 [Service]
 User=root
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
 #WorkingDirectory=/opt/FreeDMR
 ExecStart=/usr/bin/python3 /opt/FreeDMR/hotspot_proxy_v2.py
 
