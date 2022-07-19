@@ -143,6 +143,29 @@ WantedBy=multi-user.target
 
 EOF
 ###
+#
+sudo cat > /lib/systemd/system/proxy.service <<- "EOF"
+[Unit]
+Description= Proxy Service 
+
+After=multi-user.target
+
+
+[Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
+#WorkingDirectory=/opt/FreeDMR
+ExecStart=/usr/bin/python3 /opt/FreeDMR/hotspot_proxy_v2.py
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+##
 sudo chmod +x /opt/FreeDMR/*.py
 sudo chmod +x /opt/FreeDMR/config/*.py
 rm /opt/FreeDMR-SAMPLE.cfg 
