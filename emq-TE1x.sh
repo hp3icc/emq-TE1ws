@@ -1213,7 +1213,10 @@ After=syslog.target network-online.target
 
 [Service]
 User=root
-#ExecStartPre=/bin/sleep 1800
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
 ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
 ExecStart=/opt/direwolf/rtl.sh
 # | direwolf -c /home/pi/direwolf/sdr.conf
@@ -1232,7 +1235,10 @@ After=syslog.target network-online.target
 
 [Service]
 User=root
-#ExecStartPre=/bin/sleep 1800
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
 ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
 ExecStart=sudo pymultimonaprs
 
