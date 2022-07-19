@@ -3199,7 +3199,6 @@ cd /tmp/
 #####
 cat > /tmp/completado.sh <<- "EOF"
 #!/bin/bash
-history -c && history -w
 while : ; do
 choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu " Precione enter (return o intro) para finalizar la instalacion y reiniciar" 11 85 3 \
 1 " Iniciar Reinicio de equipo " 3>&1 1>&2 2>&3)
@@ -3232,5 +3231,5 @@ sudo dphys-swapfile uninstall
 cd /etc/
 sudo sed -i 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=0/' dphys-swapfile
 ##
-
+history -c && history -w
 sh /tmp/completado.sh
