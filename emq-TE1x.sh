@@ -2561,15 +2561,16 @@ EOF
 sudo cat > /lib/systemd/system/freedmr.service <<- "EOF"
 [Unit]
 Description=FreeDmr
-
 After=multi-user.target
 
 [Service]
 User=root
-#ExecStartPre=/bin/sleep 30
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
 ExecStart=/usr/bin/python3 /opt/FreeDMR/bridge_master.py -c /opt/FreeDMR/config/FreeDMR.cfg -r /opt/FreeDMR/config/rules.py
-
-
 
 [Install]
 WantedBy=multi-user.target
