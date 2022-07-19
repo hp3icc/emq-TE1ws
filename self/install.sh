@@ -22,7 +22,37 @@ sudo chown www-data:www-data /var/www/html/ -R
      
 
 cp /opt/FDMR-Monitor/utils/logrotate/fdmr_mon /etc/logrotate.d/
-cp /opt/FDMR-Monitor/utils/systemd/fdmr_mon.service /etc/systemd/system/
+#cp /opt/FDMR-Monitor/utils/systemd/fdmr_mon.service /etc/systemd/system/
+echo 123> /etc/systemd/system/fdmr_mon.service
+sudo rm /etc/systemd/system/fdmr_mon.service
+#
+cat > /lib/systemd/system/fdmr_mon.service  <<- "EOF"
+[Unit]
+Description=FDMR Monitor
+# To make the network-online.target available
+# systemctl enable systemd-networkd-wait-online.service
+
+#After=network-online.target syslog.target
+#Wants=network-online.target
+
+[Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+WorkingDirectory=/opt/FDMR-Monitor
+ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
+ExecStart=python3 /opt/FDMR-Monitor/monitor.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
+
+
+EOF
+
+#
 sudo systemctl daemon-reload
 #systemctl enable fdmr_mon.service
 #systemctl start fdmr_mon.service
