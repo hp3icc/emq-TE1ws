@@ -70,6 +70,18 @@ Compatible con Raspberry pi : zero , P2 , P3 y P4
 
 #
 
+# Descargar imagen de micro sd para Raspberry:
+
+si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  lista para cargar en su memoria micro sd , para esto solo deberá descargar el archivo de la imagen preconfigurada para raspberry, descomprimir el archivo .zip y cargar en su memoria micro sd utilizando herramientas como BalenaEtcher , Rufus o cualquier otra herramienta para cargar el archivo .img a la memoria micro sd.
+
+ Puede descargar la imagen para raspberry desde cualquiera de los siguientes links:
+ 
+Imagen para raspberry, proyecto emq-TE1 - recomendado para cualquier Raspberry : Zero, Zero-W, Zero2, Zero2 W  B2, B3, B3+, PI4
+
+* <p><a href="https://drive.google.com/u/0/uc?id=1Lb37NpAjvjQQA-DeM1pk3qssqZZ5ARFN&export=download&confirm=t&uuid=4329f6b0-353d-44d1-b08b-2715faa32981" target="_blank">Descargar</a> imagen raspberry&nbsp;</p>
+
+#
+
 # Instalación desde terminal:
 
 Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando el Bash de auto instalación desde su consola terminal con permisos de super usuario, importante su sistema operativo debe tener instalado sudo y curl  antes de utilizar el Bash de auto instalación .
@@ -84,18 +96,6 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
 
        sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1x.sh)"
 
-
-#
-
-# Instalación en memoria micro sd para Raspberry:
-
-si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  lista para cargar en su memoria micro sd , para esto solo deberá descargar el archivo de la imagen preconfigurada para raspberry, descomprimir el archivo .zip y cargar en su memoria micro sd utilizando herramientas como BalenaEtcher , Rufus o cualquier otra herramienta para cargar el archivo .img a la memoria micro sd.
-
- Puede descargar la imagen para raspberry desde cualquiera de los siguientes links:
- 
-Imagen para raspberry, proyecto emq-TE1 - recomendado para cualquier Raspberry : Zero, Zero-W, Zero2, Zero2 W  B2, B3, B3+, PI4
-
-* <p><a href="https://drive.google.com/u/0/uc?id=1Lb37NpAjvjQQA-DeM1pk3qssqZZ5ARFN&export=download&confirm=t&uuid=4329f6b0-353d-44d1-b08b-2715faa32981" target="_blank">Descargar</a> imagen raspberry&nbsp;</p>
 
 #
 
@@ -297,6 +297,19 @@ Reuter WiFi-AP (optional Reuter wifi AP mode version)
 
  #
 
+# Download micro sd image for Raspberry:
+
+ If you have raspbery equipment, you can download and use the preconfigured image ready to load into your micro sd memory, for this you just need to download the preconfigured image file for raspberry, unzip the .zip file and load it into your micro sd memory using tools such as BalenaEtcher, Rufus or any other tool to load the .img file to the micro sd memory.
+
+  You can download the raspberry image from any of the following links:
+
+
+   Image for raspberry, emq-TE1 project - recommended for any Raspberry : Zero, Zero W, Zero2, Zero2 W, Zero-2,  B2, B3, B3+, PI4
+
+ * <p><a href="https://drive.google.com/u/0/uc?id=1Lb37NpAjvjQQA-DeM1pk3qssqZZ5ARFN&export=download&confirm=t&uuid=4329f6b0-353d-44d1-b08b-2715faa32981" target="_blank">Download</a> image raspberry&nbsp;</p>
+
+ #
+
 # Installation from terminal:
 
 You can install on your operating system (Ubuntu, raspberry, Debian) using the self-install Bash from your terminal console with super user permissions, importantly your operating system must have sudo and curl installed before using the self-install Bash. 
@@ -313,19 +326,6 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
 
 #
-
-# Installation in micro sd memory for Raspberry:
-
- If you have raspbery equipment, you can download and use the preconfigured image ready to load into your micro sd memory, for this you just need to download the preconfigured image file for raspberry, unzip the .zip file and load it into your micro sd memory using tools such as BalenaEtcher, Rufus or any other tool to load the .img file to the micro sd memory.
-
-  You can download the raspberry image from any of the following links:
-
-
-   Image for raspberry, emq-TE1 project - recommended for any Raspberry : Zero, Zero W, Zero2, Zero2 W, Zero-2,  B2, B3, B3+, PI4
-
- * <p><a href="https://drive.google.com/u/0/uc?id=1Lb37NpAjvjQQA-DeM1pk3qssqZZ5ARFN&export=download&confirm=t&uuid=4329f6b0-353d-44d1-b08b-2715faa32981" target="_blank">Download</a> image raspberry&nbsp;</p>
-
- #
 
  # Setting
 
