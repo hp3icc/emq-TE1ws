@@ -130,15 +130,8 @@ Si desea habilitar más de un Dashboard a la vez, recuerde cambiar los puertos h
 
 * Si utiliza la imagen pre-compilada para Raspberry , recuerde cambiar la contraseña por una de su preferencia . 
 
-* Si usted utiliza emq-TE1wsRev8 a la version emq-TE1-ws-Rev10b , y utiliza dashboard de YSFReflector simultaneamente con MMDVMHost , debe corregir los puertos websock de los dashboard de YSFReflector y MMDVMHost, para esto solo debe utilizar la herramienta de correccion para las revisiones 8 a 10b
-
-wget https://github.com/hp3icc/emq-TE1ws/raw/main/rev8WS-to-rev10b-fix-websosk-conflict.sh
-
-sh rev8WS-to-rev10b-fix-websosk-conflict.sh
-
-* La nueva version emq-TE1-Rev10c o posteriores , NO requiere esta correccion 
-
 #
+
 # WIFI 
 
 Si su equipo cuenta con dispositivo de red inalámbrica (WIFI) o es modelo Raspberry Zero W , después de haber grabado la imagen en la memoria microSD con la herramienta Rufus , Balena u otra aplicación , debe descargar y copiar el archivo wpa_supplicant.conf, a la partición con el nombre boot en su memoria microSD.
@@ -358,14 +351,6 @@ If you want to enable more than one Dashboard at the same time, remember to chan
  # Important note
  
  * If you use the pre-compiled image for Raspberry, remember to change the password to one of your preference.
-
- * If you use emq-TE1wsRev8 to version emq-TE1-ws-Rev10b, and use the YSFReflector dashboard simultaneously with MMDVMHost, you must correct the websock ports of the YSFReflector and MMDVMHost dashboards, for this you should only use the correction tool for the revisions 8 to 10b
-
-wget https://github.com/hp3icc/emq-TE1ws/raw/main/rev8WS-to-rev10b-fix-websosk-conflict.sh
-
-sh rev8WS-to-rev10b-fix-websosk-conflict.sh
-
- * The new version emq-TE1-Rev10c or later, does NOT require this correction
 
 #
 
