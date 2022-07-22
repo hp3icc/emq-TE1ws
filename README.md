@@ -67,9 +67,6 @@ Compatible con Raspberry pi : zero , P2 , P3 y P4
 
 #
 
-
-#
-
 # Descargar imagen de micro sd para Raspberry:
 
 si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  lista para cargar en su memoria micro sd , para esto solo deberá descargar el archivo de la imagen preconfigurada para raspberry, descomprimir el archivo .zip y cargar en su memoria micro sd utilizando herramientas como BalenaEtcher , Rufus o cualquier otra herramienta para cargar el archivo .img a la memoria micro sd.
