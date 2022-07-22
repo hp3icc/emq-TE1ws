@@ -95,7 +95,7 @@ si posee equipo raspbery , puede descargar y utilizar la imagen preconfigurada  
  
 Imagen para raspberry, proyecto emq-TE1 - recomendado para cualquier Raspberry : Zero, Zero-W, Zero2, Zero2 W  B2, B3, B3+, PI4
 
-* https://drive.google.com/file/d/1oHMyAKVN95j9WYk3M0gnFndUwKGKJbE6/view?usp=sharing
+* <p><a href="https://drive.google.com/file/d/1Lb37NpAjvjQQA-DeM1pk3qssqZZ5ARFN/view?usp=sharing" target="_blank">Descargar</a> imagen raspberry&nbsp;</p>
 
 #
 
@@ -323,7 +323,7 @@ You can install on your operating system (Ubuntu, raspberry, Debian) using the s
 
    Image for raspberry, emq-TE1 project - recommended for any Raspberry : Zero, Zero W, Zero2, Zero2 W, Zero-2,  B2, B3, B3+, PI4
 
- * https://drive.google.com/file/d/1oHMyAKVN95j9WYk3M0gnFndUwKGKJbE6/view?usp=sharing
+ * <p><a href="https://drive.google.com/file/d/1Lb37NpAjvjQQA-DeM1pk3qssqZZ5ARFN/view?usp=sharing" target="_blank">Download</a> image raspberry&nbsp;</p>
 
  #
 
