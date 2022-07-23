@@ -134,7 +134,7 @@ Si desea habilitar más de un Dashboard a la vez, recuerde cambiar los puertos h
 Si su equipo cuenta con dispositivo de red inalámbrica (WIFI) o es modelo Raspberry Zero W , después de haber grabado la imagen en la memoria microSD con la herramienta Rufus , Balena u otra aplicación , debe descargar y copiar el archivo wpa_supplicant.conf, a la partición con el nombre boot en su memoria microSD.
 Puede descargar el archivo wpa_supplicant.conf del siguiente link:
 
-<p><a href="https://doc-10-3k-docs.googleusercontent.com/docs/securesc/qr3290muu9lcb30p8o133bvu85a0c6rj/l01eqgt2iojm1ue3b5nbdbpuemf36i8f/1658547375000/09994889765518864212/01047950240515719884Z/1uFjl1BbzPBdRQ9g7LTMr3bB1FAgP5ILB?e=download&amp;uuid=25d91fe9-bb23-44d2-b711-10ba0a068c56&amp;nonce=gjlguh9kjvjr0&amp;user=01047950240515719884Z&amp;hash=e2rjp2jnvs5tg43o7umtm30961jlbjvs" target="_blank">Descargar</a> archivo wpa_supplicant.conf</p>
+<p><a href="https://drive.google.com/file/d/1uFjl1BbzPBdRQ9g7LTMr3bB1FAgP5ILB" target="_blank">Descargar</a> archivo wpa_supplicant.conf</p>
 
 Este archivo puede ser editado con el Notepad y dentro de este archivo, debe incluir los nombres de redes wifi y contraseñas de cada una, a las que desea que su raspberry se conecte, puede agregar una o cuantas redes wifi tenga, para que su equipo se conecte.
 
@@ -357,7 +357,7 @@ If your computer has a wireless network device (WIFI) or is a Raspberry Zero W m
 
  You can download the wpa_supplicant.conf file from the following link:
 
-<p><a href="https://doc-10-3k-docs.googleusercontent.com/docs/securesc/qr3290muu9lcb30p8o133bvu85a0c6rj/l01eqgt2iojm1ue3b5nbdbpuemf36i8f/1658547375000/09994889765518864212/01047950240515719884Z/1uFjl1BbzPBdRQ9g7LTMr3bB1FAgP5ILB?e=download&amp;uuid=25d91fe9-bb23-44d2-b711-10ba0a068c56&amp;nonce=gjlguh9kjvjr0&amp;user=01047950240515719884Z&amp;hash=e2rjp2jnvs5tg43o7umtm30961jlbjvs" target="_blank">Download</a> file wpa_supplicant.conf</p>
+<p><a href="https://drive.google.com/file/d/1uFjl1BbzPBdRQ9g7LTMr3bB1FAgP5ILB" target="_blank">Download</a> file wpa_supplicant.conf</p>
 
  This file can be edited with the Notepad and within this file, you must include the names of Wi-Fi networks and passwords of each one, to which you want your raspberry to connect, you can add one or how many Wi-Fi networks you have, so that your equipment connect.
 
