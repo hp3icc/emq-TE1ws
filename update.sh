@@ -7,7 +7,7 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Imp
 " 17 50 5 \
 1 " Update FDMR-Monitor OA4DOA " \
 2 " Update FreeDMR  " \
-3 " ADVANCE UPGRADE " \
+3 " ADVANCE UPGRADE & INSTALL " \
 4 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
