@@ -2374,6 +2374,7 @@ cp /opt/YSF2DMR/DMRIDUpdate.sh /opt/YSF2DMR/DMRIDUpdate2.sh
 chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
 chmod +x /opt/YSF2DMR/DMRIDUpdate2.sh
 ###########################
+sudo systemctl daemon-reload
 
 sudo systemctl disable lighttpd.service
 sudo systemctl stop lighttpd.service
