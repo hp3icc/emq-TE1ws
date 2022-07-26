@@ -2435,7 +2435,7 @@ sudo sed -i "s/6073/6075/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/YSFGateway/YSFGateway2/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/Iceberg/Panama/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/DVSwitch/YSFGateway/g"  /opt/YSFGateway2/YSFGateway.ini
-sudo sed -i "s/# Startup=Alabama-Link/Startup=Europelink/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/# Startup=Alabama-Link/Startup=EUROPELINK/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/WiresXCommandPassthrough=0/WiresXCommandPassthrough=1/g"  /opt/YSFGateway2/YSFGateway.ini
 ###################
 cat > /lib/systemd/system/ysfgw.service  <<- "EOF"
