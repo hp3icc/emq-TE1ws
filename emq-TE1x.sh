@@ -683,21 +683,22 @@ EOF
 cat > /bin/menu-mmdvm <<- "EOF"
 #!/bin/bash
 while : ; do
-choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu MMDVMHost" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion." 23 50 14 \
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu MMDVMHost" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion." 24 50 15 \
 1 " Editar MMDVMHost " \
 2 " Editar DMRGateway " \
-3 " Iniciar MMDVMHost & DMRGateway " \
-4 " Detener MMDVMHost & DMRGateway " \
-5 " Dashboard ON " \
-6 " Dashboard Off " \
-7 " Editar Puerto http " \
-8 " Editar HTML  " \
-9 " Editar Dashboard  " \
-10 " Dashboard Rooms: BM, europelink  " \
-11 " Dashboard Rooms: BM, worldlink " \
-12 " Dashboard Rooms: FreeDMR, europelink " \
-13 " Dashboard Rooms: FreeDMR, worldlink " \
-14 " Menu Principal " 3>&1 1>&2 2>&3)
+3 " Editar YSFGateway " \
+4 " Start&Restart service MMDVM " \
+5 " Stop service MMDVM " \
+6 " Dashboard ON " \
+7 " Dashboard Off " \
+8 " Editar Puerto http " \
+9 " Editar HTML  " \
+10 " Editar Dashboard  " \
+11 " Dashboard Rooms: BM, europelink  " \
+12 " Dashboard Rooms: BM, worldlink " \
+13 " Dashboard Rooms: FreeDMR, europelink " \
+14 " Dashboard Rooms: FreeDMR, worldlink " \
+15 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -713,28 +714,30 @@ sudo nano /opt/MMDVMHost/MMDVM.ini;;
 2)
 sudo nano /opt/DMRGateway/DMRGateway.ini;;
 3)
-sh /opt/MMDVMHost/DMRIDUpdate.sh && sudo systemctl enable dmrgw.service && sudo systemctl enable mmdvmh.service && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' add && cronedit.sh '@reboot' 'sh /opt/MMDVMHost/DMRIDUpdate2.sh' add ;;
+sudo nano /opt/YSFGateway2/YSFGateway.ini;;
 4)
-sudo systemctl stop mmdvmh.service && sudo systemctl stop dmrgw.service && sudo systemctl disable dmrgw.service && sudo systemctl disable mmdvmh.service && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' remove && cronedit.sh '@reboot' 'sh /opt/MMDVMHost/DMRIDUpdate2.sh' remove && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
+sh /opt/MMDVMHost/DMRIDUpdate.sh && sudo systemctl enable dmrgw.service && sudo systemctl enable mmdvmh.service && sudo systemctl enable ysfgw.service && sudo systemctl restart ysfgw.service && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' add && cronedit.sh '@reboot' 'sh /opt/MMDVMHost/DMRIDUpdate2.sh' add ;;
 5)
-sudo systemctl restart logtailer-mmdvmh.service && sudo systemctl enable logtailer-mmdvmh.service && sudo systemctl restart http.server-mmdvmh.service && sudo systemctl enable http.server-mmdvmh.service ;;
+sudo systemctl stop mmdvmh.service && sudo systemctl stop dmrgw.service && sudo systemctl disable dmrgw.service && sudo systemctl disable ysfgw.service && sudo systemctl stop ysfgw.service && sudo systemctl disable mmdvmh.service && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' remove && cronedit.sh '@reboot' 'sh /opt/MMDVMHost/DMRIDUpdate2.sh' remove && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
 6)
-sudo systemctl stop logtailer-mmdvmh.service && sudo systemctl disable logtailer-mmdvmh.service && sudo systemctl stop http.server-mmdvmh.service && sudo systemctl disable http.server-mmdvmh.service ;;
+sudo systemctl restart logtailer-mmdvmh.service && sudo systemctl enable logtailer-mmdvmh.service && sudo systemctl restart http.server-mmdvmh.service && sudo systemctl enable http.server-mmdvmh.service ;;
 7)
-sudo nano /lib/systemd/system/http.server-mmdvmh.service && sudo systemctl daemon-reload ;;
+sudo systemctl stop logtailer-mmdvmh.service && sudo systemctl disable logtailer-mmdvmh.service && sudo systemctl stop http.server-mmdvmh.service && sudo systemctl disable http.server-mmdvmh.service ;;
 8)
-sudo nano /opt/MMDVMHost-Websocketboard/html/index.html ;;
+sudo nano /lib/systemd/system/http.server-mmdvmh.service && sudo systemctl daemon-reload ;;
 9)
-sudo nano /opt/MMDVMHost-Websocketboard/html/js/config.js ;;
+sudo nano /opt/MMDVMHost-Websocketboard/html/index.html ;;
 10)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv ;;
+sudo nano /opt/MMDVMHost-Websocketboard/html/js/config.js ;;
 11)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo mv TG_List-WL.csv TG_List.csv;;
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv ;;
 12)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv  && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv && sudo mv FDMR-EURO.csv TG_List.csv;;
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo mv TG_List-WL.csv TG_List.csv;;
 13)
-cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo mv FDMR-WORLD.csv TG_List.csv;;
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv  && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv && sudo mv FDMR-EURO.csv TG_List.csv;;
 14)
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo mv FDMR-WORLD.csv TG_List.csv;;
+15)
 break;
 esac
 done
@@ -1404,7 +1407,7 @@ Enable=1
 LowDeviation=0
 SelfOnly=0
 TXHang=4
-RemoteGateway=1
+RemoteGateway=0
 # ModeHang=10
 
 [P25]
@@ -1538,10 +1541,27 @@ Debug=0
 
 [System Fusion Network]
 Enable=1
-#LocalAddress=127.0.0.1
-#LocalPort=3200
-GatewayAddress=europelink.pa7lim.nl
-GatewayPort=42000
+# habilitar , o deshabilitar todas las lineas de 'Direct' o 'Gateway'
+# quitando los simbolos # segun su tipo de conexion.
+#
+# Configuracion Gateway , habilita YSFGateway, WiresXCommandPassthrough.
+# configuracion Direct , habilita conexion directa a un solo server YSF.
+#
+#########################################################
+#       Gateway mode  -    Multiples Server - DMRGateway    #
+#########################################################
+LocalAddress=127.0.0.1
+LocalPort=3330
+GatewayAddress=127.0.0.1
+GatewayPort=4330
+#
+#########################################################
+#       Direct mode   -    Multiples Server - DMRGateway    #
+#########################################################
+#GatewayAddress=europelink.pa7lim.nl
+#GatewayPort=42000
+#
+##########################################################
 # ModeHang=3
 Debug=0
 
@@ -2402,6 +2422,49 @@ sudo systemctl disable ysfparrot.service
 sudo systemctl disable nxdnparrot.service
 
 rm /var/log/mmdvm/*
+##########################
+cd /opt/
+cp -r /opt/YSFGateway/ /opt/YSFGateway2/
+cd /opt/YSFGateway2/
+chmod +x *
+sudo sed -i "s/3230/3330/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/4230/4330/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/42500/42400/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/43001/44001/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/6073/6075/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/YSFGateway/YSFGateway2/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/Iceberg/Panama/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/DVSwitch/YSFGateway/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/# Startup=Alabama-Link/Startup=Europelink/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/WiresXCommandPassthrough=0/WiresXCommandPassthrough=1/g"  /opt/YSFGateway2/YSFGateway.ini
+###################
+cat > /lib/systemd/system/ysfgw.service  <<- "EOF"
+[Unit]
+Description=YSF Gateway 2 Service
+# Description=Place this file in /lib/systemd/system
+# Description=N4IRS 01/17/2020
+
+#After=netcheck.service
+#Requires=netcheck.service
+
+[Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+WorkingDirectory=/opt/YSFGateway2
+
+ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
+ExecStart=/opt/YSFGateway2/YSFGateway /opt/YSFGateway2/YSFGateway.ini
+
+
+[Install]
+WantedBy=multi-user.target
+
+
+EOF
+####
 
 ###########################
 cat > /etc/modprobe.d/raspi-blacklist.conf <<- "EOF"
