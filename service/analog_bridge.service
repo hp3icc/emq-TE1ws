@@ -3,23 +3,19 @@ Description=Analog_Bridge Service
 # Description=Place this file in /lib/systemd/system
 # Description=N4IRS 03/25/2021
 
-#After=netcheck.service
-#Requires=netcheck.service
 
 [Service]
+User=root
 Type=simple
-Restart=on-failure
+Restart=always
 RestartSec=3
-RestartPreventExitStatus=252 253 254
 StandardOutput=null
+#RestartPreventExitStatus=252 253 254
 WorkingDirectory=/opt/Analog_Bridge
 Environment=AnalogBridgeLogDir=/var/log/dvswitch
-#ExecStartPre = /bin/sh -c 'echo "Starting Analog_Bridge: [`date +%%T.%%3N`]" >> /var/log/netcheck'
 ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
 ExecStart=/opt/Analog_Bridge/Analog_Bridge /opt/Analog_Bridge/Analog_Bridge.ini
 ExecStartPost= -/usr/local/sbin/update-config.sh
-ExecReload=/bin/kill -HUP $MAINPID
-KillMode=process
 
 [Install]
 WantedBy=multi-user.target
