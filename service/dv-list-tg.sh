@@ -16,9 +16,9 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-sudo sed -i "s/www.pistar.uk/freedmr-hp.ddns.net/g"  /opt/MMDVM_Bridge/dvswitch.sh && sh /usr/local/sbin/DVSM_Update.sh ;;
+sudo sed -i "s/www.pistar.uk/freedmr-hp.ddns.net/g" /opt/MMDVM_Bridge/dvswitch.sh  ;;
 2)
-sudo sed -i "s/freedmr-hp.ddns.net/www.pistar.uk/g"  /opt/MMDVM_Bridge/dvswitch.sh && sh /usr/local/sbin/DVSM_Update.sh ;;
+sudo sed -i "s/freedmr-hp.ddns.net/www.pistar.uk/g" /opt/MMDVM_Bridge/dvswitch.sh  ;;
 3)
 /usr/local/dvs/dvs;
 esac
