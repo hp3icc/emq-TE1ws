@@ -4,16 +4,15 @@ Description=MD-380 Emulator Service
 # Description=N4IRS 10/04/2020
 
 [Service]
+User=root
 Type=simple
 Restart=always
 RestartSec=3
 StandardOutput=null
 WorkingDirectory=/opt/md380-emu
-#ExecStartPre = /bin/sh -c 'echo "Starting md380-emu: [`date +%%T.%%3N`]" >> /var/log/netcheck'
 ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
 ExecStart=/usr/bin/qemu-arm-static /opt/md380-emu/md380-emu -S 2470
-ExecReload=/bin/kill -HUP $MAINPID
-KillMode=process
+
 
 [Install]
 
