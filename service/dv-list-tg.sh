@@ -20,7 +20,7 @@ sudo sed -i "s/www.pistar.uk/freedmr-hp.ddns.net/g"  /opt/MMDVM_Bridge/dvswitch.
 2)
 sudo sed -i "s/freedmr-hp.ddns.net/www.pistar.uk/g"  /opt/MMDVM_Bridge/dvswitch.sh && sh /usr/local/sbin/DVSM_Update.sh ;;
 3)
-break;
+/usr/local/dvs/dvs;
 esac
 done
 exit 0
