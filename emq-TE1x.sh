@@ -2049,6 +2049,16 @@ chmod +x buster
 apt-get update -y
 apt-get install dvswitch-server -y
 
+sudo sed -i "s/default_dmr_server=Brandmeister/default_dmr_server=FreeDMR/g"  /var/lib/dvswitch/dvs/var.txt
+sudo sed -i "s/other1_name=/other1_name=FreeDMR/g"  /var/lib/dvswitch/dvs/var.txt
+sudo sed -i "s/other1_address=/other1_address=freedmr-hp.ddns.net/g"  /var/lib/dvswitch/dvs/var.txt
+sudo sed -i "s/other1_password=/other1_password=passw0rd/g"  /var/lib/dvswitch/dvs/var.txt
+sudo sed -i "s/other1_port=/other1_port=62031/g"  /var/lib/dvswitch/dvs/var.txt
+
+sudo sed -i "s/other2_name=/other2_name=DMR-Central/g"  /var/lib/dvswitch/dvs/var.txt
+sudo sed -i "s/other2_address=/other2_address=dmr.pa7lim.nl/g"  /var/lib/dvswitch/dvs/var.txt
+sudo sed -i "s/other2_password=/other2_password=passw0rd/g"  /var/lib/dvswitch/dvs/var.txt
+sudo sed -i "s/other2_port=/other2_port=55555/g"  /var/lib/dvswitch/dvs/var.txt
 sudo sed -i "s/42000/42500/g" /opt/YSFGateway/YSFGateway.ini
 sudo sed -i "s/42001/43001/g" /opt/YSFGateway/YSFGateway.ini
 sudo sed -i "s/RptPort=3200/RptPort=3230/g" /opt/YSFGateway/YSFGateway.ini
