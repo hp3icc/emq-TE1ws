@@ -43,7 +43,7 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-/usr/local/dvs/dvs;
+break;
 esac
 done
 exit 0
