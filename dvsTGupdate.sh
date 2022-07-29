@@ -94,7 +94,10 @@ esac
 
 EOF
 ###
-sh -c "$(curl -fsSL https://github.com/hp3icc/DVSwitch-Mobile-TG-List/raw/main/lang.sh)"
+cd /tmp/
+wget https://raw.githubusercontent.com/hp3icc/DVSwitch-Mobile-TG-List/main/lang.sh
+chmod +x lang.sh
+sh lang.sh
 ###
 
 
