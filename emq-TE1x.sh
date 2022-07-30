@@ -196,7 +196,7 @@ menu-noip ;;
 12)
 menu-web ;;
 13)
-sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/update.sh)" ;;
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/update.sh)" ;;
 14)
 menu-reboot ;;
 15)
@@ -2136,7 +2136,7 @@ case $OPTION in
 01\ *)sudo ${DVS}init_config.sh ;;
 02\ *)sudo ${DVS}adv_config_menu.sh ;;
 03\ *)sudo ${DVS}tools_menu.sh ;;
-04\ *)sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/service/dv-list-tg.sh)" ;;
+04\ *)sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/dv-list-tg.sh)" ;;
 05\ *)sudo ${DVS}credits.sh ;;
 06\ *)exit 0
 esac
@@ -3271,7 +3271,7 @@ IGTXLIMIT 6 10
 EOF
 #
 cd /tmp/
-sudo bash -c "$(wget -O - https://github.com/hp3icc/emq-TE1ws/raw/main/gotty.sh)"
+sudo bash -c "$(wget -O - https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/gotty.sh)"
 #
 sudo cat > /lib/systemd/system/gotty.service <<- "EOF"
 [Unit]
