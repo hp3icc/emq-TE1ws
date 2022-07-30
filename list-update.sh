@@ -52,7 +52,7 @@ menu-noip ;;
 12)
 menu-web ;;
 13)
-sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/update.sh)" ;;
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/update.sh)" ;;
 14)
 menu-reboot ;;
 15)
@@ -132,4 +132,4 @@ EOF
 chmod +x /bin/menu*
 chmod +x /bin/MENU
 chmod +x /tmp/menu-update
-sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/update.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/update.sh)"
