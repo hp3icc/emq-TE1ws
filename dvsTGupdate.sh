@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo cat > /usr/local/dvs/dvs <<- "EOF"
 #!/bin/bash
 
