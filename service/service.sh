@@ -1,16 +1,16 @@
 #!/bin/sh
  
 sudo systemctl stop analog_bridge.service
-sudo systemctl stop system/mmdvm_bridge.service
-sudo systemctl stop system/ysfgateway.service
-sudo systemctl stop system/ysfparrot.service
-sudo systemctl stop system/nxdngateway.service
-sudo systemctl stop system/nxdnparrot.service
-sudo systemctl stop system/p25gateway.service
-sudo systemctl stop system/p25parrot.service
-sudo systemctl stop system/quantar_bridge.service
-sudo systemctl stop system/ircddbgatewayd.service
-sudo systemctl stop system/md380-emu.service
+sudo systemctl stop mmdvm_bridge.service
+sudo systemctl stop ysfgateway.service
+sudo systemctl stop ysfparrot.service
+sudo systemctl stop nxdngateway.service
+sudo systemctl stop nxdnparrot.service
+sudo systemctl stop p25gateway.service
+sudo systemctl stop p25parrot.service
+sudo systemctl stop quantar_bridge.service
+sudo systemctl stop ircddbgatewayd.service
+sudo systemctl stop md380-emu.service
 #
 rm /lib/systemd/system/analog_bridge.service
 rm /lib/systemd/system/mmdvm_bridge.service
