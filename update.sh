@@ -60,7 +60,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/lamp
 3)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/DVSMU/main/emq-dvsmu.sh)" ;;
 4)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/DVSMU/main/dvsTGupdate.sh)" ;;
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/dvsTGupdate.sh)" ;;
 5)
 break;
 esac
