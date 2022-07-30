@@ -38,13 +38,13 @@ wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/md380-emu.s
 #
 sudo systemctl daemon-reload
 sudo systemctl start analog_bridge.service
-sudo systemctl start system/mmdvm_bridge.service
-sudo systemctl start system/ysfgateway.service
-sudo systemctl start system/ysfparrot.service
-sudo systemctl start system/nxdngateway.service
-sudo systemctl start system/nxdnparrot.service
-sudo systemctl start system/p25gateway.service
-sudo systemctl start system/p25parrot.service
-sudo systemctl start system/quantar_bridge.service
-sudo systemctl start system/ircddbgatewayd.service
-sudo systemctl start system/md380-emu.service
+sudo systemctl start mmdvm_bridge.service
+sudo systemctl start ysfgateway.service
+sudo systemctl start ysfparrot.service
+sudo systemctl start nxdngateway.service
+sudo systemctl start nxdnparrot.service
+sudo systemctl start p25gateway.service
+sudo systemctl start p25parrot.service
+sudo systemctl start quantar_bridge.service
+sudo systemctl start ircddbgatewayd.service
+sudo systemctl start md380-emu.service
