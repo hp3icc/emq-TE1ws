@@ -261,6 +261,8 @@ sudo cp -r /opt/MMDVM_CM/YSF2DMR /opt/
 cd YSF2DMR
 sudo make
 sudo make install
+cp -r /opt/YSF2DMR/ /opt/YSF2DMRGW
+chmod +x /opt/YSF2DMRGW/*
 
 sudo apt-get install zip gzip tar -y
 
@@ -1270,6 +1272,27 @@ WantedBy=multi-user.target
 
 EOF
 ###########################
+cat > /lib/systemd/system/ysf2dmrgw.service  <<- "EOF"
+[Unit]
+Description=YSF2DMRGW Service
+After=syslog.target network.target
+
+[Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+WorkingDirectory=/opt/YSF2DMRGW
+#ExecStartPre=/bin/sleep 30
+ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
+ExecStart=/opt/YSF2DMRGW/YSF2DMR /opt/YSF2DMRGW/YSF2DMR.ini
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+###########################
 cat > /opt/MMDVMHost/MMDVM.ini  <<- "EOF"
 [General]
 # Coloque su indicativo
@@ -1927,6 +1950,87 @@ Refresh=240
 Description=APRS Description
 
 
+EOF
+###################
+cat > /opt/YSF2DMRGW/YSF2DMR.ini  <<- "EOF"
+[Info]
+RXFrequency=438800000
+TXFrequency=438800000
+Power=1
+Latitude=0.0
+Longitude=0.0
+Height=0
+Location=YSF2DMR
+Description=Multi-Mode
+URL=www.google.co.uk
+[YSF Network]
+Callsign=HP3ICC
+Suffix=ND
+#Suffix=RPT
+DstAddress=127.0.0.1
+DstPort=42000
+LocalAddress=127.0.0.1
+#LocalPort=42013
+EnableWiresX=0
+RemoteGateway=0
+HangTime=1000
+WiresXMakeUpper=0
+# RadioID=*****
+# FICHCallsign=2
+# FICHCallMode=0
+# FICHBlockTotal=0
+# FICHFrameTotal=6
+# FICHMessageRoute=0
+# FICHVOIP=0
+# FICHDataType=2
+# FICHSQLType=0
+# FICHSQLCode=0
+DT1=1,34,97,95,43,3,17,0,0,0
+DT2=0,0,0,0,108,32,28,32,3,8
+Daemon=0
+[DMR Network]
+Id=714000000
+#XLXFile=XLXHosts.txt
+#XLXReflector=950
+#XLXModule=D
+StartupDstId=714
+# For TG call: StartupPC=0
+StartupPC=0
+Address=127.0.0.1
+Port=54103
+Jitter=500
+EnableUnlink=0
+TGUnlink=4000
+PCUnlink=0
+# Local=62032
+Password=passw0rd
+# No active linea de Option para TG estaticos, si utiliza BM,TGIF,DMR-Central
+# Puede activar linea de option de selfcare FDMR-Mon y colocar su propia contraseña o 
+# utilizar linea de options con opciones de tg estaticos
+#Options=PASS=abc123
+#Options=TS2=714;DIAL=0;VOICE=0;LANG=es_ES;SINGLE=0;TIMER=10;
+TGListFile=TGList-DMR.txt
+Debug=0
+[DMR Id Lookup]
+File=/opt/YSF2DMR/DMRIds.dat
+Time=24
+DropUnknown=0
+[Log]
+# Logging levels, 0=No logging
+DisplayLevel=1
+FileLevel=1
+FilePath=/var/log/ysf2dmr/
+FileRoot=YSF2DMR
+[aprs.fi]
+Enable=0
+AprsCallsign=HP3ICC
+Server=noam.aprs2.net
+#Server=euro.aprs2.net
+Port=14580
+Password=12345
+APIKey=APIKey
+Refresh=240
+Description=APRS Description
 EOF
 ###################
 
