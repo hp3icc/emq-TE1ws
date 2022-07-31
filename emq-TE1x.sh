@@ -1960,18 +1960,19 @@ Power=1
 Latitude=0.0
 Longitude=0.0
 Height=0
-Location=YSF2DMR
+Location=YSF2DMRGW
 Description=Multi-Mode
 URL=www.google.co.uk
+
 [YSF Network]
 Callsign=HP3ICC
 Suffix=ND
 #Suffix=RPT
 DstAddress=127.0.0.1
-DstPort=42000
+DstPort=42400
 LocalAddress=127.0.0.1
-#LocalPort=42013
-EnableWiresX=0
+LocalPort=42013
+EnableWiresX=1
 RemoteGateway=0
 HangTime=1000
 WiresXMakeUpper=0
@@ -1988,39 +1989,45 @@ WiresXMakeUpper=0
 DT1=1,34,97,95,43,3,17,0,0,0
 DT2=0,0,0,0,108,32,28,32,3,8
 Daemon=0
+
 [DMR Network]
-Id=714000000
+Id=000000000
 #XLXFile=XLXHosts.txt
 #XLXReflector=950
 #XLXModule=D
-StartupDstId=714
+StartupDstId=9
 # For TG call: StartupPC=0
 StartupPC=0
-Address=127.0.0.1
-Port=54103
+Address=freedmr-hp.ddns.net
+Port=62031
 Jitter=500
 EnableUnlink=0
 TGUnlink=4000
 PCUnlink=0
 # Local=62032
 Password=passw0rd
+
 # No active linea de Option para TG estaticos, si utiliza BM,TGIF,DMR-Central
-# Puede activar linea de option de selfcare FDMR-Mon y colocar su propia contraseña o 
+# Puede activar linea de option de selfcare FDMR-Mon y colocar su propia contraseÃ±a o 
 # utilizar linea de options con opciones de tg estaticos
-#Options=PASS=abc123
+Options=PASS=abc123
 #Options=TS2=714;DIAL=0;VOICE=0;LANG=es_ES;SINGLE=0;TIMER=10;
+
 TGListFile=TGList-DMR.txt
 Debug=0
+
 [DMR Id Lookup]
 File=/opt/YSF2DMR/DMRIds.dat
 Time=24
 DropUnknown=0
+
 [Log]
 # Logging levels, 0=No logging
 DisplayLevel=1
 FileLevel=1
 FilePath=/var/log/ysf2dmr/
 FileRoot=YSF2DMR
+
 [aprs.fi]
 Enable=0
 AprsCallsign=HP3ICC
@@ -2031,6 +2038,9 @@ Password=12345
 APIKey=APIKey
 Refresh=240
 Description=APRS Description
+
+
+
 EOF
 ###################
 
