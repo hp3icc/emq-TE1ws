@@ -2653,6 +2653,8 @@ cd /opt/
 cp -r /opt/YSFGateway/ /opt/YSFGateway2/
 cd /opt/YSFGateway2/
 chmod +x *
+sudo sed -i "s/#YSF2DMRAddress=127.0.0.1/YSF2DMRAddress=127.0.0.1/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/#YSF2DMRPort=42013/YSF2DMRPort=42013/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/3230/3330/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/4230/4330/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/42500/42400/g"  /opt/YSFGateway2/YSFGateway.ini
