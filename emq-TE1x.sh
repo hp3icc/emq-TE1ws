@@ -82,6 +82,11 @@ sudo cat > /opt/emq-ver <<- "EOF"
 EMQ-VER:  20.2
 EOF
 #########
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu.sh)"
+variable22=$(grep "EMQ-VER:" /opt/emq-ver | tail -c 5)
+sudo sed -i "s/R00ab/$variable22/g"  /bin/menu
+########################
+
 cd /home/
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
@@ -113,6 +118,7 @@ pip3 install -r requirements.txt
 sudo rm requirements.txt
 sudo rm get-pip.py
 #
+
 mkdir /var/www
 mkdir /var/www/html
 
@@ -134,12 +140,8 @@ GPSD_OPTIONS="-n"
 GPSD_SOCKET="/var/run/gpsd.sock"
 
 EOF
-###
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu.sh)
-variable22=$(grep "EMQ-VER:" /opt/emq-ver | tail -c 5)
-sudo sed -i "s/R00ab/$variable22/g"  /bin/menu
-sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock
 
+sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock
 ####################
 echo iniciando instalacion
 
