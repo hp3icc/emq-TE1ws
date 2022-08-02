@@ -137,11 +137,7 @@ exit 0
 
 
 EOF
-#
-sudo cat > /opt/emq-ver <<- "EOF"
-EMQ-VER:  20.2
-EOF
-#########
+##########
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu.sh)"
 sudo sed -i "s/R00ab/$variable22/g"  /bin/menu
 #####
