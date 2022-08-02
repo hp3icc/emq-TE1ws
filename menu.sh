@@ -640,3 +640,7 @@ sudo cat > /opt/obp.txt <<- "EOF"
 
 EOF
 ####################
+cp /bin/menu /bin/MENU
+chmod +x /bin/menu*
+chmod +x /bin/MENU
+
