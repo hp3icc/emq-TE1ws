@@ -1,3 +1,4 @@
+variable22=$(grep "EMQ-VER:" /opt/emq-ver | tail -c 5)
 echo 123> /bin/menu-update
 sudo rm /bin/menu-update
 sudo cat > /bin/menu-update <<- "EOF"
@@ -142,7 +143,6 @@ EMQ-VER:  20.2
 EOF
 #########
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu.sh)"
-variable22=$(grep "EMQ-VER:" /opt/emq-ver | tail -c 5)
 sudo sed -i "s/R00ab/$variable22/g"  /bin/menu
 #####
 
