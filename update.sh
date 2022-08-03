@@ -138,8 +138,8 @@ exit 0
 
 EOF
 ##########
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu.sh)"
-sudo sed -i "s/R00ab/$variable22/g"  /bin/menu
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu.sh)"
+#sudo sed -i "s/R00ab/$variable22/g"  /bin/menu
 #####
 cp /bin/menu /bin/MENU
 chmod +x /bin/menu*
