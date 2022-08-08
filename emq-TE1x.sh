@@ -1884,7 +1884,7 @@ DATABASEURL='https://ham-digital.org/status/users.csv'
 DMRFILEBACKUP=1
 #
 # Command line to restart MMDVMHost
-RESTARTCOMMAND="sudo systemctl restart mmdvmh.service && sudo systemctl restart dmrgw.service"
+RESTARTCOMMAND="sudo systemctl restart mmdvmh.service && sudo systemctl restart dmrgw.service && sudo systemctl restart ysfgw.service && sudo systemctl restart ysf2dmrgw.service"
 # RESTARTCOMMAND="killall MMDVMHost ; /path/to/MMDVMHost/executable/MMDVMHost /path/to/MMDVM/ini/file/MMDVM.ini"
 ###############################################################################
 #
