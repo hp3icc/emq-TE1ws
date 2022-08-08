@@ -2027,9 +2027,13 @@ chmod +x *
 sudo sed -i "s/#YSF2DMRAddress=127.0.0.1/YSF2DMRAddress=127.0.0.1/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/#YSF2DMRPort=42013/YSF2DMRPort=42013/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/3230/3330/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/Suffix=RPT/# Suffix=RPT/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/# Suffix=ND/Suffix=ND/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/4230/4330/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/42500/42400/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/43001/44001/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/# YSF2DMRAddress=127.0.0.1/YSF2DMRAddress=127.0.0.1/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/# YSF2DMRPort=42013/YSF2DMRPort=42013/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/6073/6075/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/YSFGateway/YSFGateway2/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/Iceberg/Panama/g"  /opt/YSFGateway2/YSFGateway.ini
