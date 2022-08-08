@@ -238,7 +238,7 @@ sudo nano /opt/YSFGateway2/YSFGateway.ini;;
 4)
 sudo nano /opt/YSF2DMRGW/YSF2DMR.ini;;
 5)
-wget -O /opt/YSF2DMRGW/TGList-DMR.txt http://freedmr-hp.ddns.net/downloads/TGList_BM.txt && sudo systemctl stop ysfgw.service && systemctl stop ysf2dmrgw.service && sh /opt/MMDVMHost/DMRIDUpdate.sh && systemctl enable ysf2dmrgw.service  && sudo systemctl enable dmrgw.service && sudo systemctl enable mmdvmh.service && sudo systemctl enable ysfgw.service  && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' add && cronedit.sh '@reboot' 'sh /opt/MMDVMHost/DMRIDUpdate2.sh' add  ;;
+wget -O /opt/YSF2DMRGW/TGList-DMR.txt http://freedmr-hp.ddns.net/downloads/TGList_BM.txt && sh /opt/MMDVMHost/DMRIDUpdate.sh && sudo systemctl enable ysf2dmrgw.service  && sudo systemctl enable dmrgw.service && sudo systemctl enable mmdvmh.service && sudo systemctl enable ysfgw.service  && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' add && cronedit.sh '@reboot' 'sh /opt/MMDVMHost/DMRIDUpdate2.sh' add  ;;
 6)
 sudo systemctl stop mmdvmh.service && systemctl stop ysf2dmrgw.service && systemctl disable ysf2dmrgw.service && sudo systemctl stop dmrgw.service && sudo systemctl disable dmrgw.service && sudo systemctl disable ysfgw.service && sudo systemctl stop ysfgw.service && sudo systemctl disable mmdvmh.service && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' remove && cronedit.sh '@reboot' 'sh /opt/MMDVMHost/DMRIDUpdate2.sh' remove && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
 7)
