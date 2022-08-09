@@ -189,6 +189,7 @@ cd YSF2DMR
 sudo make
 sudo make install
 sudo cp -r /opt/YSF2DMR/ /opt/YSF2DMRGW
+wget -O /opt/YSF2DMRGW/TGList-DMR.txt http://freedmr-hp.ddns.net/downloads/TGList_BM.txt
 chmod +x /opt/YSF2DMRGW/*
 
 sudo apt-get install zip gzip tar -y
