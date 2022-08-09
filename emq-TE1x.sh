@@ -188,9 +188,7 @@ sudo cp -r /opt/MMDVM_CM/YSF2DMR /opt/
 cd YSF2DMR
 sudo make
 sudo make install
-cp -r /opt/YSF2DMR/ /opt/YSF2DMRGW
-sudo sed -i "s/42013/42018/g"  /opt/YSF2DMRGW/YSF2DMR.ini
-sudo sed -i "s/TGListFile=TGList-DMR.txt/TGListFile=\/opt\/YSF2DMRGW\/TGList-DMR.txt/g"  /opt/YSF2DMRGW/YSF2DMR.ini
+sudo cp -r /opt/YSF2DMR/ /opt/YSF2DMRGW
 chmod +x /opt/YSF2DMRGW/*
 
 sudo apt-get install zip gzip tar -y
@@ -1416,7 +1414,7 @@ Suffix=ND
 DstAddress=127.0.0.1
 DstPort=42400
 LocalAddress=127.0.0.1
-LocalPort=42013
+LocalPort=42018
 EnableWiresX=1
 RemoteGateway=0
 HangTime=1000
@@ -1458,7 +1456,7 @@ Password=passw0rd
 Options=PASS=abc123
 #Options=TS2=714;DIAL=0;VOICE=0;LANG=es_ES;SINGLE=0;TIMER=10;
 
-TGListFile=TGList-DMR.txt
+TGListFile=/opt/YSF2DMRGW/TGList-DMR.txt
 Debug=0
 
 [DMR Id Lookup]
