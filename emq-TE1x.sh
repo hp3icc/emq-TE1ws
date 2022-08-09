@@ -1370,7 +1370,7 @@ TGListFile=TGList-DMR.txt
 Debug=0
 
 [DMR Id Lookup]
-File=/opt/YSF2DMR/DMRIds.dat
+File=/opt/MMDVMHost/DMRIds.dat
 Time=24
 DropUnknown=0
 
@@ -1460,7 +1460,7 @@ TGListFile=/opt/YSF2DMRGW/TGList-DMR.txt
 Debug=0
 
 [DMR Id Lookup]
-File=/opt/YSF2DMR/DMRIds.dat
+File=/opt/MMDVMHost/DMRIds.dat
 Time=24
 DropUnknown=0
 
@@ -1931,7 +1931,7 @@ cat > /opt/YSF2DMR/DMRIDUpdate.sh <<- "EOF"
 #                              CONFIGURATION
 #
 # Full path to DMR ID file, without final slash
-DMRIDPATH=/opt/YSF2DMR
+DMRIDPATH=/opt/MMDVMHost
 DMRIDFILE=${DMRIDPATH}/DMRIds.dat
 # DMR IDs now served by RadioID.net
 DATABASEURL='https://ham-digital.org/status/users.csv'
