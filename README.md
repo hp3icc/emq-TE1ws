@@ -9,7 +9,7 @@ Continuamente todo el contenido publicado aqui, es actualizado , si esta observa
 
 https://github.com/hp3icc/emq-TE1ws
 
-* Ultima revision: emq-TE1ws-Rev20 26/6/2022 
+* Ultima revision: emq-TE1ws-Rev20.2 8/8/2022 
 
   Raspberry OS Lite Basado en la versión 11 de Debian (bullseye) 04-04-2022
   
@@ -228,7 +228,7 @@ Esteban Mackay Q.
  
  https://github.com/hp3icc/emq-TE1ws
  
- * Last revision: emq-TE1ws-Rev20 6/26/2022 
+ * Last revision: emq-TE1ws-Rev20.2 8/8/2022 
 
    Raspberry OS Lite Based on Debian version 11 (bullseye) 2022-04-04
    
