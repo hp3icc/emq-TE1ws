@@ -162,7 +162,7 @@ StandardOutput=null
 ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
 #WorkingDirectory=/opt/FreeDMR
 #ExecStart=/usr/bin/python3 /opt/FreeDMR/hotspot_proxy_v2.py
-ExecStart=/usr/bin/python3 /opt/FreeDMR/hotspot_proxy_v2.py -c /opt/FreeDMR/FreeDMR.cfg
+ExecStart=/usr/bin/python3 /opt/FreeDMR/hotspot_proxy_v2.py -c /opt/FreeDMR/proxy.cfg
 
 [Install]
 WantedBy=multi-user.target
