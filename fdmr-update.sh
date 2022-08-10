@@ -110,7 +110,9 @@ sed '14 a VALIDATE_SERVER_IDS: True' -i /opt/FreeDMR/config/FreeDMR.cfg
 sed '105 a override_ident_tg:' -i /opt/FreeDMR/config/FreeDMR.cfg
 sudo rm /opt/FreeDMR/hotspot_proxy_v2.py
 #sudo rm /opt/FreeDMR/proxy_db.*
-cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
+#cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
+cp /opt/FDMR-Monitor/proxy/proxy.cfg /opt/FreeDMR/proxy.cfg -r
+cp /opt/FDMR-Monitor/proxy/proxy_db.py /opt/FreeDMR/proxy_db.py -r
 
 #####################
 sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/hotspot_proxy_v2.py
@@ -159,7 +161,8 @@ RestartSec=3
 StandardOutput=null
 ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
 #WorkingDirectory=/opt/FreeDMR
-ExecStart=/usr/bin/python3 /opt/FreeDMR/hotspot_proxy_v2.py
+#ExecStart=/usr/bin/python3 /opt/FreeDMR/hotspot_proxy_v2.py
+ExecStart=/usr/bin/python3 /opt/FreeDMR/hotspot_proxy_v2.py -c /opt/FreeDMR/FreeDMR.cfg
 
 [Install]
 WantedBy=multi-user.target
