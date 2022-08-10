@@ -98,7 +98,8 @@ sudo sed -i 's/100/60/' /opt/FreeDMR/config/FreeDMR.cfg
 #sudo sed -i 's/54100/54060/' /opt/FreeDMR/hotspot_proxy_v2.py
 #sudo sed -i 's/REPORT_CLIENTS: 127.0.0.1/REPORT_CLIENTS: */' /opt/FreeDMR/config/FreeDMR.cfg
 sudo sed -i "s/TGID_URL:/#TGID_URL:/g"  /opt/FreeDMR/config/FreeDMR.cfg 
-sed '37 a TGID_URL: https://freedmr.cymru/talkgroups/talkgroup_ids_json.php' -i /opt/FreeDMR/config/FreeDMR.cfg 
+sed '37 a TGID_URL: https://freedmr.cymru/talkgroups/talkgroup_ids_json.php' -i /opt/FreeDMR/config/FreeDMR.cfg
+sed '44 a TOPO_FILE:' -i /opt/FreeDMR/config/FreeDMR.cfg 
 rm /opt/conf.txt
 #rm /opt/obp.txt
 cd /opt/FreeDMR/
@@ -108,7 +109,7 @@ sudo sed -i 's/54915/49061/' /opt/FreeDMR/playback.cfg
 cat /opt/rules.txt >> /opt/FreeDMR/config/rules.py
 sed '14 a VALIDATE_SERVER_IDS: True' -i /opt/FreeDMR/config/FreeDMR.cfg
 sed '105 a override_ident_tg:' -i /opt/FreeDMR/config/FreeDMR.cfg
-sudo rm /opt/FreeDMR/hotspot_proxy_v2.py
+#sudo rm /opt/FreeDMR/hotspot_proxy_v2.py
 #sudo rm /opt/FreeDMR/proxy_db.*
 #cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
 cp /opt/FDMR-Monitor/proxy/proxy.cfg /opt/FreeDMR/proxy.cfg -r
