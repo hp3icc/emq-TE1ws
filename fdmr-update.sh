@@ -1,5 +1,6 @@
 variable=$(grep "SERVER_ID:" /opt/FreeDMR/config/FreeDMR.cfg | tail -c 5)
 sudo systemctl stop freedmr.service
+sudo systemctl stop fdmrparrot.service
 sudo systemctl stop proxy.service
 rm -r /opt/FreeDMR
 cd /opt
@@ -179,7 +180,8 @@ sudo sh /opt/extra-1.sh
 sudo systemctl daemon-reload	
 sudo systemctl start proxy.service
 sudo systemctl start freedmr.service
-sudo systemctl restart fdmrparrot.service
+sudo systemctl start fdmrparrot.service
+sudo systemctl restart fdmr_mon.service
 # ExecStart=/usr/bin/python3 /opt/FreeDMR/bridge_master.py -c /opt/FreeDMR/config/FreeDMR.cfg -r /opt/FreeDMR/config/rules.py
 
 # ExecStart=/usr/bin/python3 /opt/FreeDMR/playback.py -c /opt/FreeDMR/playback.cfg
