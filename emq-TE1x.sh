@@ -79,7 +79,7 @@ sudo apt-get install rrdtool -y
 
 ##################
 sudo cat > /opt/emq-ver <<- "EOF"
-EMQ-VER:  20.2
+EMQ-VER:  20.3
 EOF
 #########
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu.sh)"
