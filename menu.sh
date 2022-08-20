@@ -5,21 +5,79 @@ sudo cat > /bin/menu <<- "EOF"
 while : ; do
 
 choix=$(whiptail --title "TE1ws-Rev: R00ab / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 67 15 \
+1 " APRS " \
+2 " MMDVMHost " \
+3 " Dvswitch " \
+4 " pYSFReflector3 " \
+5 " YSF2DMR " \
+6 " FreeDMR Server " \
+7 " Editar WiFi " \
+8 " DDNS NoIP " \
+9 " GoTTY " \
+10 " Update " \
+11 " Reiniciar Equipo " \
+12 " Salir del menu " 3>&1 1>&2 2>&3)
+
+exitstatus=$?
+
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+
+# case : action en fonction du choix
+
+case $choix in
+1)
+menu-aprs;;
+2)
+menu-mmdvm;;
+3)
+menu-dvs;;
+4)
+menu-ysf;;
+5)
+menu-ysf2dmr;;
+6)
+menu-fdmr;;
+7)
+menu-wifi;;
+8)
+menu-noip ;;
+9)
+menu-web ;;
+10)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/update.sh)" ;;
+11)
+menu-reboot ;;
+12)
+break;
+
+
+esac
+
+done
+exit 0
+
+
+EOF
+#
+################
+sudo cat > /bin/menu-aprs <<- "EOF"
+#!/bin/bash
+
+while : ; do
+
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu APRS" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 67 15 \
 1 " APRS Direwolf Analogo" \
 2 " APRS Direwolf RTL-SDR " \
 3 " APRS Multimon-ng " \
 4 " APRS Ionosphere " \
-5 " MMDVMHost " \
-6 " Dvswitch " \
-7 " pYSFReflector3 " \
-8 " YSF2DMR " \
-9 " FreeDMR Server " \
-10 " Editar WiFi " \
-11 " DDNS NoIP " \
-12 " GoTTY " \
-13 " Update " \
-14 " Reiniciar Equipo " \
-15 " Salir del menu " 3>&1 1>&2 2>&3)
+5 " Shell-APRS Beacon " \
+6 " Salir del menu " 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 
@@ -43,26 +101,8 @@ menu-mm-rtl;;
 4)
 menu-ionos;;
 5)
-menu-mmdvm;;
+menu-bcon;;
 6)
-menu-dvs;;
-7)
-menu-ysf;;
-8)
-menu-ysf2dmr;;
-9)
-menu-fdmr;;
-10)
-menu-wifi;;
-11)
-menu-noip ;;
-12)
-menu-web ;;
-13)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/update.sh)" ;;
-14)
-menu-reboot ;;
-15)
 break;
 
 
@@ -74,7 +114,65 @@ exit 0
 
 EOF
 #
-############################################
+###############
+sudo cat > /bin/menu-bcon <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Shell-APRS Beacon" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 23 56 13 \
+1 " Editar Beacon-1 " \
+2 " Editar Beacon-2 " \
+3 " Editar Beacon-3 " \
+4 " Editar Beacon-4 " \
+5 " Start/Restart Beacon-1 " \
+6 " Start/Restart Beacon-2  " \
+7 " Start/Restart Beacon-3 " \
+8 " Start/Restart Beacon-4 " \
+9 " Stop Beacon-1  " \
+10 " Stop Beacon-2   " \
+11 " Stop Beacon-3 " \
+12 " Stop Beacon-4 " \
+13 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /opt/shell-aprs/bcom1.sh ;;
+2)
+sudo nano /opt/shell-aprs/bcom2.sh ;;
+3)
+sudo nano /opt/shell-aprs/bcom3.sh ;;
+4)
+sudo nano /opt/shell-aprs/bcom4.sh ;;
+5)
+sudo systemctl stop aprsb1.service && sudo systemctl start aprsb1.service &&  sudo systemctl enable aprsb1.service ;;
+6)
+sudo systemctl stop aprsb2.service && sudo systemctl start aprsb2.service &&  sudo systemctl enable aprsb2.service ;;
+7)
+sudo systemctl stop aprsb3.service && sudo systemctl start aprsb3.service &&  sudo systemctl enable aprsb3.service ;;
+8)
+sudo systemctl stop aprsb4.service && sudo systemctl start aprsb4.service &&  sudo systemctl enable aprsb4.service ;;
+9)
+sudo systemctl stop aprsb1.service &&  sudo systemctl disable aprsb1.service ;;
+10)
+sudo systemctl stop aprsb2.service &&  sudo systemctl disable aprsb2.service ;;
+11)
+sudo systemctl stop aprsb3.service &&  sudo systemctl disable aprsb3.service ;;
+12)
+sudo systemctl stop aprsb4.service &&  sudo systemctl disable aprsb4.service ;;
+13)
+break;
+esac
+done
+exit 0
+EOF
+############################
 sudo cat > /bin/menu-fdmr <<- "EOF"
 #!/bin/bash
 while : ; do
