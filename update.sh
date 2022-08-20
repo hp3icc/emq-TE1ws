@@ -43,7 +43,8 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Imp
 2 " install LAMP " \
 3 " install DVSMU " \
 4 " install DVSWitch TG List select " \
-5 " Menu Principal " 3>&1 1>&2 2>&3)
+5 " install Shell-Beacon " \
+6 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -63,6 +64,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/DVSMU/main/emq-dvsm
 4)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/dvsTGupdate.sh)" ;;
 5)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/beacon-update.sh)" ;;
+6)
 break;
 esac
 done
