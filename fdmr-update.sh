@@ -128,6 +128,7 @@ sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/proxy_db.py
 sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/proxy.cfg
 sudo sed -i "s/54100/54060/g"  /opt/FreeDMR/proxy.cfg
 sudo sed -i "s/test/selfcare/g"  /opt/FreeDMR/proxy.cfg
+sudo sed -i "56,63d" /opt/FreeDMR/config/FreeDMR.cfg
 #########
 sudo cat > /lib/systemd/system/freedmr.service <<- "EOF"
 [Unit]
