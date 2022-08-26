@@ -2215,7 +2215,7 @@ sudo sed -i 's/54915/49061/' /opt/FreeDMR/playback.cfg
 #
 sed '14 a VALIDATE_SERVER_IDS: True' -i /opt/FreeDMR/config/FreeDMR.cfg
 sed '105 a override_ident_tg:' -i /opt/FreeDMR/config/FreeDMR.cfg
-
+sudo sed -i "56,63d" /opt/FreeDMR/config/FreeDMR.cfg
 #
 sudo cat > /lib/systemd/system/proxy.service <<- "EOF"
 [Unit]
