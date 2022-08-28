@@ -732,12 +732,7 @@ done
 exit 0
 EOF
 ######
-sudo cat > /opt/obp.txt <<- "EOF"
-#Coloque abajo su lista de obp
 
-
-EOF
-####################
 cp /bin/menu /bin/MENU
 chmod +x /bin/menu*
 chmod +x /bin/MENU
