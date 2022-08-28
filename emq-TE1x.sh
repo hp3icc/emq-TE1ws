@@ -86,7 +86,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu
 variable22=$(grep "EMQ-VER:" /opt/emq-ver | tail -c 5)
 sudo sed -i "s/R00ab/$variable22/g"  /bin/menu
 ########################
+sudo cat > /opt/obp.txt <<- "EOF"
+#Coloque abajo su lista de obp
 
+
+EOF
+####################
 cd /home/
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
