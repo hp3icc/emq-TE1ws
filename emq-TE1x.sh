@@ -435,6 +435,22 @@ git clone https://github.com/IZ7BOJ/direwolf_webstat.git
 #cd /opt/direwolf_webstat
 sudo sed -i "s/144.800  VHF Port/144.390MHz VHF APRS/g" /opt/direwolf_webstat/config.php 
 sudo sed -i "s/0,1/0/g" /opt/direwolf_webstat/config.php 
+#
+sudo cat > /lib/systemd/system/http.server-dw.service <<- "EOF"
+[Unit]
+Description=PHP http.server.DW
+After=network.target
+
+[Service]
+User=root
+#ExecStartPre=/bin/sleep 30
+# Modify for different other port
+ExecStart=php -S 0.0.0.0:80 -t /opt/direwolf_webstat/
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
 ##########
 cd /opt
 git clone https://github.com/g4klx/MMDVMHost.git
