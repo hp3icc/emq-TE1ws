@@ -546,7 +546,11 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf SDR" --menu "Sub
 4 " Detener APRS RX-IGate " \
 5 " Compatibilidad Raspberry Zero " \
 6 " Compatibilidad Raspberry Standard " \
-7 " Menu Principal " 3>&1 1>&2 2>&3)
+7 " config Dashboard " \
+8 " http port Dashbord " \
+9 " Dashboard on " \
+10 " Dashbord off " \
+11 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -570,10 +574,19 @@ sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf1 /usr/local/bi
 6)
 sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf2 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
 7)
+sudo nano /opt/direwolf_webstat/config.php;;
+8)
+sudo nano /lib/systemd/system/http.server-dw.service && sudo systemctl daemon-reload ;;
+9)
+sudo systemctl stop direwolf-rtl.service && cp /opt/direwolf/rtl2.sh /opt/direwolf/rtl.sh && sudo chmod +x /opt/direwolf/rtl.sh && sudo systemctl start direwolf-rtl.service && sudo systemctl restart http.server-dw.service && sudo systemctl enable http.server-dw.service ;;
+10)
+sudo systemctl stop direwolf-rtl.service && cp /opt/direwolf/rtl1.sh /opt/direwolf/rtl.sh && sudo chmod +x /opt/direwolf/rtl.sh && sudo systemctl start direwolf-rtl.service && sudo systemctl stop http.server-dw.service && sudo systemctl disable http.server-dw.service ;;
+11)
 break;
 esac
 done
 exit 0
+
 EOF
 #####
 cat > /bin/menu-ysf2dmr <<- "EOF"
