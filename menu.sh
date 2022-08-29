@@ -513,7 +513,7 @@ case $choix in
 1)
 sudo nano /opt/direwolf/dw.conf;;
 2)
-sudo systemctl restart direwolf.service && sudo systemctl enable direwolf.service;;
+sudo systemctl stop direwolf.service && sudo systemctl start direwolf.service && sudo systemctl enable direwolf.service;;
 3)
 sudo systemctl stop direwolf.service && sudo systemctl disable direwolf.service;;
 4)
@@ -566,7 +566,7 @@ sudo nano /opt/direwolf/sdr.conf ;;
 2)
 sudo nano /opt/direwolf/rtl.sh ;;
 3)
-sudo systemctl restart direwolf-rtl.service && sudo systemctl enable direwolf-rtl.service;;
+sudo systemctl stop direwolf-rtl.service && sudo systemctl start direwolf-rtl.service && sudo systemctl enable direwolf-rtl.service;;
 4)
 sudo systemctl stop direwolf-rtl.service && sudo systemctl disable direwolf-rtl.service;;
 5)
