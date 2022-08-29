@@ -2613,13 +2613,107 @@ sudo cp /usr/local/bin/direwolf /opt/direwolf/direwolf2
 cd /opt/direwolf
 wget https://github.com/hp3icc/emq-TE1ws/raw/main/direwolf1
 #############
+sudo cat > /opt/direwolf/service1 <<- "EOF"
+[Unit]
+Description=DireWolf is a software "soundcard" modem/TNC and APRS decoder
+Documentation=man:direwolf
+AssertPathExists=/opt/direwolf/dw.conf
+
+[Unit]
+Description=Direwolf Service
+#Wants=network-online.target
+After=sound.target syslog.target
+#network-online.target
+
+[Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+ExecStart=sudo direwolf -c /opt/direwolf/dw.conf
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+##
+sudo cat > /opt/direwolf/service2 <<- "EOF"
+[Unit]
+Description=DireWolf is a software "soundcard" modem/TNC and APRS decoder
+Documentation=man:direwolf
+AssertPathExists=/opt/direwolf/dw.conf
+
+[Unit]
+Description=Direwolf Service
+#Wants=network-online.target
+After=sound.target syslog.target
+#network-online.target
+
+[Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+ExecStart=sudo direwolf -l /var/log/direwolf -c /opt/direwolf/dw.conf
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+##
+sudo cat > /opt/direwolf/service3 <<- "EOF"
+[Unit]
+Description=Direwolf-RTL Service
+Wants=network-online.target
+After=syslog.target network-online.target
+
+[Service]
+User=root
+#ExecStartPre=/bin/sleep 1800
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=/opt/direwolf/rtl.sh
+# | direwolf -c /home/pi/direwolf/sdr.conf
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+#
+sudo cat > /opt/direwolf/service4 <<- "EOF"
+[Unit]
+Description=Direwolf-RTL Service
+Wants=network-online.target
+After=syslog.target network-online.target
+
+[Service]
+User=root
+#ExecStartPre=/bin/sleep 1800
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+ExecStart=/opt/direwolf/rtl2.sh
+# | direwolf -c /home/pi/direwolf/sdr.conf
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+#
 cat > /opt/direwolf/rtl.sh  <<- "EOF"
 #!/bin/sh
 PATH=/bin:/usr/bin:/usr/local/bin
 unset LANG
 rtl_fm -M fm -f 144.39M -p 0 -s 22050 -g 42 - | /usr/local/bin/direwolf -c /opt/direwolf/sdr.conf -r 22050 -D 1 -B 1200 -
 EOF
+#
+cat > /opt/direwolf/rtl2.sh  <<- "EOF"
+#!/bin/sh
+PATH=/bin:/usr/bin:/usr/local/bin
+unset LANG
+rtl_fm -M fm -f 144.39M -p 0 -s 22050 -g 42 - | /usr/local/bin/direwolf -l /var/log/direwolf -c /opt/direwolf/sdr.conf -r 22050 -D 1 -B 1200 -
+EOF
 sudo chmod +x /opt/direwolf/rtl.sh
+sudo chmod +x /opt/direwolf/rtl2.sh
 #
 cat > /opt/direwolf/sdr.conf <<- "EOF"
 #############################################################
