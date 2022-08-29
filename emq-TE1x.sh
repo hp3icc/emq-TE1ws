@@ -431,6 +431,12 @@ EOF
 
 ##########
 cd /opt
+git clone https://github.com/IZ7BOJ/direwolf_webstat.git
+#cd /opt/direwolf_webstat
+sudo sed -i "s/144.800  VHF Port/144.390MHz VHF APRS/g" /opt/direwolf_webstat/config.php 
+sudo sed -i "s/0,1/0/g" /opt/direwolf_webstat/config.php 
+##########
+cd /opt
 git clone https://github.com/g4klx/MMDVMHost.git
 cd MMDVMHost/
 sudo make
