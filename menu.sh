@@ -495,7 +495,11 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf" --menu "Suba o 
 3 " Detener APRS " \
 4 " Compatibilidad Raspberry Zero" \
 5 " Compatibilidad Raspberry B" \
-6 " Menu Principal " 3>&1 1>&2 2>&3)
+6 " config Dashboard " \
+7 " http port Dashbord " \
+8 " Dashboard on " \
+9 " Dashbord off " \
+10 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -517,10 +521,19 @@ sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf1 /usr/local/bi
 5)
 sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf2 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
 6)
+sudo nano /opt/direwolf_webstat/config.php;;
+7)
+sudo nano /lib/systemd/system/http.server-dw.service && sudo systemctl daemon-reload ;;
+8)
+sudo systemctl stop direwolf.service && cp /opt/direwolf/service2 /lib/systemd/system/direwolf.service && sudo systemctl daemon-reload && sudo systemctl start direwolf.service && sudo systemctl restart http.server-dw.service && sudo systemctl enable http.server-dw.service ;;
+9)
+sudo systemctl stop direwolf.service && cp /opt/direwolf/service1 /lib/systemd/system/direwolf.service && sudo systemctl daemon-reload && sudo systemctl start direwolf.service && sudo systemctl stop http.server-dw.service && sudo systemctl disable http.server-dw.service ;;
+10)
 break;
 esac
 done
 exit 0
+
 EOF
 ######menu-dw-rtl
 cat > /bin/menu-dw-rtl <<- "EOF"
