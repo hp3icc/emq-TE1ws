@@ -309,7 +309,7 @@ choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu MMDVMHost" --menu "Suba o
 6 " Stop service MMDVM " \
 7 " Dashboard ON " \
 8 " Dashboard Off " \
-8 " Editar Puerto http " \
+9 " Editar Puerto http " \
 10 " Editar HTML  " \
 11 " Editar Dashboard  " \
 12 " Dashboard Rooms: BM, europelink  " \
