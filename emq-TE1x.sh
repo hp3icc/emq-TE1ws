@@ -2683,8 +2683,8 @@ PATH=/bin:/usr/bin:/usr/local/bin
 unset LANG
 rtl_fm -M fm -f 144.39M -p 0 -s 22050 -g 42 - | /usr/local/bin/direwolf -l /var/log/direwolf -c /opt/direwolf/sdr.conf -r 22050 -D 1 -B 1200 -
 EOF
+#
 sudo chmod +x /opt/direwolf/rtl.sh
-sudo chmod +x /opt/direwolf/rtl2.sh
 #
 cat > /opt/direwolf/sdr.conf <<- "EOF"
 #############################################################
