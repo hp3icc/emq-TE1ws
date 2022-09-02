@@ -2147,6 +2147,8 @@ cd /opt
 git clone https://gitlab.hacknix.net/hacknix/FreeDMR.git
 cd FreeDMR
 mkdir config
+chmod +x /opt/FreeDMR/install.sh
+./install.sh
 sudo chmod +x /opt/FreeDMR/*.py
 sudo cat > /opt/conf.txt <<- "EOF"
  
