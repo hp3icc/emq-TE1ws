@@ -1045,16 +1045,18 @@ Enable=1
 #########################################################
 #       Gateway mode  -    Multiples Server - DMRGateway    #
 #########################################################
-LocalAddress=127.0.0.1
-LocalPort=3330
-GatewayAddress=127.0.0.1
-GatewayPort=4330
+#
+#LocalAddress=127.0.0.1
+#LocalPort=3330
+#GatewayAddress=127.0.0.1
+#GatewayPort=4330
 #
 #########################################################
 #       Direct mode   -    Multiples Server - DMRGateway    #
 #########################################################
-#GatewayAddress=europelink.pa7lim.nl
-#GatewayPort=42000
+#
+GatewayAddress=europelink.pa7lim.nl
+GatewayPort=42000
 #
 ##########################################################
 # ModeHang=3
@@ -2070,6 +2072,7 @@ sudo sed -i "s/Iceberg/Panama/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/DVSwitch/YSFGateway/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/# Startup=Alabama-Link/Startup=EUROPELINK/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/WiresXCommandPassthrough=0/WiresXCommandPassthrough=1/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/Enable=1/Enable=0/g"  /opt/YSFGateway2/YSFGateway.ini
 ###################
 cat > /lib/systemd/system/ysfgw.service  <<- "EOF"
 [Unit]
