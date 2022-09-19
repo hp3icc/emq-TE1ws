@@ -1703,7 +1703,6 @@ wget https://raw.githubusercontent.com/hp3icc/DVSwitch-Mobile-TG-List/main/lang.
 chmod +x lang.sh
 sh lang.sh
 ###
-
 sudo sed -i "s/default_dmr_server=Brandmeister/default_dmr_server=FreeDMR/g"  /var/lib/dvswitch/dvs/var.txt
 sudo sed -i "s/other1_name=/other1_name=FreeDMR/g"  /var/lib/dvswitch/dvs/var.txt
 sudo sed -i "s/other1_address=/other1_address=freedmr-hp.ddns.net/g"  /var/lib/dvswitch/dvs/var.txt
@@ -1722,6 +1721,9 @@ sudo mkdir /var/www/dvs
 sudo mv /var/www/html/* /var/www/dvs/
 sudo sed -i 's/www\/html/www\/dvs/g' /usr/local/sbin/update-config.sh
 sudo sed -i 's/www\/html/www\/dvs/g' /var/lib/dpkg/info/dvswitch*
+
+sudo sed -i "s/Language=en_US/Language=es_ES/g" /opt/NXDNGateway/NXDNGateway.ini
+sudo sed -i "s/Language=en_US/Language=es_ES/g" /opt/P25Gateway/P25Gateway.ini 
 ####
 sudo rm /lib/systemd/system/analog_bridge.service
 sudo rm /lib/systemd/system/mmdvm_bridge.service
