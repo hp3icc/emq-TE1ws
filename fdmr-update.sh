@@ -43,7 +43,7 @@ override_ident_tg:
 MODE: MASTER
 ENABLED: True
 REPEAT: True
-MAX_PEERS: 1
+MAX_PEERS: 5
 EXPORT_AMBE: False
 IP:
 PORT: 54102
