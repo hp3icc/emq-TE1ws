@@ -1383,13 +1383,13 @@ StartupDstId=714
 # For TG call: StartupPC=0
 StartupPC=0
 Address=127.0.0.1
-Port=54103
+Port=54102
 Jitter=500
 EnableUnlink=0
 TGUnlink=4000
 PCUnlink=0
 # Local=62032
-Password=passw0rd
+Password=passw@rd
 
 # No active linea de Option para TG estaticos, si utiliza BM,TGIF,DMR-Central
 # Puede activar linea de option de selfcare FDMR-Mon y colocar su propia contraseña o 
