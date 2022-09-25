@@ -1949,6 +1949,7 @@ fi
 sh /opt/XLXHostsupdate.sh
 wget -O /opt/MMDVMHost/NXDN.csv https://www.radioid.net/static/nxdn.csv
 wget -O /opt/YSFGateway2/YSF_Hosts.txt wget http://www.pistar.uk/downloads/YSF_Hosts.txt
+wget -O /opt/YSFGateway2/FCS_Hosts.txt wget http://www.pistar.uk/downloads/FCS_Hosts.txt
 curl ${DATABASEURL} 2>/dev/null | sed -e 's/\t//g' | awk -F"," '/,/{gsub(/ /, "", $2); printf "%s\t%s\t%s\n", $1, $2, $3}' | sed -e 's/\(.\) .*/\1/g' > ${DMRIDPATH}/DMRIds.tmp
 NUMOFLINES=$(wc -l ${DMRIDPATH}/DMRIds.tmp | awk '{print $1}')
 if [ $NUMOFLINES -gt 1 ]
@@ -2197,6 +2198,8 @@ cd /opt/
 cp -r /opt/YSFGateway/ /opt/YSFGateway2/
 cd /opt/YSFGateway2/
 chmod +x *
+sudo sed -i "s/var\/lib\/mmdvm\/YSFHosts.txt/opt\/YSFGateway2\/YSF_Hosts.txt/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/var\/lib\/mmdvm\/FCSRooms.txt/opt\/YSFGateway2\/FCS_Hosts.txt/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/# YSF2DMRAddress=127.0.0.1/YSF2DMRAddress=127.0.0.1/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/# YSF2DMRPort=42013/YSF2DMRPort=42013/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/3230/3330/g"  /opt/YSFGateway2/YSFGateway.ini
