@@ -812,7 +812,7 @@ File=/opt/MMDVMHost/DMRIds.dat
 Time=24
 
 [NXDN Id Lookup]
-File=NXDN.csv
+File=/opt/MMDVMHost/NXDN.csv
 Time=24
 
 [Modem]
