@@ -1218,7 +1218,8 @@ Description=Multi-Mode DMRGateway
 URL=https://github.com/hp3icc/emq-TE1ws
 
 [XLX Network]
-Id=000000000
+#DMRID 7 DIGIT ONLY
+Id=1234567 
 Enabled=0
 File=/opt/DMRGateway/XLXHosts.txt
 Port=62030
@@ -1228,13 +1229,13 @@ ReloadTime=60
 Slot=2
 TG=6
 Base=64000
-Startup=051
+Startup=HP3
 Relink=10
 Debug=0
 #Allow user linking control using Private Calls
 UserControl=1
 #Override default module for startup reflector
-#Module=P
+Module=A
 
 # BrandMeister
 [DMR Network 1]
@@ -1376,8 +1377,8 @@ Daemon=0
 
 [DMR Network]
 Id=714000000
-#XLXFile=XLXHosts.txt
-#XLXReflector=950
+#XLXFile=/opt/DMRGateway/XLXHosts.txt
+#XLXReflector=HP3
 #XLXModule=D
 StartupDstId=714
 # For TG call: StartupPC=0
@@ -1466,8 +1467,8 @@ Daemon=0
 
 [DMR Network]
 Id=000000000
-#XLXFile=XLXHosts.txt
-#XLXReflector=950
+#XLXFile=/opt/DMRGateway/XLXHosts.txt
+#XLXReflector=HP3
 #XLXModule=D
 StartupDstId=9
 # For TG call: StartupPC=0
