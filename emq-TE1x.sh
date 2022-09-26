@@ -2218,6 +2218,7 @@ sudo sed -i "s/WiresXCommandPassthrough=0/WiresXCommandPassthrough=1/g"  /opt/YS
 sudo sed -i "s/Enable=1/Enable=0/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/var\/lib\/mmdvm\/YSFHosts.txt/opt\/YSFGateway2\/YSF_Hosts.txt/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/var\/lib\/mmdvm\/FCSRooms.txt/opt\/YSFGateway2\/FCS_Hosts.txt/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/NOCALL/HP3ICC/g"  /opt/YSFGateway2/YSFGateway.ini
 ###################
 cat > /lib/systemd/system/ysfgw.service  <<- "EOF"
 [Unit]
