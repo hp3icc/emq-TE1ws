@@ -2198,8 +2198,6 @@ cd /opt/
 cp -r /opt/YSFGateway/ /opt/YSFGateway2/
 cd /opt/YSFGateway2/
 chmod +x *
-sudo sed -i "s/var\/lib\/mmdvm\/YSFHosts.txt/opt\/YSFGateway2\/YSF_Hosts.txt/g"  /opt/YSFGateway2/YSFGateway.ini
-sudo sed -i "s/var\/lib\/mmdvm\/FCSRooms.txt/opt\/YSFGateway2\/FCS_Hosts.txt/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/# YSF2DMRAddress=127.0.0.1/YSF2DMRAddress=127.0.0.1/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/# YSF2DMRPort=42013/YSF2DMRPort=42013/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/3230/3330/g"  /opt/YSFGateway2/YSFGateway.ini
@@ -2218,6 +2216,8 @@ sudo sed -i "s/DVSwitch/YSFGateway/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/# Startup=Alabama-Link/Startup=EUROPELINK/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/WiresXCommandPassthrough=0/WiresXCommandPassthrough=1/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/Enable=1/Enable=0/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/var\/lib\/mmdvm\/YSFHosts.txt/opt\/YSFGateway2\/YSF_Hosts.txt/g"  /opt/YSFGateway2/YSFGateway.ini
+sudo sed -i "s/var\/lib\/mmdvm\/FCSRooms.txt/opt\/YSFGateway2\/FCS_Hosts.txt/g"  /opt/YSFGateway2/YSFGateway.ini
 ###################
 cat > /lib/systemd/system/ysfgw.service  <<- "EOF"
 [Unit]
