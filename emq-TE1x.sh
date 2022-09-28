@@ -1950,6 +1950,7 @@ sh /opt/XLXHostsupdate.sh
 wget -O /opt/MMDVMHost/NXDN.csv https://www.radioid.net/static/nxdn.csv
 wget -O /opt/YSFGateway2/YSF_Hosts.txt wget http://www.pistar.uk/downloads/YSF_Hosts.txt
 wget -O /opt/YSFGateway2/FCS_Hosts.txt wget http://www.pistar.uk/downloads/FCS_Hosts.txt
+wget -O /opt/YSF2DMRGW/TGList-DMR.txt http://freedmr-hp.ddns.net/downloads/TGList_BM.txt
 curl ${DATABASEURL} 2>/dev/null | sed -e 's/\t//g' | awk -F"," '/,/{gsub(/ /, "", $2); printf "%s\t%s\t%s\n", $1, $2, $3}' | sed -e 's/\(.\) .*/\1/g' > ${DMRIDPATH}/DMRIds.tmp
 NUMOFLINES=$(wc -l ${DMRIDPATH}/DMRIds.tmp | awk '{print $1}')
 if [ $NUMOFLINES -gt 1 ]
