@@ -452,7 +452,23 @@ ExecStart=php -S 0.0.0.0:80 -t /opt/direwolf_webstat/
 WantedBy=multi-user.target
 
 EOF
-##########
+##############################
+cat > /usr/local/bin/rpt-on.sh <<- "EOF"
+#!/bin/bash
+#TI4OP Oscar, [1/25/2022 12:51 PM]
+if [ "$(grep "Duplex=" /opt/MMDVMHost/MMDVM.ini | tail -c 2 | grep '1')" != "" ]; then
+# echo "rpt"
+sudo systemctl enable mmdvmh.service
+
+else
+#  echo "gateway"
+sudo systemctl disable mmdvmh.service
+
+fi
+EOF
+#
+sudo chmod +x /usr/local/bin/rpt-on.sh
+#########################
 cd /opt
 git clone https://github.com/g4klx/MMDVMHost.git
 cd MMDVMHost/
