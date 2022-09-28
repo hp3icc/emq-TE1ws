@@ -197,7 +197,7 @@ sudo make
 sudo make install
 sudo cp -r /opt/YSF2DMR/ /opt/YSF2DMRGW
 wget -O /opt/YSF2DMRGW/TGList-DMR.txt http://freedmr-hp.ddns.net/downloads/TGList_BM.txt
-chmod +x /opt/YSF2DMRGW/*
+sudo chmod +x /opt/YSF2DMRGW/*
 
 sudo apt-get install zip gzip tar -y
 
@@ -533,8 +533,8 @@ unset LANG
 /opt/ionsphere/ionosphere-raspberry-pi/ionosphere
 EOF
 
-chmod +x /opt/ionsphere/ionosphere-raspberry-pi/ionosphere
-chmod +x /opt/ionsphere/ionosphere-raspberry-pi/ionos.sh
+sudo chmod +x /opt/ionsphere/ionosphere-raspberry-pi/ionosphere
+sudo chmod +x /opt/ionsphere/ionosphere-raspberry-pi/ionos.sh
 chmod +777 /opt/ionsphere/ionosphere-raspberry-pi/ionos.sh
 ###nano /opt/ionsphere/ionosphere-raspberry-pi/config/config.yml
 
@@ -578,7 +578,7 @@ cp /opt/extra-1.sh /opt/extra-3.sh
 cp /opt/extra-1.sh /opt/extra-4.sh
 cp /opt/extra-1.sh /opt/extra-5.sh
 cp /opt/extra-1.sh /opt/extra-6.sh
-chmod +x /opt/extra-*
+sudo chmod +x /opt/extra-*
 ###################
 cat > /lib/systemd/system/dmrid-mmdvm.service  <<- "EOF"
 [Unit]
@@ -1599,7 +1599,7 @@ sudo make
 cd /opt
 
 wget http://dvswitch.org/buster
-chmod +x buster
+sudo chmod +x buster
 ./buster
 apt-get update -y
 apt-get install dvswitch-server -y
@@ -1702,7 +1702,7 @@ EOF
 ###
 cd /tmp/
 wget https://raw.githubusercontent.com/hp3icc/DVSwitch-Mobile-TG-List/main/lang.sh
-chmod +x lang.sh
+sudo chmod +x lang.sh
 sh lang.sh
 ###
 sudo sed -i "s/default_dmr_server=Brandmeister/default_dmr_server=FreeDMR/g"  /var/lib/dvswitch/dvs/var.txt
@@ -2094,7 +2094,7 @@ BEGIN {
 exit 0
 EOF
 #
-chmod +x /opt/XLXHostsupdate.sh
+sudo chmod +x /opt/XLXHostsupdate.sh
 ###
 cat > /opt/YSF2DMR/DMRIDUpdate.sh <<- "EOF"
 #! /bin/bash
@@ -2158,12 +2158,12 @@ eval ${RESTARTCOMMAND}
 EOF
 ###
 cp /opt/MMDVMHost/DMRIDUpdate.sh /opt/MMDVMHost/DMRIDUpdate2.sh
-chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
-chmod +x /opt/MMDVMHost/DMRIDUpdate2.sh
+sudo chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
+sudo chmod +x /opt/MMDVMHost/DMRIDUpdate2.sh
 ###
 cp /opt/YSF2DMR/DMRIDUpdate.sh /opt/YSF2DMR/DMRIDUpdate2.sh
-chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
-chmod +x /opt/YSF2DMR/DMRIDUpdate2.sh
+sudo chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
+sudo chmod +x /opt/YSF2DMR/DMRIDUpdate2.sh
 ###########################
 sudo systemctl daemon-reload
 
@@ -2197,7 +2197,7 @@ rm /var/log/mmdvm/*
 cd /opt/
 cp -r /opt/YSFGateway/ /opt/YSFGateway2/
 cd /opt/YSFGateway2/
-chmod +x *
+sudo chmod +x *
 sudo sed -i "s/# YSF2DMRAddress=127.0.0.1/YSF2DMRAddress=127.0.0.1/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/# YSF2DMRPort=42013/YSF2DMRPort=42013/g"  /opt/YSFGateway2/YSFGateway.ini
 sudo sed -i "s/3230/3330/g"  /opt/YSFGateway2/YSFGateway.ini
@@ -2293,7 +2293,7 @@ cd /opt
 git clone https://gitlab.hacknix.net/hacknix/FreeDMR.git
 cd FreeDMR
 mkdir config
-chmod +x /opt/FreeDMR/install.sh
+sudo chmod +x /opt/FreeDMR/install.sh
 ./install.sh
 sudo chmod +x /opt/FreeDMR/*.py
 sudo cat > /opt/conf.txt <<- "EOF"
@@ -2646,7 +2646,7 @@ sudo rm /opt/FDMR-Monitor/data/*
 cd /opt/FDMR-Monitor/
 sudo rm /opt/FDMR-Monitor/install.sh
 wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/install.sh
-chmod +x /opt/FDMR-Monitor/install.sh
+sudo chmod +x /opt/FDMR-Monitor/install.sh
 #
 sh /opt/FDMR-Monitor/install.sh
 sudo sh /opt/extra-2.sh
