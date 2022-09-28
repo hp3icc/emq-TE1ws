@@ -1399,7 +1399,7 @@ Password=passw@rd
 #Options=PASS=abc123
 #Options=TS2=714;DIAL=0;VOICE=0;LANG=es_ES;SINGLE=0;TIMER=10;
 
-TGListFile=TGList-DMR.txt
+TGListFile=/opt/YSF2DMRGW/TGList-DMR.txt
 Debug=0
 
 [DMR Id Lookup]
@@ -1412,7 +1412,7 @@ DropUnknown=0
 DisplayLevel=1
 FileLevel=1
 FilePath=/var/log/ysf2dmr/
-FileRoot=YSF2DMR
+FileRoot=YSF2DMR2
 
 [aprs.fi]
 Enable=0
@@ -2145,6 +2145,8 @@ fi
 # Generate new file
 sh /opt/XLXHostsupdate.sh
 wget -O /opt/MMDVMHost/NXDN.csv https://www.radioid.net/static/nxdn.csv
+wget -O /opt/YSF2DMRGW/TGList-DMR.txt http://freedmr-hp.ddns.net/downloads/TGList_BM.txt
+sh /opt/XLXHostsupdate.sh
 curl ${DATABASEURL} 2>/dev/null | sed -e 's/\t//g' | awk -F"," '/,/{gsub(/ /, "", $2); printf "%s\t%s\t%s\n", $1, $2, $3}' | sed -e 's/\(.\) .*/\1/g' > ${DMRIDPATH}/DMRIds.tmp
 NUMOFLINES=$(wc -l ${DMRIDPATH}/DMRIds.tmp | awk '{print $1}')
 if [ $NUMOFLINES -gt 1 ]
