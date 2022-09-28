@@ -336,9 +336,9 @@ sudo nano /opt/YSFGateway2/YSFGateway.ini;;
 4)
 sudo nano /opt/YSF2DMRGW/YSF2DMR.ini;;
 5)
-sudo systemctl stop dmrid-mmdvm.service && sudo systemctl start dmrid-mmdvm.service && sudo systemctl enable dmrid-mmdvm.service && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' add ;;
+sh /usr/local/bin/rpt-on.sh && sudo systemctl stop dmrid-mmdvm.service && sudo systemctl start dmrid-mmdvm.service && sudo systemctl enable dmrid-mmdvm.service && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' add ;;
 6)
-sudo systemctl stop mmdvmh.service && systemctl stop ysf2dmrgw.service && sudo systemctl stop dmrgw.service && sudo systemctl stop dmrid-mmdvm.service && sudo systemctl disable dmrid-mmdvm.service && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' remove && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
+sudo systemctl stop mmdvmh.service && sudo systemctl disable mmdvmh.service && systemctl stop ysf2dmrgw.service && sudo systemctl stop dmrgw.service && sudo systemctl stop dmrid-mmdvm.service && sudo systemctl disable dmrid-mmdvm.service && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' remove && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
 7)
 sudo systemctl restart logtailer-mmdvmh.service && sudo systemctl enable logtailer-mmdvmh.service && sudo systemctl restart http.server-mmdvmh.service && sudo systemctl enable http.server-mmdvmh.service ;;
 8)
