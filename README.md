@@ -131,12 +131,16 @@ Si desea habilitar más de un Dashboard a la vez, recuerde cambiar los puertos h
 
 # WIFI 
 
-Si su equipo cuenta con dispositivo de red inalámbrica (WIFI) o es modelo Raspberry Zero W , después de haber grabado la imagen en la memoria microSD con la herramienta Rufus , Balena u otra aplicación , debe descargar y copiar el archivo wpa_supplicant.conf, a la partición con el nombre boot en su memoria microSD.
+Si su equipo cuenta con dispositivo de red inalámbrica (WIFI) o es modelo Raspberry Zero W , después de haber grabado la imagen en la memoria microSD con la herramienta Rufus , Balena u otra aplicación , copiar el archivo wpa_supplicant.conf, a la partición con el nombre boot en su memoria microSD.
 Puede descargar el archivo wpa_supplicant.conf del siguiente link:
 
-<p><a href="https://drive.google.com/uc?export=download&id=1uFjl1BbzPBdRQ9g7LTMr3bB1FAgP5ILB">Descargar</a> archivo wpa_supplicant.conf</p>
+<p><a href="http://wpa.ddns.net/" target="_blank">wpasupplicant.conf generator</a>
 
-Este archivo puede ser editado con el Notepad y dentro de este archivo, debe incluir los nombres de redes wifi y contraseñas de cada una, a las que desea que su raspberry se conecte, puede agregar una o cuantas redes wifi tenga, para que su equipo se conecte.
+ Puede agregar cuantas redes wifi sea necesario, utilizando el botón Add Network.
+
+cuando alla agregado todas las redes wifi que utilizara en el generador de wpasupplicant , dele click al botón Donwload wpa_supplicant.conf , el archivo descargado copielo en la partición boot de la memoria micro sd .
+
+Con este procedimiento ya podrá utilizar su raspberry en cualquiera de las redes wifi configuradas.
 
 #
 
