@@ -357,13 +357,16 @@ If you want to enable more than one Dashboard at the same time, remember to chan
 
  # WIFI 
 
-If your computer has a wireless network device (WIFI) or is a Raspberry Zero W model, after having recorded the image in the microSD memory with the Rufus, Balena or other application, you must download and copy the wpa_supplicant.conf file, to the partition named boot on your microSD memory.
-
+If your computer has a wireless network device (WIFI) or is a Raspberry Zero W model, after having recorded the image in the microSD memory with the Rufus tool, Balena or another application, copy the wpa_supplicant.conf file to the partition with the name boot on your microSD memory.
  You can download the wpa_supplicant.conf file from the following link:
+ 
+ <p><a href="http://wpa.ddns.net/" target="_blank">wpasupplicant.conf generator</a>
 
-<p><a href="https://drive.google.com/uc?export=download&id=1uFjl1BbzPBdRQ9g7LTMr3bB1FAgP5ILB" target="_blank">Download</a> file wpa_supplicant.conf</p>
+You can add as many Wi-Fi networks as necessary, using the Add Network button.
 
- This file can be edited with the Notepad and within this file, you must include the names of Wi-Fi networks and passwords of each one, to which you want your raspberry to connect, you can add one or how many Wi-Fi networks you have, so that your equipment connect.
+ When you have added all the Wi-Fi networks that you will use in the wpasupplicant generator, click the Donwload wpa_supplicant.conf button, copy the downloaded file to the boot partition of the micro sd memory.
+
+ With this procedure you can now use your raspberry in any of the configured Wi-Fi networks.
 
  #
  
