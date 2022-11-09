@@ -262,9 +262,12 @@ sudo sed -i 's/Prefix=MMDVM/Prefix=MMDVMH/' /opt/MMDVMHost-Websocketboard/logtai
 #
 cd /opt/MMDVMHost-Websocketboard/html/
 sudo sed -i 's/5678/5679/' /opt/MMDVMHost-Websocketboard/html/index.html
-sudo sed -i "s/MMDVM-Dashboard by DG9VH/emq-TE1 MMDVM-Dashboard by DG9VH/g"  /opt/MMDVMHost-Websocketboard/html/index.html
-sudo sed -i 's/<script type="text\/javascript">document.write(customText);<\/script>/<h2><span style="color: #3cff33;"><em><strong>MMDVMHost Dashboard<\/strong><\/em><\/span><\/h2>/g'  /opt/MMDVMHost-Websocketboard/html/index.html
-sudo sed -i 's/<span class="navbar-brand float:center"><script type="text\/javascript">document.write(customHeadlineText);<\/script><\/span>/<h6 style="text-align: center;"><span style="color: #808080;"><a style="color: #808080;" href="https:\/\/github.com\/hp3icc\/emq-TE1ws\/" target="_blank">emq-te1ws Raspbian Proyect hp3icc<\/a> copyright 2018-YK00<\/span><\/h6>/g'  /opt/MMDVMHost-Websocketboard/html/index.html
+sudo sed -i 's/<span class="navbar-brand float:center"><script type="text\/javascript">document.write(customHeadlineText);<\/script><\/span>/<span style="color: #808080;" class="navbar-brand float:center"><script type="text\/javascript">document.write(customHeadlineText);<\/script><\/span>/g'  /opt/MMDVMHost-Websocketboard/html/index.html
+sudo sed -i 's/<script type="text\/javascript">document.write(customText);<\/script>/<span style="color: #3cff33;"><script type="text\/javascript">document.write(customText);<\/script>/g'  /opt/MMDVMHost-Websocketboard/html/index.html
+sudo sed -i 's/This is an example/MMDVMHost Dashboard/' /opt/MMDVMHost-Websocketboard/html/js/config.js
+sudo sed -i 's/you can use all html-tags and multiline-text./MMDVMHost-Websocketboard by DG9VH/' /opt/MMDVMHost-Websocketboard/html/js/config.js
+sudo sed -i 's/<span class="navbar-brand float:right">Websocket-Based<\/span>/<li>Temperature: <span id="cputemp"><\/span> °C<\/li>/g'  /opt/MMDVMHost-Websocketboard/html/index.html
+sudo sed -i 's/<a class="navbar-brand" href="#">MMDVM-Dashboard by DG9VH<\/a>/<h6 style="text-align: center;"><span style="color: #808080;"><a style="color: #808080;" href="https:\/\/github.com\/hp3icc\/emq-TE1ws\/" target="_blank">emq-te1ws Raspbian Proyect by hp3icc<\/a> copyright 2018-YK00<\/span><\/h6>/g'  /opt/MMDVMHost-Websocketboard/html/index.html
 variable2=$(date +'%Y' | tail -c 5)
 sudo sed -i "s/YK00/$variable2/g"  /opt/MMDVMHost-Websocketboard/html/index.html
 
