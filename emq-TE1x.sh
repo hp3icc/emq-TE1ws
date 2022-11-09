@@ -246,6 +246,13 @@ cd /opt/
 git clone --recurse-submodules -j8 https://github.com/dg9vh/MMDVMHost-Websocketboard
 sudo chown -R mmdvm:mmdvm /opt/MMDVMHost-Websocketboard
 #
+sudo sed -i "s/about = 1/about = 0/g" /opt/MMDVMHost-Websocketboard/html/js/config.js
+sudo sed -i "s/currtx = 1/currtx = 0/g" /opt/MMDVMHost-Websocketboard/html/js/config.js
+sudo sed -i "s/qso = 1/qso = 0/g" /opt/MMDVMHost-Websocketboard/html/js/config.js
+sudo sed -i "s/dapnet = 1/dapnet = 0/g" /opt/MMDVMHost-Websocketboard/html/js/config.js
+
+sudo sed -i "s/DGIdGateway/YSFGateway/g" /opt/MMDVMHost-Websocketboard/logtailer.ini
+sudo sed -i "s/BinaryName5/#BinaryName5/g" /opt/MMDVMHost-Websocketboard/logtailer.ini
 sudo sed -i 's/Logdir=\/mnt\/ramdisk/Logdir=\/var\/log\/mmdvmh/' /opt/MMDVMHost-Websocketboard/logtailer.ini
 sudo sed -i 's/5678/5679/' /opt/MMDVMHost-Websocketboard/logtailer.ini
 sudo sed -i 's/Filerotate=True/Filerotate=False/' /opt/MMDVMHost-Websocketboard/logtailer.ini
