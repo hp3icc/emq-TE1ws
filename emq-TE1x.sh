@@ -261,7 +261,7 @@ sudo sed -i 's/usr\/local\/bin/opt\/MMDVMHost/' /opt/MMDVMHost-Websocketboard/lo
 sudo sed -i 's/Prefix=MMDVM/Prefix=MMDVMH/' /opt/MMDVMHost-Websocketboard/logtailer.ini
 #
 cd /opt/MMDVMHost-Websocketboard/html/
-sudo sed -i 's/5678/5679/' index.html
+sudo sed -i 's/5678/5679/' /opt/MMDVMHost-Websocketboard/html/index.html
 sudo sed -i "s/MMDVM-Dashboard by DG9VH/emq-TE1 MMDVM-Dashboard by DG9VH/g"  /opt/MMDVMHost-Websocketboard/html/index.html
 sudo sed -i 's/<script type="text\/javascript">document.write(customText);<\/script>/<h2><span style="color: #3cff33;"><em><strong>MMDVMHost Dashboard<\/strong><\/em><\/span><\/h2>/g'  /opt/MMDVMHost-Websocketboard/html/index.html
 sudo sed -i 's/<span class="navbar-brand float:center"><script type="text\/javascript">document.write(customHeadlineText);<\/script><\/span>/<h6 style="text-align: center;"><span style="color: #808080;"><a style="color: #808080;" href="https:\/\/github.com\/hp3icc\/emq-TE1ws\/" target="_blank">emq-te1ws Raspbian Proyect hp3icc<\/a> copyright 2018-YK00<\/span><\/h6>/g'  /opt/MMDVMHost-Websocketboard/html/index.html
