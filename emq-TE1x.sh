@@ -323,9 +323,9 @@ EOF
 cd /opt/
 git clone --recurse-submodules -j8 https://github.com/dg9vh/WSYSFDash
 cd /opt/WSYSFDash/
-sudo chown -R pi /opt/WSYSFDash
-sudo chown -R mmdvm /opt/WSYSFDash
+
 sudo chown -R root /opt/WSYSFDash
+
 #
 sudo sed -i "s/\/usr\/local\/bin\/YSFReflector/\/opt\/pYSFReflector3\/YSFReflector/g" /opt/WSYSFDash/logtailer.ini
 sudo sed -i "s/Filerotate=True/Filerotate=False/g" /opt/WSYSFDash/logtailer.ini
