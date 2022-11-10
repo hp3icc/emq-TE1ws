@@ -249,7 +249,7 @@ sudo chown -R mmdvm:mmdvm /opt/MMDVMHost-Websocketboard
 sudo sed '264 a <!--' -i /opt/MMDVMHost-Websocketboard/html/index.html 
 sudo sed '266 a -->' -i /opt/MMDVMHost-Websocketboard/html/index.html 
 
-sudo sed -i "s/`Custom-Headline-Text`/Websocket-Based/g"  /opt/MMDVMHost-Websocketboard/html/js/config.js
+sudo sed -i "s/\`Custom-Headline-Text\`/\`Websocket-Based\`/g"  /opt/MMDVMHost-Websocketboard/html/js/config.js
 sudo sed -i "s/about = 1/about = 0/g" /opt/MMDVMHost-Websocketboard/html/js/config.js
 sudo sed -i "s/currtx = 1/currtx = 0/g" /opt/MMDVMHost-Websocketboard/html/js/config.js
 sudo sed -i "s/qso = 1/qso = 0/g" /opt/MMDVMHost-Websocketboard/html/js/config.js
