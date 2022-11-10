@@ -330,6 +330,17 @@ sudo chown -R root /opt/WSYSFDash
 sudo sed -i "s/\/usr\/local\/bin\/YSFReflector/\/opt\/pYSFReflector3\/YSFReflector/g" /opt/WSYSFDash/logtailer.ini
 sudo sed -i "s/Filerotate=True/Filerotate=False/g" /opt/WSYSFDash/logtailer.ini
 sudo sed -i "s/YSFReflector1/mmdvm/g" /opt/WSYSFDash/logtailer.ini
+sudo sed -i "s/lastheard = 2;/lastheard = 1;/g" /opt/WSYSFDash/html/js/config.js
+sudo sed -i "s/mutedgateways = 1;/mutedgateways = 0;/g" /opt/WSYSFDash/html/js/config.js
+sudo sed -i "s/gateways = 1;/gateways = 2;/g" /opt/WSYSFDash/html/js/config.js
+sudo sed -i "s/voicemodecol = 1;/voicemodecol = 0;/g" /opt/WSYSFDash/html/js/config.js
+sudo sed -i "s/datatable_default_length = 10;/datatable_default_length = 25;/g" /opt/WSYSFDash/html/js/config.js
+sudo sed -i "s/useDarkTheme = 0;/useDarkTheme = 1;/g" /opt/WSYSFDash/html/js/config.js
+sudo sed -i "s/qso = 1;/qso = 0;/g" /opt/WSYSFDash/html/js/config.js
+sudo sed -i "s/about = 1;/about = 0;/g" /opt/WSYSFDash/html/js/config.js
+sudo sed -i "s/coordscol = 1;/coordscol = 0;/g" /opt/WSYSFDash/html/js/config.js
+sudo sed -i "s/osm = 1;/osm = 0;/g" /opt/WSYSFDash/html/js/config.js
+sudo sed -i "s/gatewayipcol = 1;/gatewayipcol = 0;/g" /opt/WSYSFDash/html/js/config.js
 #
 cat > /lib/systemd/system/http.server-ysf.service <<- "EOF"
 [Unit]
