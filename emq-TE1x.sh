@@ -2786,10 +2786,7 @@ network={
         psk="Coloque_aqui_la_clave_wifi"
 }
 
-network={
-        ssid="WiFi-Net"
-        psk="Panama310"
-}
+
 EOF
 ################################################
 #Direwolf
