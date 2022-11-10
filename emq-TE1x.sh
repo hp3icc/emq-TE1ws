@@ -50,9 +50,9 @@ sudo apt-get install libffi-dev -y
 sudo apt-get install libssl-dev -y
 sudo apt-get install cargo -y 
 sudo apt-get install sed -y
-sudo apt install python3 python3-pip
-sudo pip install aprslib
-sudo pip install tinydb
+sudo apt install python3 -y
+sudo pip install aprslib -y
+sudo pip install tinydb -y
 sudo apt install python3-pip -y
 sudo apt install python3-distutils -y
 sudo apt install python3-dev -y
