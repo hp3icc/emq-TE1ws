@@ -155,14 +155,20 @@ echo iniciando instalacion
 cd /opt
 git clone https://github.com/iu5jae/pYSFReflector3.git
 cd pYSFReflector3/
-sudo chmod +x *.py
-sudo chmod +x YSFReflector
-sudo sed -i 's/mmdvm/YSFReflector/' pysfreflector.ini
-sudo sed -i 's/0.0.0.0//' pysfreflector.ini
-sudo sed -i 's/pysfreflector/pYSFReflector3/' pysfreflector.ini
-sudo sed -i 's/enable = 0/enable = 1/' pysfreflector.ini
-sudo sed -i 's/aprs.grupporadiofirenze.net/noam.aprs2.net/' pysfreflector.ini
-sudo sed -i 's/ssid = -10/ssid = -7/' pysfreflector.ini
+sudo chmod +x /opt/pYSFReflector3/*.py
+sudo chmod +x /opt/pYSFReflector3/YSFReflector
+#sudo sed -i 's/mmdvm/YSFReflector/' /opt/pYSFReflector3/pysfreflector.ini
+sudo sed -i 's/0.0.0.0//' /opt/pYSFReflector3/pysfreflector.ini
+sudo sed -i 's/pysfreflector/pYSFReflector3/' /opt/pYSFReflector3/pysfreflector.ini
+sudo sed -i 's/enable = 0/enable = 1/' /opt/pYSFReflector3/pysfreflector.ini
+sudo sed -i 's/aprs.grupporadiofirenze.net/noam.aprs2.net/' /opt/pYSFReflector3/pysfreflector.ini
+sudo sed -i 's/ssid = -10/ssid = -7/' /opt/pYSFReflector3/pysfreflector.ini
+sudo sed -i "s/FileLevel=1/FileLevel=0/g" /opt/pYSFReflector3/pysfreflector.ini
+sudo sed -i "s/list = 1,9,50/list = /g" /opt/pYSFReflector3/pysfreflector.ini
+sudo sed -i "s/default = 50/default = /g" /opt/pYSFReflector3/pysfreflector.ini
+sudo sed -i "s/local = 1/local = /g" /opt/pYSFReflector3/pysfreflector.ini
+sudo sed -i "s/prefix = 1/prefix = 0/g" /opt/pYSFReflector3/pysfreflector.ini
+sudo sed -i "s/Timeout = 190/Timeout = 240/g" /opt/pYSFReflector3/pysfreflector.ini
 #
 sudo cat > /lib/systemd/system/YSFReflector.service <<- "EOF"
 [Unit]
@@ -319,40 +325,9 @@ git clone --recurse-submodules -j8 https://github.com/dg9vh/WSYSFDash
 cd /opt/WSYSFDash/
 sudo chown -R mmdvm /opt/WSYSFDash
 #
-cat > /opt/WSYSFDash/logtailer.ini <<- "EOF"
-[DEFAULT]
-# No need to change this line below
-Host=0.0.0.0
-Port=5678
-# set to True if SSL will be used
-Ssl=False
-SslCert=/path/to/fullchain.pem
-SslKey=/path/to/privkey.pem
-
-# This defines the maximum amount of loglines to be sent on initial opening of the dashboard
-MaxLines=500
-
-# Keep this parameter synchrone to Filerotate in YSFReflector.ini - if 0 then False, if 1 then True
-Filerotate=False
-
-# You can use the logtailer-Service for more than one reflector running on your system.
-# To do this, just copy the [YSFReflectorN]-Section into a new one, renumber it and modify the Logdir and Prefix.
-# To use this on systems with more than one reflector, it is recommended to use a real webserver to host the html-files.
-
-[YSFReflector]
-# Localtion of your YSFReflector-binary
-YSFReflector_bin=/opt/pYSFReflector3/YSFReflector
-
-Logdir=/var/log/YSFReflector/
-Prefix=YSFReflector
-
-#[YSFReflector2]
-#Logdir=/var/log/YSFReflector2/
-#Prefix=YSFReflector
-
-
-
-EOF
+sudo sed -i "s/\/usr\/local\/bin\/YSFReflector/\/opt\/pYSFReflector3\/YSFReflector/g" /opt/WSYSFDash/logtailer.ini
+sudo sed -i "s/Filerotate=True/Filerotate=False/g" /opt/WSYSFDash/logtailer.ini
+sudo sed -i "s/YSFReflector1/mmdvm/g" /opt/WSYSFDash/logtailer.ini
 #
 cat > /lib/systemd/system/http.server-ysf.service <<- "EOF"
 [Unit]
@@ -395,9 +370,7 @@ WantedBy=multi-user.target
 
 EOF
 #
-cd  /opt/MMDVMHost-Websocketboard/html/data/
-sudo rm TG_List.csv
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv
+wget -O /opt/MMDVMHost-Websocketboard/html/data/TG_List.csv https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv
 #
 cat > /lib/systemd/system/rebooter1.service  <<- "EOF"
 [Unit]
@@ -1308,7 +1281,7 @@ Enabled=1
 Name=TGIF_Network
 TGRewrite0=2,3000001,2,1,999999
 PCRewrite=2,3000001,2,1,999999
-#Options="TS2=7144;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;"
+#Options=
 Address=tgif.network
 Password=passw0rd
 Port=62031
@@ -1324,7 +1297,7 @@ Address=dmr.pa7lim.nl
 Port=55555
 TGRewrite0=2,4000001,2,1,999999
 PCRewrite=2,4000001,2,1,999999
-#Options="TS2=7144;DIAL=0;VOICE=0;LANG=0;SINGLE=0;TIMER=10;"
+#Options=
 Password=passw0rd
 Location=0
 Debug=0
@@ -1757,29 +1730,17 @@ sudo sed -i 's/www\/html/www\/dvs/g' /var/lib/dpkg/info/dvswitch*
 sudo sed -i "s/Language=en_US/Language=es_ES/g" /opt/NXDNGateway/NXDNGateway.ini
 sudo sed -i "s/Language=en_US/Language=es_ES/g" /opt/P25Gateway/P25Gateway.ini 
 ####
-sudo rm /lib/systemd/system/analog_bridge.service
-sudo rm /lib/systemd/system/mmdvm_bridge.service
-sudo rm /lib/systemd/system/ysfgateway.service
-sudo rm /lib/systemd/system/ysfparrot.service
-sudo rm /lib/systemd/system/nxdngateway.service
-sudo rm /lib/systemd/system/nxdnparrot.service
-sudo rm /lib/systemd/system/p25gateway.service
-sudo rm /lib/systemd/system/p25parrot.service
-sudo rm /lib/systemd/system/quantar_bridge.service
-sudo rm /lib/systemd/system/ircddbgatewayd.service
-sudo rm /lib/systemd/system/md380-emu.service
-cd /lib/systemd/system/
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/analog_bridge.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/mmdvm_bridge.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ysfgateway.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ysfparrot.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/nxdngateway.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/nxdnparrot.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/p25gateway.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/p25parrot.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/quantar_bridge.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ircddbgatewayd.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/md380-emu.service
+wget -O /lib/systemd/system/analog_bridge.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/analog_bridge.service
+wget -O /lib/systemd/system/mmdvm_bridge.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/mmdvm_bridge.service
+wget -O /lib/systemd/system/ysfgateway.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ysfgateway.service
+wget -O /lib/systemd/system/ysfparrot.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ysfparrot.service
+wget -O /lib/systemd/system/nxdngateway.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/nxdngateway.service
+wget -O /lib/systemd/system/nxdnparrot.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/nxdnparrot.service
+wget -O /lib/systemd/system/p25gateway.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/p25gateway.service
+wget -O /lib/systemd/system/p25parrot.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/p25parrot.service
+wget -O /lib/systemd/system/quantar_bridge.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/quantar_bridge.service
+wget -O /lib/systemd/system/ircddbgatewayd.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ircddbgatewayd.service
+wget -O /lib/systemd/system/md380-emu.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/md380-emu.service
 #
 cat > /opt/MMDVM_Bridge/MMDVM_Bridge.ini  <<- "EOF"
 [General]
