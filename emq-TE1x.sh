@@ -341,6 +341,13 @@ sudo sed -i "s/about = 1;/about = 0;/g" /opt/WSYSFDash/html/js/config.js
 sudo sed -i "s/coordscol = 1;/coordscol = 0;/g" /opt/WSYSFDash/html/js/config.js
 sudo sed -i "s/osm = 1;/osm = 0;/g" /opt/WSYSFDash/html/js/config.js
 sudo sed -i "s/gatewayipcol = 1;/gatewayipcol = 0;/g" /opt/WSYSFDash/html/js/config.js
+sudo sed -i "s/col-10/col-9/g" /opt/WSYSFDash/html/index.html
+sudo sed -i "s/Here you can place your individual Headline/pYSFReflector 3/g" /opt/WSYSFDash/html/index.html
+sudo sed -i "s/You can also disable the complete section within the index.html by searching for \"Header-Section\"-comment-lines and remove it from the source code./YSF Reflector with APRS.fi RX-IGate/g" /opt/WSYSFDash/html/index.html
+sudo sed -i "s/Here is the place to put some nice stuff of text you want to have placed here. You can use all html you like./Python Reflector IU5JAE, emq-TE1ws Raspbian Proyect by hp3icc./g" /opt/WSYSFDash/html/index.html
+sudo sed -i "s/The image file for the logo is placed in the folder \"\/html\/img\" with the name \"logo.jpg\" - feel free to replace it with yours or replace the URL for the image with your own./ /g" /opt/WSYSFDash/html/index.html
+wget -O /opt/WSYSFDash/html/img/logo.jpg https://cdn-bio.qrz.com/c/hp3icc/ysf_logo_sq_243px.jpg
+
 #
 cat > /lib/systemd/system/http.server-ysf.service <<- "EOF"
 [Unit]
