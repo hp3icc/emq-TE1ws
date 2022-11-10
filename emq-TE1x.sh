@@ -323,7 +323,7 @@ EOF
 cd /opt/
 git clone --recurse-submodules -j8 https://github.com/dg9vh/WSYSFDash
 cd /opt/WSYSFDash/
-
+sudo chmod +x /opt/WSYSFDash/logtailer.py
 sudo chown -R root /opt/WSYSFDash
 
 #
