@@ -395,7 +395,7 @@ sudo nano /opt/pYSFReflector3/pysfreflector.ini ;;
 2)
 sudo systemctl stop YSFReflector.service && sudo systemctl start YSFReflector.service  && sudo systemctl enable YSFReflector.service ;;
 3)
-sudo systemctl stop YSFReflector.service && sudo systemctl disable YSFReflector.service && rm /var/log/YSFReflector/* ;;
+sudo systemctl stop YSFReflector.service && sudo systemctl disable YSFReflector.service  ;;
 4)
 sudo systemctl restart logtailer-ysf.service && sudo systemctl enable logtailer-ysf.service && sudo systemctl restart http.server-ysf.service && sudo systemctl enable http.server-ysf.service ;;
 5)
