@@ -330,6 +330,7 @@ sudo chmod +x /opt/WSYSFDash/logtailer.py
 sudo chown -R root /opt/WSYSFDash
 
 #
+sudo sed -i "s/connectedsincecol = 1;/connectedsincecol = 0;/g" /opt/WSYSFDash/html/js/config.js
 sudo sed -i "s/\/usr\/local\/bin\/YSFReflector/\/opt\/pYSFReflector3\/YSFReflector/g" /opt/WSYSFDash/logtailer.ini
 sudo sed -i "s/Filerotate=True/Filerotate=False/g" /opt/WSYSFDash/logtailer.ini
 sudo sed -i "s/YSFReflector1/mmdvm/g" /opt/WSYSFDash/logtailer.ini
