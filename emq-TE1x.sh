@@ -2808,11 +2808,6 @@ wget https://github.com/hp3icc/emq-TE1ws/raw/main/direwolf1
 #############
 sudo cat > /opt/direwolf/service1 <<- "EOF"
 [Unit]
-Description=DireWolf is a software "soundcard" modem/TNC and APRS decoder
-Documentation=man:direwolf
-AssertPathExists=/opt/direwolf/dw.conf
-
-[Unit]
 Description=Direwolf Service
 #Wants=network-online.target
 After=sound.target syslog.target
@@ -2824,7 +2819,7 @@ Type=simple
 Restart=always
 RestartSec=3
 StandardOutput=null
-ExecStart=sudo direwolf -c /opt/direwolf/dw.conf
+ExecStart=/usr/local/bin/direwolf -c /opt/direwolf/dw.conf
 
 [Install]
 WantedBy=multi-user.target
@@ -2833,11 +2828,6 @@ EOF
 ##
 sudo cat > /opt/direwolf/service2 <<- "EOF"
 [Unit]
-Description=DireWolf is a software "soundcard" modem/TNC and APRS decoder
-Documentation=man:direwolf
-AssertPathExists=/opt/direwolf/dw.conf
-
-[Unit]
 Description=Direwolf Service
 #Wants=network-online.target
 After=sound.target syslog.target
@@ -2849,7 +2839,7 @@ Type=simple
 Restart=always
 RestartSec=3
 StandardOutput=null
-ExecStart=sudo direwolf -l /var/log/direwolf -c /opt/direwolf/dw.conf
+ExecStart=/usr/local/bin/direwolf -l /var/log/direwolf -c /opt/direwolf/dw.conf
 
 [Install]
 WantedBy=multi-user.target
