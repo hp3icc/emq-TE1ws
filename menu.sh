@@ -527,7 +527,7 @@ sudo nano /lib/systemd/system/http.server-dw.service && sudo systemctl daemon-re
 8)
 sudo systemctl stop direwolf.service && cp /opt/direwolf/service2 /lib/systemd/system/direwolf.service && sudo systemctl daemon-reload && sudo systemctl start direwolf.service && sudo systemctl restart http.server-dw.service && sudo systemctl enable http.server-dw.service && sudo systemctl enable direwolf.service;;
 9)
-sudo systemctl stop direwolf.service && cp /opt/direwolf/service1 /lib/systemd/system/direwolf.service && sudo systemctl daemon-reload && sudo systemctl start direwolf.service && sudo systemctl stop http.server-dw.service && sudo systemctl disable http.server-dw.service;;
+sudo systemctl stop direwolf.service && cp /opt/direwolf/service1 /lib/systemd/system/direwolf.service && sudo systemctl daemon-reload && sudo systemctl start direwolf.service && sudo systemctl stop http.server-dw.service && sudo systemctl disable http.server-dw.service && sudo systemctl enable direwolf.service;;
 10)
 break;
 esac
