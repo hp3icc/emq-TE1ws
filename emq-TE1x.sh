@@ -447,6 +447,7 @@ git clone https://github.com/IZ7BOJ/direwolf_webstat.git
 #cd /opt/direwolf_webstat
 sudo sed -i "s/144.800  VHF Port/144.390MHz VHF APRS/g" /opt/direwolf_webstat/config.php 
 sudo sed -i "s/0,1/0/g" /opt/direwolf_webstat/config.php 
+sudo sed -i 's/href="https:\/\/github.com\/IZ7BOJ\/direwolf_webstat" target/href="https:\/\/github.com\/hp3icc\/emq-TE1ws\/" target="_blank">emq-TE1 Raspbian Proyect<\/a> by HP3ICC, <a href="https:\/\/github.com\/IZ7BOJ\/direwolf_webstat" target/' /opt/direwolf_webstat/summary.php
 #
 sudo cat > /lib/systemd/system/http.server-dw.service <<- "EOF"
 [Unit]
