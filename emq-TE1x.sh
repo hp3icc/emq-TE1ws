@@ -670,11 +670,6 @@ EOF
 ###############
 cat > /lib/systemd/system/direwolf.service  <<- "EOF"
 [Unit]
-Description=DireWolf is a software "soundcard" modem/TNC and APRS decoder
-Documentation=man:direwolf
-AssertPathExists=/opt/direwolf/dw.conf
-
-[Unit]
 Description=Direwolf Service
 #Wants=network-online.target
 After=sound.target syslog.target
