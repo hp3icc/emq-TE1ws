@@ -468,7 +468,8 @@ EOF
 cat > /usr/local/bin/rpt-on.sh <<- "EOF"
 #!/bin/bash
 #TI4OP Oscar, [1/25/2022 12:51 PM]
-if [ "$(grep "Duplex=" /opt/MMDVMHost/MMDVM.ini | tail -c 2 | grep '1')" != "" ]; then
+if [ "$(grep "Duplex=1" /opt/MMDVMHost/MMDVM.ini)"  != "" ]; then
+
 # echo "rpt"
 sudo systemctl enable mmdvmh.service
 
