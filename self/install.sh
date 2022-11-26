@@ -10,7 +10,7 @@ cd /opt/FDMR-Monitor/
 cp /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg /opt/FDMR-Monitor/fdmr-mon.cfg
 cd /opt/FreeDMR/
 sudo systemctl stop proxy.service
-sudo rm /opt/FreeDMR/hotspot_proxy_v2.py
+#sudo rm /opt/FreeDMR/hotspot_proxy_v2.py
 sudo rm /opt/FreeDMR/proxy_db.*
 #cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
 #cp /opt/FDMR-Monitor/proxy/hotspot_proxy_v2.py /opt/FreeDMR/hotspot_proxy_v2.py -r
