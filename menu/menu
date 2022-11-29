@@ -1,0 +1,57 @@
+###menu
+sudo cat > /bin/menu <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "TE1ws-Rev: R00ab / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 24 67 15 \
+1 " APRS " \
+2 " MMDVMHost " \
+3 " Dvswitch " \
+4 " pYSFReflector3 " \
+5 " YSF2DMR " \
+6 " FreeDMR Server " \
+7 " Editar WiFi " \
+8 " DDNS NoIP " \
+9 " GoTTY " \
+10 " Update " \
+11 " Reiniciar Equipo " \
+12 " Salir del menu " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+menu-aprs;;
+2)
+menu-mmdvm;;
+3)
+menu-dvs;;
+4)
+menu-ysf;;
+5)
+menu-ysf2dmr;;
+6)
+menu-fdmr;;
+7)
+menu-wifi;;
+8)
+menu-noip ;;
+9)
+menu-web ;;
+10)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/update.sh)" ;;
+11)
+menu-reboot ;;
+12)
+break;
+esac
+done
+exit 0
+EOF
+#
+chmod +x /bin/menu
