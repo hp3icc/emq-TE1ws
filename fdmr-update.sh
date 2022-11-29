@@ -6,6 +6,7 @@ rm -r /opt/FreeDMR
 cd /opt
 git clone https://gitlab.hacknix.net/hacknix/FreeDMR.git
 cd FreeDMR
+wget /opt/FreeDMR/subscriber_ids.json https://freedmr.cymru/talkgroups/users.json -O &&
 mkdir config
 mkdir /var/log/FreeDMR
 chmod +x /opt/FreeDMR/install.sh
@@ -48,7 +49,7 @@ MAX_PEERS: 5
 EXPORT_AMBE: False
 IP:
 PORT: 54102
-PASSPHRASE: passw@rd
+PASSPHRASE: passw0rd
 GROUP_HANGTIME: 5
 USE_ACL: True
 REG_ACL: DENY:1
@@ -111,10 +112,6 @@ VOICE_IDENT: False
  
 EOF
 ##
-sudo sed -i 's/ALLOW_NULL_PASSPHRASE: True/ALLOW_NULL_PASSPHRASE: False/' /opt/FreeDMR/FreeDMR-SAMPLE.cfg
-sudo sed -i 's/PASSPHRASE:/PASSPHRASE: passw0rd/' /opt/FreeDMR/FreeDMR-SAMPLE.cfg
-sudo sed -i 's/ALLOW_NULL_PASSPHRASE: passw0rd False/ALLOW_NULL_PASSPHRASE: False/' /opt/FreeDMR/FreeDMR-SAMPLE.cfg
-
 cp /opt/FreeDMR/FreeDMR-SAMPLE.cfg /opt/
 cd /opt/
 cat FreeDMR-SAMPLE.cfg conf.txt obp.txt >> /opt/FreeDMR/config/FreeDMR.cfg
