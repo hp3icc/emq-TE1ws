@@ -139,7 +139,6 @@ wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/install.sh
 chmod +x /opt/FDMR-Monitor/install.sh
 #
 sh /opt/FDMR-Monitor/install.sh
-sudo sh /opt/extra-2.sh
 #
 sudo cat > /bin/data-id <<- "EOF"
 #!/bin/bash
@@ -175,3 +174,4 @@ cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/html/sysinfo/
 sudo systemctl start proxy.service
 sudo systemctl start fdmr_mon.service
 sudo systemctl enable fdmr_mon.service
+sudo sh /opt/extra-2.sh
