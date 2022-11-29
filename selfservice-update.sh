@@ -125,7 +125,7 @@ EOF
 sudo systemctl daemon-reload
 
 sudo chmod +x /opt/extra-2.sh
-sh /opt/extra-2.sh
+
 sudo sed -i "s/root/emqte1/g"  /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 sudo sed -i "s/test/selfcare/g"  /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 sudo sed -i "s/PRIVATE_NETWORK = True/PRIVATE_NETWORK = False/g"  /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
