@@ -1,0 +1,68 @@
+cat > /bin/menu-mmdvm <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu MMDVMHost" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion." 24 50 16 \
+1 " Editar MMDVMHost " \
+2 " Editar DMRGateway " \
+3 " Editar YSFGateway " \
+4 " Editar YSF2DMR " \
+5 " Start&Restart service MMDVM " \
+6 " Stop service MMDVM " \
+7 " Dashboard ON " \
+8 " Dashboard Off " \
+9 " Editar Puerto http " \
+10 " Editar HTML  " \
+11 " Editar Dashboard  " \
+12 " Dashboard Rooms: BM, europelink  " \
+13 " Dashboard Rooms: BM, worldlink " \
+14 " Dashboard Rooms: FreeDMR, europelink " \
+15 " Dashboard Rooms: FreeDMR, worldlink " \
+16 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /opt/MMDVMHost/MMDVM.ini;;
+2)
+sudo nano /opt/DMRGateway/DMRGateway.ini;;
+3)
+sudo nano /opt/YSFGateway2/YSFGateway.ini;;
+4)
+sudo nano /opt/YSF2DMRGW/YSF2DMR.ini;;
+5)
+sh /usr/local/bin/rpt-on.sh && sudo systemctl stop dmrid-mmdvm.service && sudo systemctl start dmrid-mmdvm.service && sudo systemctl enable dmrid-mmdvm.service && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' add ;;
+6)
+sudo systemctl stop mmdvmh.service && sudo systemctl disable mmdvmh.service && systemctl stop ysf2dmrgw.service && sudo systemctl stop dmrgw.service && sudo systemctl stop dmrid-mmdvm.service && sudo systemctl disable dmrid-mmdvm.service && cronedit.sh '0 3 * * *' 'sh /opt/MMDVMHost/DMRIDUpdate.sh' remove && sudo rm /var/log/mmdvmh/MMDVMH.* ;;
+7)
+sudo systemctl restart logtailer-mmdvmh.service && sudo systemctl enable logtailer-mmdvmh.service && sudo systemctl restart http.server-mmdvmh.service && sudo systemctl enable http.server-mmdvmh.service ;;
+8)
+sudo systemctl stop logtailer-mmdvmh.service && sudo systemctl disable logtailer-mmdvmh.service && sudo systemctl stop http.server-mmdvmh.service && sudo systemctl disable http.server-mmdvmh.service ;;
+9)
+sudo nano /lib/systemd/system/http.server-mmdvmh.service && sudo systemctl daemon-reload ;;
+10)
+sudo nano /opt/MMDVMHost-Websocketboard/html/index.html ;;
+11)
+sudo nano /opt/MMDVMHost-Websocketboard/html/js/config.js ;;
+12)
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv ;;
+13)
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List-WL.csv && sudo mv TG_List-WL.csv TG_List.csv;;
+14)
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv  && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-EURO.csv && sudo mv FDMR-EURO.csv TG_List.csv;;
+15)
+cd  /opt/MMDVMHost-Websocketboard/html/data/ && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo rm *.csv* && wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/FDMR-WORLD.csv && sudo mv FDMR-WORLD.csv TG_List.csv;;
+16)
+break;
+esac
+done
+exit 0
+EOF
+#######
+chmod +x /bin/menu-mmdvm
