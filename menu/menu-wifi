@@ -1,0 +1,33 @@
+#menu-wifi
+cat > /bin/menu-wifi <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu WiFi" --menu "Nota: al editar configuracion de redes Wifi conocidas, debe reiniciar el equipo, para aplicar cambios realizados." 20 75 11 \
+1 " Editar redes WiFi conocidas" \
+2 " Buscar redes wifi cercanas " \
+3 " Ver intensidad de WIFI  " \
+4 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf && sudo wpa_cli -i wlan0 reconfigure;;
+2)
+sudo iwlist wlan0 scan | grep ESSID | grep -o '"[^"]\+"' >> /tmp/ssid.txt && nano /tmp/ssid.txt && sudo rm /tmp/ssid.txt ;;
+3)
+sudo wavemon ;;
+4)
+break;
+esac
+done
+exit 0
+EOF
+#
+chmod +x /bin/menu-wifi
