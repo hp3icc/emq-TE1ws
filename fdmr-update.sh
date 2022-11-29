@@ -6,7 +6,22 @@ rm -r /opt/FreeDMR
 cd /opt
 git clone https://gitlab.hacknix.net/hacknix/FreeDMR.git
 cd FreeDMR
-wget /opt/FreeDMR/subscriber_ids.json https://freedmr.cymru/talkgroups/users.json -O &&
+#
+sudo cat > /bin/data-id <<- "EOF"
+#!/bin/bash
+wget /etc/freedmr/hbmon/data/talkgroup_ids.json https://freedmr.cymru/talkgroups/talkgroup_ids_json.php -O
+wget /etc/freedmr/hbmon/data/subscriber_ids.csv https://database.radioid.net/static/user.csv -O
+wget /etc/freedmr/hbmon/data/peer_ids.json https://database.radioid.net/static/rptrs.json -O
+
+wget /etc/freedmr/json/talkgroup_ids.json https://freedmr.cymru/talkgroups/talkgroup_ids_json.php -O
+wget /etc/freedmr/json/subscriber_ids.csv https://freedmr.cymru/talkgroups/users.json-O
+wget /etc/freedmr/json/peer_ids.json https://database.radioid.net/static/rptrs.json -O
+
+EOF
+#
+chmod +x /bin/data-id
+data-id &&
+#
 mkdir config
 mkdir /var/log/FreeDMR
 chmod +x /opt/FreeDMR/install.sh
