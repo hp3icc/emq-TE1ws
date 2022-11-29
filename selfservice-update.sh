@@ -120,9 +120,6 @@ sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 
 
 EOF
-
-#
-
 #sudo sed -i "s/opt\/FreeDMR\/freedmr.cfg/opt\/FreeDMR\/config\/FreeDMR.cfg/g"  /opt/FDMR-Monitor/install.sh
 
 sudo systemctl daemon-reload
@@ -135,7 +132,6 @@ sudo sed -i "s/PRIVATE_NETWORK = True/PRIVATE_NETWORK = False/g"  /opt/FDMR-Moni
 sudo sed -i "s/TGID_URL =/#TGID_URL =/g"  /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 sed '63 a TGID_URL = https://freedmr.cymru/talkgroups/talkgroup_ids_json.php' -i /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 sed '64 a #TGID_URL = https://freedmr.cymru/talkgroups/talkgroup_ids_flags_json.php' -i /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
-sudo rm /opt/FDMR-Monitor/data/*
 cd /opt/FDMR-Monitor/
 sudo rm /opt/FDMR-Monitor/install.sh
 wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/install.sh
@@ -143,6 +139,16 @@ chmod +x /opt/FDMR-Monitor/install.sh
 #
 sh /opt/FDMR-Monitor/install.sh
 sudo sh /opt/extra-2.sh
+#
+sudo cat > /bin/data-id <<- "EOF"
+#!/bin/bash
+wget /opt/FDMR-Monitor/data/talkgroup_ids.json https://freedmr.cymru/talkgroups/talkgroup_ids_json.php -O
+wget /opt/FDMR-Monitor/data/subscriber_ids.csv https://database.radioid.net/static/user.csv -O
+wget /opt/FDMR-Monitor/data/peer_ids.json https://database.radioid.net/static/rptrs.json -O
+EOF
+chmod +x /bin/data-id
+data-id
+#
 #####################
 sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/hotspot_proxy_v2.py
 sudo sed -i "s/54100/54060/g"  /opt/FreeDMR/hotspot_proxy_v2.py
