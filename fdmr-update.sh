@@ -155,9 +155,9 @@ sed '105 a override_ident_tg:' -i /opt/FreeDMR/config/FreeDMR.cfg
 #sudo rm /opt/FreeDMR/hotspot_proxy_v2.py
 #sudo rm /opt/FreeDMR/proxy_db.*
 #cp /opt/FDMR-Monitor/proxy/* /opt/FreeDMR/ -r
-cp /opt/FDMR-Monitor/proxy/hotspot_proxy_v2.py /opt/FreeDMR/hotspot_proxy_v2.py -r
-cp /opt/FDMR-Monitor/proxy/proxy.cfg /opt/FreeDMR/proxy.cfg -r
-cp /opt/FDMR-Monitor/proxy/proxy_db.py /opt/FreeDMR/proxy_db.py -r
+cp /opt/FDMR-Monitor/proxy/hotspot_proxy_v2.py /opt/FreeDMR/hotspot_proxy_v2.py
+cp /opt/FDMR-Monitor/proxy/proxy.cfg /opt/FreeDMR/proxy.cfg
+cp /opt/FDMR-Monitor/proxy/proxy_db.py /opt/FreeDMR/proxy_db.py
 
 #####################
 sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/hotspot_proxy_v2.py
