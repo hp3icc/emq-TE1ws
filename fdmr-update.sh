@@ -3,9 +3,9 @@ sudo systemctl stop freedmr.service
 sudo systemctl stop fdmrparrot.service
 sudo systemctl stop proxy.service
 rm -r /opt/FreeDMR
-cd /opt
+cd /opt/
 git clone https://gitlab.hacknix.net/hacknix/FreeDMR.git
-cd FreeDMR
+cd /opt/FreeDMR
 #
 sudo cat > /bin/data-id <<- "EOF"
 #!/bin/bash
@@ -20,7 +20,7 @@ wget /etc/freedmr/json/peer_ids.json https://database.radioid.net/static/rptrs.j
 EOF
 #
 chmod +x /bin/data-id
-data-id &&
+data-id
 #
 mkdir config
 mkdir /var/log/FreeDMR
