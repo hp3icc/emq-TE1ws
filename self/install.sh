@@ -55,6 +55,29 @@ WantedBy=multi-user.target
 
 
 EOF
+#
+sudo sed -i "s/hotpink/#ad02fd/166"  /var/www/html/css/styles.php
+sudo sed -i "s/color:white/color:black/217"  /var/www/html/css/styles.php
+sudo sed -i "251d" /var/www/html/css/styles.php
+sed '250 a    <?php echo THEME_COLOR."\n";?>' -i /var/www/html/css/styles.php
+
+sed '21 a # For custom color, select: pro' -i /opt/FDMR-Monitor/fdmr-mon.cfg
+
+sed '24 a COLOR_TEXT = #d2c564' -i /opt/FDMR-Monitor/fdmr-mon.cfg 
+sed '25 a COLOR_1 = #c68034' -i /opt/FDMR-Monitor/fdmr-mon.cfg  
+sed '26 a COLOR_2 = #7f5224' -i /opt/FDMR-Monitor/fdmr-mon.cfg
+sed '27 a COLOR_BACKGROUND = 5a5958' -i /opt/FDMR-Monitor/fdmr-mon.cfg
+
+sed '45 a   $cd1 = strtolower($config["GLOBAL"]["COLOR_1"]);' -i /var/www/html/include/config.php  
+sed '46 a   $cd2 = strtolower($config["GLOBAL"]["COLOR_2"]);' -i /var/www/html/include/config.php  
+sed '47 a   $cd3 = strtolower($config["GLOBAL"]["COLOR_TEXT"]);' -i /var/www/html/include/config.php 
+sed '48 a   $cd3 = strtolower($config["GLOBAL"]["COLOR_TEXT"]);' -i /var/www/html/include/config.php
+sed '49 a   $cd4 = strtolower($config["GLOBAL"]["COLOR_BACKGROUND"]);' -i /var/www/html/include/config.php 
+
+sed '66 a   } elseif ($theme == "pro") {' -i /var/www/html/include/config.php  
+sed '67 a     $tc = "background-image: linear-gradient(to bottom, $cd1 0%, $cd2 100%);color:$cd3;";' -i /var/www/html/include/config.php  
+
+
 
 #
 sudo systemctl daemon-reload
