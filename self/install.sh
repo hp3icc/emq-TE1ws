@@ -59,7 +59,7 @@ EOF
 sudo sed -i "s/hotpink/#ad02fd/166"  /var/www/html/css/styles.php
 sudo sed -i "s/color:white/color:black/217"  /var/www/html/css/styles.php
 sudo sed -i "251d" /var/www/html/css/styles.php
-sed '250 a    <?php echo THEME_COLOR."\n";?>' -i /var/www/html/css/styles.php
+sed '250 a    <?php echo THEME_COLOR."\\n";?>' -i /var/www/html/css/styles.php
 
 sed '21 a # For custom color, select: pro' -i /opt/FDMR-Monitor/fdmr-mon.cfg
 
