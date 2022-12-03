@@ -56,8 +56,8 @@ WantedBy=multi-user.target
 
 EOF
 #
-sudo sed -i "s/hotpink/#ad02fd/166"  /var/www/html/css/styles.php
-sudo sed -i "s/color:white/color:black/217"  /var/www/html/css/styles.php
+sudo sed -i '166 s/hotpink/#ad02fd/g'   /var/www/html/css/styles.php
+sudo sed -i '217 s/color:white/color:black/'  /var/www/html/css/styles.php
 sudo sed -i "251d" /var/www/html/css/styles.php
 sed '250 a    <?php echo THEME_COLOR."\\n";?>' -i /var/www/html/css/styles.php
 
