@@ -1,4 +1,6 @@
 # emq-TE1ws
+
+# Nota importante, ¡este es un script experimental modificado sin soporte! si necesita soporte, consulte el script del desarrollador original:
 ![alt text](https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/emq-TE1.png)
 
 hp3icc Proyecto Todo en uno , MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , Dvswitch, YSFReflector , YSF2DMR , HBLink3 , FreeDMR , NoIP , Dashboard Websock
@@ -222,6 +224,8 @@ Esteban Mackay Q.
 #
 
 # emq-TE1ws
+
+# Important note, this is an experimental script modified without support! if you need support, please refer to the original developer's script:
 ![alt text](https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/emq-TE1.png)
 
  hp3icc All-in-one Project, MMDVMHost, Direwolf, Multimon-ng, Ionosphere, Dvswitch, YSFReflector, YSF2DMR, HBLink3, NoIP, Dashboard Websock
