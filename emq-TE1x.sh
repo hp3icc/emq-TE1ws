@@ -205,7 +205,7 @@ cd YSF2DMR
 sudo make
 sudo make install
 sudo cp -r /opt/YSF2DMR/ /opt/YSF2DMRGW
-wget -O /opt/YSF2DMRGW/TGList-DMR.txt http://freedmr-hp.ddns.net/downloads/TGList_BM.txt
+wget http://freedmr-hp.ddns.net/downloads/TGList_BM.txt -O /opt/YSF2DMRGW/TGList-DMR.txt
 sudo chmod +x /opt/YSF2DMRGW/*
 
 sudo apt-get install zip gzip tar -y
@@ -350,7 +350,7 @@ sudo sed -i "s/Here you can place your individual Headline/pYSFReflector 3/g" /o
 sudo sed -i "s/You can also disable the complete section within the index.html by searching for \"Header-Section\"-comment-lines and remove it from the source code./YSF Reflector with APRS.fi RX-IGate/g" /opt/WSYSFDash/html/index.html
 sudo sed -i "s/Here is the place to put some nice stuff of text you want to have placed here. You can use all html you like./Python Reflector IU5JAE, emq-TE1ws Raspbian Proyect by hp3icc./g" /opt/WSYSFDash/html/index.html
 sudo sed -i "s/The image file for the logo is placed in the folder \"\/html\/img\" with the name \"logo.jpg\" - feel free to replace it with yours or replace the URL for the image with your own./ /g" /opt/WSYSFDash/html/index.html
-wget -O /opt/WSYSFDash/html/img/logo.jpg https://cdn-bio.qrz.com/c/hp3icc/ysf_logo_sq_243px.jpg
+wget https://cdn-bio.qrz.com/c/hp3icc/ysf_logo_sq_243px.jpg -O /opt/WSYSFDash/html/img/logo.jpg
 
 #
 cat > /lib/systemd/system/http.server-ysf.service <<- "EOF"
@@ -394,7 +394,7 @@ WantedBy=multi-user.target
 
 EOF
 #
-wget -O /opt/MMDVMHost-Websocketboard/html/data/TG_List.csv https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv -O /opt/MMDVMHost-Websocketboard/html/data/TG_List.csv
 #
 cat > /lib/systemd/system/rebooter1.service  <<- "EOF"
 [Unit]
@@ -1756,17 +1756,17 @@ sudo sed -i 's/www\/html/www\/dvs/g' /var/lib/dpkg/info/dvswitch*
 sudo sed -i "s/Language=en_US/Language=es_ES/g" /opt/NXDNGateway/NXDNGateway.ini
 sudo sed -i "s/Language=en_US/Language=es_ES/g" /opt/P25Gateway/P25Gateway.ini 
 ####
-wget -O /lib/systemd/system/analog_bridge.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/analog_bridge.service
-wget -O /lib/systemd/system/mmdvm_bridge.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/mmdvm_bridge.service
-wget -O /lib/systemd/system/ysfgateway.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ysfgateway.service
-wget -O /lib/systemd/system/ysfparrot.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ysfparrot.service
-wget -O /lib/systemd/system/nxdngateway.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/nxdngateway.service
-wget -O /lib/systemd/system/nxdnparrot.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/nxdnparrot.service
-wget -O /lib/systemd/system/p25gateway.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/p25gateway.service
-wget -O /lib/systemd/system/p25parrot.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/p25parrot.service
-wget -O /lib/systemd/system/quantar_bridge.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/quantar_bridge.service
-wget -O /lib/systemd/system/ircddbgatewayd.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ircddbgatewayd.service
-wget -O /lib/systemd/system/md380-emu.service https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/md380-emu.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/analog_bridge.service -O /lib/systemd/system/analog_bridge.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/mmdvm_bridge.service -O /lib/systemd/system/mmdvm_bridge.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ysfgateway.service -O /lib/systemd/system/ysfgateway.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ysfparrot.service -O /lib/systemd/system/ysfparrot.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/nxdngateway.service -O /lib/systemd/system/nxdngateway.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/nxdnparrot.service -O /lib/systemd/system/nxdnparrot.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/p25gateway.service -O /lib/systemd/system/p25gateway.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/p25parrot.service -O /lib/systemd/system/p25parrot.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/quantar_bridge.service -O /lib/systemd/system/quantar_bridge.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ircddbgatewayd.service -O /lib/systemd/system/ircddbgatewayd.service
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/md380-emu.service -O /lib/systemd/system/md380-emu.service
 #
 cat > /opt/MMDVM_Bridge/MMDVM_Bridge.ini  <<- "EOF"
 [General]
@@ -1964,10 +1964,10 @@ then
 fi
 # Generate new file
 sh /opt/XLXHostsupdate.sh
-wget -O /opt/MMDVMHost/NXDN.csv https://www.radioid.net/static/nxdn.csv
-wget -O /opt/YSFGateway2/YSF_Hosts.txt wget http://www.pistar.uk/downloads/YSF_Hosts.txt
-wget -O /opt/YSFGateway2/FCS_Hosts.txt wget http://www.pistar.uk/downloads/FCS_Hosts.txt
-wget -O /opt/YSF2DMRGW/TGList-DMR.txt http://freedmr-hp.ddns.net/downloads/TGList_BM.txt
+wget https://www.radioid.net/static/nxdn.csv -O /opt/MMDVMHost/NXDN.csv
+wget http://www.pistar.uk/downloads/YSF_Hosts.txt -O /opt/YSFGateway2/YSF_Hosts.txt
+wget http://www.pistar.uk/downloads/FCS_Hosts.txt -O /opt/YSFGateway2/FCS_Hosts.txt
+wget http://freedmr-hp.ddns.net/downloads/TGList_BM.txt -O /opt/YSF2DMRGW/TGList-DMR.txt
 curl ${DATABASEURL} 2>/dev/null | sed -e 's/\t//g' | awk -F"," '/,/{gsub(/ /, "", $2); printf "%s\t%s\t%s\n", $1, $2, $3}' | sed -e 's/\(.\) .*/\1/g' > ${DMRIDPATH}/DMRIds.tmp
 NUMOFLINES=$(wc -l ${DMRIDPATH}/DMRIds.tmp | awk '{print $1}')
 if [ $NUMOFLINES -gt 1 ]
@@ -2161,8 +2161,8 @@ then
 fi
 # Generate new file
 sh /opt/XLXHostsupdate.sh
-wget -O /opt/MMDVMHost/NXDN.csv https://www.radioid.net/static/nxdn.csv
-wget -O /opt/YSF2DMRGW/TGList-DMR.txt http://freedmr-hp.ddns.net/downloads/TGList_BM.txt
+wget https://www.radioid.net/static/nxdn.csv -O /opt/MMDVMHost/NXDN.csv
+wget http://freedmr-hp.ddns.net/downloads/TGList_BM.txt -O /opt/YSF2DMRGW/TGList-DMR.txt
 sh /opt/XLXHostsupdate.sh
 curl ${DATABASEURL} 2>/dev/null | sed -e 's/\t//g' | awk -F"," '/,/{gsub(/ /, "", $2); printf "%s\t%s\t%s\n", $1, $2, $3}' | sed -e 's/\(.\) .*/\1/g' > ${DMRIDPATH}/DMRIds.tmp
 NUMOFLINES=$(wc -l ${DMRIDPATH}/DMRIds.tmp | awk '{print $1}')
@@ -2667,9 +2667,9 @@ sudo chmod +x /opt/FDMR-Monitor/install.sh
 sh /opt/FDMR-Monitor/install.sh
 sudo cat > /bin/data-id <<- "EOF"
 #!/bin/bash
-wget /opt/FDMR-Monitor/data/talkgroup_ids.json https://freedmr.cymru/talkgroups/talkgroup_ids_json.php -O
-wget /opt/FDMR-Monitor/data/subscriber_ids.csv https://database.radioid.net/static/user.csv -O
-wget /opt/FDMR-Monitor/data/peer_ids.json https://database.radioid.net/static/rptrs.json -O
+wget https://freedmr.cymru/talkgroups/talkgroup_ids_json.php -O /opt/FDMR-Monitor/data/talkgroup_ids.json
+wget https://database.radioid.net/static/user.csv -O /opt/FDMR-Monitor/data/subscriber_ids.csv
+wget  /opt/FDMR-Monitor/data/peer_ids.json
 EOF
 chmod +x /bin/data-id
 #####################
