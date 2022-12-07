@@ -758,8 +758,9 @@ done
 exit 0
 EOF
 ######
-
-cp /bin/menu /bin/MENU
+variable22=$(grep "EMQ-VER:" /opt/emq-ver | tail -c 5)
+sudo sed -i "s/R00ab/$variable22/g"  /bin/menu
+ln -s /bin/menu /bin/MENU
 chmod +x /bin/menu*
 chmod +x /bin/MENU
 
