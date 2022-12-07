@@ -3034,7 +3034,7 @@ EOF
 #
 sudo chown -R mmdvm:mmdvm /opt/MMDVMHost/MMDVMHost
 
-cp /bin/menu /bin/MENU
+ln -s /bin/menu /bin/MENU
 sudo chmod +x /bin/MENU
 sudo chmod +x /bin/menu*
 
