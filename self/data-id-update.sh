@@ -8,5 +8,5 @@ wget https://freedmr.cymru/talkgroups/users.json -O /opt/FreeDMR/subscriber_ids.
 wget https://database.radioid.net/static/rptrs.json -O /opt/FreeDMR/peer_ids.json
 EOF
 #
-chnod +x /bin/data-id
+chmod +x /bin/data-id
 
