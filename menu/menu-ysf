@@ -1,0 +1,47 @@
+at > /bin/menu-ysf <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu YSFReflector" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+1 " Editar pYSFReflector Server " \
+2 " Iniciar Reflector  " \
+3 " Detener Reflector  " \
+4 " Dashboard on  " \
+5 " Dashboard off  " \
+6 " Editar Puerto http  " \
+7 " Editar HTML  " \
+8 " Editar Dashboard  " \
+9 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /opt/pYSFReflector3/pysfreflector.ini ;;
+2)
+sudo systemctl stop YSFReflector.service && sudo systemctl start YSFReflector.service  && sudo systemctl enable YSFReflector.service ;;
+3)
+sudo systemctl stop YSFReflector.service && sudo systemctl disable YSFReflector.service  ;;
+4)
+sudo systemctl restart logtailer-ysf.service && sudo systemctl enable logtailer-ysf.service && sudo systemctl restart http.server-ysf.service && sudo systemctl enable http.server-ysf.service ;;
+5)
+sudo systemctl stop logtailer-ysf.service && sudo systemctl disable logtailer-ysf.service && sudo systemctl stop http.server-ysf.service && sudo systemctl disable http.server-ysf.service ;;
+6)
+sudo nano /lib/systemd/system/http.server-ysf.service && sudo systemctl daemon-reload ;;
+7)
+sudo nano /opt/WSYSFDash/html/index.html ;;
+8)
+nano /opt/WSYSFDash/html/js/config.js ;;
+9)
+break;
+esac
+done
+exit 0
+EOF
+#########
+chmod +x /bin/menu-ysf
