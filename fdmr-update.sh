@@ -214,6 +214,7 @@ WantedBy=multi-user.target
 
 EOF
 ##
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu/menu-fdmr)"
 sudo chmod +x /opt/FreeDMR/*.py
 sudo chmod +x /opt/FreeDMR/config/*.py
 rm /opt/FreeDMR-SAMPLE.cfg 
@@ -224,8 +225,4 @@ sudo systemctl start proxy.service
 sudo systemctl start freedmr.service
 sudo systemctl start fdmrparrot.service
 sudo systemctl restart fdmr_mon.service
-# ExecStart=/usr/bin/python3 /opt/FreeDMR/bridge_master.py -c /opt/FreeDMR/config/FreeDMR.cfg -r /opt/FreeDMR/config/rules.py
-
-# ExecStart=/usr/bin/python3 /opt/FreeDMR/playback.py -c /opt/FreeDMR/playback.cfg
-
-#  
+  
