@@ -2662,17 +2662,6 @@ cd /opt/FDMR-Monitor/
 sudo rm /opt/FDMR-Monitor/install.sh
 wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/install.sh
 sudo chmod +x /opt/FDMR-Monitor/install.sh
-#
-cat > /bin/data-id <<- "EOF"
-#!/bin/bash
-wget https://freedmr.cymru/talkgroups/talkgroup_ids_json.php -O /opt/FDMR-Monitor/data/talkgroup_ids.json
-wget https://database.radioid.net/static/user.csv -O /opt/FDMR-Monitor/data/subscriber_ids.csv
-wget https://database.radioid.net/static/rptrs.json -O /opt/FDMR-Monitor/data/peer_ids.json
-wget https://freedmr.cymru/talkgroups/talkgroup_ids_json.php -O /opt/FreeDMR/talkgroup_ids.json
-wget https://freedmr.cymru/talkgroups/users.json -O /opt/FreeDMR/subscriber_ids.csv
-wget https://database.radioid.net/static/rptrs.json -O /opt/FreeDMR/peer_ids.json
-EOF
-chmod +x /bin/data-id
 #####################
 sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/hotspot_proxy_v2.py
 sudo sed -i "s/54100/54060/g"  /opt/FreeDMR/hotspot_proxy_v2.py
@@ -3012,7 +3001,7 @@ IGTXLIMIT 6 10
 EOF
 ##############
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/shell-aprs/main/shell.sh)"
-
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/data-id-update.sh)"
 ###########
 cd /tmp/
 sudo bash -c "$(wget -O - https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/gotty.sh)"
