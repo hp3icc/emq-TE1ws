@@ -139,17 +139,7 @@ wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/install.sh
 chmod +x /opt/FDMR-Monitor/install.sh
 #
 sh /opt/FDMR-Monitor/install.sh
-#
-sudo cat > /bin/data-id <<- "EOF"
-#!/bin/bash
-wget https://freedmr.cymru/talkgroups/talkgroup_ids_json.php -O /opt/FDMR-Monitor/data/talkgroup_ids.json
-wget https://database.radioid.net/static/user.csv -O /opt/FDMR-Monitor/data/subscriber_ids.csv
-wget https://database.radioid.net/static/rptrs.json -O /opt/FDMR-Monitor/data/peer_ids.json
-EOF
-chmod +x /bin/data-id
-data-id
-#
-#####################
+######################
 sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/hotspot_proxy_v2.py
 sudo sed -i "s/54100/54060/g"  /opt/FreeDMR/hotspot_proxy_v2.py
 sudo sed -i "s/test/selfcare/g"  /opt/FreeDMR/hotspot_proxy_v2.py
