@@ -34,7 +34,7 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-sudo nano /etc/wpa_supplicant/wpa_supplicant.conf ;;
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf && sudo wpa_cli -i wlan0 reconfigure;;
 2)
 sudo iwlist wlan0 scan | grep ESSID | grep -o '"[^"]\+"' >> /tmp/ssid.txt && nano /tmp/ssid.txt && sudo rm /tmp/ssid.txt ;;
 3)
