@@ -1,0 +1,51 @@
+####menu-dw-analogo
+cat > /bin/menu-dw-analogo <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 55 11 \
+1 " Editar Direwolf Analogo " \
+2 " Iniciar APRS " \
+3 " Detener APRS " \
+4 " Compatibilidad Raspberry Zero" \
+5 " Compatibilidad Raspberry B" \
+6 " config Dashboard " \
+7 " http port Dashbord " \
+8 " Dashboard on " \
+9 " Dashbord off " \
+10 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /opt/direwolf/dw.conf;;
+2)
+sudo systemctl stop direwolf.service && sudo systemctl start direwolf.service && sudo systemctl enable direwolf.service;;
+3)
+sudo systemctl stop direwolf.service && sudo systemctl disable direwolf.service;;
+4)
+sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf1 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
+5)
+sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf2 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
+6)
+sudo nano /opt/direwolf_webstat/config.php;;
+7)
+sudo nano /lib/systemd/system/http.server-dw.service && sudo systemctl daemon-reload ;;
+8)
+sudo systemctl stop direwolf.service && cp /opt/direwolf/service2 /lib/systemd/system/direwolf.service && sudo systemctl daemon-reload && sudo systemctl start direwolf.service && sudo systemctl restart http.server-dw.service && sudo systemctl enable http.server-dw.service && sudo systemctl enable direwolf.service;;
+9)
+sudo systemctl stop direwolf.service && cp /opt/direwolf/service1 /lib/systemd/system/direwolf.service && sudo systemctl daemon-reload && sudo systemctl start direwolf.service && sudo systemctl stop http.server-dw.service && sudo systemctl disable http.server-dw.service && sudo systemctl enable direwolf.service;;
+10)
+break;
+esac
+done
+exit 0
+EOF
+##
+chmod +x /bin/menu-dw-analogo
