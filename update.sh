@@ -140,13 +140,6 @@ exit 0
 
 EOF
 ##########
-# menu list update
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu/menu)"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu/menu-fdmr)"
-######
-#sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu.sh)"
-#sudo sed -i "s/R00ab/$variable22/g"  /bin/menu
-#####
 
 chmod +x /bin/menu*
 chmod +x /tmp/menu-update
