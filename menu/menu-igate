@@ -1,0 +1,40 @@
+###########
+sudo cat > /bin/menu-igate <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "D-APRS KF7EEL / Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 16 65 7 \
+1 " Editar igate" \
+2 " Iniciar Igate " \
+3 " Detener Igate " \
+4 " Dashboard on " \
+5 " Dashboard off " \
+6 " Salir del menu " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+nano /opt/D-APRS/gps_data.cfg ;;
+2)
+sudo systemctl stop daprs.service && sudo systemctl start daprs.service && sudo systemctl enable daprs.service ;;
+3)
+sudo systemctl stop daprs.service && sudo systemctl disable daprs.service ;;
+4)
+sudo systemctl stop daprs-board.service && systemctl start daprs-board.service && sudo systemctl enable daprs-board.service ;;
+5)
+sudo systemctl stop daprs-board.service && sudo systemctl disable daprs-board.service ;;
+6)
+break;
+esac
+done
+exit 0
+EOF
+#
+###
+chmod +x /bin/menu-igate
