@@ -7,21 +7,6 @@ cd /opt/
 git clone https://gitlab.hacknix.net/hacknix/FreeDMR.git
 cd /opt/FreeDMR
 #
-sudo cat > /bin/data-id <<- "EOF"
-#!/bin/bash
-wget https://freedmr.cymru/talkgroups/talkgroup_ids_json.php -O /etc/freedmr/hbmon/data/talkgroup_ids.json
-wget https://database.radioid.net/static/user.csv -O /etc/freedmr/hbmon/data/subscriber_ids.csv
-wget https://database.radioid.net/static/rptrs.json -O /etc/freedmr/hbmon/data/peer_ids.json
-
-wget https://freedmr.cymru/talkgroups/talkgroup_ids_json.php -O /etc/freedmr/json/talkgroup_ids.json
-wget https://freedmr.cymru/talkgroups/users.json-O /etc/freedmr/json/subscriber_ids.csv
-wget https://database.radioid.net/static/rptrs.json -O /etc/freedmr/json/peer_ids.json
-
-EOF
-#
-chmod +x /bin/data-id
-data-id
-#
 mkdir config
 mkdir /var/log/FreeDMR
 chmod +x /opt/FreeDMR/install.sh
@@ -215,6 +200,8 @@ WantedBy=multi-user.target
 EOF
 ##
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu/menu-fdmr)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/data-id-update.sh)"
+data-id
 sudo chmod +x /opt/FreeDMR/*.py
 sudo chmod +x /opt/FreeDMR/config/*.py
 rm /opt/FreeDMR-SAMPLE.cfg 
