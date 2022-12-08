@@ -1,4 +1,4 @@
-at > /bin/menu-ysf2dmr <<- "EOF"
+sudo cat > /bin/menu-ysf2dmr <<- "EOF"
 #!/bin/bash
 while : ; do
 choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu YSF2DMR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
