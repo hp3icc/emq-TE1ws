@@ -168,7 +168,7 @@ sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 #sed '35 a -->' -i /var/www/html/sysinfo.php
 
 cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/html/sysinfo/
-
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu/menu-fdmr)"
 #sudo rm mon.db
 #sudo python3 mon_db.py
 sudo systemctl start proxy.service
