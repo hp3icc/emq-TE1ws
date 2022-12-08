@@ -2663,12 +2663,14 @@ sudo rm /opt/FDMR-Monitor/install.sh
 wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/install.sh
 sudo chmod +x /opt/FDMR-Monitor/install.sh
 #
-sh /opt/FDMR-Monitor/install.sh
-sudo cat > /bin/data-id <<- "EOF"
+cat > /bin/data-id <<- "EOF"
 #!/bin/bash
 wget https://freedmr.cymru/talkgroups/talkgroup_ids_json.php -O /opt/FDMR-Monitor/data/talkgroup_ids.json
 wget https://database.radioid.net/static/user.csv -O /opt/FDMR-Monitor/data/subscriber_ids.csv
-wget  /opt/FDMR-Monitor/data/peer_ids.json
+wget https://database.radioid.net/static/rptrs.json -O /opt/FDMR-Monitor/data/peer_ids.json
+wget https://freedmr.cymru/talkgroups/talkgroup_ids_json.php -O /opt/FreeDMR/talkgroup_ids.json
+wget https://freedmr.cymru/talkgroups/users.json -O /opt/FreeDMR/subscriber_ids.csv
+wget https://database.radioid.net/static/rptrs.json -O /opt/FreeDMR/peer_ids.json
 EOF
 chmod +x /bin/data-id
 #####################
