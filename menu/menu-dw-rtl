@@ -1,0 +1,54 @@
+###menu-dw-rtl
+cat > /bin/menu-dw-rtl <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu Direwolf SDR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
+1 " Editar Direwolf SDR " \
+2 " Editar RTL-SDR " \
+3 " Iniciar APRS RX-IGate " \
+4 " Detener APRS RX-IGate " \
+5 " Compatibilidad Raspberry Zero " \
+6 " Compatibilidad Raspberry Standard " \
+7 " config Dashboard " \
+8 " http port Dashbord " \
+9 " Dashboard on " \
+10 " Dashbord off " \
+11 " Menu Principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo nano /opt/direwolf/sdr.conf ;;
+2)
+sudo nano /opt/direwolf/rtl.sh ;;
+3)
+sudo systemctl stop direwolf-rtl.service && sudo systemctl start direwolf-rtl.service && sudo systemctl enable direwolf-rtl.service;;
+4)
+sudo systemctl stop direwolf-rtl.service && sudo systemctl disable direwolf-rtl.service;;
+5)
+sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf1 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
+6)
+sudo rm /usr/local/bin/direwolf && sudo cp /opt/direwolf/direwolf2 /usr/local/bin/direwolf && sudo chmod +x /usr/local/bin/direwolf;;
+7)
+sudo nano /opt/direwolf_webstat/config.php;;
+8)
+sudo nano /lib/systemd/system/http.server-dw.service && sudo systemctl daemon-reload ;;
+9)
+sudo systemctl stop direwolf-rtl.service && cp /opt/direwolf/rtl2.sh /opt/direwolf/rtl.sh && sudo chmod +x /opt/direwolf/rtl.sh && sudo systemctl start direwolf-rtl.service && sudo systemctl restart http.server-dw.service && sudo systemctl enable http.server-dw.service ;;
+10)
+sudo systemctl stop direwolf-rtl.service && cp /opt/direwolf/rtl1.sh /opt/direwolf/rtl.sh && sudo chmod +x /opt/direwolf/rtl.sh && sudo systemctl start direwolf-rtl.service && sudo systemctl stop http.server-dw.service && sudo systemctl disable http.server-dw.service ;;
+11)
+break;
+esac
+done
+exit 0
+EOF
+###
+chmod +x /bin/menu-dw-rtl
