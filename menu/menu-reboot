@@ -1,0 +1,32 @@
+cat > /bin/menu-reboot <<- "EOF"
+#!/bin/bash
+while : ; do
+choix=$(whiptail --title "Raspbian Proyect HP3ICC Esteban Mackay 73." --menu "Nota:  Reinicio automatico, verifica su conectividad a internet." 15 50 4 \
+1 " Iniciar reinicio de equipo" \
+2 " Habilitar reinicio automatico" \
+3 " Deshabilitar reinicio automatico" \
+4 " Retornar menu principal " 3>&1 1>&2 2>&3)
+exitstatus=$?
+#on recupere ce choix
+#exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "Your chosen option:" $choix
+else
+    echo "You chose cancel."; break;
+fi
+# case : action en fonction du choix
+case $choix in
+1)
+sudo reboot
+;;
+2)
+sudo systemctl start rebooter1.service && sudo systemctl enable rebooter1.service ;;
+3)
+sudo systemctl stop rebooter1.service && sudo systemctl disable rebooter1.service ;;
+4) break;
+esac
+done
+exit 0
+EOF
+##
+chmod +x /bin/menu-reboot
