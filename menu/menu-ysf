@@ -1,4 +1,4 @@
-cat > /bin/menu-ysf <<- "EOF"
+sudo cat > /bin/menu-ysf <<- "EOF"
 #!/bin/bash
 while : ; do
 choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu YSFReflector" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion" 20 50 11 \
