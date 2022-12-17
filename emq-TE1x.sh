@@ -2317,7 +2317,7 @@ sudo chmod +x /opt/FreeDMR/install.sh
 sudo chmod +x /opt/FreeDMR/*.py
 sudo cat > /opt/conf.txt <<- "EOF"
  
- [D-APRS]
+[D-APRS]
 MODE: MASTER
 ENABLED: True
 REPEAT: False
@@ -2344,7 +2344,7 @@ ALLOW_UNREG_ID: True
 PROXY_CONTROL: False
 OVERRIDE_IDENT_TG:
  
- [LINKS]
+[LINKS]
 MODE: MASTER
 ENABLED: True
 REPEAT: True
@@ -2371,7 +2371,7 @@ ALLOW_UNREG_ID: True
 PROXY_CONTROL: False
 override_ident_tg:
  
- [EchoTest]
+[EchoTest]
 MODE: PEER
 ENABLED: True
 LOOSE: True
@@ -2547,7 +2547,7 @@ sudo sed -i 's/RELOAD_TIME = 15/RELOAD_TIME = 1/' /opt/FDMR-Monitor/fdmr-mon_SAM
 #sudo cp utils/logrotate/fdmr_mon /etc/logrotate.d/
 rm /etc/logrotate.d/fdmr_mon
 rm /lib/systemd/system/fdmr_mon.service
-#sudo cp utils/systemd/fdmr_mon.service /lib/systemd/system/
+sudo cp /opt/FDMR-Monitor/utils/systemd/fdmr_mon.service /lib/systemd/system/fdmr_mon.service
 sudo sed -i 's/FREQUENCY = 10/FREQUENCY = 120/' /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 sudo chmod 644 /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 sed '33 a <!--' -i /opt/FDMR-Monitor/html/sysinfo.php
