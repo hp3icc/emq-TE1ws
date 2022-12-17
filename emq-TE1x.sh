@@ -2547,7 +2547,7 @@ sudo sed -i 's/RELOAD_TIME = 15/RELOAD_TIME = 1/' /opt/FDMR-Monitor/fdmr-mon_SAM
 #sudo cp utils/logrotate/fdmr_mon /etc/logrotate.d/
 rm /etc/logrotate.d/fdmr_mon
 rm /lib/systemd/system/fdmr_mon.service
-sudo cp /opt/FDMR-Monitor/utils/systemd/fdmr_mon.service /lib/systemd/system/fdmr_mon.service
+#sudo cp /opt/FDMR-Monitor/utils/systemd/fdmr_mon.service /lib/systemd/system/fdmr_mon.service
 sudo sed -i 's/FREQUENCY = 10/FREQUENCY = 120/' /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 sudo chmod 644 /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 sed '33 a <!--' -i /opt/FDMR-Monitor/html/sysinfo.php
@@ -2662,6 +2662,7 @@ cd /opt/FDMR-Monitor/
 sudo rm /opt/FDMR-Monitor/install.sh
 wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/install.sh
 sudo chmod +x /opt/FDMR-Monitor/install.sh
+sudo chmod +x /opt/FDMR-Monitor/*.py
 #####################
 sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/hotspot_proxy_v2.py
 sudo sed -i "s/54100/54060/g"  /opt/FreeDMR/hotspot_proxy_v2.py
