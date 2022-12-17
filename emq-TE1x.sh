@@ -2536,18 +2536,12 @@ commands="CREATE DATABASE \`${newDb}\`;CREATE USER '${newUser}'@'${host}' IDENTI
 #cho "${commands}" | /usr/bin/mysql -u root -p
 echo "${commands}" | /usr/bin/mysql -u root
 #fdmr-monitor
+#fdmr-monitor
 cd /opt
 sudo git clone https://github.com/yuvelq/FDMR-Monitor.git
 cd FDMR-Monitor
 sudo git checkout Self_Service
-sudo chmod +x install.sh
-#sudo ./install.sh
-#sudo cp fdmr-mon_SAMPLE.cfg fdmr-mon.cfg
 sudo sed -i 's/RELOAD_TIME = 15/RELOAD_TIME = 1/' /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
-#sudo cp utils/logrotate/fdmr_mon /etc/logrotate.d/
-rm /etc/logrotate.d/fdmr_mon
-rm /lib/systemd/system/fdmr_mon.service
-#sudo cp /opt/FDMR-Monitor/utils/systemd/fdmr_mon.service /lib/systemd/system/fdmr_mon.service
 sudo sed -i 's/FREQUENCY = 10/FREQUENCY = 120/' /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 sudo chmod 644 /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 sed '33 a <!--' -i /opt/FDMR-Monitor/html/sysinfo.php
@@ -2563,8 +2557,6 @@ sudo sed -i "s/HBMonv2/FDMR-Monitor/g"  /opt/FDMR-Monitor/sysinfo/*.sh
 sudo chmod +x /opt/FDMR-Monitor/sysinfo/cpu.sh
 sudo chmod +x /opt/FDMR-Monitor/sysinfo/graph.sh
 sudo chmod +x /opt/FDMR-Monitor/sysinfo/rrd-db.sh
-
-#sudo chmod +x /opt/FDMR-Monitor/updateTGIDS.sh
 #
 sudo cat > /opt/FDMR-Monitor/html/buttons.php <<- "EOF"
 <!-- HBMonitor buttons HTML code -->
@@ -2646,8 +2638,6 @@ EOF
 
 #
 
-#sudo sed -i "s/opt\/FreeDMR\/freedmr.cfg/opt\/FreeDMR\/config\/FreeDMR.cfg/g"  /opt/FDMR-Monitor/install.sh
-
 sudo systemctl daemon-reload
 
 sudo chmod +x /opt/extra-2.sh
@@ -2663,6 +2653,9 @@ sudo rm /opt/FDMR-Monitor/install.sh
 wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/install.sh
 sudo chmod +x /opt/FDMR-Monitor/install.sh
 sudo chmod +x /opt/FDMR-Monitor/*.py
+#
+sh /opt/FDMR-Monitor/install.sh
+
 #####################
 sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/hotspot_proxy_v2.py
 sudo sed -i "s/54100/54060/g"  /opt/FreeDMR/hotspot_proxy_v2.py
