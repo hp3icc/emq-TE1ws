@@ -642,8 +642,7 @@ Restart=always
 RestartSec=3
 StandardOutput=null
 WorkingDirectory=/opt/MMDVMHost
-#ExecStartPre=/bin/sleep 10
-ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
+#ExecStartPre=/bin/sh -c 'until ping -c1 noip.com; do sleep 1; done;'
 ExecStart=/opt/MMDVMHost/MMDVMHost /opt/MMDVMHost/MMDVM.ini
 ExecStop=/usr/bin/screen -S MMDVMHost -X quit
 
@@ -1036,19 +1035,19 @@ Enable=1
 #########################################################
 #       Gateway   -    Multiples Server - DMRGateway    #
 #########################################################
-Type=Gateway
-LocalAddress=127.0.0.1
-LocalPort=62034
-RemoteAddress=127.0.0.1
-RemotePort=62033
+#Type=Gateway
+#LocalAddress=127.0.0.1
+#LocalPort=62034
+#RemoteAddress=127.0.0.1
+#RemotePort=62033
 #
 #########################################################
 #       Direct    -     single server                   #
 #########################################################
-#Type=Direct
-#RemoteAddress=198.211.36.245
-#RemotePort=62031
-#Password=passw0rd
+Type=Direct
+RemoteAddress=198.211.36.245
+RemotePort=62031
+Password=passw0rd
 #
 #########################################################
 Jitter=500
@@ -1057,7 +1056,7 @@ Slot2=1
 # No active linea de Option para TG estaticos, si utiliza BM,TGIF,DMR-Central
 # Puede activar linea de option de selfcare FDMR-Mon y colocar su propia contraseña o 
 # utilizar linea de options con opciones de tg estaticos
-#Options=PASS=abc123
+Options=PASS=abc123
 #Options=TS2=714,7144;DIAL=0;VOICE=0;LANG=es_ES;SINGLE=0;TIMER=10;
 # ModeHang=3
 Debug=0
@@ -1269,7 +1268,7 @@ Module=A
 # BrandMeister
 [DMR Network 1]
 #Id=000000000
-Enabled=1
+Enabled=0
 Name=BrandMeister
 Address=3021.master.brandmeister.network
 Port=62031
@@ -1284,7 +1283,7 @@ Debug=0
 # FreeDMR
 [DMR Network 2]
 #Id=000000000
-Enabled=1
+Enabled=0
 Name=FreeDMR
 TGRewrite0=2,2000001,2,1,999999
 PCRewrite=2,2000001,2,1,999999
@@ -1302,7 +1301,7 @@ Debug=0
 # TGIF Network
 [DMR Network 3]
 #Id=000000000
-Enabled=1
+Enabled=0
 Name=TGIF_Network
 TGRewrite0=2,3000001,2,1,999999
 PCRewrite=2,3000001,2,1,999999
@@ -1316,7 +1315,7 @@ Debug=0
 # DMR Central
 [DMR Network 4]
 #Id=000000000
-Enabled=1
+Enabled=0
 Name=DMR Central
 Address=dmr.pa7lim.nl
 Port=55555
@@ -1330,7 +1329,7 @@ Debug=0
 # FreeStar Network
 [DMR Network 5]
 #Id=000000000
-Enabled=1
+Enabled=0
 Name=FreeStar
 Address=es.freestar.network
 Port=62031
@@ -1502,7 +1501,7 @@ Id=000000000
 StartupDstId=9
 # For TG call: StartupPC=0
 StartupPC=0
-Address=freedmr-hp.ddns.net
+Address=198.211.36.245
 Port=62031
 Jitter=500
 EnableUnlink=0
