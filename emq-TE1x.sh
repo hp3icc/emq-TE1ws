@@ -329,6 +329,7 @@ sudo chmod +x /opt/WSYSFDash/logtailer.py
 sudo chown -R root /opt/WSYSFDash
 
 #
+sudo sed -i "s/switch theme<\/a><\/span>.*/switch theme<\/a> | <a title=\"Raspbian Proyect by HP3ICC © <?php \$cdate=date(\"Y\"); if (\$cdate > \"2018\") {\$cdate=\"2018-\".date(\"Y\");} echo \$cdate; ?>\" target=\"_blank\" href=https:\/\/github.com\/hp3icc\/emq-TE1ws\/>Proyect: emq-TE1ws<\/a><\/span>/g" /opt/WSYSFDash/html/index.html
 sudo sed -i "s/connectedsincecol = 1;/connectedsincecol = 0;/g" /opt/WSYSFDash/html/js/config.js
 sudo sed -i "s/\/usr\/local\/bin\/YSFReflector/\/opt\/pYSFReflector3\/YSFReflector/g" /opt/WSYSFDash/logtailer.ini
 sudo sed -i "s/Filerotate=True/Filerotate=False/g" /opt/WSYSFDash/logtailer.ini
@@ -1748,6 +1749,7 @@ sudo sed -i "s/RptPort=3200/RptPort=3230/g" /opt/YSFGateway/YSFGateway.ini
 sudo sed -i "s/LocalPort=4200/LocalPort=4230/g" /opt/YSFGateway/YSFGateway.ini
 sudo mkdir /var/www/dvs
 sudo mv /var/www/html/* /var/www/dvs/
+sudo sed -i "s/<br>Dashboard based on Pi-Star Dashboard, © Andy Taylor.*/<br>Dashboard based on Pi-Star Dashboard, © Andy Taylor (MW0MWZ) and adapted to DVSwitch by SP2ONG<br> <a title=\"Raspbian Proyect by HP3ICC © <?php \$cdate=date(\"Y\"); if (\$cdate > \"2018\") {\$cdate=\"2018-\".date(\"Y\");} echo \$cdate; ?>\" target=\"_blank\" href=https:\/\/github.com\/hp3icc\/emq-TE1ws\/>Proyect: emq-TE1ws<\/a><\/span><\/center>/" /var/www/dvs/index.php
 sudo sed -i 's/www\/html/www\/dvs/g' /usr/local/sbin/update-config.sh
 sudo sed -i 's/www\/html/www\/dvs/g' /var/lib/dpkg/info/dvswitch*
 
