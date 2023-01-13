@@ -2661,6 +2661,8 @@ sudo chmod +x /opt/FDMR-Monitor/*.py
 sh /opt/FDMR-Monitor/install.sh
 
 #####################
+sudo sed -i "s/Copyright (c) 2016-.*/Copyright (c) <?php \$cdate=date(\"Y\"); if (\$cdate > \"2016\") {\$cdate=\"2016-\".date(\"Y\");} echo \$cdate; ?><br>/g" /var/www/html/*.php
+sudo sed -i "s/All rights reserved.<br>.*/All rights reserved.<br><a title=\"Raspbian Proyect by HP3ICC © <?php \$cdate=date(\"Y\"); if (\$cdate > \"2018\") {\$cdate=\"2018-\".date(\"Y\");} echo \$cdate; ?>\" target=\"_blank\" href=https:\/\/github.com\/hp3icc\/emq-TE1ws\/>Proyect: emq-TE1ws<\/a><br>/g" /var/www/html/*.php
 sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/hotspot_proxy_v2.py
 sudo sed -i "s/54100/54060/g"  /opt/FreeDMR/hotspot_proxy_v2.py
 sudo sed -i "s/test/selfcare/g"  /opt/FreeDMR/hotspot_proxy_v2.py
