@@ -221,6 +221,7 @@ WantedBy=multi-user.target
 EOF
 #
 sudo sed -i "s/Copyright (c) 2016-.*/Copyright (c) <?php \$cdate=date(\"Y\"); if (\$cdate > \"2016\") {\$cdate=\"2016-\".date(\"Y\");} echo \$cdate; ?><br>/g" /var/www/html/*.php
+sudo sed -i "s/meta name=\"description.*/meta name=\"description\" content=\"Copyright (c) 2016-22.The Regents of the K0USY Group. All rights reserved. Version OA4DOA 2022 (v270422)\">/g" /var/www/html/*.php
 sudo sed -i '166 s/hotpink/#ad02fd/g'   /var/www/html/css/styles.php
 sudo sed -i '217 s/color:white/color:black/'  /var/www/html/css/styles.php
 sudo sed -i "251d" /var/www/html/css/styles.php
