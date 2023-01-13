@@ -271,6 +271,8 @@ sudo sed -i 's/Filerotate=True/Filerotate=False/' /opt/MMDVMHost-Websocketboard/
 sudo sed -i 's/etc\/MMDVM/opt\/MMDVMHost/' /opt/MMDVMHost-Websocketboard/logtailer.ini
 sudo sed -i 's/usr\/local\/bin/opt\/MMDVMHost/' /opt/MMDVMHost-Websocketboard/logtailer.ini
 sudo sed -i 's/Prefix=MMDVM/Prefix=MMDVMH/' /opt/MMDVMHost-Websocketboard/logtailer.ini
+variable2=$(date +'%Y' | tail -c 5)
+sudo sed -i "s/switch theme.*/switch theme<\/a><\/span>  <\/div> <p style=\"text-align: center;\"><span class=\"text-muted\"><a title=\"Raspbian Proyect by HP3ICC © 2018-$variable2\" target=\"_blank\" href=https:\/\/github.com\/hp3icc\/emq-TE1ws\/>Proyect: emq-TE1ws<\/a><\/span>/g" /opt/MMDVMHost-Websocketboard/html/index.html
 #
 cd /opt/MMDVMHost-Websocketboard/html/
 sudo sed -i 's/5678/5679/' /opt/MMDVMHost-Websocketboard/html/index.html
@@ -329,7 +331,8 @@ sudo chmod +x /opt/WSYSFDash/logtailer.py
 sudo chown -R root /opt/WSYSFDash
 
 #
-sudo sed -i "s/switch theme<\/a><\/span>.*/switch theme<\/a> | <a title=\"Raspbian Proyect by HP3ICC © <?php \$cdate=date(\"Y\"); if (\$cdate > \"2018\") {\$cdate=\"2018-\".date(\"Y\");} echo \$cdate; ?>\" target=\"_blank\" href=https:\/\/github.com\/hp3icc\/emq-TE1ws\/>Proyect: emq-TE1ws<\/a><\/span>/g" /opt/WSYSFDash/html/index.html
+variable2=$(date +'%Y' | tail -c 5)
+sudo sed -i "s/switch theme.*/switch theme<\/a><\/span>  <\/div> <p style=\"text-align: center;\"><span class=\"text-muted\"><a title=\"Raspbian Proyect by HP3ICC © 2018-$variable2\" target=\"_blank\" href=https:\/\/github.com\/hp3icc\/emq-TE1ws\/>Proyect: emq-TE1ws<\/a><\/span>/g" /opt/WSYSFDash/html/index.html
 sudo sed -i "s/connectedsincecol = 1;/connectedsincecol = 0;/g" /opt/WSYSFDash/html/js/config.js
 sudo sed -i "s/\/usr\/local\/bin\/YSFReflector/\/opt\/pYSFReflector3\/YSFReflector/g" /opt/WSYSFDash/logtailer.ini
 sudo sed -i "s/Filerotate=True/Filerotate=False/g" /opt/WSYSFDash/logtailer.ini
