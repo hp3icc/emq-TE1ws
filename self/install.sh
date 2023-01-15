@@ -5,7 +5,7 @@ cd /opt/FDMR-Monitor/
 apt install python3 python3-pip python3-dev libffi-dev libssl-dev cargo sed \
 default-libmysqlclient-dev build-essential -y
 pip3 install -r requirements.txt
-
+pip install pyopenssl --upgrade
 cd /opt/FDMR-Monitor/
 cp /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg /opt/FDMR-Monitor/fdmr-mon.cfg
 cd /opt/FreeDMR/
