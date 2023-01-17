@@ -2375,7 +2375,7 @@ ALLOW_UNREG_ID: True
 PROXY_CONTROL: False
 override_ident_tg:
  
-[ECHO]
+[EchoTest]
 MODE: PEER
 ENABLED: True
 LOOSE: True
@@ -2680,7 +2680,7 @@ sudo cat > /opt/FreeDMR/config/rules.py <<- "EOF"
 BRIDGES = {
  
  '9990': [ 
-        {'SYSTEM': 'ECHO',              'TS': 2, 'TGID': 9990, 'ACTIVE':True, 'TIMEOUT': 0, 'TO_TYPE': 'NONE', 'ON': [9990], 'OFF': [], 'RESET': []}, 
+        {'SYSTEM': 'EchoTest',              'TS': 2, 'TGID': 9990, 'ACTIVE':True, 'TIMEOUT': 0, 'TO_TYPE': 'NONE', 'ON': [9990], 'OFF': [], 'RESET': []}, 
         ],
   
   
@@ -2693,7 +2693,24 @@ if __name__ == '__main__':
   
  
 EOF
-###################
+####
+sudo cat > /opt/rules.txt <<- "EOF"
+BRIDGES = {
+ 
+ '9990': [ 
+        {'SYSTEM': 'EchoTest',              'TS': 2, 'TGID': 9990, 'ACTIVE':True, 'TIMEOUT': 0, 'TO_TYPE': 'NONE', 'ON': [9990], 'OFF': [], 'RESET': []}, 
+        ],
+  
+  
+  
+}
+if __name__ == '__main__':
+    from pprint import pprint
+    pprint(BRIDGES)
+  
+ 
+EOF
+###############
 sudo timedatectl set-timezone America/Panama
 #####
 sudo cat > /boot/wpa_supplicant.conf <<- "EOF"
