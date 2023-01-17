@@ -2375,47 +2375,39 @@ ALLOW_UNREG_ID: True
 PROXY_CONTROL: False
 override_ident_tg:
  
-[EchoTest]
+[ECHO]
 MODE: PEER
 ENABLED: True
 LOOSE: True
 EXPORT_AMBE: False
-IP: 
-#127.0.0.1
+IP: 127.0.0.1
 PORT: 49060
 MASTER_IP: 127.0.0.1
 MASTER_PORT: 49061
 PASSPHRASE: passw0rd
-CALLSIGN: ECHOTEST
+CALLSIGN: ECHO
 RADIO_ID: 9990
 RX_FREQ: 449000000
 TX_FREQ: 444000000
 TX_POWER: 25
 COLORCODE: 1
-SLOTS: 3
-LATITUDE: 38.0000
-LONGITUDE: -095.0000
-HEIGHT: 75
+SLOTS: 1
+LATITUDE: 00.0000
+LONGITUDE: 000.0000
+HEIGHT: 0
 LOCATION: Local Parrot
-DESCRIPTION: This is a cool repeater
-URL: www.w1abc.org
+DESCRIPTION: ECHO
+URL: www.freedmr.uk
 SOFTWARE_ID: 20170620
-PACKAGE_ID: MMDVM_HBlink
-GROUP_HANGTIME: 3
-OPTIONS:
-#TS2=9990;DIAL=0;VOICE=0;TIMER=0
+PACKAGE_ID: MMDVM_FreeDMR
+GROUP_HANGTIME: 5
+OPTIONS:TS2=9990;
 USE_ACL: True
 SUB_ACL: DENY:1
-TGID_TS1_ACL: DENY:ALL
-TGID_TS2_ACL: PERMIT:9990
-TS1_STATIC:
-TS2_STATIC:9990
-DEFAULT_REFLECTOR: 0
-ANNOUNCEMENT_LANGUAGE: en_GB
-GENERATOR: 0
-DEFAULT_UA_TIMER: 999
-SINGLE_MODE: True
-VOICE_IDENT: False
+TGID_TS1_ACL: PERMIT:ALL
+TGID_TS2_ACL: PERMIT:ALL
+ANNOUNCEMENT_LANGUAGE: es_ES
+
  
  
 EOF
@@ -2686,36 +2678,18 @@ systemctl disable apache2
 #########
 sudo cat > /opt/FreeDMR/config/rules.py <<- "EOF"
 BRIDGES = {
-
+ 
  '9990': [ 
-	{'SYSTEM': 'EchoTest', 		'TS': 2, 'TGID': 9990, 'ACTIVE':True, 'TIMEOUT': 0, 'TO_TYPE': 'NONE', 'ON': [], 'OFF': [], 'RESET': []}, 
-
-	],
-
-
-
+        {'SYSTEM': 'ECHO',              'TS': 2, 'TGID': 9990, 'ACTIVE':True, 'TIMEOUT': 0, 'TO_TYPE': 'NONE', 'ON': [9990], 'OFF': [], 'RESET': []}, 
+        ],
+  
+  
+  
 }
 if __name__ == '__main__':
     from pprint import pprint
     pprint(BRIDGES)
 
-EOF
-#######
-sudo cat > /opt/rules.txt <<- "EOF"
- BRIDGES = {
- 
- '9990': [ 
-{'SYSTEM': 'EchoTest',          'TS': 2, 'TGID': 9990, 'ACTIVE':True, 'TIMEOUT': 0, 'TO_TYPE': 'NONE', 'ON': [], 'OFF': [], 'RESET': []}, 
- 
-],
- 
- 
- 
-}
-if __name__ == '__main__':
-    from pprint import pprint
-    pprint(BRIDGES)
- 
   
  
 EOF
