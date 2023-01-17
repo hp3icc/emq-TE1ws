@@ -68,7 +68,7 @@ ALLOW_UNREG_ID: True
 PROXY_CONTROL: False
 override_ident_tg:
 
-[ECHO]
+[EchoTest]
 MODE: PEER
 ENABLED: True
 LOOSE: True
