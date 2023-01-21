@@ -1,6 +1,6 @@
 # emq-TE1ws
 
-# Nota importante, ¡este es un script experimental modificado sin soporte! si necesita soporte, consulte el script del desarrollador original:
+# Nota importante, scrip no oficial de auto instalacion de diferentes aplicaciones  , consulte abajo los link para para utilizar los modos oficiales de instalacion y soporte de las diferentes aplicaciones
 ![alt text](https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/emq-TE1.png)
 
 hp3icc Proyecto Todo en uno , MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , Dvswitch, YSFReflector , YSF2DMR , HBLink3 , FreeDMR , NoIP , Dashboard Websock
@@ -213,6 +213,35 @@ Cada tg almacenado en nuestros radios debe completar 6 digitos y estar precesido
 
 #
 
+# Links:
+
+Direwolf : https://github.com/wb2osz/direwolf
+
+Muntimon-NG : https://github.com/EliasOenal/multimon-ng
+
+Ionosphere : https://github.com/cceremuga/ionosphere
+
+MMDVMHost : https://github.com/g4klx/MMDVMHost
+
+DMRGateway : https://github.com/g4klx/DMRGateway
+
+pYSFReflector : https://github.com/iu5jae/pYSFReflector3
+
+YSF2DMR : https://github.com/juribeparada/MMDVM_CM
+
+Dvswitch : https://dvswitch.groups.io/g/main?
+
+FreeDMR : https://gitlab.hacknix.net/hacknix/FreeDMR/-/wikis/Installing-using-Docker-(recommended!)
+
+FDMR-Monitor : https://github.com/yuvelq/FDMR-Monitor/tree/Self_Service
+
+NoIP : https://www.noip.com/
+
+GoTTY : https://github.com/yudai/gotty/
+
+
+#
+
 Exitos en sus proyectos con raspberry 
 
 HP3ICC
@@ -221,230 +250,4 @@ Esteban Mackay Q.
 
 73.
 
-#
-
-# emq-TE1ws
-
-# Important note, this is an experimental script modified without support! if you need support, please refer to the original developer's script:
-![alt text](https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/emq-TE1.png)
-
- hp3icc All-in-one Project, MMDVMHost, Direwolf, Multimon-ng, Ionosphere, Dvswitch, YSFReflector, YSF2DMR, HBLink3, NoIP, Dashboard Websock
-
- Html dashboard over websock, GPSD support, CM108.
-
- Continuously all the content published here is updated, if you are looking through a shared link, go to the main link:
- 
- https://github.com/hp3icc/emq-TE1ws
- 
- * Last revision: emq-TE1ws-Rev21 01/08/2023 
-
-   Raspberry OS Lite Based on Debian version 11 (bullseye) 2022-09-22
-   
-   Linux kernel 5.15
-   
-#
-
-The All-in-one project (emq-TE1ws), is a compilation that brings together applications from different developers, focused on the use of radio amateurs. Improvements and updates are constantly being worked on, as the developers of the included applications release new versions.
-
-All the applications compiled in this image are 100% operational, you just have to configure their parameters and start the applications you want to use, according to the capacity and availability of your hardware.
-
-Any information on how to configure its parameters in the different applications compiled in this image should be directed to the different support sites of each application or developer.
-
-Special thanks to the colleague and friend TI4OP Oscar, for his contributions and reviews of the scripts, for the creation of the installation Bash of this image.
-
-#
-
-List of amateur radio applications, including image and installation attempt:
-
- Direwolf 
-
-Muntimon-NG 
-
-Ionosphere
-
-MMDVMHost
-
-DMRGateway
-
-pYSFReflector 
-
-YSF2DMR
-
-Dvswitch 
-
-FreeDMR
-
-FDMR-Monitor
-
-NoIP
-
-GoTTY
-
-Reuter WiFi-AP (optional Reuter wifi AP mode version)
- 
- 
- This version has HTML Dashboard running on websock, for the MMDVMHost and YSF Reflector, they are preconfigured to http port 80, but from the menu you can change to port 8000, 8080, or any other of your preference.
-
- Libraries and gps and GPSD application is added
-
- Added worldwide list of TG names from DMR brandmeister network.
-
- A list of room names of the Treehouse EUROPELINK Project is added according to the corresponding DG-ID.
-
- Raspberry pi compatible: zero, P2, P3 and P4
-
- #
-
-# Download micro sd image for Raspberry:
-
- If you have raspbery equipment, you can download and use the preconfigured image ready to load into your micro sd memory, for this you just need to download the preconfigured image file for raspberry, unzip the .zip file and load it into your micro sd memory using tools such as BalenaEtcher, Rufus or any other tool to load the .img file to the micro sd memory.
-
-  You can download the raspberry image from any of the following links:
-
-
-   Image for raspberry, emq-TE1 project - recommended for any Raspberry : Zero, Zero W, Zero2, Zero2 W, Zero-2,  B2, B3, B3+, PI4
-
- * <p><a href="https://drive.google.com/u/0/uc?id=17DzFy8i-S1ISvr08QnI8rO7uEUov6K-4&export=download&confirm=t&uuid=4329f6b0-353d-44d1-b08b-2715faa32981" target="_blank">Download</a> image Raspberry&nbsp;</p>
-
- #
-
-# Installation from terminal:
-
-You can install on your operating system (Ubuntu, raspberry, Debian) using the self-install Bash from your terminal console with super user permissions, importantly your operating system must have sudo and curl installed before using the self-install Bash. 
-
-* Prerequisites:
- 
- curl
- 
- sudo
-
-* Self-install bash:
-
-       sh -c "$(curl -fsSL https://github.com/hp3icc/emq-TE1ws/raw/main/emq-TE1x.sh)"
-
-
-#
-
- # Setting
-
- You can configure from terminal console, ssh client application or use your Web browser port 8022, entering the local ip of your raspberry or hostname.
-
- Example: 
-
- * 10.0.0.1:8022/  
-
- * emq-te1: 8022 / 
-
- User: pi
-
- Password: Panama507
-
-
-If you are configuring from terminal or ssh client, once logged in, write the word: menu
-
-In this way you will access the list of applications included in the compilation and their configurations, remember to save the changes with the key combination: Ctrl + X, then start or stop the already configured application.
-
-As of version 12d, the automatic restart function of the equipment is added, this is possible by means of a ping test to the internet every 1 minute, this function is off, if you want to use, enter the equipment restart menu and enable
-
-If you want to enable more than one Dashboard at the same time, remember to change the ports to avoid conflicts, for this this option is included in the menu of :
-
-* pYSFReflector  
-* MMDVMHost
-* Dvswitch
-* FreeDMR
-
- # Important note
- 
- * If you use the pre-compiled image for Raspberry, remember to change the password to one of your preference.
-
-#
-
- # WIFI 
-
-If your computer has a wireless network device (WIFI) or is a Raspberry Zero W model, after having recorded the image in the microSD memory with the Rufus tool, Balena or another application, copy the wpa_supplicant.conf file to the partition with the name boot on your microSD memory.
- You can download the wpa_supplicant.conf file from the following link:
- 
- <p><a href="http://wpa.ddns.net/" target="_blank">wpasupplicant.conf generator</a>
-
-You can add as many Wi-Fi networks as necessary, using the Add Network button.
-
- When you have added all the Wi-Fi networks that you will use in the wpasupplicant generator, click the Donwload wpa_supplicant.conf button, copy the downloaded file to the boot partition of the micro sd memory.
-
- With this procedure you can now use your raspberry in any of the configured Wi-Fi networks.
-
- #
- 
- # Reuter WiFi-AP
-
- Now the emq-TE1ws project includes the function of ap mode to our equipment, this function allows us to use our Raspberry mini computer as a WiFi reuter or if we have a hotspot or aprs on raspberry zero W, it facilitates the connection to our equipment, to add a new connection to known Wi-Fi networks.
-
- The WiFi-AP function can be turned on or off in the Wi-Fi menu.
-
- To connect to your computer, select the Wi-Fi network with the name:
-
- emq-TE1-AP
-
- password for your wifi connection:
-
- Panama507
-
- To change the name and password of your WiFi-AP, enter the edit wifi menu, then edit WiFi AP, and replace the current name in the line ssid =:
-
- ssid = HP3ICC-1HS
-
- The password must be entered in hexadecimal format, replacing the current one that is in the wpa_psk = line:
-
- wpa_psk = cdfce0488f50bac6d77d911e44b33d5c9c7652dc7c7f81c6489bac8a683e04a1
-
- To generate your password correctly in hexadecimal format, it is the calculation between the ssid and your alphanumeric password, you can use the following link, entering your data and then click on generate:
-
- http://jorisvr.nl/wpapsk.html
-
- * Note:
-
-   To enable Reuter wifi Ap mode, go to upgrade menu, then update list and select upgrade to Reuter AP mode.
-   
- #
-
-# DMRGateway
-
-DMRGateway allows to have our hotspot , dmo , or dmr repeater; connected to more than one network in the dmr mode, for this it is necessary to select the Gateway connection in the mmdvmhost configuration, and in the radios the tg numbers must be reconfigured according to the network to be used.
-
-DMRGateway is configured to support tg numbers up to 6 digits, if the tg number to use has less than 6 digits, you must fill in zeros up to 6 digits.
-
-Each DMR server connected to DMRGateway has a number from 1 to 5, which identifies it and differentiates it according to the network to be used, and they are distributed as follows:
-
-1 Fire Chief
-
-2 FreeDMR
-
-3 TGif Network
-
-4 Central DMR
-
-5 Freestar
-
-Each tg that we use in our radios must comply with 6 digits and be accompanied by the server number through which our transmission must be sent.
-
-Example of tg configuration in your radios for different networks:
-
-TG Network TG Name DMRGateway
-
-714 FreeDMR Panama 2000714
-
-7144 FreeDMR CHIRIQUI LINK 2007144
-
-2147 DMR Central Regional-EA7 4002147
-
-Each tg stored in our radios must complete 6 digits and be preceded by the number of the dmr server to use, when internet transmissions are received to our hotspot, they will be received in the same way, 6 digits plus the network number that we are receiving. 
-
-#
-
- Successes in your projects with raspberry 
-
- HP3ICC
- 
- Esteban Mackay Q.
- 
- 73.
 #
