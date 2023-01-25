@@ -1,5 +1,6 @@
 #! /bin/bash
-
+sudo sed -i "s/www\/html/www\/fdmr/g" /opt/FDMR-Monitor/html/*.*
+sudo sed -i "s/www\/html/www\/fdmr/g" /opt/FDMR-Monitor/sysinfo/*.*
 # Install the required support programs
 cd /opt/FDMR-Monitor/
 apt install python3 python3-pip python3-dev libffi-dev libssl-dev cargo sed \
