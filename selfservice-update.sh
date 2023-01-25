@@ -14,8 +14,6 @@ sudo git clone https://github.com/hp3icc/FDMR-Monitor.git
 cd FDMR-Monitor
 sudo git checkout Self_Service
 sudo chmod +x install.sh
-sudo sed -i "s/www\/html/www\/fdmr/g" /opt/FDMR-Monitor/html/*.*
-sudo sed -i "s/www\/html/www\/fdmr/g" /opt/FDMR-Monitor/sysinfo/*.*
 #sudo ./install.sh
 #sudo cp fdmr-mon_SAMPLE.cfg fdmr-mon.cfg
 sudo sed -i 's/RELOAD_TIME = 15/RELOAD_TIME = 1/' /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
