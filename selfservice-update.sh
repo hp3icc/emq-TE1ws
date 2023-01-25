@@ -27,11 +27,7 @@ sed '33 a <!--' -i /opt/FDMR-Monitor/html/sysinfo.php
 sed '35 a -->' -i /opt/FDMR-Monitor/html/sysinfo.php
 ####
 sudo sed -i 's/localhost_2-day.png/localhost_1-day.png/' /opt/FDMR-Monitor/html/sysinfo.php
-cd /var/www/html/sysinfo/
-#sudo sed -i 's/var\/www\/html/opt\/FDMR-Monitor\/html/' cpu.sh
-#sudo sed -i 's/var\/www\/html/opt\/FDMR-Monitor\/html/' graph.sh
 sudo sed -i "s/HBMonv2/FDMR-Monitor/g"  /opt/FDMR-Monitor/sysinfo/*.sh
-
 
 sudo chmod +x /opt/FDMR-Monitor/sysinfo/cpu.sh
 sudo chmod +x /opt/FDMR-Monitor/sysinfo/graph.sh
