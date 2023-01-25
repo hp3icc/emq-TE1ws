@@ -20,7 +20,14 @@ cp /opt/FDMR-Monitor/proxy/proxy_db.py /opt/FreeDMR/proxy_db.py
       
 cd /opt/FDMR-Monitor/
   
-sudo rm -r /var/www/fdmr/ 
+if [ -d "/var/www/fdmr" ];
+then
+   rm -r /var/www/fdmr/
+ #echo "found file"
+else
+ echo "file not found"
+
+fi
 mkdir /var/www/fdmr/ 
 cp -r /opt/FDMR-Monitor/html/* /var/www/fdmr/ 
       
