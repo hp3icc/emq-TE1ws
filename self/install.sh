@@ -19,10 +19,11 @@ cp /opt/FDMR-Monitor/proxy/proxy_db.py /opt/FreeDMR/proxy_db.py
       
 cd /opt/FDMR-Monitor/
   
-sudo rm -r /var/www/html/ 
-cp -r /opt/FDMR-Monitor/html/ /var/www/ 
+sudo rm -r /var/www/fdmr/ 
+mkdir /var/www/fdmr/ 
+cp -r /opt/FDMR-Monitor/html/* /var/www/fdmr/ 
       
-sudo chown www-data:www-data /var/www/html/ -R
+sudo chown www-data:www-data /var/www/fdmr/ -R
      
 
 cp /opt/FDMR-Monitor/utils/logrotate/fdmr_mon /etc/logrotate.d/
@@ -220,12 +221,27 @@ WantedBy=multi-user.target
 
 EOF
 #
-sudo sed -i "s/Copyright (c) 2016-.*/Copyright (c) <?php \$cdate=date(\"Y\"); if (\$cdate > \"2016\") {\$cdate=\"2016-\".date(\"Y\");} echo \$cdate; ?><br>/g" /var/www/html/*.php
-sudo sed -i "s/meta name=\"description.*/meta name=\"description\" content=\"Copyright (c) 2016-22.The Regents of the K0USY Group. All rights reserved. Version OA4DOA 2022 (v270422)\">/g" /var/www/html/*.php
-sudo sed -i '166 s/hotpink/#ad02fd/g'   /var/www/html/css/styles.php
-sudo sed -i '217 s/color:white/color:black/'  /var/www/html/css/styles.php
-sudo sed -i "251d" /var/www/html/css/styles.php
-sed '250 a    <?php echo THEME_COLOR."\\n";?>' -i /var/www/html/css/styles.php
+cat > /lib/systemd/system/http.server-fdmr.service <<- "EOF"
+[Unit]
+Description=PHP http.server.fdmr
+After=network.target
+
+[Service]
+User=root
+#ExecStartPre=/bin/sleep 30
+# Modify for different other port
+ExecStart=php -S 0.0.0.0:80 -t /var/www/fdmr/
+
+[Install]
+WantedBy=multi-user.target
+EOF
+#
+sudo sed -i "s/Copyright (c) 2016-.*/Copyright (c) <?php \$cdate=date(\"Y\"); if (\$cdate > \"2016\") {\$cdate=\"2016-\".date(\"Y\");} echo \$cdate; ?><br>/g" /var/www/fdmr/*.php
+sudo sed -i "s/meta name=\"description.*/meta name=\"description\" content=\"Copyright (c) 2016-22.The Regents of the K0USY Group. All rights reserved. Version OA4DOA 2022 (v270422)\">/g" /var/www/fdmr/*.php
+sudo sed -i '166 s/hotpink/#ad02fd/g'   /var/www/fdmr/css/styles.php
+sudo sed -i '217 s/color:white/color:black/'  /var/www/fdmr/css/styles.php
+sudo sed -i "251d" /var/www/fdmr/css/styles.php
+sed '250 a    <?php echo THEME_COLOR."\\n";?>' -i /var/www/fdmr/css/styles.php
 
 sed '21 a # For custom color, select: pro' -i /opt/FDMR-Monitor/fdmr-mon.cfg
 
@@ -234,14 +250,14 @@ sed '25 a COLOR_1 = #c68034' -i /opt/FDMR-Monitor/fdmr-mon.cfg
 sed '26 a COLOR_2 = #7f5224' -i /opt/FDMR-Monitor/fdmr-mon.cfg
 sed '27 a COLOR_BACKGROUND = 5a5958' -i /opt/FDMR-Monitor/fdmr-mon.cfg
 
-sed '45 a   $cd1 = strtolower($config["GLOBAL"]["COLOR_1"]);' -i /var/www/html/include/config.php  
-sed '46 a   $cd2 = strtolower($config["GLOBAL"]["COLOR_2"]);' -i /var/www/html/include/config.php  
-sed '47 a   $cd3 = strtolower($config["GLOBAL"]["COLOR_TEXT"]);' -i /var/www/html/include/config.php 
-sed '48 a   $cd3 = strtolower($config["GLOBAL"]["COLOR_TEXT"]);' -i /var/www/html/include/config.php
-sed '49 a   $cd4 = strtolower($config["GLOBAL"]["COLOR_BACKGROUND"]);' -i /var/www/html/include/config.php 
+sed '45 a   $cd1 = strtolower($config["GLOBAL"]["COLOR_1"]);' -i /var/www/fdmr/include/config.php  
+sed '46 a   $cd2 = strtolower($config["GLOBAL"]["COLOR_2"]);' -i /var/www/fdmr/include/config.php  
+sed '47 a   $cd3 = strtolower($config["GLOBAL"]["COLOR_TEXT"]);' -i /var/www/fdmr/include/config.php 
+sed '48 a   $cd3 = strtolower($config["GLOBAL"]["COLOR_TEXT"]);' -i /var/www/fdmr/include/config.php
+sed '49 a   $cd4 = strtolower($config["GLOBAL"]["COLOR_BACKGROUND"]);' -i /var/www/fdmr/include/config.php 
 
-sed '66 a   } elseif ($theme == "pro") {' -i /var/www/html/include/config.php  
-sed '67 a     $tc = "background-image: linear-gradient(to bottom, $cd1 0%, $cd2 100%);color:$cd3;";' -i /var/www/html/include/config.php  
+sed '66 a   } elseif ($theme == "pro") {' -i /var/www/fdmr/include/config.php  
+sed '67 a     $tc = "background-image: linear-gradient(to bottom, $cd1 0%, $cd2 100%);color:$cd3;";' -i /var/www/fdmr/include/config.php  
 
 
 
