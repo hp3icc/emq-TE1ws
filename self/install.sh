@@ -221,6 +221,11 @@ WantedBy=multi-user.target
 
 EOF
 #
+if [ -f "/lib/systemd/system/http.server-fdmr.service" ];
+then
+  echo "found file"
+else
+# echo "file not found"
 cat > /lib/systemd/system/http.server-fdmr.service <<- "EOF"
 [Unit]
 Description=PHP http.server.fdmr
@@ -235,6 +240,7 @@ ExecStart=php -S 0.0.0.0:80 -t /var/www/fdmr/
 [Install]
 WantedBy=multi-user.target
 EOF
+fi
 #
 sudo sed -i "s/Copyright (c) 2016-.*/Copyright (c) <?php \$cdate=date(\"Y\"); if (\$cdate > \"2016\") {\$cdate=\"2016-\".date(\"Y\");} echo \$cdate; ?><br>/g" /var/www/fdmr/*.php
 sudo sed -i "s/meta name=\"description.*/meta name=\"description\" content=\"Copyright (c) 2016-22.The Regents of the K0USY Group. All rights reserved. Version OA4DOA 2022 (v270422)\">/g" /var/www/fdmr/*.php
