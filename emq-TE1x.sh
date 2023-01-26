@@ -2666,7 +2666,7 @@ sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 #sed '33 a <!--' -i /var/www/html/sysinfo.php
 #sed '35 a -->' -i /var/www/html/sysinfo.php
 
-cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/fdmr/sysinfo/
+#cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/fdmr/sysinfo/
 
 systemctl stop apache2
 systemctl disable apache2
