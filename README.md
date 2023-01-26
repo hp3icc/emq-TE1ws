@@ -93,6 +93,10 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
  
 * Bash de auto instalación :
 
+       apt-get update
+       
+       apt-get install curl sudo -y
+       
        sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/emq-TE1x.sh)"
 
 
