@@ -183,7 +183,7 @@ sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 #sed '33 a <!--' -i /var/www/html/sysinfo.php
 #sed '35 a -->' -i /var/www/html/sysinfo.php
 
-cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/html/sysinfo/
+#cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/html/sysinfo/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu/menu-fdmr)"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/data-id-update.sh)"
 data-id
