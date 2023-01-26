@@ -1,13 +1,41 @@
 #!/bin/sh
+if [ -f "/var/www/html/tgcount.php" ];
+then
+   sudo systemctl stop apache2
+ #echo "found file"
+else
+ echo "file not found"
+
+fi
+if [ -f "/var/www/html/tgcount.php" ];
+then
+   sudo systemctl disable apache2
+ #echo "found file"
+else
+ echo "file not found"
+
+fi
+if [ -f "/var/www/html/tgcount.php" ];
+then
+   sudo rm /var/www/html/* -r
+ #echo "found file"
+else
+ echo "file not found"
+
+fi
+if [ -d "/var/www/fdmr" ];
+then
+   sudo rm /var/www/fdmr/ -r
+ #echo "found file"
+else
+ echo "file not found"
+
+fi
 sudo systemctl stop fdmr_mon.service
 sudo systemctl stop http.server-fmr.service
 sudo systemctl disable http.server-fmr.service
 sudo rm -r /opt/FDMR-Monitor/
-sudo rm -r /var/www/html/*
 sudo systemctl stop http.server-fdmr.service
-#
-systemctl stop apache2
-sudo systemctl disable apache2
 #
 cd /opt
 sudo git clone https://github.com/hp3icc/FDMR-Monitor.git
