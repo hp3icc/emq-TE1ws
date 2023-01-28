@@ -17,9 +17,12 @@ sudo rm /opt/FreeDMR/proxy_db.*
 cp /opt/FDMR-Monitor/proxy/hotspot_proxy_v2.py /opt/FreeDMR/hotspot_proxy_v2.py
 cp /opt/FDMR-Monitor/proxy/proxy.cfg /opt/FreeDMR/proxy.cfg
 cp /opt/FDMR-Monitor/proxy/proxy_db.py /opt/FreeDMR/proxy_db.py
-      
 cd /opt/FDMR-Monitor/
-  
+
+wget https://www.freedmr.uk/wp-content/uploads/2021/04/favicon.ico -O /opt/FDMR-Monitor/html/favicon.ico
+sed '6 a <link rel="shortcut icon" href="/favicon.ico" />' -i /opt/FDMR-Monitor/html/index.php
+wget https://www.freedmr.uk/wp-content/uploads/2021/04/Free_DMR_logo_250x141_72.png -O /opt/FDMR-Monitor/html/img/logo.png
+####################### 
 if [ -d "/var/www/fdmr" ];
 then
    rm -r /var/www/fdmr/
