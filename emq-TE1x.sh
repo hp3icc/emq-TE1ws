@@ -2217,8 +2217,8 @@ sudo systemctl disable nxdnparrot.service
 
 rm /var/log/mmdvm/*
 ##########################
-cd /opt/
-cp -r /opt/YSFGateway/ /opt/YSFGateway2/
+mkdir /opt/YSFGateway2/
+cp -r /opt/YSFGateway/* /opt/YSFGateway2/
 cd /opt/YSFGateway2/
 sudo chmod +x *
 sudo sed -i "s/# YSF2DMRAddress=127.0.0.1/YSF2DMRAddress=127.0.0.1/g"  /opt/YSFGateway2/YSFGateway.ini
