@@ -2,15 +2,15 @@ sudo cat > /bin/menu-fdmr <<- "EOF"
 #!/bin/bash
 while : ; do
 choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Suba o Baje con las flechas del teclado y seleccione el numero de opcion:" 23 56 13 \
-1 "  Editar FreeDMR Server " \
-2 "  Editar Interlink  " \
-3 "  Editar FDMR-Monitor  " \
-4 "  Editar Puerto HTTP  " \
-5 "  Parrot on  " \
-6 "  Parrot off  " \
-7 "  FreeDMR Start & Restart  " \
-8 "  FreeDMR Server Stop  " \
-9 "  Dashboard Start & Restart " \
+1 " Editar FreeDMR Server " \
+2 " Editar Interlink  " \
+3 " Editar FDMR-Monitor  " \
+4 " Editar Puerto HTTP  " \
+5 " Parrot on  " \
+6 " Parrot off  " \
+7 " FreeDMR Start & Restart  " \
+8 " FreeDMR Server Stop  " \
+9 " Dashboard Start & Restart " \
 10 " Dashboard Stop  " \
 11 " D-APRS Igate  " \
 12 " Menu Principal " 3>&1 1>&2 2>&3)
