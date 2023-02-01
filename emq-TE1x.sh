@@ -3046,10 +3046,6 @@ EOF
 #
 sudo chown -R mmdvm:mmdvm /opt/MMDVMHost/MMDVMHost
 
-ln -s /bin/menu /bin/MENU
-sudo chmod +x /bin/MENU
-sudo chmod +x /bin/menu*
-
 sudo chmod +777 /opt/*
 sudo chmod +777 /opt/MMDVMHost-Websocketboard/*
 sudo chmod +777 /opt/WSYSFDash/*
@@ -3066,7 +3062,7 @@ sudo chmod +777 /opt/ionsphere/ionosphere-raspberry-pi/config/config.yml
 sudo chmod +777 /opt/pymultimonaprs/* 
 sudo chmod +777 /opt/multimon-ng/*
 sudo chmod +777 /opt/kalibrate-rtl/*
-sudo chmod +777 /opt/YSFClients/*
+
 sudo chmod +777 /opt/MMDVM_CM/*
 sudo chmod +777 /opt/MMDVM_Bridge/*
 sudo chmod +777 /opt/MMDVM_Bridge/MMDVM_Bridge.ini
@@ -3076,7 +3072,7 @@ sudo chmod +777 /opt/D-APRS/user_settings.txt
 sudo chmod +x /opt/FDMR-Monitor/sysinfo/graph.sh
 sudo chmod +x /opt/FDMR-Monitor/sysinfo/cpu.sh
 sudo chmod +x /usr/bin/python3
-sudo chmod +x /opt/HBmonitor/monitor.py
+
 sudo chmod +x /opt/YSF2DMR/DMRIDUpdate.sh
 sudo chmod +x /opt/MMDVMHost/DMRIDUpdate.sh
 sudo chmod +x /opt/D-APRS/*.py
@@ -3089,12 +3085,9 @@ sudo chmod 755 /lib/systemd/system/gotty.service
 sudo chmod 755 /usr/local/bin/rebooter1.sh
 sudo chmod 755 /lib/systemd/system/daprs.service
 sudo chmod 755 /lib/systemd/system/http.server-dvs.service
-sudo chmod 755 /lib/systemd/system/http.server-fmr.service
 sudo chmod 755 /lib/systemd/system/freedmr.service
 sudo chmod 755 /lib/systemd/system/proxy.service
 sudo chmod 755 /lib/systemd/system/fdmr_mon.service
-sudo chmod 755 /lib/systemd/system/hbmon.service
-sudo chmod 755 /lib/systemd/system/hbparrot.service
 sudo chmod 755 /lib/systemd/system/YSFReflector.service
 sudo chmod 755 /lib/systemd/system/monp.service
 sudo chmod 755 /lib/systemd/system/dmrid-ysf2dmr.service
