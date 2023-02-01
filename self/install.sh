@@ -1,4 +1,5 @@
 #! /bin/bash
+sudo apt-get install rrdtool -y
 sudo sed -i "s/www\/html/www\/fdmr/g" /opt/FDMR-Monitor/html/*.*
 sudo sed -i "s/www\/html/www\/fdmr/g" /opt/FDMR-Monitor/sysinfo/*.*
 # Install the required support programs
