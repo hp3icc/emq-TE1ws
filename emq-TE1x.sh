@@ -88,12 +88,17 @@ EOF
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu.sh)"
 
 ########################
-sudo cat > /opt/obp.txt <<- "EOF"
+if [ -f "/opt/obp.txt" ]
+then
+   echo "found file"
+else
+  sudo cat > /opt/obp.txt <<- "EOF"
  
 #Coloque abajo su lista de obp y peer
 
 
 EOF
+fi
 ####################
 cd /home/
 wget https://bootstrap.pypa.io/get-pip.py
@@ -127,17 +132,65 @@ sudo rm requirements.txt
 sudo rm get-pip.py
 #
 
-mkdir /var/www
-mkdir /var/www/html
+#########################
 
-mkdir /var/log/ysf2dmr
-mkdir /var/log/mmdvm
-mkdir /var/log/direwolf
-mkdir /var/log/mmdvmh
-mkdir /var/log/DMRGateway
-mkdir /var/log/FreeDMR
-mkdir /var/log/hblink
-mkdir /var/log/YSFReflector
+if [ -d "/var/www" ]
+then
+   rm -r /var/www
+ #echo "found file"
+else
+ mkdir /var/www
+ mkdir /var/www/html
+fi
+if [ -d "/var/log/ysf2dmr" ]
+then
+   rm -r /var/log/ysf2dmr
+ #echo "found file"
+else
+   mkdir /var/log/ysf2dmr
+fi
+if [ -d "/var/log/mmdvm" ]
+then
+   rm -r /var/log/mmdvm
+ #echo "found file"
+else
+   mkdir /var/log/mmdvm
+fi
+if [ -d "/var/log/direwolf" ]
+then
+   rm -r /var/log/direwolf
+ #echo "found file"
+else
+   mkdir /var/log/direwolf
+fi
+if [ -d "/var/log/mmdvmh" ]
+then
+   rm -r /var/log/mmdvmh
+ #echo "found file"
+else
+   mkdir /var/log/mmdvmh
+fi
+if [ -d "/var/log/DMRGateway" ]
+then
+   rm -r /var/log/DMRGateway
+ #echo "found file"
+else
+   mkdir /var/log/DMRGateway
+fi
+if [ -d "/var/log/FreeDMR" ]
+then
+   rm -r /var/log/FreeDMR
+ #echo "found file"
+else
+   mkdir /var/log/FreeDMR
+fi
+if [ -d "/var/log/YSFReflector" ]
+then
+   rm -r /var/log/YSFReflector
+ #echo "found file"
+else
+   mkdir /var/log/YSFReflector
+fi
 sudo chmod +777 /var/log
 sudo chmod +777 /var/log/*
 
@@ -153,7 +206,7 @@ EOF
 sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock
 ####################
 echo iniciando instalacion
-
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/rm.sh)"
 cd /opt
 git clone https://github.com/iu5jae/pYSFReflector3.git
 cd pYSFReflector3/
@@ -599,7 +652,11 @@ KillMode=process
 WantedBy=network-online.target
 EOF
 ##########################################
-sudo cat > /opt/extra-1.sh <<- "EOF"
+if [ -f "/opt/extra-1.sh" ]
+then
+  echo "found file"
+else
+  sudo cat > /opt/extra-1.sh <<- "EOF"
 ######################################################################
 # Coloque en este archivo, cualquier instruccion shell adicional que # 
 # quierre se realice al finalizar la actualizacion.                  #
@@ -615,7 +672,9 @@ cp /opt/extra-1.sh /opt/extra-3.sh
 cp /opt/extra-1.sh /opt/extra-4.sh
 cp /opt/extra-1.sh /opt/extra-5.sh
 cp /opt/extra-1.sh /opt/extra-6.sh
+fi
 sudo chmod +x /opt/extra-*
+
 ###################
 cat > /lib/systemd/system/dmrid-mmdvm.service  <<- "EOF"
 [Unit]
@@ -2402,6 +2461,7 @@ sed '37 a TGID_URL: https://freedmr.cymru/talkgroups/talkgroup_ids_json.php' -i 
 sed '43 a TOPO_FILE: topography.json' -i /opt/FreeDMR/config/FreeDMR.cfg 
 
 rm /opt/conf.txt
+rm /opt/FreeDMR-SAMPLE.cfg
 cd /opt/FreeDMR/
 mv loro.cfg /opt/FreeDMR/playback.cfg
 sudo sed -i 's/54915/49061/' /opt/FreeDMR/playback.cfg
@@ -2643,7 +2703,11 @@ sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 systemctl stop apache2
 systemctl disable apache2
 #########
-sudo cat > /opt/FreeDMR/config/rules.py <<- "EOF"
+if [ -f "/opt/FreeDMR/config/rules.py" ]
+then
+   echo "found file"
+else
+  sudo cat > /opt/FreeDMR/config/rules.py <<- "EOF"
 BRIDGES = {
  
  '9990': [ 
@@ -2677,6 +2741,7 @@ if __name__ == '__main__':
   
  
 EOF
+fi
 ###############
 sudo timedatectl set-timezone America/Panama
 #####
