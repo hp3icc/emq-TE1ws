@@ -2700,8 +2700,19 @@ sudo sed -i "s/54000/54010/g"  /opt/FreeDMR/proxy.cfg
 sudo sed -i "s/root/emqte1/g"  /opt/FreeDMR/proxy.cfg
 sudo sed -i "s/test/selfcare/g"  /opt/FreeDMR/proxy.cfg
 #################
-#sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
-#rm /opt/FDMR-Monitor/sysinfo/*.rrd 
+if [ -f "/opt/FDMR-Monitor/sysinfo/tempC.rrd" ]
+then
+  rm /opt/FDMR-Monitor/sysinfo/*.rrd
+elif
+  [ -f "/opt/FDMR-Monitor/sysinfo/load.rrd" ]
+then
+  rm /opt/FDMR-Monitor/sysinfo/*.rrd
+elif
+  [ -f "/opt/FDMR-Monitor/sysinfo/hdd.rrd" ]
+then
+  rm /opt/FDMR-Monitor/sysinfo/*.rrd
+fi
+
 sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 #######################################
 systemctl stop apache2
