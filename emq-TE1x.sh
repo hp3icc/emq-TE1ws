@@ -2703,11 +2703,7 @@ sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 systemctl stop apache2
 systemctl disable apache2
 #########
-if [ -f "/opt/FreeDMR/config/rules.py" ]
-then
-   echo "found file"
-else
-  sudo cat > /opt/FreeDMR/config/rules.py <<- "EOF"
+sudo cat > /opt/FreeDMR/config/rules.py <<- "EOF"
 BRIDGES = {
  
  '9990': [ 
@@ -2725,7 +2721,11 @@ if __name__ == '__main__':
  
 EOF
 ####
-sudo cat > /opt/rules.txt <<- "EOF"
+if [ -f "/opt/rules.txt" ]
+then
+   echo "found file"
+else
+ sudo cat > /opt/rules.txt <<- "EOF"
 BRIDGES = {
  
  '9990': [ 
