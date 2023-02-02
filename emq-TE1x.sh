@@ -1320,7 +1320,7 @@ ReloadTime=60
 Slot=2
 TG=6
 Base=64000
-Startup=HP3
+Startup=744
 Relink=10
 Debug=0
 #Allow user linking control using Private Calls
