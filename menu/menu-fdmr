@@ -37,13 +37,23 @@ sudo systemctl stop fdmrparrot.service && sudo systemctl start fdmrparrot.servic
 6)
 sudo systemctl stop fdmrparrot.service &&  sudo systemctl disable fdmrparrot.service ;;
 7)
-sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo systemctl enable proxy.service && sudo systemctl stop freedmr.service && sudo systemctl start freedmr.service && sudo systemctl enable freedmr.service && cronedit.sh '* */12 * * *' 'data-id' add;;
+sudo systemctl start mariadb && sudo systemctl enable mariadb && sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo systemctl enable proxy.service && sudo systemctl stop freedmr.service && sudo systemctl start freedmr.service && sudo systemctl enable freedmr.service && cronedit.sh '* */12 * * *' 'data-id' add;;
 8)
-sudo systemctl stop freedmr.service && sudo systemctl disable freedmr.service && sudo systemctl stop proxy.service && sudo systemctl disable proxy.service && cronedit.sh '* */12 * * *' 'data-id' remove;;
+sudo systemctl stop freedmr.service && sudo systemctl disable freedmr.service && sudo systemctl stop proxy.service && sudo systemctl disable proxy.service && cronedit.sh '* */12 * * *' 'data-id' remove &&
+if systemctl status freedmr.service |grep inactive >/dev/null 2>&1 && systemctl status fdmr_mon.service |grep inactive >/dev/null 2>&1
+then 
+ systemctl stop mariadb.service
+ systemctl disable mariadb.service
+fi ;;
 9)
-sudo systemctl stop fdmr_mon.service && sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd && sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/cpu.sh' add && sudo systemctl enable fdmr_mon.service && sudo systemctl restart http.server-fdmr.service && sudo systemctl enable http.server-fdmr.service && sudo systemctl start fdmr_mon.service;;
+sudo systemctl start mariadb && sudo systemctl enable mariadb && sudo systemctl stop fdmr_mon.service && sudo rm /opt/FDMR-Monitor/sysinfo/*.rrd && sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh && cronedit.sh '*/5 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/graph.sh' add && cronedit.sh '*/2 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/cpu.sh' add && sudo systemctl enable fdmr_mon.service && sudo systemctl restart http.server-fdmr.service && sudo systemctl enable http.server-fdmr.service && sudo systemctl start fdmr_mon.service;;
 10)
-sudo systemctl stop fdmr_mon.service && sudo systemctl disable fdmr_mon.service && sudo systemctl stop http.server-fdmr.service && sudo systemctl disable http.server-fdmr.service && cronedit.sh '*/5 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/cpu.sh' remove;;
+sudo systemctl stop fdmr_mon.service && sudo systemctl disable fdmr_mon.service && sudo systemctl stop http.server-fdmr.service && sudo systemctl disable http.server-fdmr.service && cronedit.sh '*/5 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/graph.sh' remove && cronedit.sh '*/2 * * * *' 'sh /opt/FDMR-Monitor/sysinfo/cpu.sh' remove &&
+if systemctl status freedmr.service |grep inactive >/dev/null 2>&1 && systemctl status fdmr_mon.service |grep inactive >/dev/null 2>&1
+then 
+ systemctl stop mariadb.service
+ systemctl disable mariadb.service
+fi ;;
 11)
 menu-igate ;;
 12)
