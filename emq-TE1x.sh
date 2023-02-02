@@ -2252,6 +2252,7 @@ sudo systemctl daemon-reload
 sudo systemctl disable lighttpd.service
 sudo systemctl stop lighttpd.service
 
+sudo systemctl stop md380-emu.service
 sudo systemctl stop analog_bridge.service
 sudo systemctl stop mmdvm_bridge.service
 sudo systemctl stop nxdngateway.service
@@ -2263,6 +2264,7 @@ sudo systemctl stop p25parrot.service
 sudo systemctl stop ysfparrot.service
 sudo systemctl stop nxdnparrot.service
 
+sudo systemctl disable md380-emu.service
 sudo systemctl disable analog_bridge.service
 sudo systemctl disable mmdvm_bridge.service
 sudo systemctl disable nxdngateway.service
