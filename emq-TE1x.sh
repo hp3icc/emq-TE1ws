@@ -2567,6 +2567,7 @@ echo "${commands}" | /usr/bin/mysql -u root
 #fdmr-monitor
 #fdmr-monitor
 #######
+
 cd /opt
 sudo git clone https://github.com/hp3icc/FDMR-Monitor.git
 cd FDMR-Monitor
@@ -3120,6 +3121,8 @@ sudo chmod 755 /lib/systemd/system/logtailer-ysf.service
 sudo chmod 755 /lib/systemd/system/dmrgw.service
 sudo systemctl daemon-reload
 
+sudo systemctl stop mariadb.service
+sudo systemctl disable mariadb.service
 sudo systemctl enable monp.service
 sudo systemctl stop rsyslog
 sudo systemctl disable rsyslog
