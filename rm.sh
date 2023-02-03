@@ -157,6 +157,7 @@ then
   ysfgateway ysfparrot
 
  rm -r /var/log/dvswitch /var/log/mmdvm /var/lib/mmdvm
+ rm /etc/apt/sources.list.d/dvswitch.list 
  #echo "found file"
 
 fi
