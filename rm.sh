@@ -142,7 +142,7 @@ then
  #echo "found file"
 
 fi
-if [ -f "/opt/buster" ]
+if [ -f "/usr/local/dvs/dvs" ]
 then
    rm /opt/buster
    apt remove dvswitch-monit -y
