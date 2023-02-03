@@ -148,13 +148,7 @@ then
    apt remove dvswitch-monit -y
    apt remove dvswitch-server -y
    
-   apt remove -y alsa-topology-conf alsa-ucm-conf analog-bridge bc dvswitch dvswitch-base dvswitch-dashboard dvswitch-menu fontconfig-config fonts-dejavu-core ircddbgateway
-  javascript-common libasound2 libasound2-data libc-ares2 libc-dev-bin libc-devtools libc6-dev libcrypt-dev libdeflate0 libflac8 libfontconfig1 libgd3 libjbig0
-  libjpeg62-turbo libjs-highlight.js libnode72 libnsl-dev libogg0 libopus0 libsndfile1 libsodium23 libtiff5 libtirpc-dev libvorbis0a libvorbisenc2 libwebp6 libwxbase3.0-0v5
-  libwxbase3.0-dev libxpm4 lighttpd lighttpd-mod-deflate lighttpd-mod-openssl linux-libc-dev manpages-dev md380-emu mmdvm-bridge monit node-agent-base node-commander
-  node-debug node-lru-cache node-ms node-mute-stream node-read node-semver node-tinycolor node-ws node-yallist nodejs nodejs-doc nxdngateway nxdnparrot p25gateway p25parrot
-  php-cgi php-common php7.4-cgi php7.4-cli php7.4-common php7.4-json php7.4-opcache php7.4-readline python3-serial qemu-user-static quantar-bridge spawn-fcgi wx3.0-headers
-  ysfgateway ysfparrot
+   apt remove -y alsa-topology-conf alsa-ucm-conf analog-bridge bc dvswitch dvswitch-base dvswitch-dashboard dvswitch-menu fontconfig-config fonts-dejavu-core ircddbgateway javascript-common libasound2 libasound2-data libc-ares2 libc-dev-bin libc-devtools libc6-dev libcrypt-dev libdeflate0 libflac8 libfontconfig1 libgd3 libjbig0 libjpeg62-turbo libjs-highlight.js libnode72 libnsl-dev libogg0 libopus0 libsndfile1 libsodium23 libtiff5 libtirpc-dev libvorbis0a libvorbisenc2 libwebp6 libwxbase3.0-0v5 libwxbase3.0-dev libxpm4 lighttpd lighttpd-mod-deflate lighttpd-mod-openssl linux-libc-dev manpages-dev md380-emu mmdvm-bridge monit node-agent-base node-commander node-debug node-lru-cache node-ms node-mute-stream node-read node-semver node-tinycolor node-ws node-yallist nodejs nodejs-doc nxdngateway nxdnparrot p25gateway p25parrot php-cgi php-common php7.4-cgi php7.4-cli php7.4-common php7.4-json php7.4-opcache php7.4-readline python3-serial qemu-user-static quantar-bridge spawn-fcgi wx3.0-headers ysfgateway ysfparrot
 
  rm -r /var/log/dvswitch /var/log/mmdvm /var/lib/mmdvm
  rm /etc/apt/sources.list.d/dvswitch.list 
