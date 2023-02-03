@@ -161,4 +161,65 @@ then
  #echo "found file"
 
 fi
+
+if [ -d "/opt/Analog_Bridge" ]
+then
+   rm -r /opt/Analog_Bridge
+ #echo "found file"
+
+fi
+if [ -d "/opt/MMDVM_Bridge" ]
+then
+   rm -r /opt/MMDVM_Bridge
+ #echo "found file"
+
+fi
+if [ -d "/opt/NXDNGateway" ]
+then
+   rm -r /opt/NXDNGateway
+ #echo "found file"
+
+fi
+if [ -d "/opt/NXDNParrot" ]
+then
+   rm -r /opt/NXDNParrot
+ #echo "found file"
+
+fi
+if [ -d "/opt/P25Gateway" ]
+then
+   rm -r /opt/P25Gateway
+ #echo "found file"
+
+fi
+if [ -d "/opt/P25Parrot" ]
+then
+   rm -r /opt/P25Parrot
+ #echo "found file"
+
+fi
+if [ -d "/opt/Quantar_Bridge" ]
+then
+   rm -r /opt/Quantar_Bridge
+ #echo "found file"
+
+fi
+if [ -d "/opt/Web_Proxy" ]
+then
+   rm -r /opt/Web_Proxy
+ #echo "found file"
+
+fi
+if [ -d "/opt/YSFGateway" ]
+then
+   rm -r /opt/YSFGateway
+ #echo "found file"
+
+fi
+if [ -d "/opt/YSFParrot" ]
+then
+   rm -r /opt/YSFParrot
+ #echo "found file"
+
+fi
 ##############
