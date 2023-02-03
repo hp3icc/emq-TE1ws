@@ -1694,7 +1694,7 @@ sudo chmod +x buster
 apt-get update -y
 apt-get install dvswitch-server -y
 #############
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/dvs-config.sh)"
 ########
 sudo cat > /usr/local/dvs/dvs <<- "EOF"
 #!/bin/bash
