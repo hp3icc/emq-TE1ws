@@ -138,59 +138,52 @@ if [ -d "/var/www" ]
 then
    rm -r /var/www
  #echo "found file"
-else
+fi
  mkdir /var/www
  mkdir /var/www/html
-fi
 if [ -d "/var/log/ysf2dmr" ]
 then
    rm -r /var/log/ysf2dmr
  #echo "found file"
-else
-   mkdir /var/log/ysf2dmr
 fi
+   mkdir /var/log/ysf2dmr
 if [ -d "/var/log/mmdvm" ]
 then
    rm -r /var/log/mmdvm
  #echo "found file"
-else
-   mkdir /var/log/mmdvm
 fi
+   mkdir /var/log/mmdvm
 if [ -d "/var/log/direwolf" ]
 then
    rm -r /var/log/direwolf
  #echo "found file"
-else
-   mkdir /var/log/direwolf
 fi
+   mkdir /var/log/direwolf
 if [ -d "/var/log/mmdvmh" ]
 then
    rm -r /var/log/mmdvmh
  #echo "found file"
-else
-   mkdir /var/log/mmdvmh
 fi
+   mkdir /var/log/mmdvmh
 if [ -d "/var/log/DMRGateway" ]
 then
    rm -r /var/log/DMRGateway
  #echo "found file"
-else
-   mkdir /var/log/DMRGateway
 fi
+   mkdir /var/log/DMRGateway
 if [ -d "/var/log/FreeDMR" ]
 then
    rm -r /var/log/FreeDMR
  #echo "found file"
-else
-   mkdir /var/log/FreeDMR
 fi
+   mkdir /var/log/FreeDMR
 if [ -d "/var/log/YSFReflector" ]
 then
    rm -r /var/log/YSFReflector
  #echo "found file"
-else
-   mkdir /var/log/YSFReflector
 fi
+   mkdir /var/log/YSFReflector
+
 sudo chmod +777 /var/log
 sudo chmod +777 /var/log/*
 
