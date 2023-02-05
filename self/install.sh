@@ -126,7 +126,7 @@ cat > /opt/FDMR-Monitor/templates/main_table.html  <<- "EOF"
 {% if _table['SETUP']['LASTHEARD'] == True %}
 <br><fieldset style="border-radius: 8px; background-color:#b2b1b1;margin-left:15px;margin-right:15px;font-size:14px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
   <center><b> Lastheard </b></legend></center>
-  <table style="table-layout:fixed;width:100%; font: 10pt arial, sans-serif;font-weight:600;margin-top:5px;margin-bottom:5px;border:none !important;border-collapse:collapse;border:none;" width=100%>
+  <table style="table-layout:auto;width:100%; font: 10pt arial, sans-serif;font-weight:600;margin-top:5px;margin-bottom:5px;border:none !important;border-collapse:collapse;border:none;" width=100%>
     <tr>
       <th>Date</th>
       <th>Time</th>
