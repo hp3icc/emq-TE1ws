@@ -45,8 +45,6 @@ sudo rm /etc/systemd/system/fdmr_mon.service
 #
 cat > /opt/FDMR-Monitor/templates/main_table.html  <<- "EOF"
 
-
-
 <fieldset class="big">
 <legend><b><font color="#000">&nbsp;.: Server Activity :.&nbsp;</font></b></legend>
 {% if _table['MASTERS']|length >0 %}
@@ -175,7 +173,7 @@ cat > /opt/FDMR-Monitor/templates/main_table.html  <<- "EOF"
           {% if _table['MASTERS'][_master]['PEERS']|length >0 %}
           {% for _client, _cdata in _table['MASTERS'][_master]['PEERS'].items() %}
           <div class="tooltip">
-            <a target="_blank" href="http://www.qrz.com/db/{{_cdata['CALLSIGN']}}"><b>{{_cdata['CALLSIGN']}}</b></a>
+                <a style="border-bottom: 0px dotted white;font: 9.5pt arial,sans-serif;font-weight:bold;color:#0066ff;" target="_blank" href="http://www.qrz.com/db/{{_cdata['CALLSIGN']}}"><b>{{_cdata['CALLSIGN']}}</b></a>
             <div class="tooltiptext c2s-pos1">
               <b>DMR ID</b>: <span class="txt-yellow"><b>{{ _client }}</b></span><br>
               {% if _cdata['RX_FREQ'] == 'N/A' and _cdata['TX_FREQ'] == 'N/A' %}
@@ -199,7 +197,7 @@ cat > /opt/FDMR-Monitor/templates/main_table.html  <<- "EOF"
         <h4 class="tittle">PEERS:</h4>
         <div class="hs-peers">
           {% for _peer, _pdata  in _table['PEERS'].items() %}
-          <div class="tooltip {{'bkgnd-8ecfb4 txt-464646' if _table['PEERS'][_peer]['STATS']['CONNECTION'] == 'YES' else 'bkgnd-ff0000 txt-white'}}"><b>&nbsp;&nbsp;{{_peer}}&nbsp;&nbsp;</b>
+          <span class="tooltip" style="border-bottom: 1px dotted white;{{'background-color:#98FB98; color:#464646;' if _table['PEERS'][_peer]['STATS']['CONNECTION'] == 'YES' else 'background-color:#ff0000; color:white;'}}"><b>&nbsp;&nbsp;{{_pdata['CALLSIGN']}}&nbsp;&nbsp;</b>
             {% if _table['PEERS'][_peer]['STATS']['CONNECTION'] == 'YES' %}
             <span class="tooltiptext c2s-pos2">Connected</span>
             {% else %}
