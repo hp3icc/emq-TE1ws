@@ -173,7 +173,7 @@ cat > /opt/FDMR-Monitor/templates/main_table.html  <<- "EOF"
           {% if _table['MASTERS'][_master]['PEERS']|length >0 %}
           {% for _client, _cdata in _table['MASTERS'][_master]['PEERS'].items() %}
           <div class="tooltip">
-                <a style="border-bottom: 0px dotted white;font: 9.5pt arial,sans-serif;font-weight:bold;color:#0066ff;" target="_blank" href="http://www.qrz.com/db/{{_cdata['CALLSIGN']}}"><b>{{_cdata['CALLSIGN']}}</b></a>
+               <a target="_blank" href="http://www.qrz.com/db/{{_cdata['CALLSIGN']}}"><b>{{_cdata['CALLSIGN']}}</b></a>
             <div class="tooltiptext c2s-pos1">
               <b>DMR ID</b>: <span class="txt-yellow"><b>{{ _client }}</b></span><br>
               {% if _cdata['RX_FREQ'] == 'N/A' and _cdata['TX_FREQ'] == 'N/A' %}
