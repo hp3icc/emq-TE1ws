@@ -102,8 +102,8 @@ cat > /opt/FDMR-Monitor/templates/main_table.html  <<- "EOF"
 
 {% if _table['OPENBRIDGES']|length >0 %}
     <tr style="background-color:#265b8a;" "height:30px;width:1100px; font: 10pt arial, sans-serif;{{ themec }}">
-        <th style=color:#f1f1f1; 'width: 20%;'>Systems OpenBridge</th>
-        <th colspan=2 style=color:#f1f1f1; 'width: 80%;'>Active Incoming Calls</th>
+        <th>Systems OpenBridge</th>
+        <th colspan=2 '>Active Incoming Calls</th>
     </tr>
     {% for _openbridge in _table['OPENBRIDGES'] %}
     {% set rx = namespace(value=0) %}
