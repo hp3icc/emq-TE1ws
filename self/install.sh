@@ -185,7 +185,7 @@ cat > /opt/FDMR-Monitor/templates/main_table.html  <<- "EOF"
               <b>Soft_Ver</b>: {{_cdata['SOFTWARE_ID'] }}<br>
               <b>Info</b>: {{_cdata['LOCATION']}}<br>
               <b>Master</b>: <span class="txt-yellow">{{_master}}</span><br>
-              <b>Time connected</b>: <span class="txt-yellow">{{ _cdata['CONNECTED'] }}</span>
+              <b>Time connected</b>: <span class="txt-yellow"><SPAN STYLE="text-shadow: 0.15em 0.15em #9e9e9e">{{ _cdata['CONNECTED'] }}</span>
             </div>
           </div>
           {% endfor %}
