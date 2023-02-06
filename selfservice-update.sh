@@ -31,6 +31,7 @@ else
  echo "file not found"
 
 fi
+sudo systemctl stop proxy.service
 sudo systemctl stop fdmr_mon.service
 sudo systemctl stop http.server-fmr.service
 sudo systemctl disable http.server-fmr.service
@@ -199,7 +200,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/data-id-update.sh)"
 data-id
 #sudo python3 mon_db.py
+sudo systemctl daemon-reload
 sudo systemctl start proxy.service
+sudo systemctl enable proxy.service
 sudo systemctl start fdmr_mon.service
 sudo systemctl enable fdmr_mon.service
 sudo systemctl start http.server-fdmr.service
