@@ -24,7 +24,6 @@ update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 sudo apt-get install libasound2-dev -y
 sudo apt-get install libudev-dev -y
 sudo apt-get install libusb-1.0-0-dev -y
-sudo apt-get install libgps-dev -y
 sudo apt-get install libx11-dev -y
 sudo apt-get install libfftw3-dev -y
 sudo apt-get install libpulse-dev -y
@@ -32,7 +31,7 @@ sudo apt-get install build-essential -y
 sudo apt-get install alsa-utils -y
 sudo apt-get install rsyslog -y
 sudo apt-get install logrotate -y
-sudo apt-get install gpsd -y
+sudo apt-get install gpsd libgps-dev
 sudo apt-get install qt4-qmake -y
 sudo apt-get install libtool -y
 sudo apt-get install autoconf -y
