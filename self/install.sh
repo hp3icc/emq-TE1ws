@@ -150,11 +150,11 @@ cat > /opt/FDMR-Monitor/templates/main_table.html  <<- "EOF"
       <td class="txt-464646"><b>{{ itm[6] }}</b></td>
       <td></td>
     {% else %}
-      <td><a target="_blank" href=https://qrz.com/db/{{itm[7][0]}}><span style="text-shadow: 0.10em 0.10em #00ffe8;">{{ itm[7][0] }}</a></b><span class="fnt-7pt">&nbsp;({{ itm[6] }})</span></td>
-      <td <p><span style="color: #454545;"><b><span style="text-shadow: 0.10em 0.10em #9999;">{{ itm[7][1] }}</b></td>
+      <td><a target="_blank" href=https://qrz.com/db/{{itm[7][0]}}><span style="color: navy;">{{ itm[7][0] }}</a></b><span class="fnt-7pt">&nbsp;({{ itm[6] }})</span></td>
+      <td <span style="color: #000000;"><b>{{ itm[7][1] }}</b></td>
     {% endif %}
       <td class="txt-b5651d"><b>{{ itm[4] }}</b></td>
-      <td <p><span style="color: #454545;"><b><span style="text-shadow: 0.10em 0.10em #9999;">{{ '' if not itm[5] else itm[5]|safe }}</b></td>
+      <td <span style="color: #454545;"><b>{{ '' if not itm[5] else itm[5]|safe }}</b></td>
       <td {{ 'class="bkgnd-1d1"'|safe if not itm[1] else '' }}>{{ 'DATA' if not itm[1] else itm[1]|int }}</td>
       <td>{{ itm[3] }}</td>
     </tr>
@@ -173,7 +173,7 @@ cat > /opt/FDMR-Monitor/templates/main_table.html  <<- "EOF"
           {% if _table['MASTERS'][_master]['PEERS']|length >0 %}
           {% for _client, _cdata in _table['MASTERS'][_master]['PEERS'].items() %}
           <div class="tooltip">
-               <a target="_blank" href="http://www.qrz.com/db/{{_cdata['CALLSIGN']}}"><b><span style="text-shadow: 0.10em 0.10em #00ffe8;">{{_cdata['CALLSIGN']}}</b></a>
+               <a target="_blank" href="http://www.qrz.com/db/{{_cdata['CALLSIGN']}}"><b><span style="text-shadow: 0.10em 0.10em #00ff00;"><span style="color: navy;">{{_cdata['CALLSIGN']}}</b></a>
             <div class="tooltiptext c2s-pos1">
               <b>DMR ID</b>: <span class="txt-yellow"><b>{{ _client }}</b></span><br>
               {% if _cdata['RX_FREQ'] == 'N/A' and _cdata['TX_FREQ'] == 'N/A' %}
@@ -209,7 +209,6 @@ cat > /opt/FDMR-Monitor/templates/main_table.html  <<- "EOF"
         {% endif %}
   </div>
 </fieldset>
-
 
 EOF
 #
