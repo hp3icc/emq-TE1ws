@@ -270,9 +270,9 @@ sed '250 a    <?php echo THEME_COLOR."\\n";?>' -i /var/www/fdmr/css/styles.php
 
 sed '21 a # For custom color, select: pro' -i /opt/FDMR-Monitor/fdmr-mon.cfg
 
-sed '24 a COLOR_TEXT = #d2c564' -i /opt/FDMR-Monitor/fdmr-mon.cfg 
-sed '25 a COLOR_1 = #c68034' -i /opt/FDMR-Monitor/fdmr-mon.cfg  
-sed '26 a COLOR_2 = #7f5224' -i /opt/FDMR-Monitor/fdmr-mon.cfg
+sed '24 a COLOR_TEXT = #fff519' -i /opt/FDMR-Monitor/fdmr-mon.cfg 
+sed '25 a COLOR_1 = #000080' -i /opt/FDMR-Monitor/fdmr-mon.cfg  
+sed '26 a COLOR_2 = #193dff' -i /opt/FDMR-Monitor/fdmr-mon.cfg
 sed '27 a COLOR_BACKGROUND = 5a5958' -i /opt/FDMR-Monitor/fdmr-mon.cfg
 
 sed '45 a   $cd1 = strtolower($config["GLOBAL"]["COLOR_1"]);' -i /var/www/fdmr/include/config.php  
