@@ -37,9 +37,9 @@ sudo systemctl stop fdmrparrot.service && sudo systemctl start fdmrparrot.servic
 6)
 sudo systemctl stop fdmrparrot.service &&  sudo systemctl disable fdmrparrot.service ;;
 7)
-sudo systemctl start mariadb.service && sudo systemctl enable mariadb.service && sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo systemctl enable proxy.service && sudo systemctl stop freedmr.service && sudo systemctl start freedmr.service && sudo systemctl enable freedmr.service && cronedit.sh '* */12 * * *' 'data-id' add;;
+sudo systemctl start mariadb.service && sudo systemctl enable mariadb.service && sudo systemctl stop proxy.service && sudo systemctl start proxy.service && sudo systemctl enable proxy.service && sudo systemctl stop freedmr.service && sudo systemctl start freedmr.service && sudo systemctl enable freedmr.service;;
 8)
-sudo systemctl stop freedmr.service && sudo systemctl disable freedmr.service && sudo systemctl stop proxy.service && sudo systemctl disable proxy.service && cronedit.sh '* */12 * * *' 'data-id' remove &&
+sudo systemctl stop freedmr.service && sudo systemctl disable freedmr.service && sudo systemctl stop proxy.service && sudo systemctl disable proxy.service &&
 if systemctl status freedmr.service |grep inactive >/dev/null 2>&1 && systemctl status fdmr_mon.service |grep inactive >/dev/null 2>&1
 then 
  systemctl stop mariadb.service
