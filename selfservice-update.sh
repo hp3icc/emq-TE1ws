@@ -161,7 +161,7 @@ sed '63 a TGID_URL = https://freedmr.cymru/talkgroups/talkgroup_ids_json.php' -i
 sed '64 a #TGID_URL = https://freedmr.cymru/talkgroups/talkgroup_ids_flags_json.php' -i /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 cd /opt/FDMR-Monitor/
 sudo rm /opt/FDMR-Monitor/install.sh
-wget https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/self/install.sh
+wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/install.sh
 chmod +x /opt/FDMR-Monitor/install.sh
 #
 sh /opt/FDMR-Monitor/install.sh
@@ -196,8 +196,8 @@ sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 #sed '35 a -->' -i /var/www/html/sysinfo.php
 
 #cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/html/sysinfo/
-sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/menu/menu-fdmr)"
-sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/self/data-id-update.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu/menu-fdmr)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/data-id-update.sh)"
 data-id
 #sudo python3 mon_db.py
 sudo systemctl daemon-reload
