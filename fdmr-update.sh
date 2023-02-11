@@ -162,8 +162,8 @@ WantedBy=multi-user.target
 
 EOF
 ##
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu/menu-fdmr)"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/data-id-update.sh)"
+sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/menu/menu-fdmr)"
+sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/self/data-id-update.sh)"
 data-id
 sudo chmod +x /opt/FreeDMR/*.py
 sudo chmod +x /opt/FreeDMR/config/*.py

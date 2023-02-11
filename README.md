@@ -1,7 +1,7 @@
 # emq-TE1ws
 
 # Nota importante, scrip no oficial de auto instalacion de diferentes aplicaciones  , consulte abajo los link para para utilizar los modos oficiales de instalacion y soporte de las diferentes aplicaciones
-![alt text](https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/emq-TE1.png)
+![alt text](https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/emq-TE1.png)
 
 hp3icc Proyecto Todo en uno , MMDVMHost ,Direwolf , Multimon-ng , Ionosphere , Dvswitch, YSFReflector , YSF2DMR , HBLink3 , FreeDMR , NoIP , Dashboard Websock
 
@@ -9,7 +9,7 @@ Dashboard html sobre websock , soporte GPSD , CM108 .
 
 Continuamente todo el contenido publicado aqui, es actualizado , si esta observando atravez de un link compartido , dirijase al link principal :
 
-https://github.com/hp3icc/emq-TE1ws
+https://gitlab.com/hp3icc/emq-TE1ws
 
 * Ultima revision: emq-TE1ws-Rev21 08/01/2023 
 
@@ -97,7 +97,7 @@ Puede instalar en su sistema operativo (Ubuntu , raspberry , Debian ) utilizando
        
        apt-get install curl sudo -y
        
-       sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/emq-TE1x.sh)"
+       sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/emq-TE1x.sh)"
 
 
 #

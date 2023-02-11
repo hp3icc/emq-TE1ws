@@ -84,7 +84,7 @@ sudo cat > /opt/emq-ver <<- "EOF"
 EMQ-VER:  21
 EOF
 #########
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu.sh)"
+sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/menu.sh)"
 
 ########################
 if [ -f "/opt/obp.txt" ]
@@ -198,7 +198,7 @@ EOF
 sudo gpsd /dev/ttyACM0 -F /var/run/gpsd.sock
 ####################
 echo iniciando instalacion
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/rm.sh)"
+sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/rm.sh)"
 cd /opt
 git clone https://github.com/iu5jae/pYSFReflector3.git
 cd pYSFReflector3/
@@ -255,7 +255,7 @@ sudo chmod +x /opt/YSF2DMRGW/*
 sudo apt-get install zip gzip tar -y
 
 cd /opt/
-wget https://github.com/hp3icc/emq-TE1ws/raw/main/rtl-sdr-te1ws.zip
+wget https://gitlab.com/hp3icc/emq-TE1ws/raw/main/rtl-sdr-te1ws.zip
 sudo unzip rtl-sdr-te1ws.zip
 sudo rm rtl-sdr-te1ws.zip
 cd rtl-sdr/
@@ -442,7 +442,7 @@ WantedBy=multi-user.target
 
 EOF
 #
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/TG_List.csv -O /opt/MMDVMHost-Websocketboard/html/data/TG_List.csv
+wget https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/TG_List.csv -O /opt/MMDVMHost-Websocketboard/html/data/TG_List.csv
 #
 cat > /lib/systemd/system/rebooter1.service  <<- "EOF"
 [Unit]
@@ -875,7 +875,7 @@ Longitude=0.0
 Height=0
 Location=Panama
 Description=emq-TE1ws-MMDVM
-URL=https://github.com/hp3icc/emq-TE1ws
+URL=https://gitlab.com/hp3icc/emq-TE1ws
 
 [Log]
 # Logging levels, 0=No logging
@@ -1298,7 +1298,7 @@ Longitude=0.0
 Height=0
 Location=DMR Gateway
 Description=Multi-Mode DMRGateway
-URL=https://github.com/hp3icc/emq-TE1ws
+URL=https://gitlab.com/hp3icc/emq-TE1ws
 
 [XLX Network]
 #DMRID 7 DIGIT ONLY
@@ -1686,7 +1686,7 @@ sudo chmod +x buster
 apt-get update -y
 apt-get install dvswitch-server -y
 #############
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/dvs-config.sh)"
+sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/dvs-config.sh)"
 ########
 sudo cat > /usr/local/dvs/dvs <<- "EOF"
 #!/bin/bash
@@ -1775,7 +1775,7 @@ case $OPTION in
 01\ *)sudo ${DVS}init_config.sh ;;
 02\ *)sudo ${DVS}adv_config_menu.sh ;;
 03\ *)sudo ${DVS}tools_menu.sh ;;
-04\ *)sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/dv-list-tg.sh)" ;;
+04\ *)sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/service/dv-list-tg.sh)" ;;
 05\ *)sudo ${DVS}credits.sh ;;
 06\ *)exit 0
 esac
@@ -1812,17 +1812,17 @@ sudo sed -i 's/www\/html/www\/dvs/g' /var/lib/dpkg/info/dvswitch*
 sudo sed -i "s/Language=en_US/Language=es_ES/g" /opt/NXDNGateway/NXDNGateway.ini
 sudo sed -i "s/Language=en_US/Language=es_ES/g" /opt/P25Gateway/P25Gateway.ini 
 ####
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/analog_bridge.service -O /lib/systemd/system/analog_bridge.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/mmdvm_bridge.service -O /lib/systemd/system/mmdvm_bridge.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ysfgateway.service -O /lib/systemd/system/ysfgateway.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ysfparrot.service -O /lib/systemd/system/ysfparrot.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/nxdngateway.service -O /lib/systemd/system/nxdngateway.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/nxdnparrot.service -O /lib/systemd/system/nxdnparrot.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/p25gateway.service -O /lib/systemd/system/p25gateway.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/p25parrot.service -O /lib/systemd/system/p25parrot.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/quantar_bridge.service -O /lib/systemd/system/quantar_bridge.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/ircddbgatewayd.service -O /lib/systemd/system/ircddbgatewayd.service
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/md380-emu.service -O /lib/systemd/system/md380-emu.service
+wget https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/service/analog_bridge.service -O /lib/systemd/system/analog_bridge.service
+wget https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/service/mmdvm_bridge.service -O /lib/systemd/system/mmdvm_bridge.service
+wget https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/service/ysfgateway.service -O /lib/systemd/system/ysfgateway.service
+wget https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/service/ysfparrot.service -O /lib/systemd/system/ysfparrot.service
+wget https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/service/nxdngateway.service -O /lib/systemd/system/nxdngateway.service
+wget https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/service/nxdnparrot.service -O /lib/systemd/system/nxdnparrot.service
+wget https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/service/p25gateway.service -O /lib/systemd/system/p25gateway.service
+wget https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/service/p25parrot.service -O /lib/systemd/system/p25parrot.service
+wget https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/service/quantar_bridge.service -O /lib/systemd/system/quantar_bridge.service
+wget https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/service/ircddbgatewayd.service -O /lib/systemd/system/ircddbgatewayd.service
+wget https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/service/md380-emu.service -O /lib/systemd/system/md380-emu.service
 #
 cat > /opt/MMDVM_Bridge/MMDVM_Bridge.ini  <<- "EOF"
 [General]
@@ -1935,7 +1935,7 @@ GatewayPort=14020
 EOF
 ####
 cd /opt/
-git clone https://github.com/hp3icc/D-APRS.git
+git clone https://gitlab.com/hp3icc/D-APRS.git
 #
 
 sudo cat > /lib/systemd/system/daprs.service <<- "EOF"
@@ -2681,7 +2681,7 @@ sed '63 a TGID_URL = https://freedmr.cymru/talkgroups/talkgroup_ids_json.php' -i
 sed '64 a #TGID_URL = https://freedmr.cymru/talkgroups/talkgroup_ids_flags_json.php' -i /opt/FDMR-Monitor/fdmr-mon_SAMPLE.cfg
 cd /opt/FDMR-Monitor/
 sudo rm /opt/FDMR-Monitor/install.sh
-wget https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/install.sh
+wget https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/self/install.sh
 chmod +x /opt/FDMR-Monitor/install.sh
 #
 sh /opt/FDMR-Monitor/install.sh
@@ -2796,7 +2796,7 @@ make install-conf
 
 sudo cp /usr/local/bin/direwolf /opt/direwolf/direwolf2
 cd /opt/direwolf
-wget https://github.com/hp3icc/emq-TE1ws/raw/main/direwolf1
+wget https://gitlab.com/hp3icc/emq-TE1ws/raw/main/direwolf1
 #############
 sudo cat > /opt/direwolf/service1 <<- "EOF"
 [Unit]
@@ -3035,10 +3035,10 @@ IGTXLIMIT 6 10
 EOF
 ##############
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/shell-aprs/main/shell.sh)"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/data-id-update.sh)"
+sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/self/data-id-update.sh)"
 ###########
 cd /tmp/
-sudo bash -c "$(wget -O - https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/gotty.sh)"
+sudo bash -c "$(wget -O - https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/gotty.sh)"
 #
 sudo cat > /lib/systemd/system/gotty.service <<- "EOF"
 [Unit]

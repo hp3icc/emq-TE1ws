@@ -55,15 +55,15 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/te1ap.sh)" ;;
+sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/te1ap.sh)" ;;
 2)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/lamp.sh)" ;;
+sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/lamp.sh)" ;;
 3)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/DVSMU/main/emq-dvsmu.sh)" ;;
 4)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/dvsTGupdate.sh)" ;;
+sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/dvsTGupdate.sh)" ;;
 5)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/beacon-update.sh)" ;;
+sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/beacon-update.sh)" ;;
 6)
 break;
 esac
@@ -99,7 +99,7 @@ sudo nano /opt/rules.txt ;;
 3)
 sudo nano /opt/extra-1.sh && chmod +x /opt/extra* ;;
 4)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/fdmr-update.sh)" ;;
+sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/fdmr-update.sh)" ;;
 5)
 break;
 esac
@@ -130,7 +130,7 @@ case $choix in
 1)
 sudo nano /opt/extra-2.sh && chmod +x /opt/extra* ;;
 2)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/selfservice-update.sh)" ;;
+sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/selfservice-update.sh)" ;;
 3)
 break;
 esac

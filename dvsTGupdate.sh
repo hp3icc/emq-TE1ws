@@ -86,7 +86,7 @@ case $OPTION in
 01\ *)sudo ${DVS}init_config.sh ;;
 02\ *)sudo ${DVS}adv_config_menu.sh ;;
 03\ *)sudo ${DVS}tools_menu.sh ;;
-04\ *)sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/service/dv-list-tg.sh)" ;;
+04\ *)sh -c "$(curl -fsSL https://gitlab.com/hp3icc/emq-TE1ws/-/raw/main/service/dv-list-tg.sh)" ;;
 05\ *)sudo ${DVS}credits.sh ;;
 06\ *)exit 0
 esac
