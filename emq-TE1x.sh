@@ -2565,7 +2565,7 @@ echo "${commands}" | /usr/bin/mysql -u root
 #######
 
 cd /opt
-sudo git clone https://github.com/yuvelq/FDMR-Monitor.git
+sudo git clone https://github.com/hp3icc/FDMR-Monitor.git
 cd FDMR-Monitor
 sudo git checkout Self_Service
 sudo chmod +x install.sh
