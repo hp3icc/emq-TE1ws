@@ -197,7 +197,8 @@ sh /opt/FDMR-Monitor/sysinfo/rrd-db.sh
 
 #cp -r /opt/FDMR-Monitor/sysinfo/ /var/www/html/sysinfo/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu/menu-fdmr)"
-cronedit.sh '* */12 * * *' 'data-id' remove
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/data-id-update.sh)"
+data-id
 #sudo python3 mon_db.py
 sudo systemctl daemon-reload
 sudo systemctl start proxy.service

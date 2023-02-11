@@ -92,7 +92,6 @@ sudo sed -i "s/TGID_URL:/#TGID_URL:/g"  /opt/FreeDMR/config/FreeDMR.cfg
 sed '37 a TGID_URL: https://freedmr.cymru/talkgroups/talkgroup_ids_json.php' -i /opt/FreeDMR/config/FreeDMR.cfg
 sed '43 a TOPO_FILE: topography.json' -i /opt/FreeDMR/config/FreeDMR.cfg 
 rm /opt/conf.txt
-rm /opt/FreeDMR-SAMPLE.cfg
 #rm /opt/obp.txt
 cd /opt/FreeDMR/
 mv loro.cfg /opt/FreeDMR/playback.cfg
@@ -164,10 +163,11 @@ WantedBy=multi-user.target
 EOF
 ##
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/menu/menu-fdmr)"
-
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/self/data-id-update.sh)"
+data-id
 sudo chmod +x /opt/FreeDMR/*.py
 sudo chmod +x /opt/FreeDMR/config/*.py
-cronedit.sh '* */12 * * *' 'data-id' remove
+rm /opt/FreeDMR-SAMPLE.cfg 
 sudo chmod +x /opt/extra-1.sh
 sudo sh /opt/extra-1.sh
 sudo systemctl daemon-reload	

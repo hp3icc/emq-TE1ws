@@ -150,7 +150,7 @@ cat > /opt/FDMR-Monitor/templates/main_table.html  <<- "EOF"
       <td class="txt-464646"><b>{{ itm[6] }}</b></td>
       <td></td>
     {% else %}
-      <td><a target="_blank" href=https://qrz.com/db/{{itm[7][0]}}>{{ itm[7][0] }}</a></b><span class="fnt-7pt">&nbsp;({{ itm[6] }})</span></td>
+      <td><a target="_blank" href=https://qrz.com/db/{{itm[7][0]}}><span style="color: navy;">{{ itm[7][0] }}</a></b><span class="fnt-7pt">&nbsp;({{ itm[6] }})</span></td>
       <td <span style="color: #000000;"><b>{{ itm[7][1] }}</b></td>
     {% endif %}
       <td class="txt-b5651d"><b>{{ itm[4] }}</b></td>
@@ -166,35 +166,33 @@ cat > /opt/FDMR-Monitor/templates/main_table.html  <<- "EOF"
 <fieldset class="big">
   <legend><b>.: Connected to Server :.</b></legend>
   <div class="conn2srv">
-{% if _table['MASTERS']|length >0 %}
-<tr style="background-color:#A7A2A2;"><td>
-<br>
-<div style="text-align:left;"><span style="color:#464646;font-weight:600;line-height:1.4;">&nbsp;&nbsp;LINKS:</span></div>
-<div style="text-align:left;font:9.5pt arial, sans-serif;font-weight:bold;margin-left:25px; margin-right:25px;line-height:1.4;white-space:normal;">
-    {% for _master in _table['MASTERS'] %}    
-    {% if _table['MASTERS'][_master]['PEERS']|length >0 %}
-    {% for _client, _cdata in _table['MASTERS'][_master]['PEERS'].items() %}
-    <span class="tooltip" style="border-bottom: 0px dotted white;">
-    <a style="border-bottom: 0px dotted white;font: 9.5pt arial,sans-serif;font-weight:bold;color:#0066ff;" target="_blank" href="http://www.qrz.com/db/{{_cdata['CALLSIGN']}}"><b>{{_cdata['CALLSIGN']}}</b></a>
-    <span class="tooltiptext" style="left:115%;top:-10px;">
-        <span style="font: 9pt arial,sans-serif;color:#3df8f8">
-        &nbsp;&nbsp;&nbsp;<b>DMR ID</b>: <b><font color=yellow>{{ _client }}</b></font><br>
-        {% if _cdata['RX_FREQ'] == 'N/A' and _cdata['TX_FREQ'] == 'N/A' %}
-             &nbsp;&nbsp;&nbsp;<b>Type: <font color=yellow>IP Network</font></b><br>
-        {% else %} 
-            &nbsp;&nbsp;&nbsp;<b>Type: <font color=yellow>Radio</font></b> ({{ _cdata['SLOTS'] }})<br>
+    {% if _table['MASTERS']|length >0 %}
+      <h4 class="tittle">USERS:</h4>
+        <div class="hs-peers">
+          {% for _master in _table['MASTERS'] %}    
+          {% if _table['MASTERS'][_master]['PEERS']|length >0 %}
+          {% for _client, _cdata in _table['MASTERS'][_master]['PEERS'].items() %}
+          <div class="tooltip">
+               <a target="_blank" href="http://www.qrz.com/db/{{_cdata['CALLSIGN']}}"><b><span style="text-shadow: 0.10em 0.10em #00ff00;"><span style="color: navy;">{{_cdata['CALLSIGN']}}</b></a>
+            <div class="tooltiptext c2s-pos1">
+              <b>DMR ID</b>: <span class="txt-yellow"><b>{{ _client }}</b></span><br>
+              {% if _cdata['RX_FREQ'] == 'N/A' and _cdata['TX_FREQ'] == 'N/A' %}
+              <b>Type: <span class="txt-yellow">IP Network</span></b><br>
+              {% else %} 
+              <b>Type: <span class="txt-yellow">Radio</span></b>&nbsp;({{ _cdata['SLOTS'] }})<br>
+              {% endif %}
+              <b>Hardware</b>: {{_cdata['PACKAGE_ID'] }}<br>
+              <b>Soft_Ver</b>: {{_cdata['SOFTWARE_ID'] }}<br>
+              <b>Info</b>: {{_cdata['LOCATION']}}<br>
+              <b>Master</b>: <span class="txt-yellow">{{_master}}</span><br>
+              <b>Time connected</b>: <span class="txt-yellow">{{ _cdata['CONNECTED'] }}</span>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+          {% endfor %}
+        </div>
         {% endif %}
-        &nbsp;&nbsp;&nbsp;<b>Hardware</b>: {{_cdata['PACKAGE_ID'] }}
-        <br>&nbsp;&nbsp;&nbsp;<b>Soft_Ver</b>: {{_cdata['SOFTWARE_ID'] }}
-        <br>&nbsp;&nbsp;&nbsp;<b>Info</b>: {{_cdata['LOCATION']}}
-         <br>&nbsp;&nbsp;&nbsp;<b>Master</b>: <font color=yellow>{{_master}}</font>
-        </span></span></span>&nbsp;
-    {% endfor %}
-    {% endif %}
-    {% endfor %}
-</div>
-{% endif %}
-
         {% if _table['PEERS']|length >0 %}
         <h4 class="tittle">PEERS:</h4>
         <div class="hs-peers">
@@ -270,9 +268,9 @@ sed '250 a    <?php echo THEME_COLOR."\\n";?>' -i /var/www/fdmr/css/styles.php
 
 sed '21 a # For custom color, select: pro' -i /opt/FDMR-Monitor/fdmr-mon.cfg
 
-sed '24 a COLOR_TEXT = #fff519' -i /opt/FDMR-Monitor/fdmr-mon.cfg 
-sed '25 a COLOR_1 = #000080' -i /opt/FDMR-Monitor/fdmr-mon.cfg  
-sed '26 a COLOR_2 = #193dff' -i /opt/FDMR-Monitor/fdmr-mon.cfg
+sed '24 a COLOR_TEXT = #d2c564' -i /opt/FDMR-Monitor/fdmr-mon.cfg 
+sed '25 a COLOR_1 = #c68034' -i /opt/FDMR-Monitor/fdmr-mon.cfg  
+sed '26 a COLOR_2 = #7f5224' -i /opt/FDMR-Monitor/fdmr-mon.cfg
 sed '27 a COLOR_BACKGROUND = 5a5958' -i /opt/FDMR-Monitor/fdmr-mon.cfg
 
 sed '45 a   $cd1 = strtolower($config["GLOBAL"]["COLOR_1"]);' -i /var/www/fdmr/include/config.php  
