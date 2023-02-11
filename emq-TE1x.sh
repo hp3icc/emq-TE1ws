@@ -31,7 +31,7 @@ sudo apt-get install build-essential -y
 sudo apt-get install alsa-utils -y
 sudo apt-get install rsyslog -y
 sudo apt-get install logrotate -y
-sudo apt-get install gpsd libgps-dev
+sudo apt-get install gpsd libgps-dev -y
 sudo apt-get install qt4-qmake -y
 sudo apt-get install libtool -y
 sudo apt-get install autoconf -y
