@@ -6,7 +6,6 @@ sudo sed -i "s/www\/html/www\/fdmr/g" /opt/FDMR-Monitor/sysinfo/*.*
 cd /opt/FDMR-Monitor/
 apt install python3 python3-pip python3-dev libffi-dev libssl-dev cargo sed \
 default-libmysqlclient-dev build-essential -y
-wget https://raw.githubusercontent.com/hp3icc/FDMR-Monitor/Self_Service/requirements.txt?token=GHSAT0AAAAAAB6UD6GQ73PHZEPFWA6WQBBMY7IBOOQ -O requirements.txt
 pip3 install -r requirements.txt
 pip install pyopenssl --upgrade
 cd /opt/FDMR-Monitor/
