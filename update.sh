@@ -4,10 +4,9 @@ sudo cat > /bin/menu-update0 <<- "EOF"
 while : ; do
 choix=$(whiptail --title "Raspbian Proyect HP3ICC Menu FreeDMR" --menu "Nota Importante: solo actualice aplicaciones que esten en uso, al finalizar la actualizacion la aplicacion se reiniciara, tenga pleno dominio de las configuraciones de cada aplicacion, antes de actualizar.
 " 17 50 5 \
-1 " Update FDMR-Monitor OA4DOA " \
-2 " Update FreeDMR  " \
-3 " ADVANCE UPGRADE & INSTALL " \
-4 " Menu Principal " 3>&1 1>&2 2>&3)
+1 " Update FreeDMR & FDMR-Monitor OA4DOA " \
+2 " ADVANCE UPGRADE & INSTALL " \
+3 " Menu Principal " 3>&1 1>&2 2>&3)
 exitstatus=$?
 #on recupere ce choix
 #exitstatus=$?
@@ -19,12 +18,10 @@ fi
 # case : action en fonction du choix
 case $choix in
 1)
-menu-up-hbmon2 ;;
+sh -c "$(curl -fsSL https://gitlab.com/hp3icc/fdmr/-/raw/main/update.sh)" ;;
 2)
-menu-up-fdm ;;
-3)
 menu-update2 ;;
-4)
+3)
 break;
 esac
 done
