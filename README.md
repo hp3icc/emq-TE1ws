@@ -4,7 +4,7 @@
 
 # https://gitlab.com/hp3icc/emq-TE1
 
-![alt text](https://raw.githubusercontent.com/hp3icc/emq-TE1ws/main/emq-TE1.png)
+![alt text](https://gitlab.com/hp3icc/emq-TE1/-/raw/main/emq-te1.jpg)
 
 
 #
