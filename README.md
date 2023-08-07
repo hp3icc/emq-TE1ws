@@ -1,6 +1,8 @@
 # emq-TE1ws ahora es emq-TE1+
 
-# Proyecto migrado migrado a gitlab, click en el siguiente link : https://gitlab.com/hp3icc/emq-TE1
+# Este proyecto a migrado click en el siguiente link: https://gitlab.com/hp3icc/emq-TE1
+
+# This project has been migrated click on the following link:  https://gitlab.com/hp3icc/emq-TE1
 
 # [emq-TE1+](https://gitlab.com/hp3icc/emq-TE1)
 
